@@ -24,6 +24,6 @@
 
 <h3><strong>Planes:</strong></h3>
 <ul>
-  <li><strong>Plan Básico</strong>: Acceso a información, sin terapia.</li>
+  <li><strong>Plan Básico</strong>: Acceso a ayuda, sin terapia.</li>
   <li><strong>Plan Premium</strong>: Incluye terapias personalizadas.</li>
 </ul>
