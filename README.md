@@ -5,8 +5,9 @@
 </p>
 
 <p>
-  A través de un sistema de filtrado avanzado, los usuarios pueden encontrar fácilmente profesionales según sus necesidades y preferencias, ya sea para sesiones presenciales, online o híbridas. Además, ofrecemos recursos sobre terapias convencionales y alternativas, como la equinoterapia, y un plan Premium con acceso a terapias personalizadas a precios asequibles. Todo esto, con el propósito de que las familias encuentren el apoyo que necesitan sin las barreras económicas o logísticas que suelen dificultar el acceso a los profesionales especializados.
+  A través de un sistema de filtrado avanzado, los usuarios pueden encontrar fácilmente profesionales según las necesidades específicas de sus hijos, conectando con psicólogos especializados en distintos tipos de autismo. Además, ofrecemos recursos sobre terapias convencionales y alternativas, como la equinoterapia, y un plan Premium con acceso a terapias personalizadas a precios asequibles. Todo esto, con el propósito de que las familias encuentren el apoyo que necesitan sin las barreras económicas o logísticas que suelen dificultar el acceso a los profesionales especializados.
 </p>
+
 
 <h3><strong>Funcionalidades:</strong></h3>
 <ul>
