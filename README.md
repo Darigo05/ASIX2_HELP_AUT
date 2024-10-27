@@ -46,3 +46,10 @@
     <p>
         El logotipo elegido será una representación visual que combine elementos de atención, confianza y apoyo, reflejando el propósito de nuestra aplicación: ayudar a las familias a conectar con profesionales que puedan guiarles en el tratamiento de sus hijos.
     </p>
+<h2>Funcionalidades de la pagina</h2>
+    <p>
+        En nuestra pagina contaremos con distintas funcionalidades, las principales que tienen  que estar si o si son las siguientes
+            <ul>
+                <li><strong>Inicio de sesion y creacion de cuenta</strong></li>
+            </ul>
+    </p>
