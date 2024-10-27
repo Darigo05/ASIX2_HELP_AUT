@@ -53,8 +53,7 @@
                 <li><strong>Inicio de sesion y creacion de cuenta:</strong> Sera necesario crear un apartado de crear cuenta para que lops usuarios no registrados que quieran acceder a nuestra pagina tengan la opcion de hacerlo, a si mismo debemos contar con una funcionalidad que permita que los usuarios ya registrados puedan inicar sesion en su cuenta y tengan todos sus datos a mano</li>
                  <li><strong>Datos de los usuarios y cuenta: Necesiamos crear un cuestionario para cuando los padres se registren tengan que rellenar con informacion como sus datos personales, foto de perfil, etc y datos sobre su hijo para poderle brindar la mejor experiencia y recomendaciones de psicologos. Estos datos se guardaran en una base de datos para que se pueda acceder cuando haga falta </strong></li>
                  <li><strong>Pagina administradores:</strong> En esta pagina se necesitara hacer un menu para que los administradores puedan acceder a ella y modificar o gestionar los usuarios creados e incidencias que puedan surgir </li>
-                 <li><strong>Pagina principal:</strong> </li>
+                 <li><strong>Recuperacion de contraseña:</strong> En la pagina de inicio de sesion se agregara una opcion de recuperacion de contraseña, al pulsar en esta te reenviara a otra pagina donde el usuario debera colocar su correo electronico y posteriormente se le enviara un codigo a este para crear una nueva contraseña </li>             
 <h3>Extras</h3> 
                 
-            </ul>
-    </p>
+   
