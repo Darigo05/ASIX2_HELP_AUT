@@ -64,6 +64,18 @@
                   <li><strong>Tablas de padres y psicologos para administrador:</strong> Dado que el administrador es el encargado de gestionar consultas basicas o diversos aspectos de los usuarios o psicologos hemos decidido que este podra ver en una pagina aparte toda la informacion de los psicologos y pacientes para que si hace falta tomar medidas en caso de necesidad como por ejemplo un psicologo que esta inactivo o una cuenta creada por error este pueda eliminarla mnas facilmente</li>
                   <li><strong>Inicio de sesion y creacion de cuenta:</strong> Sera necesario crear un apartado de crear cuenta para que lops usuarios no registrados que quieran acceder a nuestra pagina tengan la opcion de hacerlo, a si mismo debemos contar con una funcionalidad que permita que los usuarios ya registrados puedan inicar sesion en su cuenta y tengan todos sus datos a mano</li>
             </ul>
+            
+<h2>Especificaciones tecnicas</h2>
+    <p>
+        Para este proyecto tenemos que crear cuatro maquinas virtuales, a continuacion describire las especificaciones de hardware de todas:
+    </p>   
+    <ul>
+                 <li><strong> RAM:</strong> Todas las maquinas cuentan con 4GB de memoria de RAM </li> 
+                  <li><strong> Procesadores:</strong> Cada una cuenta con su propio procesador </li>
+                  <li><strong>Disco duro:</strong> Todas las maquinas cuentan con un disco duro de memoria de 15GB para su correcto funcionamiento</li>
+                  <li><strong>S.O:</strong> Todas las maquinas dedicadas a ofrecer algun tipo de servicio cuentan con un sistema operativvo ubuntu server 22.04.2</li>
+                  <li><strong>Adaptadores de red:</strong> Para que todas las maquinas esten conectadas entre ellas se usrara un adaptador de red interna con la ip 10.20.30.40/24</li>
+            </ul>
 
                 
    
