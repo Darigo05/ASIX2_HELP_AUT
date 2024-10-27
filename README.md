@@ -76,6 +76,13 @@
                   <li><strong>S.O:</strong> Todas las maquinas dedicadas a ofrecer algun tipo de servicio cuentan con un sistema operativvo ubuntu server 22.04.2</li>
                   <li><strong>Adaptadores de red:</strong> Para que todas las maquinas esten conectadas entre ellas se usrara un adaptador de red interna con la ip 10.20.30.40/24</li>
             </ul>
-
+<h2>Instalacion y configuracion de PROXMOX</h2>
+    <p>
+        A continuacion procedermos a explicar la instalacion del proxmox y su configuracion
+    </p>
+                  <li><strong> Instalacion mediante un USB booteable:</strong> Lo primero fue convertir un USB booteable que contenga PROXMOX para ponerlo en el servidor fisico y empezamos con la instalacion </li> 
+                  <li><strong> Contraseña y correo:</strong> Posteriormente debemos escribir una contraseña para poder acceder a nuestro PROXMOX y colocar un correo. En nuestro caso lo unico que hemos cambiado es que en vez de .invalid hemos colocado .com. No hemos tocado nada mas de este apartado porque como es para un proyecto no es necesario</li>
+                  <li><strong>Configuracion de red:</strong> Este paso es el mas importante ya que deberemos configurar los parametros de nuestra red (REVISAR EN CLASE LOS PARAMETROS)</li>
+            </ul>
                 
    
