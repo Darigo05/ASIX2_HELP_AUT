@@ -84,5 +84,7 @@
                   <li><strong> Contraseña y correo:</strong> Posteriormente debemos escribir una contraseña para poder acceder a nuestro PROXMOX y colocar un correo. En nuestro caso lo unico que hemos cambiado es que en vez de .invalid hemos colocado .com. No hemos tocado nada mas de este apartado porque como es para un proyecto no es necesario</li>
                   <li><strong>Configuracion de red:</strong> Este paso es el mas importante ya que deberemos configurar los parametros de nuestra red (REVISAR EN CLASE LOS PARAMETROS)</li>
             </ul>
-                
-   
+<h2> Configuracion de DNS</h2>
+<h2> Configuracion de DHCP</h2>
+<h2>Configuracion NGINX</h2>
+
