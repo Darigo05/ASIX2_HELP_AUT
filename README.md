@@ -46,45 +46,50 @@
     <p>
         El logotipo elegido será una representación visual que combine elementos de atención, confianza y apoyo, reflejando el propósito de nuestra aplicación: ayudar a las familias a conectar con profesionales que puedan guiarles en el tratamiento de sus hijos.
     </p>
-<h2>Funcionalidades de la pagina (Susceptible a proximos cambios)</h2>
-    <p>
-        En nuestra pagina contaremos con distintas funcionalidades, las principales que tienen  que estar si o si son las siguientes
-            <ul>
-                <li><strong>Inicio de sesion y creacion de cuenta:</strong> Sera necesario crear un apartado de crear cuenta para que lops usuarios no registrados que quieran acceder a nuestra pagina tengan la opcion de hacerlo, a si mismo debemos contar con una funcionalidad que permita que los usuarios ya registrados puedan inicar sesion en su cuenta y tengan todos sus datos a mano</li>
-                 <li><strong>Datos de los usuarios y cuenta: Necesiamos crear un cuestionario para cuando los padres se registren tengan que rellenar con informacion como sus datos personales, foto de perfil, etc y datos sobre su hijo para poderle brindar la mejor experiencia y recomendaciones de psicologos. Estos datos se guardaran en una base de datos para que se pueda acceder cuando haga falta </strong></li>
-                 <li><strong>Pagina administradores:</strong> En esta pagina se necesitara hacer un menu para que los administradores puedan acceder a ella y modificar o gestionar los usuarios creados e incidencias que puedan surgir </li>
-                 <li><strong>Recuperacion de contraseña:</strong> En la pagina de inicio de sesion se agregara una opcion de recuperacion de contraseña, al pulsar en esta te reenviara a otra pagina donde el usuario debera colocar su correo electronico y posteriormente se le enviara un codigo a este para crear una nueva contraseña </li>       
-            </ul>
+<h2>Funcionalidades de la página (Susceptible a futuros cambios)</h2>
+<p>
+    En nuestra página, contaremos con diversas funcionalidades. Las principales, que deben estar implementadas obligatoriamente, son las siguientes:
+</p>
+<ul>
+    <li><strong>Inicio de sesión y creación de cuenta:</strong> Será necesario crear un apartado de registro para que los usuarios no registrados que deseen acceder a nuestra página tengan la opción de hacerlo. Asimismo, debemos contar con una funcionalidad que permita a los usuarios registrados iniciar sesión en su cuenta y acceder a todos sus datos.</li>
+    <li><strong>Datos de los usuarios y cuenta:</strong> Necesitamos crear un cuestionario para que los padres, al registrarse, proporcionen información como sus datos personales, foto de perfil, y datos sobre sus hijos. Esto nos permitirá ofrecerles una mejor experiencia y recomendaciones de psicólogos. Estos datos se guardarán en una base de datos para su consulta cuando sea necesario.</li>
+    <li><strong>Página para administradores:</strong> En esta página, se deberá incluir un menú para que los administradores puedan acceder a la gestión y modificación de usuarios y resolver cualquier incidencia que pueda surgir.</li>
+    <li><strong>Recuperación de contraseña:</strong> En la página de inicio de sesión, se añadirá una opción para recuperación de contraseña. Al seleccionarla, el usuario será redirigido a otra página donde deberá ingresar su correo electrónico, tras lo cual recibirá un código para restablecer su contraseña.</li>
+</ul>
+
 <h3>Extras</h3> 
-                <p> El apartado extras trata de funcionalidades que estan pensadas a futuro </p>
-            <ul>
-                 <li><strong>Gestion de planes:</strong> Dado que nuestra pagina se basa en suscripciones tendremos que agregar una opcion para gestionar estas, es decir que el usuario pueda decidir que tipo de suscripcion quiere y poder modificarla, esta pagina tambien brindara informacion de cada suscripcion</li> 
-                  <li><strong> Psicologos recomendados:</strong> En esta opcion el usuario paciente despues de inicar sesion le saldra recomendados una serie de psicologos que estaran adaptados a sus necesidades, en cada psicologo se mostrara una breve descripcion de cada uno y sus especialidades</li>
-                  <li><strong>Mailbox:</strong> Este apartado sirve como una forma de comunicacion basica entre paciente y psicologo, cuando un paciente se haya decidido a contactar con un psicologo lo hara desde ester mailbox, a su vez el psicologo tendra un apartado igual para poder responder las dudas o consultas de los pacientes que lo hayan escogido</li>
-                  <li><strong>Tablas de padres y psicologos para administrador:</strong> Dado que el administrador es el encargado de gestionar consultas basicas o diversos aspectos de los usuarios o psicologos hemos decidido que este podra ver en una pagina aparte toda la informacion de los psicologos y pacientes para que si hace falta tomar medidas en caso de necesidad como por ejemplo un psicologo que esta inactivo o una cuenta creada por error este pueda eliminarla mnas facilmente</li>
-                  <li><strong>Inicio de sesion y creacion de cuenta:</strong> Sera necesario crear un apartado de crear cuenta para que lops usuarios no registrados que quieran acceder a nuestra pagina tengan la opcion de hacerlo, a si mismo debemos contar con una funcionalidad que permita que los usuarios ya registrados puedan inicar sesion en su cuenta y tengan todos sus datos a mano</li>
-            </ul>
-            
-<h2>Especificaciones tecnicas</h2>
-    <p>
-        Para este proyecto tenemos que crear cuatro maquinas virtuales, a continuacion describire las especificaciones de hardware de todas:
-    </p>   
-    <ul>
-                 <li><strong> RAM:</strong> Todas las maquinas cuentan con 4GB de memoria de RAM </li> 
-                  <li><strong> Procesadores:</strong> Cada una cuenta con su propio procesador </li>
-                  <li><strong>Disco duro:</strong> Todas las maquinas cuentan con un disco duro de memoria de 15GB para su correcto funcionamiento</li>
-                  <li><strong>S.O:</strong> Todas las maquinas dedicadas a ofrecer algun tipo de servicio cuentan con un sistema operativvo ubuntu server 22.04.2</li>
-                  <li><strong>Adaptadores de red:</strong> Para que todas las maquinas esten conectadas entre ellas se usrara un adaptador de red interna con la ip 10.20.30.40/24</li>
-            </ul>
-<h2>Instalacion y configuracion de PROXMOX</h2>
-    <p>
-        A continuacion procedermos a explicar la instalacion del proxmox y su configuracion
-    </p>
-                  <li><strong> Instalacion mediante un USB booteable:</strong> Lo primero fue convertir un USB booteable que contenga PROXMOX para ponerlo en el servidor fisico y empezamos con la instalacion </li> 
-                  <li><strong> Contraseña y correo:</strong> Posteriormente debemos escribir una contraseña para poder acceder a nuestro PROXMOX y colocar un correo. En nuestro caso lo unico que hemos cambiado es que en vez de .invalid hemos colocado .com. No hemos tocado nada mas de este apartado porque como es para un proyecto no es necesario</li>
-                  <li><strong>Configuracion de red:</strong> Este paso es el mas importante ya que deberemos configurar los parametros de nuestra red (REVISAR EN CLASE LOS PARAMETROS)</li>
-            </ul>
-<h2> Configuracion de DNS</h2>
+<p> El apartado de Extras incluye funcionalidades pensadas para ser añadidas en el futuro.</p>
+<ul>
+    <li><strong>Gestión de planes:</strong> Dado que nuestra página se basa en suscripciones, será necesario añadir una opción para gestionar estas, permitiendo al usuario elegir y modificar el tipo de suscripción, así como brindar información detallada sobre cada plan.</li> 
+    <li><strong>Psicólogos recomendados:</strong> En esta opción, los usuarios, tras iniciar sesión, verán una lista de psicólogos recomendados adaptados a sus necesidades, con una breve descripción y sus especialidades.</li>
+    <li><strong>Mailbox:</strong> Este apartado servirá como un medio de comunicación entre pacientes y psicólogos. Cuando un paciente decida contactar con un psicólogo, podrá hacerlo a través del mailbox. A su vez, el psicólogo tendrá un apartado similar para responder a las dudas o consultas de los pacientes que lo hayan elegido.</li>
+    <li><strong>Tablas de padres y psicólogos para el administrador:</strong> Como el administrador es el encargado de gestionar aspectos básicos de los usuarios y psicólogos, tendrá acceso a una página que muestra toda la información relevante sobre ellos. Esto facilitará la toma de decisiones en caso de necesidad, como eliminar una cuenta creada por error o gestionar el estado de un psicólogo inactivo.</li>
+</ul>
+
+<h2>Especificaciones técnicas</h2>
+<p>
+    Para este proyecto, necesitamos crear cuatro máquinas virtuales. A continuación, se describen las especificaciones de hardware de cada una:
+</p>   
+<ul>
+    <li><strong>RAM:</strong> Todas las máquinas cuentan con 4GB de memoria RAM.</li> 
+    <li><strong>Procesadores:</strong> Cada máquina tiene su propio procesador.</li>
+    <li><strong>Disco duro:</strong> Cada máquina cuenta con un disco duro de 15GB para su funcionamiento óptimo.</li>
+    <li><strong>Sistema operativo:</strong> Todas las máquinas dedicadas a ofrecer algún tipo de servicio utilizan Ubuntu Server 22.04.2.</li>
+    <li><strong>Adaptadores de red:</strong> Todas las máquinas estarán conectadas entre sí mediante un adaptador de red interna con la IP 10.20.30.40/24.</li>
+</ul>
+
+<h2>Instalación y configuración de PROXMOX</h2>
+<p>
+    A continuación, se explica el proceso de instalación y configuración de PROXMOX:
+</p>
+<ul>
+    <li><strong>Instalación mediante un USB booteable:</strong> Inicialmente, se debe crear un USB booteable que contenga PROXMOX para instalarlo en el servidor físico y comenzar la instalación.</li> 
+    <li><strong>Contraseña y correo:</strong> Posteriormente, es necesario establecer una contraseña para acceder a PROXMOX y añadir un correo electrónico. En nuestro caso, simplemente hemos cambiado la extensión de ".invalid" a ".com" debido a que se trata de un proyecto y no es necesario modificar otros parámetros.</li>
+    <li><strong>Configuración de red:</strong> Este es un paso crucial, ya que se deben configurar los parámetros de la red (revisar los parámetros en clase).</li>
+</ul>
+
+<h2>Configuración de DNS</h2>
+
 <h2> Configuracion de DHCP</h2>
 <h2>Configuracion NGINX</h2>
 <h2>Base de datos</h2>
