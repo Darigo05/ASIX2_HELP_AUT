@@ -93,5 +93,5 @@
 <h2> Configuracion de DHCP</h2>
 <h2>Configuracion NGINX</h2>
 <h2>Base de datos</h2>
-![Diagrama base de datos](HELPAUT_DIAG.drawio%20(1).png)
+
 
