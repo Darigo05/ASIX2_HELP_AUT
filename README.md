@@ -95,3 +95,5 @@
 <h2>Base de datos</h2>
 
 
+![Diagrama Base de datos](Img/HELPAUT_DIAG.drawio (1).png)
+
