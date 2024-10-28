@@ -96,7 +96,7 @@
 <h2>Configuración de DNS</h2>
 <h2> Configuracion de DHCP</h2>
 <h2>Configuracion NGINX</h2>
-<h2>Base de datos</h2>
+<h2>Base de datos (Actualizar con recomendaciones de Joaquim)</h2>
 
 
 ![Diagrama Base de datos](Img/HELPAUT_DIAG.drawio.png)
