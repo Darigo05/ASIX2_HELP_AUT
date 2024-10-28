@@ -72,7 +72,7 @@
 </p>   
 <ul>
     <li><strong>RAM:</strong> Todas las máquinas cuentan con 4GB de memoria RAM.</li> 
-    <li><strong>Procesadores:</strong> Cada máquina tiene su propio procesador.</li>
+    <li><strong>Procesadores:</strong> Cada máquina cuenta con un procesador.</li>
     <li><strong>Disco duro:</strong> Cada máquina cuenta con un disco duro de 15GB para su funcionamiento óptimo.</li>
     <li><strong>Sistema operativo:</strong> Todas las máquinas dedicadas a ofrecer algún tipo de servicio utilizan Ubuntu Server 22.04.2.</li>
     <li><strong>Adaptadores de red:</strong> Todas las máquinas estarán conectadas entre sí mediante un adaptador de red interna con la IP 10.20.30.40/24.</li>
@@ -89,7 +89,6 @@
 </ul>
 
 <h2>Configuración de DNS</h2>
-
 <h2> Configuracion de DHCP</h2>
 <h2>Configuracion NGINX</h2>
 <h2>Base de datos</h2>
