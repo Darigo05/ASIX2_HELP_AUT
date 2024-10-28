@@ -32,9 +32,9 @@
 <h2>Tecnologías a utilizar (lenguajes, frameworks, sistemas, software)</h2>
     <ul>
         <li><strong>Front-end:</strong> HTML, CSS, JavaScript (con Bootstrap para facilitar el diseño).</li>
-        <li><strong>Back-end:</strong> Python.</li>
+        <li><strong>Back-end:</strong> Python, PHP</li>
         <li><strong>Base de datos:</strong> MySQL.</li>
-        <li><strong>Software adicional:</strong> Visual Studio, NodeJS.</li>
+        <li><strong>Software adicional:</strong> Visual Studio, NodeJS, Proxmox</li>
     </ul>
 
 <h2>Estilo web</h2>
@@ -46,6 +46,7 @@
     <p>
         El logotipo elegido será una representación visual que combine elementos de atención, confianza y apoyo, reflejando el propósito de nuestra aplicación: ayudar a las familias a conectar con profesionales que puedan guiarles en el tratamiento de sus hijos.
     </p>
+    ![Logotipo](Img/Logo Help aut.png)
 <h2>Funcionalidades de la página (Susceptible a futuros cambios)</h2>
 <p>
     En nuestra página, contaremos con diversas funcionalidades. Las principales, que deben estar implementadas obligatoriamente, son las siguientes:
