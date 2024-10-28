@@ -46,7 +46,11 @@
     <p>
         El logotipo elegido será una representación visual que combine elementos de atención, confianza y apoyo, reflejando el propósito de nuestra aplicación: ayudar a las familias a conectar con profesionales que puedan guiarles en el tratamiento de sus hijos.
     </p>
+
+    
     ![Logotipo](Img/Logo_Help_aut.png)
+
+    
 <h2>Funcionalidades de la página (Susceptible a futuros cambios)</h2>
 <p>
     En nuestra página, contaremos con diversas funcionalidades. Las principales, que deben estar implementadas obligatoriamente, son las siguientes:
