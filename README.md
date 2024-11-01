@@ -91,7 +91,8 @@
 </ul>
 
 <h2>Configuración de DNS</h2>
-<h2> Configuracion de DHCP</h2>
+<h2>Configuración de ROUTER</h2>
+<h3> Configuracion de DHCP</h3>
 <h2>Configuracion NGINX</h2>
 <h2>Base de datos</h2>
 <h3>Primer diagrama de la base de datos</h3>
