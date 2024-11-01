@@ -50,18 +50,18 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
 
 <strong>Plan Básico:</strong> El Plan Básico está diseñado para ofrecer a los usuarios acceso a los servicios esenciales sin ningún costo. Este plan incluye:
 <ul>
- <li> - Mailbox </li>
- <li> - Buscador de Psicólogos: Los usuarios solo pueden hacer "match" con un máximo de 5 psicólogos al mes. </li>
+ <li>Mailbox </li>
+ <li>Buscador de Psicólogos: Los usuarios solo pueden hacer "match" con un máximo de 5 psicólogos al mes. </li>
 </ul>
 <ul>
 <strong>Plan Premium:</strong> El Plan Premium está diseñado para aquellos que buscan una experiencia más completa y personalizada. Este plan incluye todos los beneficios del Plan Básico, además de características avanzadas:
- <li> - Mailbox </li>
- <li>- Matches Ilimitados con Psicólogos: A diferencia del plan básico, los usuarios del plan premium pueden hacer "match" con la cantidad que deseen,         
+ <li>Mailbox </li>
+ <li>Matches Ilimitados con Psicólogos: A diferencia del plan básico, los usuarios del plan premium pueden hacer "match" con la cantidad que deseen,         
         permitiéndoles explorar diversas opciones y encontrar el profesional que mejor se adapte a sus necesidades. </li>
- <li>- Chat </li>
- <li>- Videollamadas </li>
- <li>- Agenda </li>
- <li>- Videotutoriales </li>
+ <li>Chat </li>
+ <li>Videollamadas </li>
+ <li>Agenda </li>
+ <li>Videotutoriales </li>
 </ul>
 
 
