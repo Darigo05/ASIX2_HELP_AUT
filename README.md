@@ -96,6 +96,16 @@
 <h2>Base de datos</h2>
 <h3>Primer diagrama de la base de datos</h3>
 
+<p>
+        Estamos en la fase de desarrollo de nuestra base de datos. Comenzamos definiendo cuidadosamente nuestras ideas y conceptos para los servicios y productos de nuestra empresa web/app, lo cual nos permitió estructurar la información necesaria y garantizar un servicio eficiente. El uso de un mock-up fue fundamental para visualizar el proyecto, los datos, servicios y productos de la web, así como la creación de nuestro primer diagrama de base de datos (BBDD).
+
+Posteriormente, mantuvimos una reunión con Joaquim, quien nos proporcionó una serie de pautas y correcciones bastante extensas. La semana siguiente aplicamos estos cambios y realizamos otra reunión con él para revisar nuestro avance. Actualmente, estamos modificando el nuevo diagrama en base a sus indicaciones. En las imágenes compartidas se pueden ver tanto nuestro primer diagrama de red como el segundo, que hemos dividido en dos partes: el esquema de relaciones entre tablas y el desarrollo inicial de las tablas, en el cual sólo hemos marcado las claves primarias (PK) y claves foráneas (FK). Para la siguiente revisión, estamos desarrollando los atributos completos (tipo de dato: float, boolean, INT, TIME, etc.). En el segundo diagrama también se reflejan las últimas correcciones que Joaquim nos indicó esta semana.
+
+Esta semana hemos comenzado la tercera versión del diagrama de tablas y estamos avanzando en su implementación en MySQL. Tenemos casi listo este nuevo diagrama en el ordenador de clase, y la próxima semana lo subiremos para recibir nuevo feedback de Joaquim. En estas reuniones, también hemos aprendido algunos aspectos técnicos importantes para el desarrollo y la optimización de funciones, como identificar las que requieren soporte de la BBDD y las que no. Por ejemplo, en el caso de la funcionalidad de geolocalización, nos sugirió integrarla directamente en la base de datos para simplificar el desarrollo. Además, Joaquim nos aconsejó externalizar ciertas funcionalidades, como el envío de correos electrónicos, la gestión de cuentas bancarias y los tickets de soporte técnico.
+
+Estos consejos nos están ayudando a mejorar tanto el backend como la funcionalidad de nuestra base de datos, y a su vez, el proyecto en su conjunto.   
+    </p>
+
 ![Diagrama Base de datos](Img/HELPAUT_DIAG.drawio.png)
 
 <h3>Segundo diagrama de la base de datos con cambios</h3>
