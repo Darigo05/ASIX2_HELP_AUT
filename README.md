@@ -98,7 +98,7 @@
 
 ![Diagrama Base de datos](Img/HELPAUT_DIAG.drawio.png)
 
-<h3>Segundo diagrama de la base de datos</h3>
+<h3>Segundo diagrama de la base de datos con cambios</h3>
 
 [Segundo diagrama](téchico.pdf)
 
