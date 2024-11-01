@@ -97,4 +97,5 @@
 
 
 ![Diagrama Base de datos](Img/HELPAUT_DIAG.drawio.png)
+[Segundo diagrama](téchico.pdf)
 
