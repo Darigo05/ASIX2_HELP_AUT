@@ -44,7 +44,7 @@
     </p>
 
     
-![Logotipo](Img/LogoHelpaut.png)
+![Logotipo](Img/LogoHelpAut.png)
 
     
 <h2>Funcionalidades de la página (Susceptible a futuros cambios)</h2>
