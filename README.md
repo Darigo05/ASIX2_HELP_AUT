@@ -94,9 +94,20 @@ Esta es la base de la página, es decir, lo más esencial en un principio. Por s
 <li><strong>Crear máquinas virtuales:</strong> Para crear máquinas virtuales es muy sencillo. Lo único que tenemos que hacer es dirigirnos al apartado Create VM, que se sitúa en la parte superior derecha de la página de PROXMOX. Una vez hecho esto, le indicamos la información que se nos pide y confirmamos. Una buena práctica sería que, al ya tener una máquina hecha y con la configuración básica, podamos maquetarla para poder replicarla las veces que nos haga falta. Para esto, le daremos clic derecho en la máquina que queramos y pulsaremos "Create Template".</li>
 </ul>
 
-<h2>Configuración de DNS</h2>
 <h2>Configuración de ROUTER</h2>
+<p> Hemos tenido distintas incidencias en este apartado. Una de ellas fue que entendimos mal el diagrama de red y borramos la máquina que teníamos configurada del router. Tuvimos que volver a empezar todas las máquinas desde cero como consecuencia.
+
+Otra de las incidencias con las que nos hemos encontrado actualmente son las iptables; generamos demasiadas y tuvimos que investigar cómo eliminarlas y volverlas a crear desde cero. Lo resolvimos, pero nos encontramos con otro problema: estaba configurado como "drop" en vez de estar accesible para la red. Actualmente, todavía estamos intentando solventar este incidente, ya que todos los comandos que hemos probado no solucionan el problema.
+
+Otro de los problemas que tenemos es que no nos hace ping a google.com. Creemos que esto está relacionado con la última incidencia que estamos intentando solucionar.
+
+Adicionalmente, teníamos mal configurado el router con los DNS emde18 y emde19.
+
+Como punto positivo, debemos decir que tenemos las IPs de la red interna y la red externa configuradas. Nos hace ping al DNS y también a internet (8.8.8.8). </p>
 <h3> Configuración de DHCP</h3>
+<p> Este apartado lo hemos desarrollado sin ningun tipo de incidencia. (PENDIENTE A DESARROLLAR EN CLASE COGIENDO IPS) </p>
+<h2>Configuración de DNS</h2>
+<p> Como punto positivo, debemos decir que tenemos las IPs de la red interna y la red externa configuradas. Nos hace ping al DNS y también a internet (8.8.8.8). </p>
 <h2>Configuración y explicacion NGINX</h2>
 <p> Nginx es un software de codigo abierto, es decir que cualquier persona puede usarlo y modificarlo o configuracion a su propia eleccion, nosotros usaremos este software para poder alojar nuestra pagina web, esto lo haremos configurandolo en su propia maquina virtual creada y configurada en PROXMOX. Para poder usarlo como es obvio necesitamos configurarlo primero y estos son los pasos que hemos seguido para poder hacerlo </p>
 <ul>
