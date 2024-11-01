@@ -97,7 +97,31 @@ Esta es la base de la página, es decir, lo más esencial en un principio. Por s
 <h2>Configuración de DNS</h2>
 <h2>Configuración de ROUTER</h2>
 <h3> Configuración de DHCP</h3>
-<h2>Configuración NGINX</h2>
+<h2>Configuración y explicacion NGINX</h2>
+<p> Nginx es un software de codigo abierto, es decir que cualquier persona puede usarlo y modificarlo o configuracion a su propia eleccion, nosotros usaremos este software para poder alojar nuestra pagina web, esto lo haremos configurandolo en su propia maquina virtual creada y configurada en PROXMOX. Para poder usarlo como es obvio necesitamos configurarlo primero y estos son los pasos que hemos seguido para poder hacerlo </p>
+<ul>
+    <li> El primer paso es instalarlo en nuestra servidor ubuntu, para ello haremos uso del comando sudo apt-get install nginx, de esta forma si no nos ha dado ningun error NGINX quedara instalado. En el caso de que nos haya surgido un error puede ser por algun fallo con la red o el acceso a internet, si pasa ello lo primero es hacer un sudo apt-update para actualizar los paquetes del sistema. Si el error persiste es posible que salga un mensaje con el codigo de error, podemos copiarlo y buscar porque falla y que indica este codigo</li>
+    <li> Una vez instalado deberemos poner en marcha el servicio, esto lo haremos con el comando sudo service nginx start, si no tenemos ningun problema nuestro NGINX debera estar ya en funcionamiento, para comporbar esto podemos escribir en nuestro navegador de preferencia localhost, si todo funciona nos saldra un mensje de bienvenida a la pagina de NGINX</li>
+    <li> Al comporobar el buen funcionamiento de los pasos anteriores podemos empezar con la configuracion. Lo primero sera mejorar el rendimiento del servicio editando el archivo nginx.conf que se encuentra en la ruta /etc/nginx. Al acceder a esta nos dirigiremos al apartado events y nos fijaremos donde pone worker_connections, si el numero que nos indica es 768 es recomendable cambiarlo por 1024, esto nos permitira determinar el numero maximo de conexiones permitidas, en este mismo apartado tambien podemos modificar y activar ell keepalive_timeot, esto nos permitira que el navegador cargue el contenido de la pagina con solo una conexion TCP.</li>
+    <li> Ahora si podemos empezar a configurar nuestro sitio web: Para ello necesitaremos crear una carpeta en la ruta /var/ww/html en nuestro caso la carpeta se llama helpaut.com de forma que la ruta quedaria asi, /var/www/html/helpaut.com. Una vez creada accedemos a ella y modificandola usando nano escribiremos lo siguiente:
+        server {
+  listen 80;
+  listen [::]:80;
+  
+  root /var/www/html/example.com;
+  index index.html index.htm index.nginx-debian.html
+  server_name example.com www.example.com;
+  
+  location /{
+    try_files $uri $uri/=404;
+  }
+} </li>
+</ul>
+<li>A continuacion crearemos un enlace entre el directorio y nuestro archivo recien crado para habilitarlo, esto lo haremos con el comando sudo ln -s /etc/nginx/sites-available/helpaut.com   /etc/nginx/sites-enabled/</li>
+<li>Lo siguiente sera crear una carpeta que contedra todos los archivo e imagenes de nuestra pagina web, esto lo hacemos con el comando sudo mkdir -p /var/www/html/helpaut.com, a esta carpeta le podemos asignar permisos con el comando sudo chmod -R 755 /var/www/html/helpaut.com</li>
+<li>Continuando es hora de crear la pagina web de ejemplo para probar su correcto funcionamiento, para esto creamos el archivo dentro de la carpeta de helpaut.com usando el comando sudo nano /var/www/html/example.com/helpaut.html y dentro escribimos nuestro codigo de ejemplo para comprobar que se puede mostrar</li>
+<li>Si todo va bien al colocar la ip de nuestra maquina seguido de /helpaut.com en nuestro navegador nos deberia mostrar el codigo recien creado</li>
+<li> <B>(SEGUIR CONFIGURANDO NGINX)</b></li>
 <h2>Base de datos</h2>
 <h3>Primer diagrama de la Base de datos</h3>
 
