@@ -24,7 +24,7 @@ Esta es la base de la página, es decir, lo más esencial en un principio. Por s
     <ul>
         <li><strong>Albert</strong> - Front-end</li>
         <li><strong>Mariona</strong> - Back-end</li>
-        <li><strong>David</strong> - Infraestucura</li>
+        <li><strong>David</strong> - Infraestructura</li>
     </ul>
     <p>
        Al finalizar cada tarea asignada, revisaremos nuestro progreso y lo añadiremos tanto en la página de <b>Trello</b> como en nuestro <b>GitHub</b>, para que nuestros profesores puedan ver y revisar la evolución del proyecto, además de sugerir cambios o mejoras para obtener un mejor resultado. Esto también se hará para resolver dudas que puedan surgir.
