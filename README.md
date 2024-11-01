@@ -5,17 +5,61 @@
 
 <h2>Explicación de la idea del proyecto</h2>
     <p>
-        Nuestra idea es muy simple: hoy en día es muy difícil encontrar un profesional en el campo de la psicología con el que puedas tener un buen seguimiento de citas, que se adapte a tu caso y con quien logres conectar, consiguiendo un cierto grado de confianza. Por eso, hemos decidido crear una aplicación web para solucionar esta necesidad en nuestro proyecto.
+        Nuestra plataforma responde a una necesidad urgente: facilitar el acceso a profesionales de la psicología para niños autistas y adultos con esta condición. Reconocemos que encontrar un terapeuta adecuado, que se ajuste a las necesidades individuales y establezca una relación de confianza, es un reto para muchas familias.
 
-La idea principal o el "esqueleto" de esta aplicación es que las personas que tutelan a un niño autista, o adultos con la misma condición, puedan buscar profesionales en un portal web. Para decidir qué profesional se amolda mejor a su caso, se filtrarán los resultados siguiendo una serie de parámetros que se especificarán más adelante en el apartado de "funcionalidades". Al escoger uno, podrán empezar a hablar con él mediante un buzón de mensajes como funcionalidad base. Si se desea tener un contacto más directo, también se podrá optar por un plan premium, que contará con funcionalidades adicionales como videollamadas, chat, entre otras.
+La aplicación web permitirá a los usuarios buscar psicólogos a través de un portal intuitivo. Utilizando un sistema de filtrado, los usuarios podrán encontrar profesionales cercanos y especializados. Una vez seleccionado, podrán comunicarse a través de un buzón de mensajes y, si lo desean, optar por un plan premium que incluye videollamadas y chat en tiempo real, ofreciendo una interacción más directa.
 
-Esta es la base de la página, es decir, lo más esencial en un principio. Por supuesto, nuestra página debe contar con más opciones, las cuales se especificarán más adelante.   
+Además, la plataforma contará con una agenda para gestionar citas y videotutoriales educativos que ayudarán a los padres a comprender mejor el autismo y a equiparse con herramientas útiles. Nuestro objetivo es hacer que la terapia sea más accesible y económica, superando las barreras de espera del sistema público y los altos costos de las consultas privadas.
+
+Buscamos crear un recurso integral que conecte a personas autistas con psicólogos adecuados, promoviendo una atención psicológica de calidad y contribuyendo al bienestar de la comunidad autista.
     </p>
 
 <h2>Objetivo que se persigue</h2>
     <p>
-       El objetivo que buscamos con este proyecto, además de mejorar nuestras habilidades y aplicar el conocimiento que hemos adquirido y seguimos adquiriendo, es facilitar que las personas autistas puedan contactar con especialistas sin tener que esperar un mes para obtener una cita, como ocurre en el caso de la seguridad social, ni tener que pagar una suma de dinero excesivamente alta para recibir un servicio de psicología decente y con mayor regularidad, como sucede con los psicólogos privados.
+       El objetivo principal de nuestra plataforma es facilitar el acceso a servicios de psicología para personas con autismo y sus familias, asegurando que puedan conectarse fácilmente con profesionales capacitados que les brinden el apoyo que necesitan. Nuestra propuesta surge de la dificultad que enfrentan muchas personas para encontrar un psicólogo adecuado, con quien puedan establecer un seguimiento continuo y una conexión de confianza.
+
+Hoy en día, obtener una cita con un profesional puede ser un proceso largo y frustrante, especialmente en el sistema de salud pública, donde las esperas pueden extenderse por meses. Además, las tarifas de los psicólogos privados suelen ser demasiado altas para algunas personas, lo que limita el acceso a una atención de calidad. Por ello, hemos diseñado esta aplicación web con el propósito de ofrecer una alternativa asequible y efectiva.
+
+Nuestra plataforma no solo permite a los usuarios buscar y filtrar profesionales según sus necesidades específicas, sino que también ofrece una serie de servicios que garantizan una experiencia integral. Los padres y cuidadores de niños autistas, así como adultos con la misma condición, podrán encontrar psicólogos adecuados en su área geográfica y comunicarse con ellos a través de un sistema de mensajería. A través de nuestra agenda, los usuarios podrán gestionar sus citas y, si lo desean, optar por un servicio de videollamadas que les permita realizar sus sesiones de terapia de manera interactiva y conveniente. Esto no solo favorece la flexibilidad en el acceso a la terapia, sino que también facilita la continuidad del tratamiento.
+
+Además, la plataforma incluye recursos educativos como videotutoriales que ofrecen información sobre el autismo, ayudando a los padres a comprender mejor la condición de sus hijos y a desarrollar herramientas que mejoren su calidad de vida.
+
+En resumen, nuestra intención es crear un espacio donde las personas autistas y sus familias puedan acceder a una atención psicológica de calidad de manera rápida, accesible y adaptada a sus necesidades, contribuyendo así a su bienestar y crecimiento personal.
     </p>
+
+<h2>Servicios</h2>
+<p>
+       Para asegurar que la plataforma cumpla con sus objetivos, hemos delineado una serie de servicios esenciales y adicionales que se implementarán en diferentes fases del desarrollo. Los servicios básicos incluirán:
+
+<strong>Búsqueda de Profesionales:</strong> Los usuarios podrán filtrar y buscar psicólogos según su ubicación y especialización, lo que facilitará la conexión con aquellos que estén más cerca y que mejor se ajusten a sus necesidades.
+
+<strong>Mailbox:</strong> Un buzon de correo por donde recibiran emails. Es otra forma de contactar paciente-psicologo.
+
+<strong>Chat en Tiempo Real:</strong> Un servicio que permitirá una comunicación más fluida y constante entre los usuarios y los psicólogos, promoviendo un espacio de diálogo continuo. Es una herramienta esencial porque es de las que facilitará más el contacto, sobretodo inicial, entre el paciente y el psicologo.
+
+<strong>Videollamadas:</strong> Este servicio proporciona una experiencia de terapia más interactiva y personalizada, facilitando sesiones en tiempo real entre los usuarios y los profesionales. Las videollamadas son gestionadas de manera segura y eficiente por la plataforma, lo que garantiza un entorno cómodo y accesible para los usuarios. Este recurso no es obligatorio, ya que los pacientes también tienen la opción de realizar terapia de manera presencial con su psicólogo. Sin embargo, para aquellos que prefieren la comodidad y flexibilidad que ofrecen las videollamadas, este servicio les permite mantener un contacto directo y continuo con su terapeuta, favoreciendo una conexión más profunda y efectiva en el proceso terapéutico.
+
+<strong>Agenda:</strong> Una funcionalidad en la que los usuarios podrán gestionar sus citas y sesiones de terapia directamente en la plataforma, lo que les ayudará a llevar un seguimiento de su progreso y a organizar su agenda.
+
+<strong>Videotutoriales:</strong> Estos recursos están diseñados para informar y educar a los usuarios sobre el autismo, proporcionando una comprensión más profunda de esta condición. Para los padres, los videotutoriales ofrecerán herramientas prácticas y estrategias que les ayudarán a apoyar a sus hijos en su desarrollo diario, mejorando así su calidad de vida. A través de contenido accesible y fácil de entender, buscamos empoderar a los usuarios y fomentar una comunidad más informada y solidaria.
+
+Además, es importante destacar que la terapia ofrecida a través de nuestra plataforma es más asequible que la terapia convencional privada. Esto permite que más personas tengan acceso a servicios psicológicos de calidad, contribuyendo así a una atención más accesible y regular. Nuestro objetivo es garantizar que todos los usuarios, independientemente de su situación económica, puedan beneficiarse de la terapia y el apoyo que necesitan.
+    </p>
+
+<h2>Planes</h2>
+
+<strong>Plan Básico:</strong> El Plan Básico está diseñado para ofrecer a los usuarios acceso a los servicios esenciales sin ningún costo. Este plan incluye:
+      - Mailbox
+      - Buscador de Psicólogos: Los usuarios solo pueden hacer "match" con un máximo de 5 psicólogos al mes.
+
+<strong>Plan Premium:</strong> El Plan Premium está diseñado para aquellos que buscan una experiencia más completa y personalizada. Este plan incluye todos los beneficios del Plan Básico, además de características avanzadas:
+       - Mailbox
+       - Matches Ilimitados con Psicólogos: A diferencia del plan básico, los usuarios del plan premium pueden hacer "match" con la cantidad que deseen,         
+        permitiéndoles explorar diversas opciones y encontrar el profesional que mejor se adapte a sus necesidades.
+       - Chat
+       - Videollamadas
+       - Agenda
+       - Videotutoriales
 
 <h2>Organización y roles del equipo</h2>
     <p>
@@ -37,12 +81,30 @@ Esta es la base de la página, es decir, lo más esencial en un principio. Por s
 
 <h2>Estilo web</h2>
     <p>
-      En la página web, nuestra idea es transmitir tranquilidad y seriedad al mismo tiempo. Esto lo hacemos para que los usuarios que entren por primera vez la encuentren atractiva a la vista. Hemos pensado en la accesibilidad de las personas que no suelen entrar a páginas web o que no están tan acostumbradas; por eso, nuestra página está diseñada de forma que cualquier persona pueda acceder y navegar sin problemas. Para lograr esto, hemos hecho que todos los textos sean muy visibles y distinguibles y hemos evitado incluir demasiados elementos en una sola página, de manera que el usuario no se sienta abrumado. Por último, hemos optado por colores otoñales para nuestra página, ya que provocan una sensación de tranquilidad y no tanta frialdad como podrían generar los colores fríos.
-    </p>
+      En nuestra página web, nos hemos propuesto transmitir una sensación de tranquilidad y seriedad simultáneamente. Este enfoque está diseñado para que los usuarios que la visitan por primera vez la encuentren visualmente atractiva y acogedora. Reconocemos que no todas las personas están familiarizadas con la navegación en línea, especialmente aquellas que buscan apoyo en temas delicados como el autismo. Por ello, hemos diseñado la plataforma con una accesibilidad intuitiva, permitiendo que cualquier usuario, independientemente de su experiencia digital, pueda acceder y navegar sin complicaciones.
 
+Para lograr una experiencia de usuario óptima, hemos priorizado la visibilidad y la claridad en todos los textos, utilizando tipografías legibles y un diseño limpio que evita la saturación de información en una sola página. De esta manera, buscamos que cada visita sea fluida y sin sobresaltos, ayudando a que los usuarios se sientan cómodos y seguros mientras exploran los recursos que ofrecemos.
+
+Un aspecto fundamental de nuestra estética es la elección de una paleta de colores otoñales, compuesta principalmente por tonos naranjas, marrones y otros colores cálidos. Esta selección no es meramente estética; está respaldada por principios de la teoría del color que indican que los colores cálidos, como el naranja, evocan sensaciones de calidez, confort y optimismo. Estos tonos tienen la capacidad de crear un ambiente acogedor, lo que resulta especialmente importante en un espacio dedicado a la salud mental y el bienestar emocional.
+
+El color naranja, en particular, es conocido por su asociación con la creatividad y el entusiasmo, lo que puede ser un aliciente positivo para los usuarios que buscan ayuda y apoyo. Los marrones, en contraste, añaden un sentido de estabilidad y seguridad, ayudando a cimentar la seriedad y la confianza que deseamos transmitir en nuestra plataforma. Juntos, estos colores generan una atmósfera que invita a los visitantes a sentirse cómodos y bienvenidos, mitigando la frialdad que a menudo se asocia con esquemas de color más fríos, como el azul, un color muy utilizado en el ambito de la psicología, el bienestar y la medicina.
+
+En conclusión, nuestra página no solo es un recurso valioso para padres de niños con autismo y adultos que buscan apoyo psicológico, sino que también está diseñada cuidadosamente para crear un entorno que fomente el bienestar emocional. Creemos que un diseño intuitivo y una paleta de colores cuidadosamente seleccionada pueden contribuir en gran medida a la experiencia del usuario, ayudando a que cada persona se sienta apoyada y comprendida en su búsqueda de ayuda y recursos.
+    </p>
+    <h3> Paleta de Colores</h3>
+    <p>
+     (Colocar imagen paleta colores)
+    </p>
+    <h3> Mock-up</h3>
+    <p>
+    Para ver de lo que hablamos de forma gráfica, en nuestro mockup se visualiza claramente la idea estética que transmitiremos.
+        (ADJUNTAR DOCUMENTO MOCKUP)
+    </p>
 <h2>Logotipo</h2>
     <p>
-    El logotipo debe ser distinguible pero no demasiado recargado; además, debe ir acorde con los colores de la página y contar con elementos relacionados con la idea de esta. 
+    El logotipo debe ser distintivo, pero no excesivamente recargado. Debe alinearse con la paleta de colores de la página y contar con elementos que reflejen la misión de nuestra plataforma. Siguiendo nuestras pautas estilísticas, el diseño debe ser sencillo y fácilmente reconocible, incluso en versiones reducidas.
+
+Nuestra propuesta visual es un árbol en crecimiento que, en lugar de tener una copa tradicional, presenta un cerebro. Esta representación simbólica no solo establece una clara conexión con el ámbito de la psicología, sino que también evoca la idea de crecimiento personal y autocuidado, conceptos fundamentales en el tratamiento del autismo.
     </p>
 
     
@@ -51,7 +113,13 @@ Esta es la base de la página, es decir, lo más esencial en un principio. Por s
     
 <h2>Funcionalidades de la página (Susceptible a futuros cambios)</h2>
 <p>
-    Debemos pensar en diferentes funcionalidades para nuestra página; estas deben ir desde las más simples, que toda página tiene, hasta algunas más complicadas y específicas para nuestra idea. Para ello, nos hemos repartido la creación de estas. Cada integrante deberá desarrollar obligatoriamente tres funcionalidades básicas; es decir, estas deben estar sí o sí para el buen uso y funcionamiento de la página. Además, habrá otras funcionalidades "extras". Estas, como ya he comentado, no son obligatorias, pero pueden representar una gran mejora en nuestro proyecto. Por esto mismo, las funcionalidades "extras" están pensadas a futuro; es decir, si logramos implementarlas, perfecto, pero si no lo logramos antes de la entrega del proyecto, se tendrán que agregar en la siguiente fase.
+    Es fundamental que consideremos una variedad de funcionalidades para nuestra página web. Estas funcionalidades deben abarcar desde las más básicas, que son comunes a cualquier sitio web, hasta opciones más avanzadas y específicas que se alineen con la misión de nuestra plataforma. Para facilitar este proceso, hemos decidido repartir la responsabilidad de desarrollar estas funcionalidades entre todos los integrantes del equipo.
+
+Cada miembro del equipo deberá encargarse de crear dos funcionalidades básicas, las cuales son esenciales para garantizar un uso eficaz y el correcto funcionamiento de la página. Estas funcionalidades son imprescindibles, ya que sin ellas, la experiencia del usuario se vería comprometida.
+
+Además de las funcionalidades básicas, también hemos identificado la posibilidad de implementar funcionalidades "extras". Estas opciones no son obligatorias, pero podrían aportar un valor significativo a nuestro proyecto, mejorando la experiencia general del usuario y enriqueciéndola. Es importante mencionar que estas funcionalidades "extras" están concebidas para ser desarrolladas en una fase posterior; si logramos integrarlas antes de la entrega del proyecto, sería ideal. Sin embargo, si no conseguimos implementarlas a tiempo, las añadiremos en una etapa futura de desarrollo.
+
+Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso académico, y a medida que avancemos, nuestra intención es ir desarrollando partes adicionales que funcionen como un esqueleto para la plataforma, si conseguimos desarrollar algun extra, este esqueleto será más concreto. Este enfoque nos permite dejar claro el concepto y la dirección que queremos seguir con nuestra idea web/app. Básicamente, con cada entrega iremos construyendo sobre los cimientos establecidos, asegurando que nuestra página siga evolucionando y mejorando con el tiempo.
 </p>
 <ul>
     <li><strong>Inicio de sesión y creación de cuenta:</strong> La primera funcionalidad que necesitamos es la opción de poder crear una cuenta y acceder a esta. Esta funcionalidad es la más básica de todas, ya que cualquier página cuenta con ella y no es posible el correcto funcionamiento de la página sin esta. En nuestro caso, la implementaremos mediante botones que se localizarán en la parte superior derecha de la página principal. Al pulsar en cualquiera de los dos botones, redirigirá al usuario a otra página en la que, dependiendo del botón pulsado, deberá rellenar una serie de campos. En el caso de la creación de cuenta, se tendrá que introducir un correo electrónico, una contraseña y marcar si la cuenta que está siendo creada es para un usuario normal o para un psicólogo. Al hacer esto, la información introducida se cotejará en la base de datos y, en caso de que el correo no haya sido introducido con anterioridad, se guardará toda la información proporcionada y se encriptará la contraseña. En el caso del inicio de sesión, el usuario introducirá las mismas credenciales que usó para crear la cuenta y se cotejará si el correo existe en la base de datos; si es así, se cotejará si la contraseña introducida es la misma que está guardada en la base de datos.</li>
