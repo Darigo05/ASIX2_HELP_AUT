@@ -5,7 +5,11 @@
 
 <h2>Explicación de la idea del proyecto</h2>
     <p>
-        Nuestra idea es muy simple, hoy en dia es muy difícil encontrar un profesional en el campo de la psicología con el que puedas tener un buen seguimiento de citas, que se adapte a tu caso y que logres conectar y conseguir un cierto grado de confianza con el. Por eso hemos decidido para nuestro proyecto crear una aplicación web para solucionar esto. La idea principal o el "esqueleto" de esta es que las personas que tutelan a un niño autista o adultos con la misma condición puedan buscar profesionales en un portal web, para decidir que profesional se amolda mas a su caso se filtrara siguiendo una sere de parámetros que se especificaran mas adelante en el apartado de "funcionalidades". Al escoger uno podran empezar a hablar con el mediante un mailbox como funcionalidad base. Si se quiere tener un contacto mas directo con el también pueden optar por contratar un plan premium que contara con mas funcionalidades como videollamadas, chat, etc. Esta es la base de la pagina, es decir lo mas esencial en un principio, por supuesto nuestra pagina debe contar con mas opciones y estas se especificaran mas adelante.     
+        Nuestra idea es muy simple: hoy en día es muy difícil encontrar un profesional en el campo de la psicología con el que puedas tener un buen seguimiento de citas, que se adapte a tu caso y con quien logres conectar, consiguiendo un cierto grado de confianza. Por eso, hemos decidido crear una aplicación web para solucionar esta necesidad en nuestro proyecto.
+
+La idea principal o el "esqueleto" de esta aplicación es que las personas que tutelan a un niño autista, o adultos con la misma condición, puedan buscar profesionales en un portal web. Para decidir qué profesional se amolda mejor a su caso, se filtrarán los resultados siguiendo una serie de parámetros que se especificarán más adelante en el apartado de "funcionalidades". Al escoger uno, podrán empezar a hablar con él mediante un buzón de mensajes como funcionalidad base. Si se desea tener un contacto más directo, también se podrá optar por un plan premium, que contará con funcionalidades adicionales como videollamadas, chat, entre otras.
+
+Esta es la base de la página, es decir, lo más esencial en un principio. Por supuesto, nuestra página debe contar con más opciones, las cuales se especificarán más adelante.   
     </p>
 
 <h2>Objetivo que se persigue</h2>
