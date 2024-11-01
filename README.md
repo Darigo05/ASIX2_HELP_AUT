@@ -46,20 +46,24 @@ En resumen, nuestra intención es crear un espacio donde las personas autistas y
 Además, es importante destacar que la terapia ofrecida a través de nuestra plataforma es más asequible que la terapia convencional privada. Esto permite que más personas tengan acceso a servicios psicológicos de calidad, contribuyendo así a una atención más accesible y regular. Nuestro objetivo es garantizar que todos los usuarios, independientemente de su situación económica, puedan beneficiarse de la terapia y el apoyo que necesitan.
     </p>
 
-<h2>Planes</h2>
+<h3>Planes</h3>
 
 <strong>Plan Básico:</strong> El Plan Básico está diseñado para ofrecer a los usuarios acceso a los servicios esenciales sin ningún costo. Este plan incluye:
-      - Mailbox
-      - Buscador de Psicólogos: Los usuarios solo pueden hacer "match" con un máximo de 5 psicólogos al mes.
-
+<ul>
+ <li> - Mailbox </li>
+ <li> - Buscador de Psicólogos: Los usuarios solo pueden hacer "match" con un máximo de 5 psicólogos al mes. </li>
+</ul>
+<ul>
 <strong>Plan Premium:</strong> El Plan Premium está diseñado para aquellos que buscan una experiencia más completa y personalizada. Este plan incluye todos los beneficios del Plan Básico, además de características avanzadas:
-       - Mailbox
-       - Matches Ilimitados con Psicólogos: A diferencia del plan básico, los usuarios del plan premium pueden hacer "match" con la cantidad que deseen,         
-        permitiéndoles explorar diversas opciones y encontrar el profesional que mejor se adapte a sus necesidades.
-       - Chat
-       - Videollamadas
-       - Agenda
-       - Videotutoriales
+ <li> - Mailbox </li>
+ <li>- Matches Ilimitados con Psicólogos: A diferencia del plan básico, los usuarios del plan premium pueden hacer "match" con la cantidad que deseen,         
+        permitiéndoles explorar diversas opciones y encontrar el profesional que mejor se adapte a sus necesidades. </li>
+ <li>- Chat </li>
+ <li>- Videollamadas </li>
+ <li>- Agenda </li>
+ <li>- Videotutoriales </li>
+</ul>
+
 
 <h2>Organización y roles del equipo</h2>
     <p>
