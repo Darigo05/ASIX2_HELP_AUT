@@ -97,7 +97,7 @@ En conclusión, nuestra página no solo es un recurso valioso para padres de ni�
     </p>
     <h3> Paleta de Colores</h3>
     <p>
-     (Colocar imagen paleta colores)
+     ![Paleta de colores](Img/Papleta_colores_HelpAut.png)
     </p>
     <h3> Mock-up</h3>
     <p>
