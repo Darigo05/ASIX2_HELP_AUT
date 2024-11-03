@@ -101,9 +101,11 @@ En conclusión, nuestra página no solo es un recurso valioso para padres de ni�
     </p>
     <h3> Mock-up</h3>
     <p>
-    Para ver de lo que hablamos de forma gráfica, en nuestro mockup se visualiza claramente la idea estética que transmitiremos.
-        [Documento del mockup](HELP AUT.pdf)
-    </p>
+    Para ver de lo que hablamos de forma gráfica, en nuestro mockup se visualiza claramente la idea estética que transmitiremos.     
+    </p> 
+    
+[Documento del mockup](HELP AUT.pdf)
+    
 <h2>Logotipo</h2>
     <p>
     El logotipo debe ser distintivo, pero no excesivamente recargado. Debe alinearse con la paleta de colores de la página y contar con elementos que reflejen la misión de nuestra plataforma. Siguiendo nuestras pautas estilísticas, el diseño debe ser sencillo y fácilmente reconocible, incluso en versiones reducidas.
