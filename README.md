@@ -57,7 +57,7 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
 <strong>Plan Premium:</strong> El Plan Premium está diseñado para aquellos que buscan una experiencia más completa y personalizada. Este plan incluye todos los beneficios del Plan Básico, además de características avanzadas:
  <li>Mailbox </li>
  <li>Matches Ilimitados con Psicólogos: A diferencia del plan básico, los usuarios del plan premium pueden hacer "match" con la cantidad que deseen,         
-        permitiéndoles explorar diversas opciones y encontrar el profesional que mejor se adapte a sus necesidades. </li>
+        permitiéndoles explorar diversas opciones y encontrar el profesional qureapartoe mejor se adapte a sus necesidades. </li>
  <li>Chat </li>
  <li>Videollamadas </li>
  <li>Agenda </li>
@@ -145,7 +145,7 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 <li><strong>Tablas de padres y psicólogos para el administrador:</strong> Dado que el administrador es el encargado de que toda la página funcione debidamente y de solucionar problemas que puedan surgir tanto a usuarios como a psicólogos, contará con una opción donde podrá buscar la información de tutores y psicólogos por si debe, por ejemplo, borrar alguna cuenta o solucionar problemas de acceso.</li>
 </ul>
 
-[Documento funcionalidades](REAPARTO_FUNCIONALIDADES.pdf)
+[Documento funcionalidades](REPARTO_FUNCIONALIDADES.pdf)
 
 <h2>Especificaciones técnicas</h2>
 <p>
