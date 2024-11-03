@@ -102,7 +102,7 @@ En conclusión, nuestra página no solo es un recurso valioso para padres de ni�
     <h3> Mock-up</h3>
     <p>
     Para ver de lo que hablamos de forma gráfica, en nuestro mockup se visualiza claramente la idea estética que transmitiremos.
-        (ADJUNTAR DOCUMENTO MOCKUP)
+        [Documento del mockup](HELP AUT.pdf)
     </p>
 <h2>Logotipo</h2>
     <p>
