@@ -210,10 +210,10 @@ Como punto positivo, debemos decir que tenemos las IPs de la red interna y la re
 <li>Si todo va bien al colocar la ip de nuestra maquina seguido de /helpaut.com en nuestro navegador nos deberia mostrar el codigo recien creado</li>
 <li> <B>(SEGUIR CONFIGURANDO NGINX)</b></li>
 <h2>Base de datos</h2>
-<h3>Primer diagrama de la Base de datos</h3>
-
+<h3>Diagrama de BBDD</h3>
+<h4>Primera fase</h4>
 <p>
-        Estamos en la fase de desarrollo de nuestra base de datos. Comenzamos definiendo cuidadosamente nuestras ideas y conceptos para los servicios y productos de nuestra empresa web/app, lo cual nos permitió estructurar la información necesaria y garantizar un servicio eficiente. El uso de un mock-up fue fundamental para visualizar el proyecto, los datos, servicios y productos de la web, así como la creación de nuestro primer diagrama de base de datos (BBDD).
+        En primera instancia, empezamos definiendo nuestras ideas y conceptos para los servicios y productos de nuestra empresa web/app, lo cual nos permitió estructurar la información necesaria y garantizar un servicio eficiente. El uso de un mock-up fue fundamental para visualizar el proyecto, los datos, servicios y productos de la web, así como la creación de nuestro primer diagrama de base de datos (BBDD).
 
 Posteriormente, mantuvimos una reunión con Joaquim, quien nos proporcionó una serie de pautas y correcciones bastante extensas. La semana siguiente aplicamos estos cambios y realizamos otra reunión con él para revisar nuestro avance. Actualmente, estamos modificando el nuevo diagrama en base a sus indicaciones. En las imágenes compartidas se pueden ver tanto nuestro primer diagrama de red como el segundo, que hemos dividido en dos partes: el esquema de relaciones entre tablas y el desarrollo inicial de las tablas, en el cual sólo hemos marcado las claves primarias (PK) y claves foráneas (FK). Para la siguiente revisión, estamos desarrollando los atributos completos (tipo de dato: float, boolean, INT, TIME, etc.). En el segundo diagrama también se reflejan las últimas correcciones que Joaquim nos indicó esta semana.
 
@@ -228,3 +228,7 @@ Estos consejos nos están ayudando a mejorar tanto el backend como la funcionali
 
 [Segundo diagrama](téchico.pdf)
 
+<h4>Segunda fase fase</h4>
+<p>
+        Hemos continuado con el desarrollo de las BBDD como comentamos. Primero pasamos todo el diagrama y las tablas que hicimos a mano al MySQL, nos surgieron distintas dudas (PONERLAS). Hicimos una reunion con Joaquim una vez pasado todo esto al MySQL para resolver estas dudas y que nos diera las correcciones correspondientes. Una vez hecho esto (DECIR CAMBIOS QUE NOS DIJO) Lo corregimos y tuvimos una revisión final donde ya nos ha confirmado que nuestra BBDD ya esta completamente correcta. (ADJUNTAR V1 MySQL y V2 FINAL)   
+    </p>
