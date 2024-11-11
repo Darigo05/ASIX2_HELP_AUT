@@ -182,7 +182,113 @@ Adicionalmente, teníamos mal configurado el router con los DNS emde18 y emde19.
 Como punto positivo, debemos decir que tenemos las IPs de la red interna y la red externa configuradas. Nos hace ping al DNS y también a internet (8.8.8.8). </p>
 <h3> Configuración de DHCP</h3>
 <p> Este apartado lo hemos desarrollado sin ningun tipo de incidencia. (PENDIENTE A DESARROLLAR EN CLASE COGIENDO IPS) </p>
-<h2>Configuración de DNS</h2>
+<h2>Configuración del Servidor DNS</h2>
+<p>En este proyecto hemos configurado un servidor DNS utilizando <strong>BIND9</strong> en un sistema Ubuntu. Nuestro servidor DNS tiene el nombre de dominio <strong>dns.helpaut.local</strong> y la dirección IP <strong>10.20.30.2</strong>. Además de la zona directa, hemos configurado una zona inversa para resolver las direcciones IP en nombres de dominio. A continuación, explicamos los pasos que seguimos para su configuración.</p>
+
+<ul>
+    <li><strong>Instalación de BIND9:</strong> Para comenzar, instalamos <strong>BIND9</strong>, que es un servidor DNS de código abierto ampliamente utilizado en sistemas Linux. Utilizamos el siguiente comando para la instalación:
+        <pre>sudo apt install bind9</pre>
+        Este comando instala solo <strong>BIND9</strong>, sin utilidades adicionales o documentación. Si se presenta algún problema con la instalación, se recomienda verificar la conectividad de red y actualizar los paquetes con <code>sudo apt update</code> antes de intentar la instalación nuevamente.
+    </li>
+    
+<li><strong>Verificación del estado de BIND9:</strong> Una vez completada la instalación, verificamos que el servicio de <strong>BIND9</strong> estuviera activo y funcionando correctamente. Para ello, ejecutamos el siguiente comando:
+        <pre>sudo systemctl status bind9</pre>
+        Si el servicio no estaba activo, lo iniciamos manualmente con el comando:
+        <pre>sudo systemctl start bind9</pre>
+</li>
+    
+<li><strong>Configuración de las opciones globales de BIND9:</strong> Se modificaron las opciones globales del servidor DNS en el archivo de configuración <code>/etc/bind/named.conf.options</code> para permitir que el servidor realice consultas de manera recursiva y configurar los servidores DNS reenviadores. La configuración fue la siguiente:
+<pre>
+        options {
+            directory "/var/cache/bind";
+            
+            recursion yes;
+            allow-query { any; };
+            
+            forwarders {
+                8.8.8.8;  // Servidor DNS de Google
+                8.8.4.4;  // Servidor DNS de Google
+            };
+    };
+</pre>
+        Tras realizar estos cambios, guardamos el archivo y lo cerramos.
+</li>
+
+<li><strong>Configuración de la zona DNS:</strong> Para configurar la zona de <strong>helpaut.local</strong>, modificamos el archivo <code>/etc/bind/named.conf.local</code> que es donde se definen las zonas de los dominios que el servidor resolverá. Añadimos la siguiente configuración para la zona <strong>helpaut.local</strong>, indicando el archivo de zona correspondiente:
+        <pre>
+        zone "helpaut.local" {
+            type master;
+            file "/etc/bind/zones/db.helpaut.local";  // Archivo de zona
+        };
+</pre>
+</li>
+
+<li><strong>Creación del archivo de zona directa:</strong> Creamos el archivo de zona para <strong>helpaut.local</strong> en la ruta <code>/etc/bind/zones/</code>. Este archivo contiene los registros DNS que permiten resolver el nombre de dominio a su correspondiente dirección IP. La configuración del archivo fue la siguiente:
+        <pre>
+        $TTL    86400
+        @       IN      SOA     ns1.helpaut.local. admin.helpaut.local. (
+                                    2023111201 ; Serial
+                                    28800      ; Refresh
+                                    7200       ; Retry
+                                    1209600    ; Expire
+                                    86400 )    ; Minimum TTL
+        
+        @       IN      NS      ns1.helpaut.local.
+        @       IN      NS      ns2.helpaut.local.
+        
+        @       IN      A       10.20.30.2  // Dirección IP del servidor DNS
+        ns1     IN      A       10.20.30.2
+        ns2     IN      A       10.20.30.3  // IP secundaria para redundancia
+</pre>
+</li>
+
+<li><strong>Configuración de la zona inversa:</strong> Además de la zona directa, configuramos una <strong>zona inversa</strong> para poder resolver las direcciones IP en nombres de dominio. La zona inversa es útil para realizar la conversión de una dirección IP a un nombre de dominio. Para ello, añadimos la configuración de la zona inversa en el archivo <code>/etc/bind/named.conf.local</code>:
+        <pre>
+        zone "30.20.10.in-addr.arpa" {
+            type master;
+            file "/etc/bind/zones/db.30.20.10";  // Archivo de zona inversa
+        };
+        </pre>
+    </li>
+
+<li><strong>Creación del archivo de zona inversa:</strong> Creamos el archivo de zona inversa <code>/etc/bind/zones/db.30.20.10</code> para la subred <strong>10.20.30.0/24</strong>. Este archivo contiene los registros <code>PTR</code> para la resolución inversa. La configuración fue la siguiente:
+<pre>
+        $TTL    86400
+        @       IN      SOA     ns1.helpaut.local. admin.helpaut.local. (
+                                    2023111201 ; Serial
+                                    28800      ; Refresh
+                                    7200       ; Retry
+                                    1209600    ; Expire
+                                    86400 )    ; Minimum TTL
+        
+        @       IN      NS      ns1.helpaut.local.
+        @       IN      NS      ns2.helpaut.local.
+        
+        2       IN      PTR     dns.helpaut.local.  // Resolución inversa para 10.20.30.2
+</pre>
+</li>
+
+<li><strong>Reinicio del servicio DNS:</strong> Para que los cambios realizados en la configuración tuvieran efecto, reiniciamos el servicio <strong>BIND9</strong> con el siguiente comando:
+        <pre>sudo systemctl restart bind9</pre>
+</li>
+
+<li><strong>Verificación de funcionamiento:</strong> Una vez que el servidor DNS estuvo en funcionamiento, verificamos que la configuración estuviera correcta utilizando el comando <code>nslookup</code>. Para verificar que el dominio <strong>helpaut.local</strong> resolviera correctamente, ejecutamos:
+        <pre>nslookup helpaut.local</pre>
+        Si la configuración era correcta, la respuesta debía incluir la dirección IP <strong>10.20.30.2</strong> asociada al dominio <strong>helpaut.local</strong>.
+        Para verificar que la zona inversa estaba funcionando correctamente, usamos el siguiente comando para consultar la dirección IP <strong>10.20.30.2</strong> y verificar que devolviera el nombre <strong>dns.helpaut.local</strong>:
+        <pre>nslookup 10.20.30.2</pre>
+</li>
+
+<li><strong>Prueba externa del servidor DNS:</strong> Finalmente, para comprobar que el servidor DNS era accesible desde una máquina externa, realizamos una consulta DNS directamente al servidor utilizando su IP:
+        <pre>nslookup helpaut.local 10.20.30.2</pre>
+</li>
+</ul>
+
+<h3>Conclusión</h3>
+<p>En este proyecto, configuramos un servidor DNS con <strong>BIND9</strong> en una máquina Ubuntu, permitiendo la resolución de nombres de dominio directos e inversos. El servidor DNS está configurado para resolver el dominio <strong>helpaut.local</strong> a la IP <strong>10.20.30.2</strong>, y también se configuró una zona inversa que permite resolver la IP <strong>10.20.30.2</strong> al nombre <strong>dns.helpaut.local</strong>. Además, se configuraron servidores DNS reenviadores para resolver dominios fuera de nuestra red local. Todo fue verificado utilizando el comando <strong>nslookup</strong> para asegurar que el servidor DNS estaba funcionando correctamente.</p>
+
+<p>Este servidor DNS es completamente operativo y accesible tanto para consultas directas como inversas desde cualquier máquina cliente.</p>
+
 <p> Como punto positivo, debemos decir que tenemos las IPs de la red interna y la red externa configuradas. Nos hace ping al DNS y también a internet (8.8.8.8). </p>
 <h2>Configuración y explicacion NGINX</h2>
 <p> Nginx es un software de codigo abierto, es decir que cualquier persona puede usarlo y modificarlo o configuracion a su propia eleccion, nosotros usaremos este software para poder alojar nuestra pagina web, esto lo haremos configurandolo en su propia maquina virtual creada y configurada en PROXMOX. Para poder usarlo como es obvio necesitamos configurarlo primero y estos son los pasos que hemos seguido para poder hacerlo </p>
