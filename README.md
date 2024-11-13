@@ -181,7 +181,90 @@ Adicionalmente, teníamos mal configurado el router con los DNS emde18 y emde19.
 
 Como punto positivo, debemos decir que tenemos las IPs de la red interna y la red externa configuradas. Nos hace ping al DNS y también a internet (8.8.8.8). </p>
 <h3> Configuración de DHCP</h3>
-<p> Este apartado lo hemos desarrollado sin ningun tipo de incidencia. (PENDIENTE A DESARROLLAR EN CLASE COGIENDO IPS) </p>
+<li><strong>Instalación de DHCP:</strong> Para comenzar, instalamos <strong>ISC DHCP Server</strong>, que es una herramienta muy utilizada para asignar direcciones IP de manera automática a los dispositivos dentro de una red. Utilizamos el siguiente comando para la instalación:
+        <pre>sudo apt install isc-dhcp-server</pre>
+        Este comando instala el servidor DHCP sin dependencias adicionales ni documentación. Si se presenta algún problema durante la instalación, se recomienda verificar la conectividad de red y actualizar los paquetes con <code>sudo apt update</code> antes de intentar la instalación nuevamente.
+</li>
+
+<li><strong>Verificación del estado de DHCP:</strong> Una vez completada la instalación, verificamos que el servicio de <strong>ISC DHCP Server</strong> estuviera activo y funcionando correctamente. Para ello, ejecutamos el siguiente comando:
+        <pre>sudo systemctl status isc-dhcp-server</pre>
+        Si el servicio no estaba activo, lo iniciamos manualmente con el siguiente comando:
+        <pre>sudo systemctl start isc-dhcp-server</pre>
+</li>
+
+<li><strong>Configuración del archivo de configuración de DHCP:</strong> Para configurar el servidor DHCP, modificamos el archivo de configuración principal en <code>/etc/dhcp/dhcpd.conf</code>. En este archivo, especificamos el rango de direcciones IP que el servidor asignará a los dispositivos clientes y otras opciones de red, como la puerta de enlace predeterminada y los servidores DNS. La configuración fue la siguiente:
+<pre>
+        # Configuración global
+        option domain-name "helpaut.local";
+        option domain-name-servers 10.20.30.2, 10.20.30.3;  // Direcciones IP de los servidores DNS
+
+        # Configuración de la primera subred
+        subnet 100.77.20.0 netmask 255.255.255.0 {
+            # Opciones de la subred 100.77.20.0
+        }
+
+        # Rango de direcciones IP para la subred 10.20.30.0
+        subnet 10.20.30.0 netmask 255.255.255.0 {
+            range 10.20.30.26 10.20.30.30;  // Rango de direcciones IP a asignar
+            option domain-name-servers 10.20.30.2;
+            option subnet-mask 255.255.255.0;
+            option routers 10.20.30.1;
+            option broadcast-address 10.20.30.255;
+            default-lease-time 600;
+            max-lease-time 7200;
+
+            option domain-name "helpaut.local";
+            authoritative;
+
+            update-static-leases on;
+            ignore client-updates;
+        }
+
+        # Asignación de direcciones IP fijas para dispositivos específicos
+        host dns {
+            hardware ethernet bc:24:11:05:30:0d;
+            fixed-address 10.20.30.2;
+        }
+
+        host nginx {
+            hardware ethernet bc:24:11:00:18:d3;
+            fixed-address 10.20.30.28;
+        }
+</pre>
+        Tras realizar estos cambios, guardamos el archivo y lo cerramos.
+</li>
+
+<li><strong>Configuración de la interfaz de red para DHCP:</strong> En este paso, indicamos la interfaz de red en la que el servidor DHCP escuchará y asignará direcciones IP. Para ello, editamos el archivo <code>/etc/default/isc-dhcp-server</code> y configuramos la interfaz correspondiente. En nuestro caso, la interfaz es <strong>eth0</strong>, y la configuración fue la siguiente:
+        <pre>
+        INTERFACESv4="eth0"
+        INTERFACESv6="none"
+</pre>
+        Esto asegura que el servidor DHCP solo maneje direcciones IPv4 en la interfaz <strong>eth0</strong>.
+</li>
+
+<li><strong>Reinicio del servicio DHCP:</strong> Para aplicar los cambios realizados en la configuración, reiniciamos el servicio <strong>ISC DHCP Server</strong> con el siguiente comando:
+        <pre>sudo systemctl restart isc-dhcp-server</pre>
+</li>
+
+<li><strong>Verificación del funcionamiento:</strong> Para asegurarnos de que el servidor DHCP esté funcionando correctamente, verificamos el estado del servicio con el siguiente comando:
+        <pre>sudo systemctl status isc-dhcp-server</pre>
+        Si todo está bien configurado, el servicio debería estar activo y en ejecución. Además, podemos comprobar que los clientes en la red reciban direcciones IP dentro del rango configurado, utilizando el siguiente comando en un cliente:
+        <pre>ip a</pre>
+        Esto debería mostrar la dirección IP asignada automáticamente por el servidor DHCP.
+</li>
+
+<li><strong>Prueba de funcionamiento:</strong> Para realizar una prueba más detallada, conectamos un dispositivo cliente a la red y verificamos que reciba una dirección IP dentro del rango configurado (<strong>10.20.30.26-10.20.30.30</strong>) mediante el comando:
+        <pre>dhclient</pre>
+        Luego, verificamos que el cliente haya recibido correctamente la dirección IP con el comando <code>ip a</code> o <code>ifconfig</code> (dependiendo de la distribución del cliente).
+</li>
+
+<h3>Conclusión</h3>
+<p>En este proyecto, configuramos un servidor DHCP en una máquina Ubuntu utilizando <strong>ISC DHCP Server</strong>. El servidor fue configurado para asignar direcciones IP dentro del rango <strong>10.20.30.26 - 10.20.30.30</strong> en la subred <strong>10.20.30.0/24</strong>. Además, se configuraron los servidores DNS y la puerta de enlace predeterminada para los dispositivos clientes. También asignamos direcciones IP fijas a dispositivos específicos como el servidor DNS (<strong>10.20.30.2</strong>) y el servidor Nginx (<strong>10.20.30.28</strong>). El funcionamiento fue verificado tanto en el servidor como en los clientes, asegurándonos de que el servidor asigna direcciones IP de manera correcta.</p>
+
+<p>Este servidor DHCP está completamente operativo y asigna direcciones IP de manera automática a los dispositivos conectados a la red, mejorando la administración de direcciones en la red local.</p>
+
+<p>Como punto positivo, hemos verificado que los dispositivos clientes reciben correctamente las direcciones IP configuradas y tienen acceso a los recursos de red, como los servidores DNS y la puerta de enlace predeterminada.</p>
+
 <h2>Configuración del Servidor DNS</h2>
 <p>En este proyecto hemos configurado un servidor DNS utilizando <strong>BIND9</strong> en un sistema Ubuntu. Nuestro servidor DNS tiene el nombre de dominio <strong>dns.helpaut.local</strong> y la dirección IP <strong>10.20.30.2</strong>. Además de la zona directa, hemos configurado una zona inversa para resolver las direcciones IP en nombres de dominio. A continuación, explicamos los pasos que seguimos para su configuración.</p>
 
