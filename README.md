@@ -234,12 +234,12 @@ Como punto positivo, debemos decir que tenemos las IPs de la red interna y la re
         Tras realizar estos cambios, guardamos el archivo y lo cerramos.
 </li>
 
-<li><strong>Configuración de la interfaz de red para DHCP:</strong> En este paso, indicamos la interfaz de red en la que el servidor DHCP escuchará y asignará direcciones IP. Para ello, editamos el archivo <code>/etc/default/isc-dhcp-server</code> y configuramos la interfaz correspondiente. En nuestro caso, la interfaz es <strong>eth0</strong>, y la configuración fue la siguiente:
+<li><strong>Configuración de la interfaz de red para DHCP:</strong> En este paso, indicamos la interfaz de red en la que el servidor DHCP escuchará y asignará direcciones IP. Para ello, editamos el archivo <code>/etc/default/isc-dhcp-server</code> y configuramos la interfaz correspondiente. En nuestro caso, el archivo contiene las siguientes líneas, que deben estar vacías para que el sistema detecte automáticamente la interfaz de red:
         <pre>
-        INTERFACESv4="eth0"
-        INTERFACESv6="none"
-</pre>
-        Esto asegura que el servidor DHCP solo maneje direcciones IPv4 en la interfaz <strong>eth0</strong>.
+        INTERFACESv4=""
+        INTERFACESv6=""
+        </pre>
+        Esto permite que el servidor DHCP escuche en la interfaz de red predeterminada del sistema para direcciones IPv4, y no se configura para direcciones IPv6.
 </li>
 
 <li><strong>Reinicio del servicio DHCP:</strong> Para aplicar los cambios realizados en la configuración, reiniciamos el servicio <strong>ISC DHCP Server</strong> con el siguiente comando:
