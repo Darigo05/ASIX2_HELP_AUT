@@ -180,7 +180,7 @@ Otro de los problemas que tenemos es que no nos hace ping a google.com. Creemos 
 Adicionalmente, teníamos mal configurado el router con los DNS emde18 y emde19.
 
 Como punto positivo, debemos decir que tenemos las IPs de la red interna y la red externa configuradas. Nos hace ping al DNS y también a internet (8.8.8.8). </p>
-<h3> Configuración de DHCP</h3>
+<h2> Configuración de DHCP</h2>
 <li><strong>Instalación de DHCP:</strong> Para comenzar, instalamos <strong>ISC DHCP Server</strong>, que es una herramienta muy utilizada para asignar direcciones IP de manera automática a los dispositivos dentro de una red. Utilizamos el siguiente comando para la instalación:
         <pre>sudo apt install isc-dhcp-server</pre>
         Este comando instala el servidor DHCP sin dependencias adicionales ni documentación. Si se presenta algún problema durante la instalación, se recomienda verificar la conectividad de red y actualizar los paquetes con <code>sudo apt update</code> antes de intentar la instalación nuevamente.
