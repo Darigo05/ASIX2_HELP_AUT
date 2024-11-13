@@ -398,6 +398,51 @@ Como punto positivo, debemos decir que tenemos las IPs de la red interna y la re
 <li>Continuando es hora de crear la pagina web de ejemplo para probar su correcto funcionamiento, para esto creamos el archivo dentro de la carpeta de helpaut.com usando el comando sudo nano /var/www/html/example.com/helpaut.html y dentro escribimos nuestro codigo de ejemplo para comprobar que se puede mostrar</li>
 <li>Si todo va bien al colocar la ip de nuestra maquina seguido de /helpaut.com en nuestro navegador nos deberia mostrar el codigo recien creado</li>
 <li> <B>(SEGUIR CONFIGURANDO NGINX)</b></li>
+<h2> Configuración e instalación Mysql</h2>
+ <p>En este proyecto nos hemos decantado por crear la base de datos en el lenguaje de Mysql, de esta hablaremos en el siguiente apartado pero ahora vamos a explicar paso a paso la instalción y condiguración que hemos seguido para crear y modificar la maquina servidor que lo contiene y todas las configuraciones de este</p>
+<h3>Configuración servidor en PROXMOX</h3>
+         <ul>
+        <li>Lo primero a hacer es crear una maquina en nuestro PROXMOX donde alojaremos el mysql, para esto seguimos los pasos ya explicados e iniciamos la máquina</li>
+         </ul>
+<h3>Instalación MySQL</h3>
+         <ul>
+        <li>Justo después de iniciar la máquina haremos un sudo apt update y un sudo apt upgrade para actualizar e instalar todos los paquetes desactualizados.</li>
+        <li>Seguidamente realizaremos un sudo apt install mysql-server para instalar el servicio de MySQL en nuestra máquina.</li>
+        <li>Lo siguiente es ejecutar el comando sudo mysql_secure_installation, este comando sirve para que nos guie através de un proceso que nos brinda mas seguridad en nuestra instalación de MySQL. Una vez hecho esto nos preguntara si queremos elegir un nivel de validación de contraseña y le diremos que si, en esta instalación nos deja escoger el nivel que queramos, estos niveles son tres diferentes </li>
+        <li>LOW: El nivel LOW como indica el propio nombre es el nivel mas bajo, si escogemos este lo unico que nos pedira para crear una contraseña es que tenga una longitud de 8 carácters sin importar cuales</li>
+        <li>MEDIUM: Si esogemos el nivel MEDIUM los requisitos varian ya que ahora no solo nos exigira una longitud de 8 carácteres o mas sino que tambien nos indica que tiene que contener números y carácteres especiales</li>
+        <li>STRONG: Este es el nivel mas alto ya que a parte de pedirnos las mismas caracteristicas que el MEDIUM nos exige también nos pide un diccionario </li>
+        <li>En nuestro caso hemos escogido la contraseña MEDIUM ya que no queremos ni que sea demasiado facil de poder acceder pero tampoco perder demasiado tiempo cada vez que iniciemos sesión ya que es un proyecto</li>
+        <li>En el siguiente paso nos dice que si queremos eliminar los usuarios ANONYMOUS, esto porque por defecto MySQL cuenta con una cuenta llamada Anonymous y si dejamos esta cuenta activa es un peligro para la seguridad de la base de datos ya que cualquier persona puede acceder a ella porque tiene una contraseña muy sencilla y conocida. Asi que nosotros le indicamos que si que queremos que se elimine ese usuario</li>
+        <li>Continuando no pregunta si queremos permitir que el usuario root solo pueda conectarse desde el "localhost" en caso de que le indiquemos que no puede suponer un peligro ya que si algúna persona consigue acceder a este usuario podra conectarse a nuestra base de datos desde donde quiera. Por eso nosotros le hemos indicado que el root solo pueda acceder desde "localhost"</li>
+        <li>Lo siguiente sera eliminar la DB test ya que es una base de datos de prueba que nosotros no necesitaremos yaque tenemos creada la nuestra propia y no nos serviria de nada</li>
+        <li>Por ultimo deberemos recargar los privilegios para que se apliquen todos los cambios que hemos hecho</li>
+    </ul>
+<h3>Establecer contraseña para root</h3> 
+<ul>
+    <li>Una vez instalado el Mysql debemos establecer una nueva contraseña para root, de esta forma mejoraremos la seguridad de este usuario y evitaremos que alguién acceda a este de forma sencilla</li>
+    <li>Lo primero a realizar es acceder dentro de MySQL, para ello usaremos sudo mysql</li>
+    <li>Una vez ya dentro uso de <b>ALTER USER 'root'</b> para indicarle que el usuario que queremos modificar es root</li>
+    <li>Seguidamente le indicamos donde se encuentra este usuario con@'localhost'</li>
+    <li>A continuación como queremos que sea compatible con PHP tendremos que escribir <b></B>IDENTIFIED WITH mysql_native_password</b> de esta forma le decimos que la contraseña pueda autenticarse con el complemento mysql_native_passord y que tiene una mejor compatibilidad con PHP </li>
+    <li>Para finalizae le indicamos la nueva contraseña escribiendo <b>BY 'nuestra contraseña';</b></li>
+    <li>Si hemos seguido todo lo escrito con anterioridad el comando que tenemos que introducir nos quedaria de esta forma: <b>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';</b> </li>
+</ul>
+<h3>Actualizar privilegios</h3>
+<ul>
+    <li>Una vez hemos acabado de configurar todo lo anterior solo nos quedaria actualizar los privilegios para que se aplpiquen estos cambios, para esto usaremos el comando <b>FLUSH PRIVILEGES;</b> y seguidamente saldremos de mysql con un <b>exit;</b></li>
+    <p>Si queremos comprobar si los cambios se han guardado con exito debemos seguir los siguientes pasos:</p>
+    <li>Volvemos a acceder a Mysql como root con el comando <b>-u root -p</b> y escribiendo la contraseña que le hayamos colocado al usuario root</li>
+    <li>Seguidamente le indicaremos que nos muestre las bases de datos que tiene nuestro MySQL con el comando <b>show databases;</b></li>
+    <li>A continuación querremos ver los usuarios que tiene su contraseña por defecto con el complemento root con mysql_native_password usaremos el comando <b>SELECT user,authentication_string,plugin,host FROM mysql.user;</b> </li>
+</ul>
+<h3>Crear un nuevo usuario</h3>
+<p>A continuación crearemos un nuevo usuario con su propia contraseña para que pueda acceder a MySQL</p>
+<ul>
+    <li>Para poder crear este nuevo usuario usaremos el comando <b>CREATE USER 'nombre_usuario'@'localhost' IDENTIFIES BY 'contraseña_deseada';</b></li>
+    <li>Una vez creado el usuario vamos a darle todos los privilegios para que pueda modificar y crear libremente para eso usaremos el comando <b>GRANT ALL PRIVILEGES ON *.* TO 'nombre_usuario'@'localhost' WITH GRANT OPTION;</b> </li>
+    <li>Por ultimo saldremos de mysql con <b>EXIT;</b> y comprobaremos que este todo correcot con el comando <b>systemctl status mysql.service</b></li>
+</ul>
 <h2>Base de datos</h2>
 <h3>Diagrama de BBDD</h3>
 <h4>Primera fase</h4>
