@@ -54,6 +54,7 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
  <li>Buscador de Psicólogos: Los usuarios solo pueden hacer "match" con un máximo de 5 psicólogos al mes. </li>
 </ul>
 </ul>
+
 <strong>Plan Premium:</strong> El Plan Premium está diseñado para aquellos que buscan una experiencia más completa y personalizada. Este plan incluye todos los beneficios del Plan Básico, además de características avanzadas:
 <ul>
  <li>Mailbox </li>
