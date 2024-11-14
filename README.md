@@ -79,7 +79,7 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
     </p>
 
 <h2>Tecnologías a utilizar (lenguajes, frameworks, sistemas, software)</h2>
-    <ul>
+<ul>
     <li><strong>Front-end:</strong> Para el desarrollo del front-end de la página web, utilizaremos HTML como la estructura básica del proyecto, CSS para mejorar la apariencia visual y JavaScript para añadir interactividad y facilitar la conexión con el backend. También implementaremos Bootstrap para agilizar el desarrollo y asegurar que la página sea responsive y brinde una buena experiencia de usuario.</li>
     
     <li><strong>Back-end:</strong> Para el back-end, utilizaremos PHP, que permitirá la conexión entre el front-end y la base de datos, de modo que los datos de los usuarios y otra información solicitada puedan guardarse correctamente. La base de datos se implementará en MySQL, ya que es el sistema que mejor conocemos. Para diseñar y gestionar la base de datos, emplearemos MySQL Workbench, que nos permite crear tanto los diagramas como el código SQL necesario.</li>
