@@ -67,7 +67,7 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
 
 <h2>Organización y roles del equipo</h2>
     <p>
-    En general, todos tenemos que participar en cada parte de este proyecto, pero a continuación mostraré en qué se va a especializar más cada uno.
+    Todos estaremos involucrados en cada etapa de este proyecto, pero cada uno tendrá un área de especialización:
     </p>
     <ul>
         <li><strong>Albert</strong> - Front-end</li>
@@ -75,7 +75,7 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
         <li><strong>David</strong> - Infraestructura</li>
     </ul>
     <p>
-       Al finalizar cada tarea asignada, revisaremos nuestro progreso y lo añadiremos tanto en la página de <b>Trello</b> como en nuestro <b>GitHub</b>, para que nuestros profesores puedan ver y revisar la evolución del proyecto, además de sugerir cambios o mejoras para obtener un mejor resultado. Esto también se hará para resolver dudas que puedan surgir.
+       Al finalizar cada tarea asignada, haremos una revisión conjunta de los avances y actualizaremos tanto <strong>Trello</strong> como nuestro repositorio en <strong>GitHub</strong>. para que nuestros profesores puedan ver y revisar la evolución del proyecto, además de sugerir cambios o mejoras para obtener un mejor resultado. Esto también se hará para resolver dudas que puedan surgir.
     </p>
 
 <h2>Tecnologías a utilizar (lenguajes, frameworks, sistemas, software)</h2>
