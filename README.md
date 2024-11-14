@@ -79,23 +79,17 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
     </p>
 
 <h2>Tecnologías a utilizar (lenguajes, frameworks, sistemas, software)</h2>
-<ul>
-    <li><strong>Front-end:</strong> Para el desarrollo del front-end de la página web, utilizaremos HTML como la estructura básica del proyecto, CSS para mejorar la apariencia visual y JavaScript para añadir interactividad y facilitar la conexión con el backend. También implementaremos Bootstrap para agilizar el desarrollo y asegurar que la página sea responsive y brinde una buena experiencia de usuario.</li>
-    
-    <li><strong>Back-end:</strong> Para el back-end, utilizaremos PHP, que permitirá la conexión entre el front-end y la base de datos, de modo que los datos de los usuarios y otra información solicitada puedan guardarse correctamente. La base de datos se implementará en MySQL, ya que es el sistema que mejor conocemos. Para diseñar y gestionar la base de datos, emplearemos MySQL Workbench, que nos permite crear tanto los diagramas como el código SQL necesario.</li>
-    
-    <li><strong>Infraestructura:</strong> La infraestructura se implementará utilizando Proxmox en un servidor físico ubicado en nuestro aula. En esta plataforma, configuraremos diversas máquinas virtuales en base al diagrama de red que hemos creado:
-        <ul>
-            <li><strong>Router:</strong> Tendremos una máquina virtual que funcionará como router, estableciendo la conexión entre la red interna y la externa. Dentro de esta máquina virtual del router, configuraremos el servicio DHCP para asignar dinámicamente direcciones IP a las demás máquinas virtuales.</li>
 
-            <li><strong>Servidor DNS:</strong> Crearemos una máquina virtual dedicada a los servicios DNS, que permitirá la resolución de nombres de dominio en la red interna, facilitando el acceso entre las diferentes máquinas y servicios dentro de la infraestructura.</li>
+- **Front-end:** Para el desarrollo del front-end de la página web, utilizaremos HTML como la estructura básica del proyecto, CSS para mejorar la apariencia visual y JavaScript para añadir interactividad y facilitar la conexión con el backend. También implementaremos Bootstrap para agilizar el desarrollo y asegurar que la página sea responsive y brinde una buena experiencia de usuario.
+  
+- **Back-end:** Para el back-end, utilizaremos PHP, que permitirá la conexión entre el front-end y la base de datos, de modo que los datos de los usuarios y otra información solicitada puedan guardarse correctamente. La base de datos se implementará en MySQL, ya que es el sistema que mejor conocemos. Para diseñar y gestionar la base de datos, emplearemos MySQL Workbench, que nos permite crear tanto los diagramas como el código SQL necesario.
+  
+- **Infraestructura:** La infraestructura se implementará utilizando Proxmox en un servidor físico ubicado en nuestro aula. En esta plataforma, configuraremos diversas máquinas virtuales en base al diagrama de red que hemos creado:
+  - **Router:** Tendremos una máquina virtual que funcionará como router, estableciendo la conexión entre la red interna y la externa. Dentro de esta máquina virtual del router, configuraremos el servicio DHCP para asignar dinámicamente direcciones IP a las demás máquinas virtuales.
+  - **Servidor DNS:** Crearemos una máquina virtual dedicada a los servicios DNS, que permitirá la resolución de nombres de dominio en la red interna, facilitando el acceso entre las diferentes máquinas y servicios dentro de la infraestructura.
+  - **Servidor Nginx:** Implementaremos una máquina virtual exclusiva para Nginx, que servirá como servidor web, gestionando las solicitudes y actuando como intermediario entre el front-end y el back-end. Esta máquina también funcionará como cliente en la red interna, facilitando la comunicación con el servidor de base de datos.
+  - **Base de Datos MySQL:** Implementaremos una máquina virtual exclusiva para alojar nuestra base de datos MySQL. Esto nos permitirá crear e importar la base de datos de manera eficiente y conectar MySQL con Nginx, garantizando una comunicación estable entre el servidor de aplicaciones y la base de datos.
 
-            <li><strong>Servidor Nginx:</strong> Implementaremos una máquina virtual exclusiva para Nginx, que servirá como servidor web, gestionando las solicitudes y actuando como intermediario entre el front-end y el back-end. Esta máquina también funcionará como cliente en la red interna, facilitando la comunicación con el servidor de base de datos.</li>
-
-            <li><strong>Base de Datos MySQL:</strong> Implementaremos una máquina virtual exclusiva para alojar nuestra base de datos MySQL. Esto nos permitirá crear e importar la base de datos de manera eficiente y conectar MySQL con Nginx, garantizando una comunicación estable entre el servidor de aplicaciones y la base de datos.</li>
-        </ul>      
-    </li>
-</ul>
 
 <h2>Estilo web</h2>
     <p>
