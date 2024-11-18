@@ -173,6 +173,19 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 <p>
     A continuación, explicaré qué es PROXMOX y para qué lo usaremos, además de los pasos que hemos seguido para su instalación, configuración y creación de las máquinas:
 </p>
+<p>Proxmox es una plataforma de virtualización de codigo abierto cuyo prposito es proprcionar a los usuarios una forma sencilla y inutitiva de crear, congigurar y gestionar sus máquinas virtuales.</p>
+<h3>Aspectos interesantes de PROXMOX:</h3>
+<ul>
+    <li><b>Virtualización Completa y Contenedores</b>: Proxmox combina KVM para máquinas virtuales y LXC para contenedores en una sola plataforma, ofreciendo flexibilidad para diferentes necesidades.</li>
+    <li><b>Interfaz Intuitiva</b>: Tiene una interfaz web fácil de usar que permite gestionar máquinas virtuales, almacenamiento y redes sin necesidad de comandos complejos.</li>
+    <li><b>Open Source y Gratuito</b>: Es de código abierto y no tiene costos de licencia, aunque ofrece opciones de soporte empresarial.</li>
+    <li><b>Gestión Centralizada</b>: Permite la gestión de múltiples nodos en clústeres desde una única consola.</li>
+    <li><b>Alta Disponibilidad (HA)</b>: Soporta configuraciones de alta disponibilidad para evitar interrupciones en los servicios.</li>
+    <li><b>Snapshots y Backups Integrados</b>: Realiza copias de seguridad automatizadas y snapshots para proteger datos críticos.</li>
+    <li><b>Compatibilidad y Escalabilidad</b>: Funciona con hardware diverso y soporta almacenamiento compartido</li>
+    <li><b>Comunidad Activa</b>: Tiene una gran comunidad de usuarios y desarrolladores que respaldan la solución con foros y actualizaciones frecuentes.</li>
+</ul>
+<h3>Instlación de PROXMOX </h3>
 <ul>
     <li><strong>Instalación mediante un USB booteable:</strong> El primer paso a seguir es conseguir un USB vacío y convertirlo en booteable con PROXMOX. Esto lo hacemos para poder introducir este USB en nuestro servidor e iniciar la instalación. Si no inicia PROXMOX después de introducir el USB y encender la máquina, puede que sea por la BIOS. Para arreglar este problema, debemos entrar en la BIOS de nuestro servidor e ir al apartado de boot options. Una vez ahí, comprobamos que la opción de USB sea la primera en la lista; de esta forma le indicamos a la BIOS que, al iniciar el servidor, el primer lugar donde tiene que buscar un sistema es en el USB. Una vez acabado, reiniciamos el servidor y comprobamos si esta vez funciona.</li> 
 <li><strong>Configuración inicial:</strong> Una vez iniciado PROXMOX, nos pedirá rellenar una serie de información. Lo primero es seleccionar el disco duro en el que queremos almacenar toda la información. A continuación, seleccionamos nuestro país, zona horaria y el idioma de nuestro teclado. Después, establecemos una contraseña para poder acceder. También pide agregar un correo electrónico. En nuestro caso, como es para un proyecto y no se usará como servidor profesional, simplemente cambiamos la extensión ".invalid" por ".com" y le damos a siguiente. Lo último será configurar la red; colocamos el hostname que nosotros queramos, que en nuestro caso es "helpaut.local", escribimos la dirección IP deseada (nosotros hemos decidido que será la 100.77.20.122) y, por último, el gateway y el servidor DNS; en ambos casos hemos colocado la dirección 100.77.20.1.</li>
