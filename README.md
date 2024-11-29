@@ -281,7 +281,7 @@ Como punto positivo, debemos decir que tenemos las IPs de la red interna y la re
         Luego, verificamos que el cliente haya recibido correctamente la dirección IP con el comando <code>ip a</code> o <code>ifconfig</code> (dependiendo de la distribución del cliente).
 </li>
 
-<h3>Conclusión</h3>
+<h3>Resumen</h3>
 <p>En este proyecto, configuramos un servidor DHCP en una máquina Ubuntu utilizando <strong>ISC DHCP Server</strong>. El servidor fue configurado para asignar direcciones IP dentro del rango <strong>10.20.30.26 - 10.20.30.30</strong> en la subred <strong>10.20.30.0/24</strong>. Además, se configuraron los servidores DNS y la puerta de enlace predeterminada para los dispositivos clientes. También asignamos direcciones IP fijas a dispositivos específicos como el servidor DNS (<strong>10.20.30.2</strong>) y el servidor Nginx (<strong>10.20.30.28</strong>). El funcionamiento fue verificado tanto en el servidor como en los clientes, asegurándonos de que el servidor asigna direcciones IP de manera correcta.</p>
 
 <p>Este servidor DHCP está completamente operativo y asigna direcciones IP de manera automática a los dispositivos conectados a la red, mejorando la administración de direcciones en la red local.</p>
@@ -390,7 +390,7 @@ Como punto positivo, debemos decir que tenemos las IPs de la red interna y la re
 </li>
 </ul>
 
-<h3>Conclusión</h3>
+<h3>Resumen</h3>
 <p>En este proyecto, configuramos un servidor DNS con <strong>BIND9</strong> en una máquina Ubuntu, permitiendo la resolución de nombres de dominio directos e inversos. El servidor DNS está configurado para resolver el dominio <strong>helpaut.local</strong> a la IP <strong>10.20.30.2</strong>, y también se configuró una zona inversa que permite resolver la IP <strong>10.20.30.2</strong> al nombre <strong>dns.helpaut.local</strong>. Además, se configuraron servidores DNS reenviadores para resolver dominios fuera de nuestra red local. Todo fue verificado utilizando el comando <strong>nslookup</strong> para asegurar que el servidor DNS estaba funcionando correctamente.</p>
 
 <p>Este servidor DNS es completamente operativo y accesible tanto para consultas directas como inversas desde cualquier máquina cliente.</p>
