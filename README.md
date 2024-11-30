@@ -515,31 +515,33 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
 <p>Este servidor DNS es completamente operativo y accesible tanto para consultas directas como inversas desde cualquier máquina cliente.</p>
 
 <p> Como punto positivo, debemos decir que tenemos las IPs de la red interna y la red externa configuradas. Nos hace ping al DNS y también a internet (8.8.8.8). </p>
-<h2>Configuración y explicacion NGINX</h2>
-<p> Nginx es un software de codigo abierto, es decir que cualquier persona puede usarlo y modificarlo o configuracion a su propia eleccion, nosotros usaremos este software para poder alojar nuestra pagina web, esto lo haremos configurandolo en su propia maquina virtual creada y configurada en PROXMOX. Para poder usarlo como es obvio necesitamos configurarlo primero y estos son los pasos que hemos seguido para poder hacerlo </p>
+<h2>Instalación NGINX</h2>
+<p> Nginx es un software de código abierto, es decir, que cualquier persona puede usarlo y modificarlo o configurarlo a su propia elección. Nosotros usaremos este software para poder alojar nuestra página web, y esto lo haremos configurándolo en su propia máquina virtual creada y configurada en PROXMOX. Para poder usarlo, como es obvio, necesitamos configurarlo primero, y estos son los pasos que hemos seguido para poder hacerlo. </p>
 <ul>
-    <li> El primer paso es instalarlo en nuestra servidor ubuntu, para ello haremos uso del comando sudo apt-get install nginx, de esta forma si no nos ha dado ningun error NGINX quedara instalado. En el caso de que nos haya surgido un error puede ser por algun fallo con la red o el acceso a internet, si pasa ello lo primero es hacer un sudo apt-update para actualizar los paquetes del sistema. Si el error persiste es posible que salga un mensaje con el codigo de error, podemos copiarlo y buscar porque falla y que indica este codigo</li>
-    <li> Una vez instalado deberemos poner en marcha el servicio, esto lo haremos con el comando sudo service nginx start, si no tenemos ningun problema nuestro NGINX debera estar ya en funcionamiento, para comporbar esto podemos escribir en nuestro navegador de preferencia localhost, si todo funciona nos saldra un mensje de bienvenida a la pagina de NGINX</li>
-    <li> Al comporobar el buen funcionamiento de los pasos anteriores podemos empezar con la configuracion. Lo primero sera mejorar el rendimiento del servicio editando el archivo nginx.conf que se encuentra en la ruta /etc/nginx. Al acceder a esta nos dirigiremos al apartado events y nos fijaremos donde pone worker_connections, si el numero que nos indica es 768 es recomendable cambiarlo por 1024, esto nos permitira determinar el numero maximo de conexiones permitidas, en este mismo apartado tambien podemos modificar y activar ell keepalive_timeot, esto nos permitira que el navegador cargue el contenido de la pagina con solo una conexion TCP.</li>
-    <li> Ahora si podemos empezar a configurar nuestro sitio web: Para ello necesitaremos crear una carpeta en la ruta /var/ww/html en nuestro caso la carpeta se llama helpaut.com de forma que la ruta quedaria asi, /var/www/html/helpaut.com. Una vez creada accedemos a ella y modificandola usando nano escribiremos lo siguiente:
-        server {
+    <li> El primer paso es instalarlo en nuestro servidor Ubuntu. Para ello haremos uso del comando <code>sudo apt-get install nginx</code>, de esta forma, si no nos ha dado ningún error, NGINX quedará instalado. En el caso de que nos haya surgido un error, puede ser por algún fallo con la red o el acceso a internet. Si pasa eso, lo primero es hacer un <code>sudo apt update</code> para actualizar los paquetes del sistema. Si el error persiste, es posible que salga un mensaje con el código de error, podemos copiarlo y buscar por qué falla y qué indica este código.</li>
+    <li> Una vez instalado, deberemos poner en marcha el servicio. Esto lo haremos con el comando <code>sudo service nginx start</code>. Si no tenemos ningún problema, nuestro NGINX deberá estar ya en funcionamiento. Para comprobar esto, podemos escribir en nuestro navegador de preferencia <code>localhost</code>. Si todo funciona, nos saldrá un mensaje de bienvenida a la página de NGINX.</li>
+    <li> Al comprobar el buen funcionamiento de los pasos anteriores, podemos empezar con la configuración. Lo primero será mejorar el rendimiento del servicio editando el archivo <code>nginx.conf</code> que se encuentra en la ruta <code>/etc/nginx</code>. Al acceder a este, nos dirigiremos al apartado <code>events</code> y nos fijaremos donde pone <code>worker_connections</code>. Si el número que nos indica es 768, es recomendable cambiarlo por 1024. Esto nos permitirá determinar el número máximo de conexiones permitidas. En este mismo apartado, también podemos modificar y activar el <code>keepalive_timeout</code>, lo que nos permitirá que el navegador cargue el contenido de la página con solo una conexión TCP.</li>
+    <li> Ahora sí podemos empezar a configurar nuestro sitio web. Para ello necesitaremos crear una carpeta en la ruta <code>/var/www/html</code>. En nuestro caso, la carpeta se llama <code>helpaut.com</code>, de forma que la ruta quedaría así: <code>/var/www/html/helpaut.com</code>. Una vez creada, accedemos a ella y modificándola usando <code>nano</code>, escribiremos lo siguiente:</li>
+        <pre><code>
+server {
   listen 80;
   listen [::]:80;
   
-  root /var/www/html/example.com;
-  index index.html index.htm index.nginx-debian.html
-  server_name example.com www.example.com;
+  root /var/www/html/helpaut.com;
+  index index.html index.htm index.nginx-debian.html;
+  server_name helpaut.com www.helpaut.com;
   
-  location /{
-    try_files $uri $uri/=404;
+  location / {
+    try_files $uri $uri/ =404;
   }
-} </li>
+}
+</code></pre>
+    <li> A continuación, crearemos un enlace entre el directorio y nuestro archivo recién creado para habilitarlo. Esto lo haremos con el comando <code>sudo ln -s /etc/nginx/sites-available/helpaut.com /etc/nginx/sites-enabled/</code>.</li>
+    <li> Lo siguiente será crear una carpeta que contendrá todos los archivos e imágenes de nuestra página web. Esto lo hacemos con el comando <code>sudo mkdir -p /var/www/html/helpaut.com</code>. A esta carpeta le podemos asignar permisos con el comando <code>sudo chmod -R 755 /var/www/html/helpaut.com</code>.</li>
+    <li> Continuando, es hora de crear la página web de ejemplo para probar su correcto funcionamiento. Para esto, creamos el archivo dentro de la carpeta de <code>helpaut.com</code> usando el comando <code>sudo nano /var/www/html/helpaut.com/index.html</code> y dentro escribimos nuestro código de ejemplo para comprobar que se puede mostrar.</li>
+    <li> Si todo va bien, al colocar la IP de nuestra máquina seguida de <code>/helpaut.com</code> en nuestro navegador, nos debería mostrar el código recién creado.</li>
+    <li> Entonces, llega la hora de probar si PHP funcionaría.</li>
 </ul>
-<li>A continuacion crearemos un enlace entre el directorio y nuestro archivo recien crado para habilitarlo, esto lo haremos con el comando sudo ln -s /etc/nginx/sites-available/helpaut.com   /etc/nginx/sites-enabled/</li>
-<li>Lo siguiente sera crear una carpeta que contedra todos los archivo e imagenes de nuestra pagina web, esto lo hacemos con el comando sudo mkdir -p /var/www/html/helpaut.com, a esta carpeta le podemos asignar permisos con el comando sudo chmod -R 755 /var/www/html/helpaut.com</li>
-<li>Continuando es hora de crear la pagina web de ejemplo para probar su correcto funcionamiento, para esto creamos el archivo dentro de la carpeta de helpaut.com usando el comando sudo nano /var/www/html/example.com/helpaut.html y dentro escribimos nuestro codigo de ejemplo para comprobar que se puede mostrar</li>
-<li>Si todo va bien al colocar la ip de nuestra maquina seguido de /helpaut.com en nuestro navegador nos deberia mostrar el codigo recien creado</li>
-<li>Entonces llega la hora de probar si PHP funcionaria.</li>
 
 <h3>Pasos para Configurar Nginx y PHP</h3>
 <h4>Crear un archivo de prueba PHP</h4>
@@ -558,23 +560,23 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
 <li>sudo systemctl status php7.4-fpm  # Esto verifica que la versión de PHP sea la correcta</li>
 <p>Esto nos confirmará que el servicio PHP-FPM está activo.</p>
         
-<h3>Configuración PHP-FPM</h3>
+<h4>Configuración PHP-FPM</h4>
 <p>Debemos asegurarnos de que PHP-FPM esté configurado para trabajar con Nginx. Para ello, abrimos el archivo de configuración con:</p>
 <li>sudo nano /etc/php/7.4/fpm/pool.d/www.conf</li>
-<p>Busca la línea <code>listen = /run/php/php7.4-fpm.sock</code> y nos aseguramos de que no tenga un <code>;</code> al principio. Esto permite que Nginx se comunique con PHP-FPM.</p>
+<p>Buscamos la línea <code>listen = /run/php/php7.4-fpm.sock</code> y nos aseguramos de que no tenga un <code>;</code> al principio. Esto permite que Nginx se comunique con PHP-FPM.</p>
 <p>Si vemos que estamos usando una versión diferente de PHP, la cambiamos la versión en la ruta del archivo.</p>
       
-<h3>Reinicia los servicios</h3>
-<p>Una vez configurado todo, reinicia los servicios de PHP-FPM y Nginx para aplicar los cambios:</p>
+<h4>Reiniciar los servicios</h4>
+<p>Una vez configurado todo, debemos reiniciar los servicios de PHP-FPM y Nginx para aplicar los cambios:</p>
 <li>sudo systemctl restart php7.4-fpm</li>
 <li>sudo systemctl restart nginx</li>
         
-<h3>Verifica que todo esté funcionando</h3>
+<h4>Verifica que todo esté funcionando</h4>
 <p>Ahora abre un navegador y accede a <code>http://helpaut.com</code> o la IP de tu servidor si no tienes un dominio. Si todo está bien, verás una página con información sobre la configuración de PHP.</p>
 <p>Si creaste el archivo <code>index.php</code> con <code>phpinfo()</code>, deberías ver una página con detalles de PHP.</p>
         
-<h3>Configura el DNS (si tienes un dominio real)</h3>
-<p>Si tienes un dominio como <code>helpaut.com</code>, asegúrate de que apunte a la IP pública de tu servidor. Para ello, en tu proveedor de dominio, crea un registro A que apunte a la IP de tu servidor Nginx (por ejemplo, <code>100.77.20.69</code>).</p>
+<h4>Configuración el DNS (si tienes un dominio real)</h4>
+<p>Nuestro dominio <code>helpaut.com</code> debemos asegurarnos de que apunta a la IP pública de nuestro servidor. Para ello, en nuestro proveedor de dominio, creamos un registro A que apunte a la IP del servidor Nginx es decir, apuntará a la IP 100.77.20.69.</p>
 
 <h3>Resumen</h3>
     <ul>
