@@ -549,6 +549,7 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
             <pre><code>&lt;?php
     phpinfo();
 ?&gt;</code></pre>
+    <ol>
             <p>Este código mostrará la configuración de PHP cuando accedamos al sitio.</p>
         </li>
 
