@@ -186,6 +186,30 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 </details>
 
 <details>
+<summary><h2>Diagrama de Red</h2></summary>
+<p>
+    En este proyecto, hemos diseñado una infraestructura de red utilizando Proxmox, una plataforma de virtualización, en la que hemos configurado diversas máquinas virtuales (VM) con roles específicos para gestionar y desplegar un servidor web. El objetivo es crear una red interna de máquinas virtuales que se comuniquen entre sí y con la red externa de manera eficiente, permitiendo un acceso fluido a los servicios web y de base de datos.
+</p>
+<p>
+    El diagrama de red está compuesto por las siguientes máquinas virtuales:
+    <ul>
+        <li><strong>VM Router: </strong>  Esta máquina actúa como el punto de conexión entre nuestra red interna (10.20.30.0/24) y la red externa. Su función principal es enrutar el tráfico entre ambas redes y permitir el acceso a Internet. Además, se encarga de asignar direcciones IP fijas a las máquinas de la red interna a través del servidor DHCP configurado en ella. Las direcciones IP asignadas por el router están configuradas para ser estáticas, es decir, siempre asignarán la misma IP a los dispositivos que se conecten a la red interna.</li> 
+    <li><strong>VM DNS:</strong> Se configura como el servidor DNS dentro de la red interna, lo que permite que los dispositivos de la red resuelvan nombres de dominio a direcciones IP. Esto facilita el acceso a servicios como helpaut.com sin tener que recordar las direcciones IP específicas.</li>
+    <li><strong>VM DHCP:</strong> Aunque el servidor DHCP se encuentra en el router, se asegura que las direcciones IP asignadas a los dispositivos de la red interna sean siempre fijas, dentro del rango de 10.20.30.26 a 10.20.30.30. Esto asegura que las máquinas siempre reciban la misma IP, lo que resulta útil para los servidores, como el DNS, Nginx y MySQL.</li>
+    <li><strong>VM Nginx:</strong> Esta máquina virtual tiene instalado el servidor web Nginx, que se encarga de servir nuestra página web. Nginx recibe las solicitudes HTTP de la red externa y responde con el contenido de nuestro sitio web.</li>
+    <li><strong>VM MySQL: </strong> En esta máquina virtual se aloja la base de datos MySQL, que contiene todos los datos dinámicos necesarios para el funcionamiento de nuestro sitio web, como la información de los usuarios, el contenido y las configuraciones.</li>
+    </ul>
+</p>
+<p>
+    En la red interna, las direcciones IP fijas son asignadas dentro del rango 10.20.30.26 a 10.20.30.30, con el servidor DNS en 10.20.30.2, el servidor Nginx en 10.20.30.28 y el servidor MySQL en 10.20.30.30. El router tiene asignadas dos interfaces de red: una con la IP 10.20.30.1 para la red interna y otra con la IP 100.77.20.69 para la red externa. De este modo, el router puede enrutar el tráfico entre ambas redes y permitir que los servicios internos se conecten con el mundo exterior.
+</p>
+<p>
+    La red está configurada para enrutar el tráfico correctamente entre la red interna y externa, lo que permite que todos los servicios, como el servidor web, la base de datos y el servicio DNS, funcionen de manera coordinada y estable.
+</p>
+</details>
+
+
+<details>
 <summary><h2>Instalación y configuración de PROXMOX</h2></summary>
 <p>
     A continuación, explicaré qué es PROXMOX y para qué lo usaremos, además de los pasos que hemos seguido para su instalación, configuración y creación de las máquinas:
