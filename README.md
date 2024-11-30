@@ -3,7 +3,8 @@
 <h2>Trabajo realizado por</h2>
 <p>Albert, David y Mariona</p>
 
-<h2>Explicación de la idea del proyecto</h2>
+<details>
+<summary><h2>Explicación de la idea del proyecto</h2></summary>
     <p>
         Nuestra plataforma responde a una necesidad urgente: facilitar el acceso a profesionales de la psicología para niños autistas y adultos con esta condición. Reconocemos que encontrar un terapeuta adecuado, que se ajuste a las necesidades individuales y establezca una relación de confianza, es un reto para muchas familias.
 
@@ -13,7 +14,7 @@ Además, la plataforma contará con una agenda para gestionar citas y videotutor
 
 Buscamos crear un recurso integral que conecte a personas autistas con psicólogos adecuados, promoviendo una atención psicológica de calidad y contribuyendo al bienestar de la comunidad autista.
     </p>
-
+</details>
 <h2>Objetivo que se persigue</h2>
     <p>
        El objetivo principal de nuestra plataforma es facilitar el acceso a servicios de psicología para personas con autismo y sus familias, asegurando que puedan conectarse fácilmente con profesionales capacitados que les brinden el apoyo que necesitan. Nuestra propuesta surge de la dificultad que enfrentan muchas personas para encontrar un psicólogo adecuado, con quien puedan establecer un seguimiento continuo y una conexión de confianza.
