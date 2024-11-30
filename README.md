@@ -738,8 +738,9 @@ Tras corregir estos errores, logramos estructurar correctamente la base de datos
     Con estos ajustes, logramos conectar correctamente nuestra base de datos con el HTML, y a partir de nuestro código en PHP, pudimos empezar a registrar usuarios, que en este caso son pacientes, en la BBDD. Los registros eran visibles desde PHP, y todas las pruebas se realizaron en local usando XAMPP. Además, validamos que los usuarios registrados pudieran iniciar sesión correctamente.
     Diseñamos una página de prueba que redirige a una página de bienvenida tras un login exitoso. Como este proyecto abarca todo el curso, hemos implementado inicialmente el registro y login para un solo tipo de usuario: los pacientes. Sin embargo, el plan es habilitar tres tipos diferentes de registro mediante formularios, lo cual está en desarrollo y se presentará al final del curso. Para la primera entrega, el enfoque está en el registro e inicio de sesión de pacientes únicamente.
     </p>
+</details>
 
-
+<details>
 <h2>Programación</h2>
 
 <h3>Cambio de Funcionalidades</h3>
@@ -791,9 +792,8 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 <p>
     Toda esta investigación la fuimos guardando en un documento de Google Drive. Hay que decir que el documento es un poco caótico y desordenado, ya que lo hicimos como referencia para nosotros y no pensábamos que tendríamos que entregarlo. Aun así, nos sirvió muchísimo para desarrollar un proyecto que no solo se centrara en la parte técnica, sino que también tuviera contenido de calidad y estuviera bien pensado.
     </p>
-</details>
 
-<details>
+
 <h3>Programación</h3>
 
 <p>
