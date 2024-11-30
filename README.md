@@ -579,11 +579,11 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
      En cuanto al desarrollo técnico, diseñamos, modificamos y depuramos diversos códigos en HTML y CSS para garantizar una apariencia atractiva y funcional en la web. Además, implementamos varios scripts en JavaScript que añadieron dinamismo y funcionalidades esenciales, como:
 
       <ul>
-            <li>La eliminación de usuarios.</li>
-            <li>La opción de mostrar u ocultar contraseñas en las páginas de login y registro.</li>
-            <li>Animaciones en la página principal.</li>
-            <li>Carruseles, filtros y otros efectos interactivos.</li>
-        </ul>
+    <li>La eliminación de usuarios.</li>
+    <li>La opción de mostrar u ocultar contraseñas en las páginas de login y registro.</li>
+    <li>Animaciones en la página principal.</li>
+    <li>Carruseles, filtros y otros efectos interactivos.</li>
+</ul>
 <p>      
     También integramos librerías externas para complementar estas funcionalidades. Por supuesto, desarrollamos el código PHP necesario para conectar nuestra página con la base de datos, asegurando que todo funcionara correctamente en conjunto.
      </p>
