@@ -321,7 +321,9 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
   </li>
   <li><strong>IP del router en la red externa:</strong> 100.77.20.69</li>
 </ul>
+</p>
 
+<p> 
     En definitiva este router es la pieza clave que conecta nuestra red interna (donde están todos nuestros servidores) con el mundo exterior. Sin él, los dispositivos de la red interna no podrían comunicarse con otros dispositivos fuera de ella. Además, al funcionar como servidor DHCP, asegura que todos los dispositivos dentro de la red interna tengan direcciones IP válidas para poder interactuar entre sí y con el exterior.
 </p>
 
