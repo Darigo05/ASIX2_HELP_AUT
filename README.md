@@ -52,16 +52,16 @@ En resumen, nuestra intención es crear un espacio donde las personas autistas y
 Además, es importante destacar que la terapia ofrecida a través de nuestra plataforma es más asequible que la terapia convencional privada. Esto permite que más personas tengan acceso a servicios psicológicos de calidad, contribuyendo así a una atención más accesible y regular. Nuestro objetivo es garantizar que todos los usuarios, independientemente de su situación económica, puedan beneficiarse de la terapia y el apoyo que necesitan.
     </p>
 
-<summary><h3>Planes</h3></summary>
+<h3>Planes</h3>
 
-<summary><strong>Plan Básico:</strong></summary> El Plan Básico está diseñado para ofrecer a los usuarios acceso a los servicios esenciales sin ningún costo. Este plan incluye:
+<strong>Plan Básico:</strong> El Plan Básico está diseñado para ofrecer a los usuarios acceso a los servicios esenciales sin ningún costo. Este plan incluye:
 <ul>
  <li>Mailbox </li>
  <li>Buscador de Psicólogos: Los usuarios solo pueden hacer "match" con un máximo de 5 psicólogos al mes. </li>
 </ul>
 </ul>
 
-<summary><strong>Plan Premium:</strong></summary> El Plan Premium está diseñado para aquellos que buscan una experiencia más completa y personalizada. Este plan incluye todos los beneficios del Plan Básico, además de características avanzadas:
+<strong>Plan Premium:</strong> El Plan Premium está diseñado para aquellos que buscan una experiencia más completa y personalizada. Este plan incluye todos los beneficios del Plan Básico, además de características avanzadas:
 <ul>
  <li>Mailbox </li>
  <li>Matches Ilimitados con Psicólogos: A diferencia del plan básico, los usuarios del plan premium pueden hacer "match" con la cantidad que deseen,         
@@ -73,6 +73,7 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
 </ul>
 </details>
 
+<details>
 <summary><h2>Organización y roles del equipo</h2></summary>
     <p>
     Todos estaremos involucrados en cada etapa de este proyecto, pero cada uno tendrá un área de especialización:
@@ -85,8 +86,10 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
     <p>
        Al finalizar cada tarea asignada, haremos una revisión conjunta de los avances y actualizaremos tanto <strong>Trello</strong> como nuestro repositorio en <strong>GitHub</strong>. para que nuestros profesores puedan ver y revisar la evolución del proyecto, además de sugerir cambios o mejoras para obtener un mejor resultado. Esto también se hará para resolver dudas que puedan surgir.
     </p>
+</details>
 
-<h2>Tecnologías a utilizar (lenguajes, frameworks, sistemas, software)</h2>
+<details>
+<summary><h2>Tecnologías a utilizar (lenguajes, frameworks, sistemas, software)</h2></summary>
 
 - **Front-end:** Para el desarrollo del front-end de la página web, utilizaremos HTML como la estructura básica del proyecto, CSS para mejorar la apariencia visual y JavaScript para añadir interactividad y facilitar la conexión con el backend. También implementaremos Bootstrap para agilizar el desarrollo y asegurar que la página sea responsive y brinde una buena experiencia de usuario.
   
@@ -97,9 +100,10 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
   - **Servidor DNS:** Crearemos una máquina virtual dedicada a los servicios DNS, que permitirá la resolución de nombres de dominio en la red interna, facilitando el acceso entre las diferentes máquinas y servicios dentro de la infraestructura.
   - **Servidor Nginx:** Implementaremos una máquina virtual exclusiva para Nginx, que servirá como servidor web, gestionando las solicitudes y actuando como intermediario entre el front-end y el back-end. Esta máquina también funcionará como cliente en la red interna, facilitando la comunicación con el servidor de base de datos.
   - **Base de Datos MySQL:** Implementaremos una máquina virtual exclusiva para alojar nuestra base de datos MySQL. Esto nos permitirá crear e importar la base de datos de manera eficiente y conectar MySQL con Nginx, garantizando una comunicación estable entre el servidor de aplicaciones y la base de datos.
+</details>
 
-
-<h2>Estilo web</h2>
+<details>
+<summary><h2>Estilo web</h2></summary>
     <p>
       En nuestra página web, nos hemos propuesto transmitir una sensación de tranquilidad y seriedad simultáneamente. Este enfoque está diseñado para que los usuarios que la visitan por primera vez la encuentren visualmente atractiva y acogedora. Reconocemos que no todas las personas están familiarizadas con la navegación en línea, especialmente aquellas que buscan apoyo en temas delicados como el autismo. Por ello, hemos diseñado la plataforma con una accesibilidad intuitiva, permitiendo que cualquier usuario, independientemente de su experiencia digital, pueda acceder y navegar sin complicaciones.
 
@@ -121,8 +125,10 @@ En conclusión, nuestra página no solo es un recurso valioso para padres de ni�
     </p> 
     
 [Documento del mockup](HELP_AUT.pdf)
-    
-<h2>Logotipo</h2>
+</details>
+
+<details>   
+<summary><h2>Logotipo</h2></summary>
     <p>
     El logotipo debe ser distintivo, pero no excesivamente recargado. Debe alinearse con la paleta de colores de la página y contar con elementos que reflejen la misión de nuestra plataforma. Siguiendo nuestras pautas estilísticas, el diseño debe ser sencillo y fácilmente reconocible, incluso en versiones reducidas.
 
@@ -131,9 +137,10 @@ Nuestra propuesta visual es un árbol en crecimiento que, en lugar de tener una 
 
     
 ![Logotipo](Img/LogoHelpAut.png)
+</details>
 
-    
-<h2>Funcionalidades de la página (Susceptible a futuros cambios)</h2>
+<details>
+<summary><h2>Funcionalidades de la página (Susceptible a futuros cambios)</h2></summary>
 <p>
     Es fundamental que consideremos una variedad de funcionalidades para nuestra página web. Estas funcionalidades deben abarcar desde las más básicas, que son comunes a cualquier sitio web, hasta opciones más avanzadas y específicas que se alineen con la misión de nuestra plataforma. Para facilitar este proceso, hemos decidido repartir la responsabilidad de desarrollar estas funcionalidades entre todos los integrantes del equipo.
 
@@ -162,8 +169,10 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 </ul>
 
 [Documento funcionalidades](REPARTO_FUNCIONALIDADES.pdf)
+</details>
 
-<h2>Especificaciones técnicas</h2>
+<details>
+<summary><h2>Especificaciones técnicas</h2></summary>
 <p>
   A continuación, mostraremos una lista con las especificaciones técnicas de los dispositivos que usaremos para este proyecto. Estas funcionalidades son tanto físicas, en el caso del servidor, como virtuales, en el caso de las máquinas virtuales.
 </p>   
@@ -174,8 +183,10 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 <li><strong>Sistema operativo:</strong> Por instrucción de nuestros profesores, contamos con el sistema operativo Ubuntu Server 22.04.2 en todas las máquinas que proporcionan algún servicio. Esta es una variedad de Ubuntu dedicada exclusivamente para servidores y que no funciona de forma gráfica, es decir, que todo lo que configuremos dentro se tendrá que realizar por comandos.</li>
 <li><strong>Adaptadores de red:</strong> Contamos con dos adaptadores. El primero es el adaptador vmbr0 con la IP 100.77.20.122/24. Este es el adaptador que nos da por defecto PROXMOX, y por eso cuenta con la misma dirección de red que él. Este adaptador estará conectado a la máquina de router para que pueda acceder al exterior. El segundo con el que contamos es el adaptador de red vmbr1 con la IP 10.20.30.40/24. Este adaptador será el encargado de la red interna; este se conectará con todas las máquinas para poder ofrecer una conexión interna entre todas.</li>
 </ul>
+</details>
 
-<h2>Instalación y configuración de PROXMOX</h2>
+<details>
+<summary><h2>Instalación y configuración de PROXMOX</h2></summary>
 <p>
     A continuación, explicaré qué es PROXMOX y para qué lo usaremos, además de los pasos que hemos seguido para su instalación, configuración y creación de las máquinas:
 </p>
@@ -198,8 +209,10 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 <li><strong>Iniciar PROXMOX en remoto:</strong> Para poder acceder a PROXMOX desde un ordenador diferente en remoto, necesitamos estar en la misma red local. Una vez asegurados de estarlo, solo tenemos que colocar la IP de nuestro servidor en el buscador de Google, seguido de :8006, que es el puerto TCP/UDP. Una vez hecho esto, nos pedirá que iniciemos nuestra sesión con las credenciales que hemos especificado antes.</li>
 <li><strong>Crear máquinas virtuales:</strong> Para crear máquinas virtuales es muy sencillo. Lo único que tenemos que hacer es dirigirnos al apartado Create VM, que se sitúa en la parte superior derecha de la página de PROXMOX. Una vez hecho esto, le indicamos la información que se nos pide y confirmamos. Una buena práctica sería que, al ya tener una máquina hecha y con la configuración básica, podamos maquetarla para poder replicarla las veces que nos haga falta. Para esto, le daremos clic derecho en la máquina que queramos y pulsaremos "Create Template".</li>
 </ul>
+</details>
 
-<h2>Incidencias</h2>
+<details>
+<summary><h2>Incidencias</h2></summary>
 <p> Hemos tenido distintas incidencias en este apartado. Una de ellas fue que entendimos mal el diagrama de red y borramos la máquina que teníamos configurada del router. Tuvimos que volver a empezar todas las máquinas desde cero como consecuencia.
 
 Otra de las incidencias con las que nos hemos encontrado actualmente son las iptables; generamos demasiadas y tuvimos que investigar cómo eliminarlas y volverlas a crear desde cero. Lo resolvimos, pero nos encontramos con otro problema: estaba configurado como "drop" en vez de estar accesible para la red. Actualmente, todavía estamos intentando solventar este incidente, ya que todos los comandos que hemos probado no solucionan el problema.
@@ -209,8 +222,10 @@ Otro de los problemas que tenemos es que no nos hace ping a google.com. Creemos 
 Adicionalmente, teníamos mal configurado el router con los DNS emde18 y emde19.
 
 Como punto positivo, debemos decir que tenemos las IPs de la red interna y la red externa configuradas. Nos hace ping al DNS y también a internet (8.8.8.8). </p>
+</details>
 
-<h2>Configuración de ROUTER</h2>
+<details>
+<summary><h2>Configuración de ROUTER</h2></summary>
 <h3>¿Por qué este dispositivo es un router y qué hace?</h3>
 <p> 
 En nuestro proyecto, hemos creado una máquina virtual que funciona como un router. ¿Qué significa esto? Un router es un dispositivo que conecta dos redes diferentes y permite que los dispositivos de esas redes se comuniquen entre sí. En nuestro caso, la red interna, donde están nuestros servidores, y la red externa, que es el "mundo exterior", como si fuera Internet.
@@ -326,9 +341,10 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
 <p> 
     En definitiva este router es la pieza clave que conecta nuestra red interna (donde están todos nuestros servidores) con el mundo exterior. Sin él, los dispositivos de la red interna no podrían comunicarse con otros dispositivos fuera de ella. Además, al funcionar como servidor DHCP, asegura que todos los dispositivos dentro de la red interna tengan direcciones IP válidas para poder interactuar entre sí y con el exterior.
 </p>
+</details>
 
-
-<h2> Configuración de DHCP</h2>
+<details>
+<summary><h2> Configuración de DHCP</h2></summary>
 <li><strong>Instalación de DHCP:</strong> Para comenzar, instalamos <strong>ISC DHCP Server</strong>, que es una herramienta muy utilizada para asignar direcciones IP de manera automática a los dispositivos dentro de una red. Utilizamos el siguiente comando para la instalación:
         <pre>sudo apt install isc-dhcp-server</pre>
         Este comando instala el servidor DHCP sin dependencias adicionales ni documentación. Si se presenta algún problema durante la instalación, se recomienda verificar la conectividad de red y actualizar los paquetes con <code>sudo apt update</code> antes de intentar la instalación nuevamente.
@@ -412,8 +428,10 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
 <p>Este servidor DHCP está completamente operativo y asigna direcciones IP de manera automática a los dispositivos conectados a la red, mejorando la administración de direcciones en la red local.</p>
 
 <p>Como punto positivo, hemos verificado que los dispositivos clientes reciben correctamente las direcciones IP configuradas y tienen acceso a los recursos de red, como los servidores DNS y la puerta de enlace predeterminada.</p>
+</details>
 
-<h2>Configuración del Servidor DNS</h2>
+<details>
+<summary><h2>Configuración del Servidor DNS</h2></summary>
 <p>En este proyecto hemos configurado un servidor DNS utilizando <strong>BIND9</strong> en un sistema Ubuntu. Nuestro servidor DNS tiene el nombre de dominio <strong>dns.helpaut.local</strong> y la dirección IP <strong>10.20.30.2</strong>. Además de la zona directa, hemos configurado una zona inversa para resolver las direcciones IP en nombres de dominio. A continuación, explicamos los pasos que seguimos para su configuración.</p>
 
 <ul>
@@ -521,7 +539,10 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
 <p>Este servidor DNS es completamente operativo y accesible tanto para consultas directas como inversas desde cualquier máquina cliente.</p>
 
 <p> Como punto positivo, debemos decir que tenemos las IPs de la red interna y la red externa configuradas. Nos hace ping al DNS y también a internet (8.8.8.8). </p>
-<h2>Instalación NGINX</h2>
+</details>
+
+<details>
+<summary><h2>Instalación NGINX</h2></summary>
 <p> Nginx es un software de código abierto, es decir, que cualquier persona puede usarlo y modificarlo o configurarlo a su propia elección. Nosotros usaremos este software para poder alojar nuestra página web, y esto lo haremos configurándolo en su propia máquina virtual creada y configurada en PROXMOX. Para poder usarlo, como es obvio, necesitamos configurarlo primero, y estos son los pasos que hemos seguido para poder hacerlo. </p>
 <ul>
     <li> El primer paso es instalarlo en nuestro servidor Ubuntu. Para ello haremos uso del comando <code>sudo apt-get install nginx</code>, de esta forma, si no nos ha dado ningún error, NGINX quedará instalado. En el caso de que nos haya surgido un error, puede ser por algún fallo con la red o el acceso a internet. Si pasa eso, lo primero es hacer un <code>sudo apt update</code> para actualizar los paquetes del sistema. Si el error persiste, es posible que salga un mensaje con el código de error, podemos copiarlo y buscar por qué falla y qué indica este código.</li>
@@ -592,8 +613,10 @@ server {
         <li>Crear la carpeta del sitio y colocar los archivos de tu web en <code>/var/www/helpaut.com</code>.</li>
         <li>Configurar el DNS de nuestro dominio para que apunte a la IP de nuestro servidor Nginx.</li>
     </ul>
+</details>
 
-<h2> Configuración e instalación Mysql</h2>
+<details>
+<summary><h2> Configuración e instalación Mysql</h2></summary>
  <p>En este proyecto nos hemos decantado por crear la base de datos en el lenguaje de Mysql, de esta hablaremos en el siguiente apartado pero ahora vamos a explicar paso a paso la instalción y condiguración que hemos seguido para crear y modificar la maquina servidor que lo contiene y todas las configuraciones de este</p>
 <h3>Configuración servidor en PROXMOX</h3>
          <ul>
@@ -648,7 +671,10 @@ server {
 <li><b>Implementación archivo a MySQL:</b> Ahora que ya tenemos nuestro archivo dentro de la misma máquina en la que tenemos instalado MySQL es hora de implementarla, para esto usamos el comando muysql -u "nuestro usario de mysql" -p "dirección de nuestro archivo" < "dirección de la base de datos en mysql" </li>
     </ul>
     <p>Si hemos seguido todos los pasos correctamente deberiamos tener ya nuestra base de datos importada en nuestro mySQL</p>
-<h2>Base de datos</h2>
+</details>
+
+<details>
+<summary><h2>Base de datos</h2></summary>
 <h3>Diagrama de BBDD</h3>
 <h4>Primera fase</h4>
 <p>
@@ -769,5 +795,5 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 <p>
      Todo el desarrollo se encuentra organizado en la carpeta llamada <strong>"HelpAut"</strong>, donde podréis explorar tanto el funcionamiento como el código fuente.
     </p>
-
+</details>
 
