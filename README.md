@@ -767,7 +767,9 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 <p>
     Toda esta investigación la fuimos guardando en un documento de Google Drive. Hay que decir que el documento es un poco caótico y desordenado, ya que lo hicimos como referencia para nosotros y no pensábamos que tendríamos que entregarlo. Aun así, nos sirvió muchísimo para desarrollar un proyecto que no solo se centrara en la parte técnica, sino que también tuviera contenido de calidad y estuviera bien pensado.
     </p>
+</details>
 
+<details>
 <h3>Programación</h3>
 
 <p>
