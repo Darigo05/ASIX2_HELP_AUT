@@ -741,7 +741,7 @@ Tras corregir estos errores, logramos estructurar correctamente la base de datos
 </details>
 
 <details>
-<h2>Programación</h2>
+<summary><h2>Programación</h2></summary>
 
 <h3>Cambio de Funcionalidades</h3>
 
