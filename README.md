@@ -219,7 +219,6 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
 </p>
 
 <h3>¿Qué hace este router?</h3>
-<p> 
     <ul>
         <li><strong>Conecta dos redes:</strong> El router es el encargado de enlazar la red interna (donde están nuestras máquinas virtuales como el servidor de Nginx, MySQL y el servidor DNS) con la red externa. Esto permite que los servidores dentro de nuestra red local puedan acceder a recursos fuera de ella, como si tuviéramos acceso a Internet (aunque en este caso, podría ser otra red, dependiendo del contexto).</li>
         
@@ -230,7 +229,6 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
          <li><strong>Puerta de enlace predeterminada:</strong> Todos los dispositivos de la red interna (como los servidores o cualquier máquina que conectemos) usan este router como su puerta de enlace predeterminada. Esto significa que si un dispositivo necesita comunicarse con algo fuera de la red local, envía ese tráfico al router, que se encarga de redirigirlo a la red externa.</li>
         
     </ul>
-</p>
 
 <h3>¿Cómo se conecta el router con las redes?</h3>
 
