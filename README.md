@@ -570,10 +570,10 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
     Toda esta investigación la fuimos guardando en un documento de Google Drive. Hay que decir que el documento es un poco caótico y desordenado, ya que lo hicimos como referencia para nosotros y no pensábamos que tendríamos que entregarlo. Aun así, nos sirvió muchísimo para desarrollar un proyecto que no solo se centrara en la parte técnica, sino que también tuviera contenido de calidad y estuviera bien pensado.
     </p>
 
-<h3>Cambio de Funcionalidades</h3>
+<h3>Programación</h3>
 
 <p>
-     Para este proyecto, hemos trabajado en múltiples frentes. Desde escribir código desde cero hasta buscar y adaptar plantillas, exploramos diferentes opciones que podrían ajustarse tanto a nuestras ideas de desarrollo como al diseño conceptualizado. Nos aseguramos de que todo siguiera la línea definida en nuestro mockup, investigando y utilizando todas las herramientas y recursos necesarios para lograrlo.
+     Para este proyecto, hemos trabajado en múltiples tareas y de distinta manera. Desde escribir código desde cero hasta buscar y adaptar plantillas, exploramos diferentes opciones que podrían ajustarse tanto a nuestras ideas de desarrollo como al diseño conceptualizado. Nos aseguramos de que todo siguiera la línea definida en nuestro mockup, investigando y utilizando todas las herramientas y recursos necesarios para lograrlo.
     </p>
  <p>
      En cuanto al desarrollo técnico, diseñamos, modificamos y depuramos diversos códigos en HTML y CSS para garantizar una apariencia atractiva y funcional en la web. Además, implementamos varios scripts en JavaScript que añadieron dinamismo y funcionalidades esenciales, como:
@@ -584,6 +584,7 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
             <li>Animaciones en la página principal.</li>
             <li>Carruseles, filtros y otros efectos interactivos.</li>
         </ul>
+<p>      
     También integramos librerías externas para complementar estas funcionalidades. Por supuesto, desarrollamos el código PHP necesario para conectar nuestra página con la base de datos, asegurando que todo funcionara correctamente en conjunto.
      </p>
 <p>
