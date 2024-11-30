@@ -769,7 +769,6 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
         </li>
         <li>Buscador en la página de Admins</li>
         <li>Página de buscador de psicólogos</li>
-        <li>Perfil Psicólogo</li>
         <li>Diversas páginas informativas dentro de nuestra landing page:
             <ul>
                 <li>Conócenos</li>
