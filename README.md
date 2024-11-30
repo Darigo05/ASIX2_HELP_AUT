@@ -548,40 +548,33 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
     phpinfo();
 ?&gt;</code></pre>
 <p>Este código mostrará la configuración de PHP cuando accedamos al sitio.</p>
-        <li>
-            <h3>Instalación PHP y PHP-FPM</h3>
-            <p>Para que Nginx pueda manejar archivos PHP, necesitamos instalar PHP y PHP-FPM. Para ello usamos los siguientes comandos:</p>
-            <pre><code>sudo apt install php-fpm php-mysql</code></pre>
-            <p>PHP-FPM es el servicio que Nginx usará para ejecutar los archivos PHP.</p>
-        </li>
-        <li>
-            <h3>Verificación funcionamiento PHP-FPM</h3>
-            <p>Para asegurarnos de que PHP-FPM está corriendo correctamente, usamos este comando:</p>
-            <pre><code>sudo systemctl status php7.4-fpm  # Esto verifica que la versión de PHP sea la correcta</code></pre>
-            <p>Esto nos confirmará que el servicio PHP-FPM está activo.</p>
-        </li>
-        <li>
-            <h3>Configuración PHP-FPM</h3>
-            <p>Debemos asegurarnos de que PHP-FPM esté configurado para trabajar con Nginx. Para ello, abrimos el archivo de configuración con:</p>
-            <pre><code>sudo nano /etc/php/7.4/fpm/pool.d/www.conf</code></pre>
-            <p>Busca la línea <code>listen = /run/php/php7.4-fpm.sock</code> y nos aseguramos de que no tenga un <code>;</code> al principio. Esto permite que Nginx se comunique con PHP-FPM.</p>
-            <p>Si vemos que estamos usando una versión diferente de PHP, la cambiamos la versión en la ruta del archivo.</p>
-        </li>
-        <li>
-            <h3>Reinicia los servicios</h3>
-            <p>Una vez configurado todo, reinicia los servicios de PHP-FPM y Nginx para aplicar los cambios:</p>
-            <pre><code>sudo systemctl restart php7.4-fpm</code></pre>
-            <pre><code>sudo systemctl restart nginx</code></pre>
-        </li>
-        <li>
-            <h3>Verifica que todo esté funcionando</h3>
-            <p>Ahora abre un navegador y accede a <code>http://helpaut.com</code> o la IP de tu servidor si no tienes un dominio. Si todo está bien, verás una página con información sobre la configuración de PHP.</p>
-            <p>Si creaste el archivo <code>index.php</code> con <code>phpinfo()</code>, deberías ver una página con detalles de PHP.</p>
-        </li>
-        <li>
-            <h3>Configura el DNS (si tienes un dominio real)</h3>
-            <p>Si tienes un dominio como <code>helpaut.com</code>, asegúrate de que apunte a la IP pública de tu servidor. Para ello, en tu proveedor de dominio, crea un registro A que apunte a la IP de tu servidor Nginx (por ejemplo, <code>100.77.20.69</code>).</p>
-        </li>
+<h3>Instalación PHP y PHP-FPM</h3>
+<p>Para que Nginx pueda manejar archivos PHP, necesitamos instalar PHP y PHP-FPM. Para ello usamos los siguientes comandos:</p>
+<li>sudo apt install php-fpm php-mysql</li>
+<p>PHP-FPM es el servicio que Nginx usará para ejecutar los archivos PHP.</p>
+        
+<h3>Verificación funcionamiento PHP-FPM</h3>
+<p>Para asegurarnos de que PHP-FPM está corriendo correctamente, usamos este comando:</p>
+<li>sudo systemctl status php7.4-fpm  # Esto verifica que la versión de PHP sea la correcta</li>
+<p>Esto nos confirmará que el servicio PHP-FPM está activo.</p>
+        
+<h3>Configuración PHP-FPM</h3>
+<p>Debemos asegurarnos de que PHP-FPM esté configurado para trabajar con Nginx. Para ello, abrimos el archivo de configuración con:</p>
+<li>sudo nano /etc/php/7.4/fpm/pool.d/www.conf</li>
+<p>Busca la línea <code>listen = /run/php/php7.4-fpm.sock</code> y nos aseguramos de que no tenga un <code>;</code> al principio. Esto permite que Nginx se comunique con PHP-FPM.</p>
+<p>Si vemos que estamos usando una versión diferente de PHP, la cambiamos la versión en la ruta del archivo.</p>
+      
+<h3>Reinicia los servicios</h3>
+<p>Una vez configurado todo, reinicia los servicios de PHP-FPM y Nginx para aplicar los cambios:</p>
+<li>sudo systemctl restart php7.4-fpm</li>
+<li>sudo systemctl restart nginx</li>
+        
+<h3>Verifica que todo esté funcionando</h3>
+<p>Ahora abre un navegador y accede a <code>http://helpaut.com</code> o la IP de tu servidor si no tienes un dominio. Si todo está bien, verás una página con información sobre la configuración de PHP.</p>
+<p>Si creaste el archivo <code>index.php</code> con <code>phpinfo()</code>, deberías ver una página con detalles de PHP.</p>
+        
+<h3>Configura el DNS (si tienes un dominio real)</h3>
+<p>Si tienes un dominio como <code>helpaut.com</code>, asegúrate de que apunte a la IP pública de tu servidor. Para ello, en tu proveedor de dominio, crea un registro A que apunte a la IP de tu servidor Nginx (por ejemplo, <code>100.77.20.69</code>).</p>
 
 <h3>Resumen</h3>
     <ul>
