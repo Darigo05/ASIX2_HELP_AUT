@@ -15,7 +15,10 @@ Además, la plataforma contará con una agenda para gestionar citas y videotutor
 Buscamos crear un recurso integral que conecte a personas autistas con psicólogos adecuados, promoviendo una atención psicológica de calidad y contribuyendo al bienestar de la comunidad autista.
     </p>
 </details>
-<h2>Objetivo que se persigue</h2>
+
+
+<details>
+<summary><h2>Objetivo que se persigue</h2></summary>
     <p>
        El objetivo principal de nuestra plataforma es facilitar el acceso a servicios de psicología para personas con autismo y sus familias, asegurando que puedan conectarse fácilmente con profesionales capacitados que les brinden el apoyo que necesitan. Nuestra propuesta surge de la dificultad que enfrentan muchas personas para encontrar un psicólogo adecuado, con quien puedan establecer un seguimiento continuo y una conexión de confianza.
 
@@ -27,8 +30,10 @@ Además, la plataforma incluye recursos educativos como videotutoriales que ofre
 
 En resumen, nuestra intención es crear un espacio donde las personas autistas y sus familias puedan acceder a una atención psicológica de calidad de manera rápida, accesible y adaptada a sus necesidades, contribuyendo así a su bienestar y crecimiento personal.
     </p>
+</details>
 
-<h2>Servicios</h2>
+<details>
+<summary><h2>Servicios</h2></summary>
 <p>
        Para asegurar que la plataforma cumpla con sus objetivos, hemos delineado una serie de servicios esenciales y adicionales que se implementarán en diferentes fases del desarrollo. Los servicios básicos incluirán:
 
@@ -47,16 +52,16 @@ En resumen, nuestra intención es crear un espacio donde las personas autistas y
 Además, es importante destacar que la terapia ofrecida a través de nuestra plataforma es más asequible que la terapia convencional privada. Esto permite que más personas tengan acceso a servicios psicológicos de calidad, contribuyendo así a una atención más accesible y regular. Nuestro objetivo es garantizar que todos los usuarios, independientemente de su situación económica, puedan beneficiarse de la terapia y el apoyo que necesitan.
     </p>
 
-<h3>Planes</h3>
+<summary><h3>Planes</h3></summary>
 
-<strong>Plan Básico:</strong> El Plan Básico está diseñado para ofrecer a los usuarios acceso a los servicios esenciales sin ningún costo. Este plan incluye:
+<summary><strong>Plan Básico:</strong></summary> El Plan Básico está diseñado para ofrecer a los usuarios acceso a los servicios esenciales sin ningún costo. Este plan incluye:
 <ul>
  <li>Mailbox </li>
  <li>Buscador de Psicólogos: Los usuarios solo pueden hacer "match" con un máximo de 5 psicólogos al mes. </li>
 </ul>
 </ul>
 
-<strong>Plan Premium:</strong> El Plan Premium está diseñado para aquellos que buscan una experiencia más completa y personalizada. Este plan incluye todos los beneficios del Plan Básico, además de características avanzadas:
+<summary><strong>Plan Premium:</strong></summary> El Plan Premium está diseñado para aquellos que buscan una experiencia más completa y personalizada. Este plan incluye todos los beneficios del Plan Básico, además de características avanzadas:
 <ul>
  <li>Mailbox </li>
  <li>Matches Ilimitados con Psicólogos: A diferencia del plan básico, los usuarios del plan premium pueden hacer "match" con la cantidad que deseen,         
@@ -66,9 +71,9 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
  <li>Agenda </li>
  <li>Videotutoriales </li>
 </ul>
+</details>
 
-
-<h2>Organización y roles del equipo</h2>
+<summary><h2>Organización y roles del equipo</h2></summary>
     <p>
     Todos estaremos involucrados en cada etapa de este proyecto, pero cada uno tendrá un área de especialización:
     </p>
