@@ -221,11 +221,8 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
 <h3>¿Qué hace este router?</h3>
     <ul>
         <li><strong>Conecta dos redes:</strong> El router es el encargado de enlazar la red interna (donde están nuestras máquinas virtuales como el servidor de Nginx, MySQL y el servidor DNS) con la red externa. Esto permite que los servidores dentro de nuestra red local puedan acceder a recursos fuera de ella, como si tuviéramos acceso a Internet (aunque en este caso, podría ser otra red, dependiendo del contexto).</li>
-        
         <li><strong>Gestiona el tráfico:</strong> Cuando un dispositivo de la red interna, como el servidor de Nginx, quiere comunicarse con algo fuera de la red, como un sitio web o un servicio en otra red, el tráfico pasa por el router. El router decide por dónde deben viajar esos datos para llegar a su destino y después vuelve a enviar la respuesta al dispositivo que la solicitó.</li>
-
         <li><strong>Proporciona direcciones IP (DHCP):</strong> Además de ser un router, esta máquina también tiene configurado un servidor DHCP. Esto quiere decir que, cuando un dispositivo en la red interna se conecta, el router le asigna una dirección IP automáticamente dentro de un rango que hemos definido. Esto es importante porque sin una IP, un dispositivo no podría comunicarse con otros en la red. Nuestro rango DHCP es de 10.20.30.26 a 10.20.30.30, y asignamos IPs fijas a ciertos servidores, como al servidor DNS (10.20.30.2) y al servidor Nginx (10.20.30.28).</li>
-
          <li><strong>Puerta de enlace predeterminada:</strong> Todos los dispositivos de la red interna (como los servidores o cualquier máquina que conectemos) usan este router como su puerta de enlace predeterminada. Esto significa que si un dispositivo necesita comunicarse con algo fuera de la red local, envía ese tráfico al router, que se encarga de redirigirlo a la red externa.</li>
         
     </ul>
