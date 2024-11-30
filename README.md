@@ -193,7 +193,7 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 <li><strong>Crear máquinas virtuales:</strong> Para crear máquinas virtuales es muy sencillo. Lo único que tenemos que hacer es dirigirnos al apartado Create VM, que se sitúa en la parte superior derecha de la página de PROXMOX. Una vez hecho esto, le indicamos la información que se nos pide y confirmamos. Una buena práctica sería que, al ya tener una máquina hecha y con la configuración básica, podamos maquetarla para poder replicarla las veces que nos haga falta. Para esto, le daremos clic derecho en la máquina que queramos y pulsaremos "Create Template".</li>
 </ul>
 
-<h2>Configuración de ROUTER</h2>
+<h2>Incidencias</h2>
 <p> Hemos tenido distintas incidencias en este apartado. Una de ellas fue que entendimos mal el diagrama de red y borramos la máquina que teníamos configurada del router. Tuvimos que volver a empezar todas las máquinas desde cero como consecuencia.
 
 Otra de las incidencias con las que nos hemos encontrado actualmente son las iptables; generamos demasiadas y tuvimos que investigar cómo eliminarlas y volverlas a crear desde cero. Lo resolvimos, pero nos encontramos con otro problema: estaba configurado como "drop" en vez de estar accesible para la red. Actualmente, todavía estamos intentando solventar este incidente, ya que todos los comandos que hemos probado no solucionan el problema.
@@ -203,6 +203,129 @@ Otro de los problemas que tenemos es que no nos hace ping a google.com. Creemos 
 Adicionalmente, teníamos mal configurado el router con los DNS emde18 y emde19.
 
 Como punto positivo, debemos decir que tenemos las IPs de la red interna y la red externa configuradas. Nos hace ping al DNS y también a internet (8.8.8.8). </p>
+
+<h2>Configuración de ROUTER</h2>
+<h3>¿Por qué este dispositivo es un router y qué hace?</h3>
+<p> 
+En nuestro proyecto, hemos creado una máquina virtual que funciona como un router. ¿Qué significa esto? Un router es un dispositivo que conecta dos redes diferentes y permite que los dispositivos de esas redes se comuniquen entre sí. En nuestro caso, la red interna, donde están nuestros servidores, y la red externa, que es el "mundo exterior", como si fuera Internet.
+</p>
+
+<p> 
+Esta máquina virtual que hemos configurado como router tiene dos conexiones de red:
+    <ul>
+        <li><strong>ens18:</strong> Conecta a la red externa con la IP 100.77.20.69.</li>
+        <li><strong>ens19:</strong> Conecta a la red interna con la IP 10.20.30.1.</li>
+    </ul>
+</p>
+
+<h3>¿Qué hace este router?</h3>
+<p> 
+    <ul>
+        <li><strong>Conecta dos redes:</strong> El router es el encargado de enlazar la red interna (donde están nuestras máquinas virtuales como el servidor de Nginx, MySQL y el servidor DNS) con la red externa. Esto permite que los servidores dentro de nuestra red local puedan acceder a recursos fuera de ella, como si tuviéramos acceso a Internet (aunque en este caso, podría ser otra red, dependiendo del contexto).</li>
+        
+        <li><strong>Gestiona el tráfico:</strong> Cuando un dispositivo de la red interna, como el servidor de Nginx, quiere comunicarse con algo fuera de la red, como un sitio web o un servicio en otra red, el tráfico pasa por el router. El router decide por dónde deben viajar esos datos para llegar a su destino y después vuelve a enviar la respuesta al dispositivo que la solicitó.</li>
+
+        <li><strong>Proporciona direcciones IP (DHCP):</strong> Además de ser un router, esta máquina también tiene configurado un servidor DHCP. Esto quiere decir que, cuando un dispositivo en la red interna se conecta, el router le asigna una dirección IP automáticamente dentro de un rango que hemos definido. Esto es importante porque sin una IP, un dispositivo no podría comunicarse con otros en la red. Nuestro rango DHCP es de 10.20.30.26 a 10.20.30.30, y asignamos IPs fijas a ciertos servidores, como al servidor DNS (10.20.30.2) y al servidor Nginx (10.20.30.28).</li>
+
+         <li><strong>Puerta de enlace predeterminada:</strong> Todos los dispositivos de la red interna (como los servidores o cualquier máquina que conectemos) usan este router como su puerta de enlace predeterminada. Esto significa que si un dispositivo necesita comunicarse con algo fuera de la red local, envía ese tráfico al router, que se encarga de redirigirlo a la red externa.</li>
+        
+    </ul>
+</p>
+
+<h3>¿Cómo se conecta el router con las redes?</h3>
+
+<p> 
+    <ul>
+        <li><strong>Red interna:</strong> La red interna que tenemos tiene un rango de IPs 10.20.30.0/24, y el router tiene la IP 10.20.30.1 en esta red. El rango DHCP que hemos configurado va desde 10.20.30.26 hasta 10.20.30.30.</li>
+        <li><strong>Red externa:</strong> La red externa tiene la IP 100.77.20.122:8006, y el router conecta con ella a través de su interfaz de red ens18 con la IP 100.77.20.69. Esto permite que el tráfico desde la red interna pase a la red externa y viceversa.</li>
+    </ul>
+</p>
+
+<h3>Configuración del Router y la Red</h3>
+<h4>1. Cambiar el nombre de las VMs</h4>
+
+<p> 
+    Dado que las VMs del router y cliente son clones, cambiamos su nombre para diferenciarlas:
+    <ul>
+        <li>Editamos el archivo /etc/hostname en cada VM y ponemos router o cliente.</li>
+        <li>Reiniciamos las máquinas para que se apliquen los cambios con un reboot.</li>
+    </ul>
+</p>
+
+<h4>2. Configurar IP estática en la VM Cliente</h4>
+
+<p> 
+    Dado que las VMs del router y cliente son clones, cambiamos su nombre para diferenciarlas:
+    Como no tenemos un servidor DHCP (en primera instancia cuando configuramos el Router, después si que lo configuramos), necesitamos darle una IP fija a la VM Cliente:
+    <ul>
+        <li>Editamos el archivo de configuración de red (/etc/netplan/00-installer-config.yaml) y asignamos la IP 10.20.30.26 a la interfaz ens18, con el gateway 10.20.30.1 (la IP del router).</li>
+        <li>Aplicamos los cambios con sudo netplan apply.</li>
+    </ul>
+</p>
+
+<h4>3. Configurar la red en la VM Router</h4>
+
+<p> 
+    La VM Router es la que conecta la red interna con la externa, así que configuramos su red:
+    <ul>
+        <li>Le asignamos la IP 10.20.30.1 a la interfaz ens19 para la red interna.</li>
+    </ul>
+</p>
+
+<h4>4. Habilitar el reenvío de IP</h4>
+
+<p> 
+    Para que el router pueda redirigir el tráfico entre las dos redes, habilitamos el reenvío de IP:
+    <ul>
+        <li>Editamos el archivo /etc/sysctl.conf, quitamos el # en net.ipv4.ip_forward=1 y ejecutamos sudo sysctl -p para activar el reenvío.</li>
+    </ul>
+</p>
+
+<h4>5. Configurar NAT con IPTables</h4>
+
+<p> 
+    El router debe enmascarar las IPs internas para que los dispositivos de la red interna puedan acceder a Internet. Para eso:
+    <ul>
+        <li>Instalamos IPTables (sudo apt install iptables).</li>
+        <li>Configuramos NAT con el comando sudo iptables -t nat -A POSTROUTING -o ens18 -j MASQUERADE</li>
+    </ul>
+</p>
+
+<h4>6. Guardar las reglas de IPTables</h4>
+
+<p> 
+    Las reglas de IPTables no se mantienen después de un reinicio, así que las guardamos:
+    <ul>
+        <li>Instalamos iptables-persistent (sudo apt install iptables-persistent -y).</li>
+        <li>Confirmamos que queremos guardar las reglas.</li>
+    </ul>
+</p>
+
+<h4>7. Verificar conexión</h4>
+
+<p> 
+    Finalmente, en la VM Cliente, probamos que todo funcione haciendo un ping a una IP externa con ping 8.8.8.8 y ping google.com para verificar que el router está funcionando correctamente.  
+</p>
+
+<h3>Resumen</h3>
+<p> 
+<ul>
+  <li><strong>IP del router en la red interna:</strong> 10.20.30.1</li>
+  <li><strong>Rango DHCP:</strong> 10.20.30.26 - 10.20.30.30</li>
+  <li><strong>Servidores con IP fija:</strong>
+    <ul>
+      <li><strong>DNS:</strong> 10.20.30.2</li>
+      <li><strong>Nginx:</strong> 10.20.30.28</li>
+      <li><strong>MySQL:</strong> 10.20.30.30</li>
+    </ul>
+  </li>
+  <li><strong>IP del router en la red externa:</strong> 100.77.20.69</li>
+</ul>
+
+    En definitiva este router es la pieza clave que conecta nuestra red interna (donde están todos nuestros servidores) con el mundo exterior. Sin él, los dispositivos de la red interna no podrían comunicarse con otros dispositivos fuera de ella. Además, al funcionar como servidor DHCP, asegura que todos los dispositivos dentro de la red interna tengan direcciones IP válidas para poder interactuar entre sí y con el exterior.
+</p>
+
+
 <h2> Configuración de DHCP</h2>
 <li><strong>Instalación de DHCP:</strong> Para comenzar, instalamos <strong>ISC DHCP Server</strong>, que es una herramienta muy utilizada para asignar direcciones IP de manera automática a los dispositivos dentro de una red. Utilizamos el siguiente comando para la instalación:
         <pre>sudo apt install isc-dhcp-server</pre>
