@@ -578,7 +578,7 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
  <p>
      En cuanto al desarrollo técnico, diseñamos, modificamos y depuramos diversos códigos en HTML y CSS para garantizar una apariencia atractiva y funcional en la web. Además, implementamos varios scripts en JavaScript que añadieron dinamismo y funcionalidades esenciales, como:
 
-      <ul>
+<ul>
     <li>La eliminación de usuarios.</li>
     <li>La opción de mostrar u ocultar contraseñas en las páginas de login y registro.</li>
     <li>Animaciones en la página principal.</li>
