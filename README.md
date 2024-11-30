@@ -495,7 +495,106 @@ Estos consejos nos están ayudando a mejorar tanto el backend como la funcionali
 
 [Segundo diagrama](téchico.pdf)
 
-<h4>Segunda fase fase</h4>
+<h4>Segunda fase</h4>
 <p>
-        Hemos continuado con el desarrollo de las BBDD como comentamos. Primero pasamos todo el diagrama y las tablas que hicimos a mano al MySQL, nos surgieron distintas dudas (PONERLAS). Hicimos una reunion con Joaquim una vez pasado todo esto al MySQL para resolver estas dudas y que nos diera las correcciones correspondientes. Una vez hecho esto (DECIR CAMBIOS QUE NOS DIJO) Lo corregimos y tuvimos una revisión final donde ya nos ha confirmado que nuestra BBDD ya esta completamente correcta. (ADJUNTAR V1 MySQL y V2 FINAL)   
+        Continuamos con nuestro proceso de desarrollo de las bases de datos trasladando todo el diagrama y las tablas que habíamos diseñado manualmente al entorno MySQL. Durante este proceso, surgieron algunas dudas, principalmente sobre la forma correcta de relacionar las tablas mediante claves foráneas (FK) y cómo manejar la tabla que tenía una relación consigo misma (la tabla "Pacientes" con la tabla "Padres-Hijos").
+
+Para resolver estas cuestiones, organizamos una reunión con Joaquim, donde revisamos el trabajo realizado en MySQL. Gracias a sus correcciones y aclaraciones, pudimos realizar los ajustes necesarios, aunque fueron mínimos, ya que habíamos comprendido bien los conceptos en nuestra última reunión. Joaquim verificó todo en ese mismo momento y confirmó que nuestra BBDD estaba correctamente estructurada y lista para ser implementada en lenguaje MySQL.
     </p>
+
+<h4>Tercera fase</h4>
+<p>
+       Al convertir nuestro diagrama al lenguaje MySQL, nos encontramos con un problema relacionado con el orden de creación de las tablas, un aspecto clave para garantizar su correcto funcionamiento. Identificamos que la tabla "Pacientes" debía ser la primera en crearse, ya que otras tablas dependían de ella. Además, detectamos incongruencias en el código vinculadas a cómo habíamos definido las claves foráneas (FK).
+
+Tras corregir estos errores, logramos estructurar correctamente la base de datos, dejándola lista para integrarla con PHP.
+    </p>
+
+<h4>Quinta fase fase</h4>
+<p>
+        Tuvimos algunos problemas al configurar nuestra base de datos en PHP debido a los errores previamente mencionados. Sin embargo, como comenté, logramos solucionarlos, y el PHP empezó a interactuar correctamente con la BBDD. Joaquim nos ayudó durante este proceso, no solo con la base de datos, sino también con nuestro archivo registro.php, ya que estaba estrechamente relacionado con la forma en que habíamos escrito los atributos y nombres de las tablas en nuestra BBDD.
+    Alina también nos ayudó mucho con el registro y el login. Finalmente, logramos resolver los problemas al identificar y corregir distintos errores, como fallos ortográficos, inconsistencias en los nombres de los atributos en la BBDD, y problemas en el tamaño del campo varchar del atributo "contraseña". Cambiamos este campo a 255 caracteres para poder almacenar contraseñas más seguras tras aplicar un hash mediante programación en PHP.
+    Con estos ajustes, logramos conectar correctamente nuestra base de datos con el HTML, y a partir de nuestro código en PHP, pudimos empezar a registrar usuarios, que en este caso son pacientes, en la BBDD. Los registros eran visibles desde PHP, y todas las pruebas se realizaron en local usando XAMPP. Además, validamos que los usuarios registrados pudieran iniciar sesión correctamente.
+    Diseñamos una página de prueba que redirige a una página de bienvenida tras un login exitoso. Como este proyecto abarca todo el curso, hemos implementado inicialmente el registro y login para un solo tipo de usuario: los pacientes. Sin embargo, el plan es habilitar tres tipos diferentes de registro mediante formularios, lo cual está en desarrollo y se presentará al final del curso. Para la primera entrega, el enfoque está en el registro e inicio de sesión de pacientes únicamente.
+    </p>
+
+
+<h2>Programación</h2>
+
+<h3>Cambio de Funcionalidades</h3>
+
+<p>
+        Antes de adentrarnos en la programación, es importante hablar sobre los cambios en las funcionalidades que han surgido a lo largo del proyecto. Al inicio, establecimos una serie de objetivos, pero estos han tenido que adaptarse a las necesidades que fueron apareciendo durante el desarrollo.
+    </p>
+
+<p>
+        Algunas funcionalidades inicialmente no estaban previstas, otras tuvimos que descartarlas debido a su nivel de dificultad y a la falta de tiempo, y también hubo casos en los que subestimamos la complejidad de ciertas tareas. Nos dimos cuenta de que desarrollar una funcionalidad específica a menudo implicaba implementar varias adicionales, lo que complicaba mucho más el trabajo de lo que habíamos anticipado, y simplemente no podíamos abarcarlo todo.
+
+Finalmente, las funcionalidades que hemos desarrollado y completado son:
+<ul>
+        <li>Landing Page</li>
+        <li>Register</li>
+        <li>Login como usuario (paciente)</li>
+        <li>Login como administrador</li>
+        <li>Logout</li>
+        <li>Página Admins</li>
+        <li>Eliminar Admins</li>
+        <li>Sistema de filtros
+            <ul>
+                <li>En la página de administradores</li>
+                <li>En la página del buscador de psicólogos</li>
+            </ul>
+        </li>
+        <li>Buscador en la página de Admins</li>
+        <li>Página de buscador de psicólogos</li>
+        <li>Perfil Psicólogo</li>
+        <li>Diversas páginas informativas dentro de nuestra landing page:
+            <ul>
+                <li>Conócenos</li>
+                <li>Planes</li>
+                <li>Blog</li>
+                <li>Terapias (creando un error 404 en construcción)</li>
+                <li>Contacto (El formulario no está conectado a la base de datos, este es un paso que realizaremos el próximo trimestre)</li>
+            </ul>
+        </li>
+    </ul>
+    </p>
+
+<h3>Proceso de investigación</h3>
+<p>
+       Para llevar a cabo este proyecto, nos metimos de lleno en un proceso de investigación sobre el autismo. Consultamos muchas fuentes, desde páginas web especializadas hasta el DSM-5 (ese libro que usan los psicólogos para diagnosticar trastornos y enfermedades mentales). También utilizamos herramientas como ChatGPT y, además, hablamos con una amiga cercana a Albert, que nos ayudó a confirmar si algunos datos eran correctos o no.
+    </p>
+<p>
+       Nos enfocamos en entender cosas como los gustos, necesidades y tipos de terapia que pueden ayudar a las personas con autismo. Todo este trabajo previo nos permitió dar sentido y coherencia tanto a nuestra base de datos como a nuestra página web, asegurándonos de que la información fuera lo más realista y precisa posible.
+    </p>
+<p>
+    Toda esta investigación la fuimos guardando en un documento de Google Drive. Hay que decir que el documento es un poco caótico y desordenado, ya que lo hicimos como referencia para nosotros y no pensábamos que tendríamos que entregarlo. Aun así, nos sirvió muchísimo para desarrollar un proyecto que no solo se centrara en la parte técnica, sino que también tuviera contenido de calidad y estuviera bien pensado.
+    </p>
+
+<h3>Cambio de Funcionalidades</h3>
+
+<p>
+     Para este proyecto, hemos trabajado en múltiples frentes. Desde escribir código desde cero hasta buscar y adaptar plantillas, exploramos diferentes opciones que podrían ajustarse tanto a nuestras ideas de desarrollo como al diseño conceptualizado. Nos aseguramos de que todo siguiera la línea definida en nuestro mockup, investigando y utilizando todas las herramientas y recursos necesarios para lograrlo.
+    </p>
+ <p>
+     En cuanto al desarrollo técnico, diseñamos, modificamos y depuramos diversos códigos en HTML y CSS para garantizar una apariencia atractiva y funcional en la web. Además, implementamos varios scripts en JavaScript que añadieron dinamismo y funcionalidades esenciales, como:
+
+      <ul>
+            <li>La eliminación de usuarios.</li>
+            <li>La opción de mostrar u ocultar contraseñas en las páginas de login y registro.</li>
+            <li>Animaciones en la página principal.</li>
+            <li>Carruseles, filtros y otros efectos interactivos.</li>
+        </ul>
+    También integramos librerías externas para complementar estas funcionalidades. Por supuesto, desarrollamos el código PHP necesario para conectar nuestra página con la base de datos, asegurando que todo funcionara correctamente en conjunto.
+     </p>
+<p>
+      Como se indicaba en las especificaciones del ejercicio, implementamos Bootstrap para garantizar un diseño coherente y accesible, además de asegurarnos de que todas las páginas sean responsivas, adaptándose a diferentes dispositivos y tamaños de pantalla.
+    </p>
+    
+<p>
+      Las páginas están completamente interconectadas, lo que permite probar todo el flujo de la aplicación comenzando desde la landing page. Todo el código está documentado con comentarios que explican, al menos de forma básica, qué hace cada sección. En algunos casos, hemos organizado el contenido en bloques para señalar las diferentes secciones visibles de la página.
+    </p>
+<p>
+     Todo el desarrollo se encuentra organizado en la carpeta llamada <strong>"HelpAut"</strong>, donde podréis explorar tanto el funcionamiento como el código fuente.
+    </p>
+
+
