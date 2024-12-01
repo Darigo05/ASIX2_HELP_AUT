@@ -1,0 +1,25 @@
+.navbar-nav .dropdown-menu {
+    min-width: 220px; /* Ancho mínimo */
+    background-color: #fff; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde */
+  }
+  
+  .nav-item:hover .dropdown-menu {
+    display: block !important; /* Asegura visibilidad */
+  }
+  
+  .nav-link {
+    padding: 10px 20px; /* Espaciado */
+    color: #ffffff; /* Texto oscuro */
+  }
+  
+  .dropdown-item {
+    padding: 10px 15px; /* Espaciado interno */
+    color: #ffffff; /* Texto oscuro */
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f8f9fa; /* Fondo gris claro */
+    color: #007bff; /* Texto azul */
+  }
+  
