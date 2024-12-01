@@ -1,10 +1,12 @@
 <h1>HELP AUT</h1>
 
-<h2>Trabajo realizado por</h2>
-<p>Albert, David y Mariona</p>
+<h3>Trabajo realizado por:</h3>
+<h4>Albert, David y Mariona</h4>
+
+<br>
 
 <details>
-<summary><h2>Explicación de la idea del proyecto</h2></summary>
+<summary><h2>💡 Explicación de la idea del proyecto</h2></summary>
     <p>
         Nuestra plataforma responde a una necesidad urgente: facilitar el acceso a profesionales de la psicología para niños autistas y adultos con esta condición. Reconocemos que encontrar un terapeuta adecuado, que se ajuste a las necesidades individuales y establezca una relación de confianza, es un reto para muchas familias.
 
@@ -18,7 +20,7 @@ Buscamos crear un recurso integral que conecte a personas autistas con psicólog
 
 
 <details>
-<summary><h2>Objetivo que se persigue</h2></summary>
+<summary><h2>🎯 Objetivo que se persigue</h2></summary>
     <p>
        El objetivo principal de nuestra plataforma es facilitar el acceso a servicios de psicología para personas con autismo y sus familias, asegurando que puedan conectarse fácilmente con profesionales capacitados que les brinden el apoyo que necesitan. Nuestra propuesta surge de la dificultad que enfrentan muchas personas para encontrar un psicólogo adecuado, con quien puedan establecer un seguimiento continuo y una conexión de confianza.
 
@@ -33,7 +35,7 @@ En resumen, nuestra intención es crear un espacio donde las personas autistas y
 </details>
 
 <details>
-<summary><h2>Servicios</h2></summary>
+<summary><h2>🛠️ Servicios</h2></summary>
 <p>
        Para asegurar que la plataforma cumpla con sus objetivos, hemos delineado una serie de servicios esenciales y adicionales que se implementarán en diferentes fases del desarrollo. Los servicios básicos incluirán:
 
@@ -74,7 +76,7 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
 </details>
 
 <details>
-<summary><h2>Organización y roles del equipo</h2></summary>
+<summary><h2>👥 Organización y roles del equipo</h2></summary>
     <p>
     Todos estaremos involucrados en cada etapa de este proyecto, pero cada uno tendrá un área de especialización:
     </p>
@@ -89,7 +91,7 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
 </details>
 
 <details>
-<summary><h2>Tecnologías a utilizar (lenguajes, frameworks, sistemas, software)</h2></summary>
+<summary><h2>💻 Tecnologías a utilizar (lenguajes, frameworks, sistemas, software)</h2></summary>
 
 - **Front-end:** Para el desarrollo del front-end de la página web, utilizaremos HTML como la estructura básica del proyecto, CSS para mejorar la apariencia visual y JavaScript para añadir interactividad y facilitar la conexión con el backend. También implementaremos Bootstrap para agilizar el desarrollo y asegurar que la página sea responsive y brinde una buena experiencia de usuario.
   
@@ -103,7 +105,7 @@ Además, es importante destacar que la terapia ofrecida a través de nuestra pla
 </details>
 
 <details>
-<summary><h2>Estilo web</h2></summary>
+<summary><h2>🎨 Estilo web</h2></summary>
     <p>
       En nuestra página web, nos hemos propuesto transmitir una sensación de tranquilidad y seriedad simultáneamente. Este enfoque está diseñado para que los usuarios que la visitan por primera vez la encuentren visualmente atractiva y acogedora. Reconocemos que no todas las personas están familiarizadas con la navegación en línea, especialmente aquellas que buscan apoyo en temas delicados como el autismo. Por ello, hemos diseñado la plataforma con una accesibilidad intuitiva, permitiendo que cualquier usuario, independientemente de su experiencia digital, pueda acceder y navegar sin complicaciones.
 
@@ -128,7 +130,7 @@ En conclusión, nuestra página no solo es un recurso valioso para padres de ni�
 </details>
 
 <details>   
-<summary><h2>Logotipo</h2></summary>
+<summary><h2>🖋️ Logotipo</h2></summary>
     <p>
     El logotipo debe ser distintivo, pero no excesivamente recargado. Debe alinearse con la paleta de colores de la página y contar con elementos que reflejen la misión de nuestra plataforma. Siguiendo nuestras pautas estilísticas, el diseño debe ser sencillo y fácilmente reconocible, incluso en versiones reducidas.
 
@@ -140,7 +142,7 @@ Nuestra propuesta visual es un árbol en crecimiento que, en lugar de tener una 
 </details>
 
 <details>
-<summary><h2>Funcionalidades de la página (Susceptible a futuros cambios)</h2></summary>
+<summary><h2>⚙️ Funcionalidades de la página (Susceptible a futuros cambios)</h2></summary>
 <p>
     Es fundamental que consideremos una variedad de funcionalidades para nuestra página web. Estas funcionalidades deben abarcar desde las más básicas, que son comunes a cualquier sitio web, hasta opciones más avanzadas y específicas que se alineen con la misión de nuestra plataforma. Para facilitar este proceso, hemos decidido repartir la responsabilidad de desarrollar estas funcionalidades entre todos los integrantes del equipo.
 
@@ -172,7 +174,7 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 </details>
 
 <details>
-<summary><h2>Especificaciones técnicas</h2></summary>
+<summary><h2>📑 Especificaciones técnicas</h2></summary>
 <p>
   A continuación, mostraremos una lista con las especificaciones técnicas de los dispositivos que usaremos para este proyecto. Estas funcionalidades son tanto físicas, en el caso del servidor, como virtuales, en el caso de las máquinas virtuales.
 </p>   
@@ -186,7 +188,7 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 </details>
 
 <details>
-<summary><h2>Diagrama de Red</h2></summary>
+<summary><h2>🗺️ Diagrama de Red</h2></summary>
 <p>
     En este proyecto, hemos diseñado una infraestructura de red utilizando Proxmox, una plataforma de virtualización, en la que hemos configurado diversas máquinas virtuales (VM) con roles específicos para gestionar y desplegar un servidor web. El objetivo es crear una red interna de máquinas virtuales que se comuniquen entre sí y con la red externa de manera eficiente, permitiendo un acceso fluido a los servicios web y de base de datos.
 </p>
@@ -210,7 +212,7 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 
 
 <details>
-<summary><h2>Instalación y configuración de PROXMOX</h2></summary>
+<summary><h2>🖥️ Instalación y configuración de PROXMOX</h2></summary>
 <p>
     A continuación, explicaré qué es PROXMOX y para qué lo usaremos, además de los pasos que hemos seguido para su instalación, configuración y creación de las máquinas:
 </p>
@@ -236,7 +238,7 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 </details>
 
 <details>
-<summary><h2>Incidencias</h2></summary>
+<summary><h2>🚨 Incidencias</h2></summary>
 <h3>Incidencias en el diagrama de red:</h3>
 <p>En primer lugar la principal incidencia que hemos tenido en este apartado fue un error humano por nuestra parte ya que malentendimos como se tenía que hacer el diagrama de red y lo hicimos mal ya que por ejemplo no tomamos en cuenta al router. Esto ocasiono que despues de trabajar en las maquinas de DNS, DHCP, etc tubiesemos que borrarlas ya que como se ha comentado estaba mal el diagrama. Deido a esto nos atrasamos varios dias en configurar las máquinas virtuales con sus respectivos servicios porque tubimos que empezar de zero, para evitar esto se debe realizar el diagrama de red con muhco cuidado y teniendo muy bien entendido lo que necesitamos como las máquinas necesarias, las ip de estas y de los adaptadores.</p>
 <h3>Incidencias en las IP tables</h3>
@@ -250,7 +252,7 @@ Cabe destacar que este proyecto, en nuestro caso, abarcará todo el curso acadé
 </details>
 
 <details>
-<summary><h2>Configuración de ROUTER</h2></summary>
+<summary><h2>📡 Configuración de ROUTER</h2></summary>
 <h3>¿Por qué este dispositivo es un router y qué hace?</h3>
 <p> 
 En nuestro proyecto, hemos creado una máquina virtual que funciona como un router. ¿Qué significa esto? Un router es un dispositivo que conecta dos redes diferentes y permite que los dispositivos de esas redes se comuniquen entre sí. En nuestro caso, la red interna, donde están nuestros servidores, y la red externa, que es el "mundo exterior", como si fuera Internet.
@@ -369,7 +371,7 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
 </details>
 
 <details>
-<summary><h2> Configuración de DHCP</h2></summary>
+<summary><h2>📜 Configuración de DHCP</h2></summary>
 <li><strong>Instalación de DHCP:</strong> Para comenzar, instalamos <strong>ISC DHCP Server</strong>, que es una herramienta muy utilizada para asignar direcciones IP de manera automática a los dispositivos dentro de una red. Utilizamos el siguiente comando para la instalación:
         <pre>sudo apt install isc-dhcp-server</pre>
         Este comando instala el servidor DHCP sin dependencias adicionales ni documentación. Si se presenta algún problema durante la instalación, se recomienda verificar la conectividad de red y actualizar los paquetes con <code>sudo apt update</code> antes de intentar la instalación nuevamente.
@@ -456,7 +458,7 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
 </details>
 
 <details>
-<summary><h2>Configuración del Servidor DNS</h2></summary>
+<summary><h2>🌐 Configuración del Servidor DNS</h2></summary>
 <p>En este proyecto hemos configurado un servidor DNS utilizando <strong>BIND9</strong> en un sistema Ubuntu. Nuestro servidor DNS tiene el nombre de dominio <strong>dns.helpaut.local</strong> y la dirección IP <strong>10.20.30.2</strong>. Además de la zona directa, hemos configurado una zona inversa para resolver las direcciones IP en nombres de dominio. A continuación, explicamos los pasos que seguimos para su configuración.</p>
 
 <ul>
@@ -567,7 +569,7 @@ Esta máquina virtual que hemos configurado como router tiene dos conexiones de 
 </details>
 
 <details>
-<summary><h2>Instalación NGINX</h2></summary>
+<summary><h2>🚀 Instalación NGINX</h2></summary>
 <p> Nginx es un software de código abierto, es decir, que cualquier persona puede usarlo y modificarlo o configurarlo a su propia elección. Nosotros usaremos este software para poder alojar nuestra página web, y esto lo haremos configurándolo en su propia máquina virtual creada y configurada en PROXMOX. Para poder usarlo, como es obvio, necesitamos configurarlo primero, y estos son los pasos que hemos seguido para poder hacerlo. </p>
 <ul>
     <li> El primer paso es instalarlo en nuestro servidor Ubuntu. Para ello haremos uso del comando <code>sudo apt-get install nginx</code>, de esta forma, si no nos ha dado ningún error, NGINX quedará instalado. En el caso de que nos haya surgido un error, puede ser por algún fallo con la red o el acceso a internet. Si pasa eso, lo primero es hacer un <code>sudo apt update</code> para actualizar los paquetes del sistema. Si el error persiste, es posible que salga un mensaje con el código de error, podemos copiarlo y buscar por qué falla y qué indica este código.</li>
@@ -641,7 +643,7 @@ server {
 </details>
 
 <details>
-<summary><h2> Configuración e instalación Mysql</h2></summary>
+<summary><h2>🗄️ Configuración e instalación Mysql</h2></summary>
  <p>En este proyecto nos hemos decantado por crear la base de datos en el lenguaje de Mysql, de esta hablaremos en el siguiente apartado pero ahora vamos a explicar paso a paso la instalción y condiguración que hemos seguido para crear y modificar la maquina servidor que lo contiene y todas las configuraciones de este</p>
 <h3>Configuración servidor en PROXMOX</h3>
          <ul>
@@ -699,7 +701,7 @@ server {
 </details>
 
 <details>
-<summary><h2>Base de datos</h2></summary>
+<summary><h2>📂 Base de datos</h2></summary>
 <h3>Diagrama de BBDD</h3>
 <h4>Primera fase</h4>
 <p>
@@ -742,7 +744,7 @@ Tras corregir estos errores, logramos estructurar correctamente la base de datos
 </details>
 
 <details>
-<summary><h2>Programación</h2></summary>
+<summary><h2>🖍️ Programación</h2></summary>
 
 <h3>Cambio de Funcionalidades</h3>
 
