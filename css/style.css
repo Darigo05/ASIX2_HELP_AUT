@@ -1,0 +1,976 @@
+/* Fondo de la página */
+body {
+    background-color: #e4c79d;  /* Color de fondo naranja oscuro */
+    color: #ffffff;  /* Texto en blanco para asegurar buena legibilidad */
+}
+
+/*** Spinner Start ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+/*** Spinner End ***/
+
+.back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    transition: 0.5s;
+    z-index: 99;
+}
+
+/*** Button Start ***/
+.btn {
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn.btn-primary {
+    background-color: #BC5F04;  /* Naranja */
+    color: #ffffff;  /* Color de texto blanco */
+    border: none;  /* Sin borde */
+}
+
+.btn.btn-primary:hover {
+    background-color: #874000;  /* Naranja más oscuro para el hover */
+    color: #ffffff;  /* Mantener el texto blanco */
+}
+
+.btn.btn-light {
+    background-color: #EFDBBD;  /* Naranja claro */
+    color: #874000;  /* Marrón oscuro */
+    border: none;
+}
+
+.btn.btn-light:hover {
+    background-color: #874000;  /* Naranja oscuro */
+    color: #EFDBBD;  /* Beige claro */
+}
+
+.btn.btn-dark {
+    background-color: #EFDBBD;  /* Beige claro */
+    color: #4B0907;  /* Marrón oscuro */
+    border: none;
+}
+
+.btn.btn-dark:hover {
+    background-color: #BC5F04;  /* Naranja cálido */
+    color: #EFDBBD;  /* Beige claro */
+}
+
+/* Estilo personalizado para el botón Register */
+.btn.btn-secondary {
+    background-color: #4B0907 !important; /* Marrón oscuro */
+    color: #EFDBBD !important; /* Beige claro */
+    border: none !important; /* Sin borde */
+}
+
+.btn.btn-secondary:hover {
+    background-color: #874000 !important; /* Marrón más cálido para el hover */
+    color: #EFDBBD !important; /* Beige claro */
+}
+
+/*** Button End ***/
+
+/*** Navbar Start ***/
+.nav-bar {
+    background: #EFDBBD; /* Beige claro */
+}
+
+.sticky-top {
+    transition: 1s;
+}
+
+/* Textos de los enlaces en el Navbar */
+.navbar .nav-link {
+    color: #4B0907 !important; /* Marrón oscuro */
+    font-weight: bold;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #BC5F04 !important; /* Naranja cálido */
+}
+
+/* Cambiar el color del título principal (logo texto) */
+.navbar-brand h1 {
+    color: #4B0907 !important; /* Marrón oscuro */
+}
+
+/* Iconos sociales en la Navbar */
+.team-icon a {
+    color: #4B0907 !important; /* Marrón oscuro */
+    display: flex; /* Usar flexbox para centrar el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    width: 40px; /* Ajustar el tamaño del botón */
+    height: 40px; /* Ajustar el tamaño del botón */
+    border-radius: 50%; /* Hacer que el botón sea redondo */
+    text-align: center; /* Asegurar que el texto esté centrado */
+}
+
+.team-icon a:hover {
+    color: #BC5F04 !important; /* Naranja cálido */
+}
+
+/* Ajuste de los iconos */
+.team-icon a i {
+    font-size: 18px; /* Ajustar el tamaño del icono */
+}
+
+
+/* Dropdown en Navbar */
+.navbar .dropdown-menu {
+    background-color: #4B0907 !important; /* Fondo marrón oscuro */
+    border: none; /* Sin borde */
+}
+
+.navbar .dropdown-menu a {
+    color: #EFDBBD !important; /* Texto en beige claro */
+    font-weight: bold; /* Resaltar el texto */
+}
+
+.navbar .dropdown-menu a:hover {
+    background: #BC5F04 !important; /* Fondo naranja cálido */
+    color: #ffffff !important; /* Texto blanco */
+}
+
+.navbar .nav-item:hover .dropdown-menu {
+    background-color: #4B0907 !important; /* Fondo marrón oscuro */
+}
+
+/*** Navbar End ***/
+
+/*** Carousel Hero Header Start ***/
+.header-carousel .header-carousel-item {
+    position: relative;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+}
+
+.header-carousel .header-carousel-item img {
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio */
+    width: 100%; /* Hace que la imagen ocupe todo el contenedor */
+    height: 100%; /* Hace que la imagen ocupe toda la altura del contenedor */
+}
+
+.header-carousel .carousel-caption {
+    position: absolute; /* Posiciona el texto sobre la imagen */
+    top: 0; /* Alinea el contenedor del texto en la parte superior de la imagen */
+    left: 0; /* Alinea el contenedor del texto a la izquierda */
+    width: 100%; /* Hace que el fondo cubra todo el ancho de la imagen */
+    height: 100%; /* Hace que el fondo cubra toda la altura de la imagen */
+    background-color: rgba(17, 17, 17, 0.6); /* Fondo oscuro semitransparente */
+    display: flex; /* Usamos Flexbox para alinear el texto */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    text-align: center; /* Centra el texto */
+    padding: 20px; /* Espaciado alrededor del texto */
+    box-sizing: border-box; /* Asegura que el padding no desborde el contenedor */
+}
+
+.header-carousel .carousel-caption h4 {
+    color: #EFDBBD !important; /* Beige claro */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.header-carousel .carousel-caption h1 {
+    color: #BC5F04 !important; /* Naranja cálido */
+    font-size: 3rem; /* Ajusta el tamaño del h1 */
+    margin-bottom: 15px;
+}
+
+.header-carousel .carousel-caption p {
+    color: #EFDBBD !important; /* Beige claro */
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.header-carousel .carousel-caption a {
+    color: #EFDBBD !important; /* Beige claro */
+    background-color: #4B0907 !important; /* Marrón oscuro */
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
+}
+
+.header-carousel .carousel-caption a:hover {
+    background-color: #BC5F04 !important; /* Naranja cálido */
+}
+
+/*** Carousel Hero Header End ***/
+
+/* Otros elementos generales */
+.fa-check.text-primary {
+    color: #BC5F04 !important; /* Naranja cálido */
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, li {
+    color: #4B0907 !important; /* Marrón oscuro */
+}
+
+a:hover {
+    color: #BC5F04 !important; /* Naranja cálido */
+}
+
+/* Para botones y enlaces globales */
+.btn, .nav-link, .dropdown-item {
+    color: #4B0907 !important; /* Marrón oscuro */
+}
+
+/* Cambiar estilos de Bootstrap que usen colores genéricos */
+.text-dark {
+    color: #4B0907 !important; /* Marrón oscuro */
+}
+
+.text-primary {
+    color: #BC5F04 !important; /* Naranja cálido */
+}
+
+/* Asegurar legibilidad */
+body, .text-body {
+    color: #4B0907 !important; /* Marrón oscuro */
+}
+
+/*** Single Page Hero Header Start ***/
+.bg-breadcrumb {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/header\ 2.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 60px 0 60px 0;
+    transition: 0.5s;
+}
+
+.bg-breadcrumb .breadcrumb {
+    position: relative;
+}
+
+.bg-breadcrumb .breadcrumb .breadcrumb-item a {
+    color: #EFDBBD; /* Beige claro */
+}
+
+/*** Single Page Hero Header End ***/
+
+
+
+
+
+/*** Feature Start ***/
+.feature .feature-item {
+    position: relative;
+    border-radius: 10px;
+    background: #EFDBBD; /* Beige claro */
+}
+
+.feature-item img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: 300px; /* Ajusta el largo de la imagen, por ejemplo, 300px */
+    object-fit: cover; /* Asegura que la imagen se recorte proporcionalmente */
+    border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior */
+    transition: 0.5s; /* Transición suave en las imágenes */
+}
+
+.feature-item .feature-content {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    bottom: 0; 
+    left: 0;
+    margin-top: 0;
+    margin-right: 0; 
+    background: rgba(47, 28, 7, 0.7); /* Marrón oscuro con opacidad */
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.feature-item .feature-content .feature-content-inner {
+    position: relative;
+    z-index: 5;
+}
+/*** Feature End ***/
+
+
+
+/*** About Start ***/
+
+/* Casos de Éxito */
+.counter-item.bg-primary {
+    background-color: #BC5F04 !important; /* Naranja cálido */
+    color: #EFDBBD !important; /* Beige claro para el texto */
+}
+
+/* Opiniones Positivas */
+.counter-item.bg-dark {
+    background-color: #4B0907 !important; /* Marrón oscuro */
+    color: #EFDBBD !important; /* Beige claro para el texto */
+}
+
+/* 20 Años de Experiencia */
+.rounded.bg-primary.position-absolute.d-flex {
+    background-color: #BC5F04 !important;  /* Naranja cálido */
+    color: #EFDBBD !important;  /* Beige claro */
+}
+
+.rounded.bg-primary.position-absolute.d-flex h3 {
+    color: #EFDBBD !important; /* Beige claro para el texto */
+}
+
+
+
+/* Ajustar los iconos dentro de los bloques */
+.counter-item-icon i {
+    color: #EFDBBD !important; /* Beige claro para los iconos */
+}
+
+/* Ajustar los números en los contadores */
+.counter-counting span {
+    color: #EFDBBD !important; /* Beige claro para los números */
+}
+
+/* Para el hover de los bloques */
+.counter-item:hover {
+    background-color: #874000 !important; /* Naranja oscuro al pasar el ratón */
+}
+
+.counter-item h5:hover {
+    color: #4B0907 !important; /* Marrón oscuro al pasar el ratón */
+}
+
+
+/*** About End ***/
+
+
+/*** Planes Start  ***/
+
+/* Estilos para el Plan Premium */
+.pricing-item.bg-dark {
+    background-color: #4B0907 !important;  /* Marrón oscuro */
+    color: #EFDBBD !important;  /* Beige claro */
+}
+
+.pricing-item.bg-dark h2,
+.pricing-item.bg-dark p {
+    color: #EFDBBD !important;  /* Beige claro */
+}
+
+.pricing-item.bg-dark .btn-light {
+    background-color: #EFDBBD !important;  /* Beige claro */
+    color: #4B0907 !important;  /* Marrón oscuro */
+}
+
+.pricing-item.bg-dark .btn-light:hover {
+    background-color: #874000 !important;  /* Naranja cálido */
+    color: #EFDBBD !important;  /* Beige claro */
+}
+
+/* Estilos para el Plan Básico */
+.pricing-item.bg-primary {
+    background-color: #BC5F04 !important;  /* Naranja cálido */
+    color: #EFDBBD !important;  /* Beige claro */
+}
+
+.pricing-item.bg-primary h2,
+.pricing-item.bg-primary p {
+    color: #EFDBBD !important;  /* Beige claro */
+}
+
+.pricing-item.bg-primary .text-dark {
+    color: #4B0907 !important;  /* Marrón oscuro */
+}
+
+.pricing-item.bg-primary .btn-dark {
+    background-color: #4B0907 !important;  /* Marrón oscuro */
+    color: #EFDBBD !important;  /* Beige claro */
+}
+
+.pricing-item.bg-primary .btn-dark:hover {
+    background-color: #874000 !important;  /* Naranja cálido */
+    color: #EFDBBD !important;  /* Beige claro */
+}
+
+/* Para los iconos dentro de los planes */
+.pricing-item i {
+    color: #4B0907 !important;  /* Marrón oscuro para los íconos */
+}
+
+/*** Planes End ***/
+
+
+/*** Terapia Start ***/
+.attractions {
+    position: relative;
+    overflow: hidden;
+}
+
+.attractions::after {
+    content: "";
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background: linear-gradient(rgba(51, 28, 3, 0.7), rgba(0, 0, 0, 0.7)), url(../img/niñoRieCabra.avif) center center no-repeat;
+    background-size: cover;
+    z-index: -2;
+    animation-name: attraction-image-zoom;
+    animation-duration: 10s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition: 1s;
+}
+
+@keyframes attraction-image-zoom {
+    0%  {width: 100%;}
+    25% {width: 115%;}
+    50% {width: 130%;}
+    75% {width: 120%;}
+    100% {width: 100%;}
+}
+
+.attractions .attractions-section {
+    position: relative;
+    z-index: 3;
+}
+
+.attractions .attractions-item {
+    position: relative;
+    border-radius: 10px;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.attractions .attractions-item img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: 350px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    border-radius: 10px; /* Mantiene los bordes redondeados */
+    transition: 0.5s; /* Efecto suave en las transiciones */
+}
+
+.attractions .attractions-item::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background: rgba(38, 20, 0, 0.7); /* Marrón oscuro con opacidad */
+    transition: 0.5s;
+    z-index: 2;
+}
+
+.attractions .attractions-item:hover:after {
+    height: 100%;
+}
+
+.attractions .attractions-item .attractions-name {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    color: #EFDBBD; /* Beige claro */
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    z-index: 3;
+    opacity: 0;
+}
+
+.attractions .attractions-item:hover .attractions-name {
+    opacity: 1;
+}
+
+.attractions-carousel .owl-stage-outer {
+    margin-top: 58px;
+}
+
+.attractions .owl-nav .owl-prev {
+    position: absolute;
+    top: -58px;
+    left: 0;
+    background: #BC5F04; /* Naranja cálido */
+    color: #EFDBBD; /* Beige claro */
+    padding: 6px 35px;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.attractions .owl-nav .owl-prev:hover {
+    background: #EFDBBD; /* Beige claro */
+    color: #BC5F04; /* Naranja cálido */
+}
+
+.attractions .owl-nav .owl-next {
+    position: absolute;
+    top: -58px;
+    right: 0;
+    background: #BC5F04; /* Naranja cálido */
+    color: #EFDBBD; /* Beige claro */
+    padding: 6px 35px;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.attractions .owl-nav .owl-next:hover {
+    background: #EFDBBD; /* Beige claro */
+    color: #BC5F04; /* Naranja cálido */
+}
+
+/* Cambiar color de texto solo en el título y párrafo, excepto el "Tipo de Terapia" */
+.attractions-section h1 {
+    color: #EFDBBD !important; /* Beige claro para el título */
+}
+
+.attractions-section p {
+    color: #EFDBBD !important; /* Beige claro para el párrafo */
+}
+
+/* Cambiar color del "Tipo de Terapia" */
+.attractions-section h4 {
+    color: #BC5F04 !important; /* Naranja cálido para el subtítulo "Tipo de Terapia" */
+}
+
+/*** Terapia End ***/
+
+
+
+/*** Blog Start ***/
+.blog .blog-item {
+    border-radius: 10px;
+}
+
+.blog .blog-item .blog-img {
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: 0.5s;
+}
+
+.blog .blog-item .blog-img img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: 250px; /* Altura fija para las imágenes */
+    object-fit: cover; /* La imagen se adapta al contenedor sin deformarse */
+    transition: 0.5s; /* Efecto suave para las transiciones */
+}
+
+.blog .blog-item:hover .blog-img img {
+    transform: scale(1.2); /* Efecto de zoom al pasar el ratón */
+}
+
+.blog .blog-item .blog-img::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: rgba(29, 16, 2, 0.7); /* Marrón oscuro con opacidad */
+    z-index: 1;
+}
+
+.blog .blog-item .blog-img .blog-category {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    border-radius: 10px;
+    color: #EFDBBD; /* Beige claro */
+    background: #BC5F04; /* Naranja cálido */
+    z-index: 5;
+}
+
+.blog .blog-item .blog-img .blog-date {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    color: #EFDBBD; /* Beige claro */
+    z-index: 5;
+}
+
+.blog .blog-item .blog-content {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: #EFDBBD; /* Beige claro */
+}
+/*** Blog End ***/
+
+
+/*** Team Start ***/
+.team .team-item {
+    position: relative;
+    background: #BC5F04; /* Naranja cálido */
+    border-radius: 10px;
+    color: #EFDBBD; /* Beige claro */
+}
+
+.team .team-item::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background: #7b4000; /* Marrón oscuro */
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.team .team-item:hover::after {
+    height: 100%;
+}
+
+.team .team-item .team-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    color: #EFDBBD; /* Beige claro */
+}
+
+.team .team-item .team-content .team-icon {
+    background: #D3C2A3; /* Beige claro más oscuro */
+    border-radius: 10px;
+    display: flex;
+    display: inline-flex;
+}
+
+.team .team-item .team-content h4 {
+    color: #FFFFFF; /* Blanco */
+    margin: 10px 0;
+    transition: 0.5s;
+}
+
+/* Cambio de color en hover para el texto de h4 */
+.team .team-item:hover .team-content h4 {
+    color: #BC5F04; /* Naranja cálido */
+}
+
+/* Cambio de color en hover para el texto de los párrafos */
+.team .team-item .team-content p {
+    color: #EFDBBD; /* Beige claro por defecto */
+    margin: 0;
+    transition: 0.5s;
+}
+
+/* Solo cambia el color del texto de los párrafos cuando se hace hover */
+.team .team-item:hover .team-content p {
+    color: #FFFFFF; /* Blanco */
+}
+
+/*** Team End ***/
+
+
+/*** Testimonial Start ***/
+.testimonial {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(rgba(231, 220, 208, 0.7), rgba(35, 23, 5, 0.7)), url(../img/girasoles.jpg) center center no-repeat;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -2;
+    animation-name: image-zoom;
+    animation-duration: 10s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition: 1s;
+}
+
+.testimonial::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(49, 26, 0, 0.7);
+    z-index: -1;
+}
+
+.testimonial .testimonial-carousel .testimonial-item {
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(256, 256, 256, 0.2);
+    color: #EFDBBD; /* Beige claro para el texto */
+}
+
+.testimonial-carousel .testimonial-item .testimonial-inner {
+    display: flex;
+    justify-content: center;
+}
+
+.testimonial-item .testimonial-inner .testimonial-img {
+    position: relative;
+}
+
+.testimonial-item .testimonial-inner .testimonial-img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: 2px solid #EFDBBD; /* Beige claro */
+}
+
+.testimonial-item .testimonial-inner .testimonial-img .testimonial-quote {
+    position: absolute;
+    top: 0;
+    left: -25px;
+    color: #EFDBBD; /* Beige claro */
+    background: #BC5F04; /* Naranja cálido */
+}
+
+.testimonial-carousel .owl-dots {
+    display: flex;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dots .owl-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin: 20px 10px 0 10px;
+    background: #BC5F04; /* Naranja cálido */
+    transition: 0.5s;
+}
+
+.testimonial-carousel .owl-dots .owl-dot.active {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background: #EFDBBD; /* Beige claro */
+    transition: 0.5s;
+}
+
+.testimonial-carousel .owl-dots .owl-dot span {
+    position: relative;
+    margin-top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.testimonial-carousel .owl-dots .owl-dot.active span::after {
+    background: #BC5F04; /* Naranja cálido */
+}
+
+.testimonial-carousel .owl-dots .owl-dot span::after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #EFDBBD; /* Beige claro */
+    transition: 0.5s;
+}
+
+.testimonial-carousel .owl-nav {
+    position: absolute;
+    top: 50%; /* Centra verticalmente las flechas */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Alinea a los extremos */
+    align-items: center;
+    transform: translateY(-50%);
+}
+
+.testimonial-carousel .owl-nav .owl-prev {
+    font-size: 50px;
+    margin-left: 10px; /* Margen para separarlas del borde */
+    color: #EFDBBD; /* Beige claro */
+    transition: 0.5s;
+}
+
+.testimonial-carousel .owl-nav .owl-next {
+    font-size: 50px;
+    margin-right: 10px; /* Margen para separarlas del borde */
+    color: #EFDBBD; /* Beige claro */
+    transition: 0.5s;
+}
+
+.testimonial-carousel .owl-nav .owl-prev:hover,
+.testimonial-carousel .owl-nav .owl-next:hover {
+    color: #BC5F04; /* Naranja cálido */
+}
+
+/* Texto dentro del testimonial */
+.testimonial .testimonial-carousel .testimonial-item h4 {
+    color: #FFFFFF; /* Blanco para títulos */
+    margin-bottom: 10px;
+    transition: color 0.5s;
+}
+
+.testimonial .testimonial-carousel .testimonial-item:hover h4 {
+    color: #EFDBBD; /* Naranja cálido */
+}
+
+.testimonial .testimonial-carousel .testimonial-item p {
+    color: #EFDBBD; /* Naranja suave para las opiniones de los usuarios */
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Estilo específico para el título "Opiniones Usuarios" */
+.testimonial h1.display-5 {
+    color: #EFDBBD !important; /* Naranja suave para "Opiniones Usuarios" */
+    margin-bottom: 20px;
+    font-size: 36px;
+    text-align: center;
+}
+
+/* Estilo específico para el título "Valoraciones" */
+.testimonial h4.text-primary {
+    color: #BC5F04 !important; /* Naranja cálido para "Valoraciones" */
+    margin-bottom: 10px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.testimonial .testimonial-carousel .testimonial-item p.text-white {
+    color: #EFDBBD !important; /* Naranja suave para las opiniones de los usuarios */
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/*** Testimonial End ***/
+
+
+/*** Footer Start ***/
+.footer {
+    background: #EFDBBD; /* Beige claro */
+}
+
+.footer .footer-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .footer-item a {
+    line-height: 35px;
+    color: #4B0907; /* Marrón oscuro para mejor contraste */
+    transition: 0.5s;
+}
+
+.footer .footer-item p {
+    line-height: 35px;
+    color: #4B0907; /* Marrón oscuro */
+}
+
+.footer .footer-item a:hover {
+    color: #BC5F04; /* Naranja cálido */
+}
+
+.footer .footer-item .footer-btn a,
+.footer .footer-item .footer-btn a i {
+    transition: 0.5s;
+    color: #4B0907; /* Marrón oscuro */
+    background: transparent;
+}
+
+.footer .footer-item .footer-btn a:hover {
+    background: #BC5F04; /* Naranja cálido */
+}
+
+.footer .footer-item .footer-btn a:hover i {
+    color: #EFDBBD; /* Beige claro */
+}
+
+/* Cambiar colores específicos del footer */
+.footer .footer-item h4, 
+.footer .footer-item p.mb-0 {
+    color: #BC5F04; /* Naranja cálido */
+}
+
+/* Especificidad alta para sobrescribir Bootstrap */
+.footer .footer-item h4 {
+    color: #BC5F04 !important; /* Naranja cálido */
+}
+
+.footer .footer-item p.mb-0 {
+    color: #BC5F04 !important; /* Naranja cálido */
+}
+
+/* Estilo específico para el título "Formas de Pago" */
+.formas-pago-titulo {
+    color: #BC5F04 !important; /* Naranja cálido */
+}
+
+
+
+
+/*** Footer End ***/
+
+/*** Copyright Start ***/
+.copyright {
+    border-top: 1px solid #4B0907; /* Marrón oscuro */
+    background: #4B0907; /* Marrón oscuro */
+    color: #EFDBBD; /* Beige claro */
+}
+
+.copyright a {
+    color: #EFDBBD !important; /* Beige claro */
+    text-decoration: none;
+}
+
+.copyright a:hover {
+    color: #BC5F04; /* Naranja cálido */
+    text-decoration: underline;
+}
+
+.copyright span {
+    color: #EFDBBD !important; /* Beige claro */
+}
+/*** Copyright End ***/
+
+
+
+
