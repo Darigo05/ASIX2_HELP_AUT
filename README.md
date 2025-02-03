@@ -826,7 +826,7 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 </details>
 
 <details>
-<summary><h2>💡 Explicación sobre docker</h2></summary>
+<summary><h2>🛢️ Explicación sobre docker</h2></summary>
     <h3>¿Qué son los contenedores de docker?</h3>
     <p>
        
