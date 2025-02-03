@@ -829,6 +829,10 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 <summary><h2>🛢️ Explicación sobre docker</h2></summary>
     <h3>¿Qué son los contenedores de docker?</h3>
     <p>
+       Docker es una plataforma que permite crear, probar y desplegar aplicaciones en contenedores ligeros y portátiles, que incluyen todo lo necesario para ejecutarlas en diferentes entornos sin problemas. Es de código abierto y está respaldada por Docker Inc., la empresa detrás de la tecnología, que se encarga de mejorarla, ofrecer soporte y proporcionar soluciones empresariales. Esto facilita el desarrollo y despliegue de aplicaciones, optimizando su gestión en cualquier entorno.
+    </p>
+    <h3>¿Qué diferencias hay entre los contenedores de docker y los lxc?</h3>
+    <p>
        
     </p>
 </details>
