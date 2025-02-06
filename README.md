@@ -882,7 +882,7 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
     </tbody>
 </table>
 
- <h3>¿¿Cuál es la diferencia entre una imagen y un contenedor en docker??</h3>
+ <h3>¿Cuál es la diferencia entre una imagen y un contenedor en docker?</h3>
 <h4>🔹 Imagen 🖼️</h4>
 <p>Es un archivo estático que contiene todo lo necesario para ejecutar una aplicación (código, dependencias, configuraciones, etc.).</p>
 <ul>
