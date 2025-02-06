@@ -946,4 +946,33 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
             <pre><code>docker commit mi_contenedor nueva_imagen</code></pre>
         </li>
     </ol>
+
+ <h3>¿Qué tipo de aplicaciones y servicios se pueden desplegar con docker?</h3>
+    <ul>
+    <li><strong>1️⃣ Portabilidad 🏃‍♂️</strong>
+        <p>Los contenedores incluyen todo lo necesario para ejecutar una aplicación. Se pueden mover entre diferentes entornos (desarrollo, testing, producción) sin cambios.</p>
+    </li>
+    <li><strong>2️⃣ Ligereza y Eficiencia 🚀</strong>
+        <p>Consumen menos recursos que las máquinas virtuales, ya que comparten el kernel del sistema operativo. Arrancan en segundos en lugar de minutos.</p>
+    </li>
+    <li><strong>3️⃣ Escalabilidad 📈</strong>
+        <p>Fácil despliegue y administración de múltiples instancias. Compatible con orquestadores como Kubernetes o Docker Swarm.</p>
+    </li>
+    <li><strong>4️⃣ Aislamiento 🔒</strong>
+        <p>Cada contenedor se ejecuta de forma independiente, evitando conflictos entre aplicaciones. Uso de namespaces y cgroups para garantizar la seguridad y separación de recursos.</p>
+    </li>
+    <li><strong>5️⃣ Gestión de Dependencias 📦</strong>
+        <p>Cada aplicación tiene su propio entorno con las versiones exactas de dependencias. Evita el clásico problema de "funciona en mi máquina, pero no en producción".</p>
+    </li>
+    <li><strong>6️⃣ Despliegue Rápido y Automatización 🤖</strong>
+        <p>Compatible con CI/CD, lo que permite despliegues automáticos y consistentes. Fácil rollback a versiones anteriores con imágenes versionadas.</p>
+    </li>
+    <li><strong>7️⃣ Optimización de Recursos 🖥️</strong>
+        <p>Se pueden ejecutar múltiples contenedores en una misma máquina sin sobrecarga de VMs. Uso eficiente de CPU, RAM y almacenamiento con sistemas de archivos en capas (UnionFS).</p>
+    </li>
+    <li><strong>8️⃣ Gran Comunidad y Ecosistema 🌍</strong>
+        <p>Amplio soporte y documentación. Miles de imágenes listas para usar en Docker Hub.</p>
+    </li>
+</ul>
+
 </details>
