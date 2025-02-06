@@ -1000,5 +1000,58 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
   </tbody>
 </table>
 
+<h3>¿Qué otros tipos de contenedores existen además de docker?</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Contenedor</th>
+          <th>Descripción</th>
+          <th>Ventaja Principal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Podman</strong></td>
+          <td>Es una alternativa a Docker que no requiere un daemon en segundo plano para su funcionamiento, lo que lo hace más seguro y controlable.</td>
+          <td>Sin necesidad de daemon, lo que lo hace más seguro y fácil de usar en entornos sin privilegios.</td>
+        </tr>
+        <tr>
+          <td><strong>Kubernetes</strong></td>
+          <td>Orquestador de contenedores que gestiona clústeres a gran escala. Aunque no es un contenedor en sí, se usa para manejar contenedores distribuidos.</td>
+          <td>Orquestación avanzada de contenedores, ideal para gestionar aplicaciones distribuidas a gran escala.</td>
+        </tr>
+        <tr>
+          <td><strong>LXC (Linux Containers)</strong></td>
+          <td>Sistema de contenedores a nivel de sistema operativo que permite ejecutar entornos aislados completos.</td>
+          <td>Ejecuta entornos de sistema operativo completos dentro de contenedores, no solo aplicaciones.</td>
+        </tr>
+        <tr>
+          <td><strong>rkt (Rocket)</strong></td>
+          <td>Motor de contenedores desarrollado por CoreOS, diseñado para ser simple y seguro, sin depender de un demonio central.</td>
+          <td>Diseño centrado en la seguridad y la modularidad, ideal para entornos de producción.</td>
+        </tr>
+        <tr>
+          <td><strong>OpenVZ</strong></td>
+          <td>Tecnología de virtualización basada en contenedores para Linux, que permite ejecutar múltiples entornos virtualizados en un solo servidor.</td>
+          <td>Excelente rendimiento y eficiencia al compartir el kernel del sistema operativo.</td>
+        </tr>
+        <tr>
+          <td><strong>containerd</strong></td>
+          <td>Motor de contenedores que proporciona la ejecución, almacenamiento y gestión de contenedores, utilizado en Docker y otros sistemas.</td>
+          <td>API sencilla para ejecutar y gestionar contenedores, esencial para Docker y otros sistemas.</td>
+        </tr>
+        <tr>
+          <td><strong>Singularity</strong></td>
+          <td>Contenedor diseñado para aplicaciones científicas y de alto rendimiento, especialmente en supercomputadoras y clusters.</td>
+          <td>Ideal para entornos científicos y computación de alto rendimiento (HPC).</td>
+        </tr>
+        <tr>
+          <td><strong>Mesos (Apache Mesos)</strong></td>
+          <td>Plataforma de orquestación de contenedores que también gestiona recursos a nivel de clúster y otros tipos de cargas de trabajo.</td>
+          <td>Orquestación flexible para contenedores, máquinas virtuales y otras cargas de trabajo.</td>
+        </tr>
+      </tbody>
+    </table>
+
 
 </details>
