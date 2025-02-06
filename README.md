@@ -932,12 +932,12 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 <h4>🛠 Cómo evitar la pérdida de datos</h4>
     <ol>
         <li>
-            <strong>1️⃣ Usar volúmenes de Docker (recomendado)</strong>
+            <strong>1️⃣ Usar volúmenes de Docker</strong>
             <p>Los volúmenes persisten incluso si el contenedor se elimina.</p>
             <pre><code>docker run -d -v mi_volumen:/data --name mi_contenedor nginx</code></pre>
         </li>
         <li>
-            <strong>2️⃣ Usar bind mounts (montar una carpeta del host en el contenedor)</strong>
+            <strong>2️⃣ Usar bind mounts --> montar una carpeta del host en el contenedor</strong>
             <p>Permite acceder a datos en el host desde el contenedor.</p>
             <pre><code>docker run -d -v /ruta/en/host:/data --name mi_contenedor nginx</code></pre>
         </li>
