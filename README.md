@@ -929,8 +929,8 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
         <li><strong>2. Datos en volúmenes o bind mounts ✅</strong> → Se conservan, ya que están almacenados fuera del sistema de archivos del contenedor.</li>
     </ul>
     
-    <h2>🛠 Cómo evitar la pérdida de datos</h2>
-    <ul>
+<h4>🛠 Cómo evitar la pérdida de datos</h4>
+    <ol>
         <li>
             <strong>1️⃣ Usar volúmenes de Docker (recomendado)</strong>
             <p>Los volúmenes persisten incluso si el contenedor se elimina.</p>
@@ -945,5 +945,5 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
             <strong>3️⃣ Usar docker commit para crear una nueva imagen con los cambios</strong>
             <pre><code>docker commit mi_contenedor nueva_imagen</code></pre>
         </li>
-    </ul>
+    </ol>
 </details>
