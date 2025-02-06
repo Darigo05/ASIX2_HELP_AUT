@@ -833,6 +833,53 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
     </p>
     <h3>¿Qué diferencias hay entre los contenedores de docker y los lxc?</h3>
     <p>
-       
+       LXC es un contenedor de sistema operativo, mientras que Docker es un contenedor de aplicaciones.
     </p>
+    <table>
+    <thead>
+        <tr>
+            <th>Característica</th>
+            <th>Docker</th>
+            <th>LXC</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Enfoque</strong></td>
+            <td>Contenedores para aplicaciones individuales</td>
+            <td>Contenedores como sistemas operativos completos</td>
+        </tr>
+        <tr>
+            <td><strong>Aislamiento</strong></td>
+            <td>Más seguro (seccomp, AppArmor, SELinux)</td>
+            <td>Menos aislamiento, más integración con el host</td>
+        </tr>
+        <tr>
+            <td><strong>Arquitectura</strong></td>
+            <td>Basado en imágenes con sistema de capas (UnionFS)</td>
+            <td>Sistema de archivos convencional (ext4, ZFS, etc.)</td>
+        </tr>
+        <tr>
+            <td><strong>Redes</strong></td>
+            <td><code>docker0</code>, NAT, drivers (bridge, overlay, macvlan)</td>
+            <td>Bridges estándar de Linux (<code>lxcbr0</code>, <code>veth</code>, etc.)</td>
+        </tr>
+        <tr>
+            <td><strong>Gestión</strong></td>
+            <td>CLI (<code>docker run</code>, <code>docker ps</code>), Docker Compose, Kubernetes</td>
+            <td>CLI (<code>lxc-*</code>), LXD para administración avanzada</td>
+        </tr>
+        <tr>
+            <td><strong>Persistencia</strong></td>
+            <td>Volúmenes y bind mounts</td>
+            <td>Sistema de archivos persistente como en una VM</td>
+        </tr>
+        <tr>
+            <td><strong>Casos de uso</strong></td>
+            <td>Microservicios, despliegue rápido de apps</td>
+            <td>Simular máquinas virtuales ligeras en Linux</td>
+        </tr>
+    </tbody>
+</table>
+
 </details>
