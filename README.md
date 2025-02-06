@@ -911,12 +911,12 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
     </thead>
     <tbody>
         <tr>
-            <td><strong>Imagen🖼️</strong></td>
+            <td><strong>Imagen</strong></td>
             <td>Es la plantilla que contiene todo lo necesario para ejecutar una aplicación. No cambia cuando se ejecuta.</td>
             <td>📜 <strong>Receta</strong>: Lista de ingredientes y pasos para preparar un plato.</td>
         </tr>
         <tr>
-            <td><strong>Contenedor 📦</strong></td>
+            <td><strong>Contenedor</strong></td>
             <td>Es una instancia en ejecución de una imagen. Se puede iniciar, detener y modificar.</td>
             <td>🍲 <strong>Plato cocinado</strong>: Una versión viva de la receta que puedes comer y modificar (agregar más sal, cambiar ingredientes, etc.).</td>
         </tr>
