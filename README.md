@@ -882,4 +882,46 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
     </tbody>
 </table>
 
+ <h3>¿¿Cuál es la diferencia entre una imagen y un contenedor en docker??</h3>
+<h4>🔹 Imagen 🖼️</h4>
+<p>Es un archivo estático que contiene todo lo necesario para ejecutar una aplicación (código, dependencias, configuraciones, etc.).</p>
+<ul>
+    <li>Son inmutables y se construyen en capas.</li>
+    <li>Se almacenan en registros como Docker Hub o GitHub Container Registry.</li>
+    <li><strong>Ejemplo:</strong> <code>nginx:latest</code> es una imagen que contiene el servidor Nginx preconfigurado.</li>
+</ul>
+
+<h4>🔹 Contenedor 📦</h4>
+<p>Es una instancia en ejecución de una imagen.</p>
+<ul>
+    <li>Es dinámico: puede crearse, ejecutarse, detenerse y eliminarse.</li>
+    <li>Puede tener datos persistentes si usa <strong>volúmenes</strong>.</li>
+    <li>Se basa en la imagen, pero puede modificarse en tiempo de ejecución.</li>
+</ul>
+
+<h4>Piensa en esto como una Receta de Cocina:</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th>Concepto</th>
+            <th>Explicación 📖</th>
+            <th>Ejemplo en Cocina 🍽️</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Imagen</strong></td>
+            <td>Es la plantilla que contiene todo lo necesario para ejecutar una aplicación. No cambia cuando se ejecuta.</td>
+            <td>📜 <strong>Receta</strong>: Lista de ingredientes y pasos para preparar un plato.</td>
+        </tr>
+        <tr>
+            <td><strong>Contenedor</strong></td>
+            <td>Es una instancia en ejecución de una imagen. Se puede iniciar, detener y modificar.</td>
+            <td>🍲 <strong>Plato cocinado</strong>: Una versión viva de la receta que puedes comer y modificar (agregar más sal, cambiar ingredientes, etc.).</td>
+        </tr>
+    </tbody>
+</table>
+
+
 </details>
