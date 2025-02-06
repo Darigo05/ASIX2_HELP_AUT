@@ -924,26 +924,18 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 </table>
 <h3>¿Cuáles son las ventajas de utilizar contenedores de docker?</h3>
 <p>Cuando un contenedor en Docker se elimina, los datos almacenados dentro de él también se eliminan a menos que se haya configurado almacenamiento persistente.</p>
-  <ul>
-        <li><strong>1. Datos dentro del contenedor ❌</strong> → Se pierden al eliminar el contenedor, ya que estos existen solo mientras el contenedor está en ejecución.</li>
-        <li><strong>2. Datos en volúmenes o bind mounts ✅</strong> → Se conservan, ya que están almacenados fuera del sistema de archivos del contenedor.</li>
-    </ul>
+  <p><strong>1. Datos dentro del contenedor ❌</strong> → Se pierden al eliminar el contenedor, ya que estos existen solo mientras el contenedor está en ejecución.</p>
+    <p><strong>2. Datos en volúmenes o bind mounts ✅</strong> → Se conservan, ya que están almacenados fuera del sistema de archivos del contenedor.</p>
     
     <h4>🛠 Cómo evitar la pérdida de datos</h4>
-    <ol>
-        <li>
-            <strong>1️⃣ Usar volúmenes de Docker (recomendado)</strong>
-            <p>Los volúmenes persisten incluso si el contenedor se elimina.</p>
-            <pre><code>docker run -d -v mi_volumen:/data --name mi_contenedor nginx</code></pre>
-        </li>
-        <li>
-            <strong>2️⃣ Usar bind mounts (montar una carpeta del host en el contenedor)</strong>
-            <p>Permite acceder a datos en el host desde el contenedor.</p>
-            <pre><code>docker run -d -v /ruta/en/host:/data --name mi_contenedor nginx</code></pre>
-        </li>
-        <li>
-            <strong>3️⃣ Usar docker commit para crear una nueva imagen con los cambios</strong>
-            <pre><code>docker commit mi_contenedor nueva_imagen</code></pre>
-        </li>
-    </ol>
+    <h5>1️⃣ Usar volúmenes de Docker (recomendado)</h5>
+    <p>Los volúmenes persisten incluso si el contenedor se elimina.</p>
+    <pre><code>docker run -d -v mi_volumen:/data --name mi_contenedor nginx</code></pre>
+
+    <h5>2️⃣ Usar bind mounts (montar una carpeta del host en el contenedor)</h5>
+    <p>Permite acceder a datos en el host desde el contenedor.</p>
+    <pre><code>docker run -d -v /ruta/en/host:/data --name mi_contenedor nginx</code></pre>
+
+    <h5>3️⃣ Usar docker commit para crear una nueva imagen con los cambios</h5>
+    <pre><code>docker commit mi_contenedor nueva_imagen</code></pre>
 </details>
