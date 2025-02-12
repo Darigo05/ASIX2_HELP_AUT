@@ -4,6 +4,8 @@
 <h4>Albert, David y Mariona</h4>
 
 <details>
+    
+<summary><h1>Parte 1</h1></summary>
 
 <br>
 
