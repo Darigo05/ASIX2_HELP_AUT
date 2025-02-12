@@ -831,6 +831,12 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 
 </details>
 
+
+
+<details>
+
+<summary><h3>Parte 2</h3></summary>
+
 <details>
 <summary><h2>🛢️ Explicación sobre docker</h2></summary>
     <h3>¿Qué son los contenedores de docker?</h3>
@@ -1059,5 +1065,7 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
       </tbody>
     </table>
 
+
+</details>
 
 </details>
