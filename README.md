@@ -3,6 +3,8 @@
 <h3>Trabajo realizado por:</h3>
 <h4>Albert, David y Mariona</h4>
 
+<details>
+
 <br>
 
 <details>
@@ -823,6 +825,8 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 <p>
      Todo el desarrollo se encuentra organizado en la carpeta llamada <strong>"HelpAut"</strong>, donde podréis explorar tanto el funcionamiento como el código fuente.
     </p>
+</details>
+
 </details>
 
 <details>
