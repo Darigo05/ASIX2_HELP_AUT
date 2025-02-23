@@ -834,10 +834,12 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 
 
 <details>
+
+<summary><h3>Parte 1</h3></summary>
     
 <details>
     
-<summary><h3>Introducción</h3></summary>
+<summary><h2>📝Introducción</h2></summary>
 
 <p>
        Este proyecto tiene como objetivo desarrollar una plataforma web que facilite el acceso a servicios de psicología para personas con autismo, tanto niños como adultos. La plataforma permitirá a los usuarios buscar y contactar con psicólogos especializados mediante un sistema intuitivo de filtrado y comunicación. Entre sus principales funciones se incluyen un buzón de mensajes, chat en tiempo real, videollamadas y una agenda para gestionar citas. Además, ofrecerá videotutoriales educativos para ayudar a las familias a comprender mejor el autismo y mejorar la calidad de vida de quienes lo viven.
@@ -852,9 +854,8 @@ En definitiva, este proyecto busca crear una solución accesible y asequible par
 </details>
 
 
-<details>
-    
-<summary><h3>Base de Datos</h3></summary>
+<details>    
+<summary><h2>🗄️Base de Datos</h2></summary>
 
 <p>
        Para nuestra base de datos, dado que ya estaba desarrollada en la primera parte del proyecto, hemos copiado su contenido tanto en nuestra máquina de Docker como en la máquina de backup para garantizar copias de seguridad. Además, la hemos integrado correctamente con phpMyAdmin, asegurando su funcionamiento óptimo. En Docker, hemos organizado todas las carpetas y creado una estructura específica para la base de datos, facilitando su gestión y mantenimiento. (INTRODUCIR ENLACE A LA BASE DE DATOS)
@@ -864,9 +865,10 @@ En definitiva, este proyecto busca crear una solución accesible y asequible par
 
 
 <details>
-<summary><h2>🛢️ Explicación sobre docker</h2></summary>
+
+<summary><h2>🐳 Docker</h2></summary>
     
-<summary><h2>🛢️ Explicación sobre docker</h2></summary>
+<summary><h4>🛢️ Explicación sobre docker</h4></summary>
     <h3>¿Qué son los contenedores de docker?</h3>
     <p>
        Docker es una plataforma que permite crear, probar y desplegar aplicaciones en contenedores ligeros y portátiles, que incluyen todo lo necesario para ejecutarlas en diferentes entornos sin problemas. Es de código abierto y está respaldada por Docker Inc., la empresa detrás de la tecnología, que se encarga de mejorarla, ofrecer soporte y proporcionar soluciones empresariales. Esto facilita el desarrollo y despliegue de aplicaciones, optimizando su gestión en cualquier entorno.
