@@ -835,7 +835,7 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 
 <details>
 
-<summary><h3>Parte 1</h3></summary>
+<summary><h3>Parte 2</h3></summary>
     
 <details>
     
@@ -878,9 +878,9 @@ En definitiva, este proyecto busca crear una solución accesible y asequible par
 
 <summary><h2>🐳 Docker</h2></summary>
 
-<summary><h4>🛠️ Instalación Docker</h4></summary>
+<summary><h3>🛠️ Instalación Docker</h3></summary>
 
-<summary><h5>📖 Introducción</h5></summary>
+<summary><h3>📖 Introducción</h3></summary>
 
 <p>
        En este proyecto, hemos creado una máquina virtual (VM) en Proxmox y, para su sistema operativo, optamos por Alpine Linux debido a su ligereza y eficiencia. A continuación, conectamos esta VM a Portainer, una herramienta de gestión de contenedores Docker con una interfaz gráfica intuitiva, lo que facilitó enormemente el manejo de los contenedores y la administración de Docker en general.
@@ -895,10 +895,10 @@ Por último, conectamos nuestra base de datos a PhpMyAdmin, también ejecutado e
 
 Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx en un entorno virtualizado en Proxmox, nos permitió crear una infraestructura eficiente, escalable y de fácil mantenimiento, asegurando la estabilidad de la página web y la base de datos mientras optimizábamos el uso de los recursos de la máquina virtual.
     </p>
-<summary><h5>💻 Instalación Técnica</h5></summary>
-<summary><h6>📋 Guía para Desplegar una Aplicación Web en Contenedores</h6></summary>
+<summary><h3>💻 Instalación Técnica</h3></summary>
+<summary><h4>📋 Guía para Desplegar una Aplicación Web en Contenedores</h4></summary>
 
-<h6>📌 Requisitos Previos</h6>
+<h4>📌 Requisitos Previos</h4>
 <ul>
   <li>✅ Una aplicación web</li>
   <li>✅ Docker instalado</li>
@@ -906,7 +906,7 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
   <li>✅ Acceso a la terminal o línea de comandos</li>
 </ul>
 
-<h6>🚀 Instalación Docker</h6>
+<h4>🚀 Instalación Docker</h4>
 <ol>
   <li>Descargamos Docker aquí → <a href="https://www.docker.com/products/docker-desktop/" target="_blank">Docker Desktop</a></li>
   <li>Abrimos Docker Desktop y miramos que esté corriendo.</li>
@@ -915,14 +915,14 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
   <li>Si vemos algo de este estilo, es que tenemos la instación bien: <strong>Docker version 24.0.5</strong></li>
 </ol>
 
-<h6>🔧 Creación la Estructura del Proyecto y Configuración Nginx</h6>
+<h4>🔧 Creación la Estructura del Proyecto y Configuración Nginx</h4>
 <p>Primero, creamos una carpeta llamada <code>midb</code>, que será donde almacenaremos todos nuestros archivos. Para ello:</p>
 <pre><code>mkdir midb</code></pre>
 <p>Después, dentro de esta carpeta, hemos importado todos los archivos y carpetas que habíamos usado en nuestro anterior proyecto que contienen nuestros códigos de la página web:</p>
 <pre><code>cp -r /ruta/del/proyecto/antiguo/* midb/</code></pre>
 <p>Hemos creado/modificado el archivo <code>docker-compose.yml</code> para desplegar las diferentes máquinas y también hemos modificado el archivo <code>default.conf</code> para definir el path de root, modificaciones de php, etc.</p>
 
-<h6>📄 Creación del Archivo Dockerfile</h6>
+<h4>📄 Creación del Archivo Dockerfile</h4>
 <p>Creamos el archivo <code>Dockerfile</code>, que le dirá a Docker cómo construir nuestro contenedor con Nginx. Creamos un archivo nuevo llamado <strong>Dockerfile</strong> en la carpeta del proyecto.</p>
 <p>Dentro del archivo de Dockerfile escribimos:</p>
 
@@ -940,7 +940,7 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
         
     </code></pre>
 
-<h6>🖼️ Construimos la Imagen de Docker</h6>
+<h4>🖼️ Construimos la Imagen de Docker</h4>
 <p>En la terminal nos metemos dentro de la carpeta del proyecto:</p>
 <pre><code>cd mi-sitio-web</code></pre>
 <p>Ejecutamos lo siguiente para construir la imagen:</p>
@@ -952,7 +952,7 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
   <li><code>.</code>: usa el <code>Dockerfile</code> de la carpeta actual</li>
 </ul>
 
-<h6>🚢 Ejecutamos el Contenedor</h6>
+<h4>🚢 Ejecutamos el Contenedor</h4>
 <p>Para ello introducioma el siguiente comando:</p>
 <pre><code>docker run -d -p 8080:80 --name contenedor-nginx mi-sitio-nginx</code></pre>
 <p>Lo que hace este comando básicamente es que lo pone a correr en segundo plano. <code>-p 8080:80</code>: mapea el puerto 80 del contenedor al 8080 de nuestra máquina. <code>--name contenedor-nginx</code>: le da un nombre al contenedor y <code>mi-sitio-nginx</code>: usa la imagen que creamos antes. </p>
@@ -965,7 +965,7 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 <p>Abre tu navegador y ve al siguiente enlace para ver si tu aplicación funciona correctamente:</p>
 <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>
 
-<h6>🎯 Extras</h6>
+<h4>🎯 Extras</h4>
 <p><strong>Detener y Eliminar el Contenedor</strong></p>
 <p>Detener el contenedor:</p>
 <pre><code>docker stop contenedor-nginx</code></pre>
