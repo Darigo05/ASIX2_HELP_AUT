@@ -834,10 +834,38 @@ Finalmente, las funcionalidades que hemos desarrollado y completado son:
 
 
 <details>
+    
+<details>
+    
+<summary><h3>Introducción</h3></summary>
 
-<summary><h3>Parte 2</h3></summary>
+<p>
+       Este proyecto tiene como objetivo desarrollar una plataforma web que facilite el acceso a servicios de psicología para personas con autismo, tanto niños como adultos. La plataforma permitirá a los usuarios buscar y contactar con psicólogos especializados mediante un sistema intuitivo de filtrado y comunicación. Entre sus principales funciones se incluyen un buzón de mensajes, chat en tiempo real, videollamadas y una agenda para gestionar citas. Además, ofrecerá videotutoriales educativos para ayudar a las familias a comprender mejor el autismo y mejorar la calidad de vida de quienes lo viven.
+
+Para garantizar una infraestructura estable y eficiente, el sistema está basado en una arquitectura de servidores virtualizados mediante Proxmox, incluyendo máquinas dedicadas a funciones clave como el router, DNS, Nginx y MySQL. Actualmente, se está integrando Docker en la infraestructura para mejorar la escalabilidad y gestión de los servicios, y se ha añadido una máquina virtual específica para backups, asegurando la protección de datos críticos.
+
+El desarrollo tecnológico utiliza HTML, CSS y JavaScript en el front-end, junto con PHP y MySQL en el back-end, permitiendo una experiencia de usuario accesible y eficiente. La interfaz de la plataforma sigue una estética basada en tonos cálidos y otoñales, buscando transmitir confianza y bienestar.
+
+En definitiva, este proyecto busca crear una solución accesible y asequible para conectar a personas con autismo con profesionales de la psicología, reduciendo las barreras actuales en la atención psicológica y mejorando la calidad de vida de los usuarios y sus familias.
+    </p>
+
+</details>
+
 
 <details>
+    
+<summary><h3>Base de Datos</h3></summary>
+
+<p>
+       Para nuestra base de datos, dado que ya estaba desarrollada en la primera parte del proyecto, hemos copiado su contenido tanto en nuestra máquina de Docker como en la máquina de backup para garantizar copias de seguridad. Además, la hemos integrado correctamente con phpMyAdmin, asegurando su funcionamiento óptimo. En Docker, hemos organizado todas las carpetas y creado una estructura específica para la base de datos, facilitando su gestión y mantenimiento. (INTRODUCIR ENLACE A LA BASE DE DATOS)
+    </p>
+
+</details>
+
+
+<details>
+<summary><h2>🛢️ Explicación sobre docker</h2></summary>
+    
 <summary><h2>🛢️ Explicación sobre docker</h2></summary>
     <h3>¿Qué son los contenedores de docker?</h3>
     <p>
