@@ -898,8 +898,7 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 <summary><h5>💻 Instalación Técnica</h5></summary>
 <summary><h6>📋 Guía para Desplegar una Aplicación Web en Contenedores</h6></summary>
 
-<h2>📌 Requisitos Previos</h2>
-<p>Antes de empezar, asegúrate de que tienes estas cosas:</p>
+<h6>📌 Requisitos Previos</h6>
 <ul>
   <li>✅ Una aplicación web</li>
   <li>✅ Docker instalado</li>
@@ -907,75 +906,72 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
   <li>✅ Acceso a la terminal o línea de comandos</li>
 </ul>
 
-<h2>🚀 Paso 1: Instalar Docker</h2>
-<p>Si no tienes Docker instalado, sigue estos pasos:</p>
+<h6>🚀 Instalación Docker</h6>
 <ol>
-  <li>Descarga e instala Docker desde aquí → <a href="https://www.docker.com/products/docker-desktop/" target="_blank">Docker Desktop</a></li>
-  <li>Abre Docker Desktop y asegúrate de que está corriendo.</li>
-  <li>Para verificar la instalación, abre una terminal y escribe:</li>
+  <li>Descargamos Docker aquí → <a href="https://www.docker.com/products/docker-desktop/" target="_blank">Docker Desktop</a></li>
+  <li>Abrimos Docker Desktop y miramos que esté corriendo.</li>
+  <li>Verificación instalación: en una terminal escribimos:</li>
   <pre><code>docker --version</code></pre>
-  <li>Deberías ver algo así: <strong>Docker version 24.0.5</strong></li>
+  <li>Si vemos algo de este estilo, es que tenemos la instación bien: <strong>Docker version 24.0.5</strong></li>
 </ol>
 
-<h2>🔧 Paso 2: Crear la Estructura del Proyecto y Configuración Nginx</h2>
+<h6>🔧 Creación la Estructura del Proyecto y Configuración Nginx</h6>
 <p>Primero, creamos una carpeta llamada <code>midb</code>, que será donde almacenaremos todos nuestros archivos. Para ello:</p>
 <pre><code>mkdir midb</code></pre>
 <p>Después, dentro de esta carpeta, hemos importado todos los archivos y carpetas que habíamos usado en nuestro anterior proyecto que contienen nuestros códigos de la página web:</p>
 <pre><code>cp -r /ruta/del/proyecto/antiguo/* midb/</code></pre>
 <p>Hemos creado/modificado el archivo <code>docker-compose.yml</code> para desplegar las diferentes máquinas y también hemos modificado el archivo <code>default.conf</code> para definir el path de root, modificaciones de php, etc.</p>
 
-<h2>Paso 3: Crear el Archivo Dockerfile</h2>
-<p>Creamos el archivo <code>Dockerfile</code>, que le dirá a Docker cómo construir nuestro contenedor con Nginx. Creamos un archivo nuevo llamado <code>Dockerfile</code> en la carpeta del proyecto.</p>
-<p>Dentro de <code>Dockerfile</code> escribimos:</p>
-<pre><code># Usar la imagen oficial de Nginx
-FROM nginx:latest  
+<h6>📄 Creación del Archivo Dockerfile</h6>
+<p>Creamos el archivo <code>Dockerfile</code>, que le dirá a Docker cómo construir nuestro contenedor con Nginx. Creamos un archivo nuevo llamado <strong>Dockerfile</strong> en la carpeta del proyecto.</p>
+<p>Dentro del archivo de Dockerfile escribimos:</p>
 
-# Copiar los archivos de la web al directorio de Nginx
-COPY html /usr/share/nginx/html  
+    <pre><code># Usar la imagen oficial de Nginx
+        FROM nginx:latest  
 
-# Exponer el puerto 80 para que la web sea accesible
-EXPOSE 80  
+        # Copiar los archivos de la web al directorio de Nginx
+        COPY html /usr/share/nginx/html  
 
-# Iniciar Nginx
-CMD ["nginx", "-g", "daemon off;"]</code></pre>
+        # Exponer el puerto 80 para que la web sea accesible
+        EXPOSE 80  
 
-<h2>🏗 Paso 5: Construir la Imagen Docker</h2>
-<p>Abre la terminal y navega a la carpeta del proyecto:</p>
+        # Iniciar Nginx
+        CMD ["nginx", "-g", "daemon off;"]
+        
+    </code></pre>
+
+<h6>🖼️ Construimos la Imagen de Docker</h6>
+<p>En la terminal nos metemos dentro de la carpeta del proyecto:</p>
 <pre><code>cd mi-sitio-web</code></pre>
-<p>Ejecuta el siguiente comando para construir la imagen:</p>
+<p>Ejecutamos lo siguiente para construir la imagen:</p>
 <pre><code>docker build -t mi-sitio-nginx .</code></pre>
 <p><strong>Explicación:</strong></p>
 <ul>
   <li><code>docker build</code>: construye la imagen</li>
-  <li><code>-t mi-sitio-nginx</code>: le pone el nombre <code>mi-sitio-nginx</code></li>
+  <li><code>-t mi-sitio-nginx</code>: así le ponemos el nombre <code>mi-sitio-nginx</code></li>
   <li><code>.</code>: usa el <code>Dockerfile</code> de la carpeta actual</li>
 </ul>
 
-<h2>🚢 Paso 6: Ejecutar el Contenedor</h2>
-<p>Corre el contenedor con este comando:</p>
+<h6>🚢 Ejecutamos el Contenedor</h6>
+<p>Para ello introducioma el siguiente comando:</p>
 <pre><code>docker run -d -p 8080:80 --name contenedor-nginx mi-sitio-nginx</code></pre>
-<p><strong>Explicación:</strong></p>
-<ul>
-  <li><code>-d</code>: lo corre en segundo plano</li>
-  <li><code>-p 8080:80</code>: mapea el puerto 80 del contenedor al 8080 de tu máquina</li>
-  <li><code>--name contenedor-nginx</code>: le da un nombre al contenedor</li>
-  <li><code>mi-sitio-nginx</code>: usa la imagen que creamos antes</li>
-</ul>
-<p>Para ver si está corriendo, usa este comando:</p>
+<p>Lo que hace este comando básicamente es que lo pone a correr en segundo plano. <code>-p 8080:80</code>: mapea el puerto 80 del contenedor al 8080 de nuestra máquina. <code>--name contenedor-nginx</code>: le da un nombre al contenedor y <code>mi-sitio-nginx</code>: usa la imagen que creamos antes. </p>
+
+<p>Para comprobar que efectivamente esté corriendo, lanzamos este comando:</p>
 <pre><code>docker ps</code></pre>
-<p>Deberías ver algo como:</p>
+<p>Si vemos algo parecido a esto, está correcto:</p>
 <pre><code>CONTAINER ID  IMAGE   PORTS                  NAMES  
 123abc456     mi-app  0.0.0.0:3000->3000/tcp contenedor-mi-app</code></pre>
 <p>Abre tu navegador y ve al siguiente enlace para ver si tu aplicación funciona correctamente:</p>
 <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>
 
-<h2>🎯 Paso 7: Extras</h2>
+<h6>🎯 Extras</h6>
 <p><strong>Detener y Eliminar el Contenedor</strong></p>
-<p>Si quieres detener el contenedor:</p>
+<p>Detener el contenedor:</p>
 <pre><code>docker stop contenedor-nginx</code></pre>
-<p>Si quieres eliminarlo completamente:</p>
+<p>Eliminar completamente el contenedor:</p>
 <pre><code>docker rm contenedor-nginx</code></pre>
-<p>Si quieres eliminar también la imagen:</p>
+<p>Para eliminar también la imagen:</p>
 <pre><code>docker rmi mi-sitio-nginx</code></pre>
 
 
