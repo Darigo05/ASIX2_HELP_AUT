@@ -1352,7 +1352,7 @@ Finalmente, para asegurar la integridad de nuestro entorno Proxmox con todas las
 
 Por último, estamos terminando de documentar detalladamente el paso a paso de la configuración de todas nuestras VMs. Esto nos permitirá, en un escenario extremo donde no podamos recuperar ninguna de las máquinas, rehacer todo el entorno desde cero de manera ágil, siguiendo la documentación y minimizando los posibles inconvenientes.</p>
 
-<h4>Script Backup</h4>
+<h2>Script Backup</h2>
 <p>Este script está diseñado para realizar copias de seguridad tanto locales como en una partición adicional en el disco D de nuestro ordenador. Además, permite generar copias incrementales durante la semana y copias completas durante los fines de semana. Utilizamos tar.gz para comprimir los archivos y scp para transferir los datos desde las distintas máquinas virtuales (VMs) de nuestro entorno Proxmox. Los backups son cifrados con GPG utilizando el algoritmo AES256, asegurando que la información permanezca segura. Además, se crea un hash para cada backup, lo que nos permite verificar la integridad de los datos en cualquier momento y asegurarnos de que no hayan sido alterados.
 
 El script no solo realiza los backups, sino que también genera un log detallado con toda la información relacionada con el proceso. Cada vez que se ejecuta una acción, como la copia de archivos, la creación de backups, la compresión o el cifrado, se registra en un archivo de log. Este archivo es esencial para monitorizar el estado del proceso de copias de seguridad y detectar posibles fallos o errores durante la ejecución. Los registros incluyen la fecha, la hora y el resultado de cada operación, lo que nos permite hacer auditorías y tener visibilidad sobre la ejecución de los backups.<p>
@@ -1505,7 +1505,7 @@ El script no solo realiza los backups, sino que también genera un log detallado
         fi
 </code></pre>
         
-<h5>Explicación Script</h5>
+<h2>Explicación Script</h2>
 
 <h6>1. Definición de Variables y Configuración</h6>
 <p>Al principio, el script define una serie de variables que configuran las rutas de los directorios y los nombres de los archivos que se utilizarán en el proceso de copia de seguridad.</p>
