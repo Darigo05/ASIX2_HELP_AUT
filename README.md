@@ -1220,18 +1220,14 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 <h3>¿Cuál es la importancia de las mismas?</h3>
 <p>Las copias de seguridad son esenciales para asegurar la continuidad operativa y la protección de la información frente a eventos inesperados. Entre sus principales beneficios se encuentran:</p>
 
-        <ul>
-          <li><strong>Recuperación ante desastres:</strong> Permiten recuperar datos importantes tras eventos como fallos de hardware, corrupción de archivos, ataques cibernéticos (como ransomware) o errores humanos.</li>
-          <li><strong>Seguridad y protección:</strong> Garantizan la integridad de los datos y previenen la pérdida permanente de información.</li>
-          <li><strong>Recuperación de configuraciones antiguas:</strong> Permite revertir cambios no deseados o problemas causados por nuevas configuraciones, restaurando versiones anteriores que funcionaban mejor.</li>
-          <li><strong>Protección contra malware (como ransomware):</strong> En caso de que el sistema sea infectado por un ransomware o malware, tener copias de seguridad de antes de la infección permite restaurar los archivos a su estado original, antes de que el problema ocurriera. Además, al revisar los backups, se puede rastrear el momento en que el ataque comenzó, ayudando a identificar y mitigar el problema.</li>
-          <li><strong>Cumplimiento de normativas:</strong> Muchas empresas deben cumplir con regulaciones legales que requieren mantener copias de seguridad de datos confidenciales o sensibles.</li>
-          <li><strong>Tranquilidad y continuidad:</strong> Facilitan el retorno a la normalidad de un sistema rápidamente tras un incidente.</li>
-        </ul>
-
-
-
-
+<ul>
+    <li><strong>Recuperación ante desastres:</strong> Permiten recuperar datos importantes tras eventos como fallos de hardware, corrupción de archivos, ataques cibernéticos (como ransomware) o errores humanos.</li>
+    <li><strong>Seguridad y protección:</strong> Garantizan la integridad de los datos y previenen la pérdida permanente de información.</li>
+    <li><strong>Recuperación de configuraciones antiguas:</strong> Permite revertir cambios no deseados o problemas causados por nuevas configuraciones, restaurando versiones anteriores que funcionaban mejor.</li>
+    <li><strong>Protección contra malware (como ransomware):</strong> En caso de que el sistema sea infectado por un ransomware o malware, tener copias de seguridad de antes de la infección permite restaurar los archivos a su estado original, antes de que el problema ocurriera. Además, al revisar los backups, se puede rastrear el momento en que el ataque comenzó, ayudando a identificar y mitigar el problema.</li>
+    <li><strong>Cumplimiento de normativas:</strong> Muchas empresas deben cumplir con regulaciones legales que requieren mantener copias de seguridad de datos confidenciales o sensibles.</li>
+    <li><strong>Tranquilidad y continuidad:</strong> Facilitan el retorno a la normalidad de un sistema rápidamente tras un incidente.</li>
+</ul>
 
 
 
@@ -1247,21 +1243,21 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 <h3>¿Qué estrategias se deben seguir?</h3>
 <p>Algunas estrategias clave para una buena gestión de las copias de seguridad incluyen:</p>
 
-        <ul>
-          <li><strong>Regla 3-2-1:</strong> Tener al menos 3 copias de los datos, almacenadas en 2 tipos diferentes de medios (como discos duros y almacenamiento en la nube) y con 1 copia fuera del sitio (por ejemplo, en la nube o en un centro de datos remoto) para protegerse de incidentes locales como incendios o robos.</li>
-          <li><strong>Automatización de backups:</strong> Utilizar herramientas de software que automaticen el proceso de backup para evitar olvidos o errores humanos.</li>
-          <li><strong>Pruebas periódicas:</strong> Verificar de manera regular que las copias de seguridad sean efectivas y que los datos puedan restaurarse sin problemas.</li>
-          <li><strong>Cifrado y compresión:</strong> Cifrar las copias de seguridad para proteger los datos sensibles y comprimir los archivos para ahorrar espacio de almacenamiento.</li>
-        </ul>
+<ul>
+    <li><strong>Regla 3-2-1:</strong> Tener al menos 3 copias de los datos, almacenadas en 2 tipos diferentes de medios (como discos duros y almacenamiento en la nube) y con 1 copia fuera del sitio (por ejemplo, en la nube o en un centro de datos remoto) para protegerse de incidentes locales como incendios o robos.</li>
+    <li><strong>Automatización de backups:</strong> Utilizar herramientas de software que automaticen el proceso de backup para evitar olvidos o errores humanos.</li>
+    <li><strong>Pruebas periódicas:</strong> Verificar de manera regular que las copias de seguridad sean efectivas y que los datos puedan restaurarse sin problemas.</li>
+    <li><strong>Cifrado y compresión:</strong> Cifrar las copias de seguridad para proteger los datos sensibles y comprimir los archivos para ahorrar espacio de almacenamiento.</li>
+</ul>
 
 <h3>¿Dónde se van a ubicar las copias?</h3>
 <p>Las copias de seguridad deben almacenarse en lugares seguros y diversos para reducir riesgos. Las ubicaciones más comunes incluyen:</p>
 
-        <ul>
-          <li><strong>Almacenamiento local:</strong> En discos duros externos, servidores NAS (Network Attached Storage), o cintas magnéticas. Es rápido y fácil de gestionar, pero también vulnerable a desastres locales.</li>
-          <li><strong>Almacenamiento en la nube:</strong> Usar servicios en la nube como Google Drive, AWS, Azure o servicios especializados en backup como Backblaze o Dropbox. Ofrecen acceso remoto y redundancia geográfica, lo que los hace resistentes a fallos locales.</li>
-          <li><strong>Almacenamiento remoto:</strong> En servidores ubicados en centros de datos externos o ubicaciones físicas alejadas del sitio principal. Esto protege contra desastres físicos locales.</li>
-        </ul>
+<ul>
+     <li><strong>Almacenamiento local:</strong> En discos duros externos, servidores NAS (Network Attached Storage), o cintas magnéticas. Es rápido y fácil de gestionar, pero también vulnerable a desastres locales.</li>
+     <li><strong>Almacenamiento en la nube:</strong> Usar servicios en la nube como Google Drive, AWS, Azure o servicios especializados en backup como Backblaze o Dropbox. Ofrecen acceso remoto y redundancia geográfica, lo que los hace resistentes a fallos locales.</li>
+    <li><strong>Almacenamiento remoto:</strong> En servidores ubicados en centros de datos externos o ubicaciones físicas alejadas del sitio principal. Esto protege contra desastres físicos locales.</li>
+</ul>
 
 
 <h3>Nuestras Copias de Seguridad</h3>
