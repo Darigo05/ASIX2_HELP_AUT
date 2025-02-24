@@ -1315,9 +1315,42 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 
 <h3>¿Qué tipos de copias de seguridad se deben hacer? Explicar en qué consiste y la periodicidad de las mismas.</h3>
 
+<h4>Tipos de Copia de Seguridad</h4>
 
-
-
+<table>
+    <thead>
+        <tr>
+            <th>Tipo de Copia de Seguridad</th>
+            <th>Descripción</th>
+            <th>Ventajas</th>
+            <th>Desventajas</th>
+            <th>Periodicidad Recomendada</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Copia de seguridad completa</strong></td>
+            <td>Consiste en hacer una copia exacta de todos los archivos y datos seleccionados del sistema. Incluye toda la información, sin omitir nada, y crea una imagen completa del estado del sistema en el momento de la copia.</td>
+            <td>Es la más segura y asegura la integridad total de los datos.</td>
+            <td>Consume mucho espacio de almacenamiento y puede llevar más tiempo debido al volumen de datos.</td>
+            <td>Se recomienda realizarla periódicamente, por ejemplo, una vez a la semana o al mes, dependiendo de la cantidad de datos y la actividad del sistema.</td>
+        </tr>
+        <tr>
+            <td><strong>Copia de seguridad incremental</strong></td>
+            <td>Solo se copian los archivos que han cambiado o que se han añadido desde la última copia de seguridad, ya sea completa o incremental. Esto permite ahorrar espacio y reduce el tiempo necesario para hacer el backup.</td>
+            <td>Es más rápida y eficiente en espacio de almacenamiento, ya que solo copia los datos modificados.</td>
+            <td>Si hay un fallo en alguna de las copias incrementales, se puede perder la posibilidad de restaurar datos anteriores a la última copia completa.</td>
+            <td>Se realiza con mayor frecuencia, por ejemplo, diariamente o varias veces al día.</td>
+        </tr>
+        <tr>
+            <td><strong>Copia de seguridad diferencial</strong></td>
+            <td>Copia todos los archivos que han cambiado desde la última copia de seguridad completa. A diferencia de la incremental, no depende de copias anteriores para la restauración, pero sigue siendo más eficiente que la completa.</td>
+            <td>Es más rápida que la copia completa, y más fiable que la incremental, ya que no depende de copias anteriores.</td>
+            <td>Consume más espacio que la incremental, ya que no elimina los archivos que no han cambiado desde la última copia completa.</td>
+            <td>Se realiza con una frecuencia intermedia entre la completa y la incremental, por ejemplo, una vez al día o cada pocos días.</td>
+        </tr>
+    </tbody>
+</table>
 
 
 <h4>Combinaciones de Copias de Seguridad</h4>
