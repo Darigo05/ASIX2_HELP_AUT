@@ -1381,87 +1381,87 @@ El script no solo realiza los backups, sino que también genera un log detallado
         
         # --- Copiar archivos desde las VMs a la máquina de backup ---
         echo "$(date) - Copiando archivos desde las VMs..."
-        scp -r usuario@10.20.30.28:/var/www/html/helpaut $DIR_BACKUP/nginx/
+        scp -r nginx@10.20.30.28:/var/www/html/helpaut $DIR_BACKUP/nginx/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /var/www/html/helpaut de la VM nginx." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.28:/usr/share/nginx/html/helpaut $DIR_BACKUP/nginx/
+        scp -r nginx@10.20.30.28:/usr/share/nginx/html/helpaut $DIR_BACKUP/nginx/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /usr/share/nginx/html/helpaut de la VM nginx." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.28:/etc/nginx/ $DIR_BACKUP/nginx/
+        scp -r nginx@10.20.30.28:/etc/nginx/ $DIR_BACKUP/nginx/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /etc/nginx/ de la VM nginx." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.30:/etc/my.cnf $DIR_BACKUP/mysql/
+        scp -r mysql@10.20.30.30:/etc/my.cnf $DIR_BACKUP/mysql/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar el archivo /etc/my.cnf de la VM mysql." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.30:/var/lib/mysql/helpaut/ $DIR_BACKUP/mysql/
+        scp -r mysql@10.20.30.30:/var/lib/mysql/helpaut/ $DIR_BACKUP/mysql/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /var/lib/mysql/helpaut/ de la VM mysql." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.30:/var/log/mysql/ $DIR_BACKUP/mysql/
+        scp -r mysql@10.20.30.30:/var/log/mysql/ $DIR_BACKUP/mysql/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /var/log/mysql/ de la VM mysql." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.1:/etc/network/interfaces $DIR_BACKUP/router/
+        scp -r router@10.20.30.1:/etc/network/interfaces $DIR_BACKUP/router/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar el archivo /etc/network/interfaces de la VM router." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.1:/etc/netplan/ $DIR_BACKUP/router/
+        scp -r router@10.20.30.1:/etc/netplan/ $DIR_BACKUP/router/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /etc/netplan/ de la VM router." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.1:/etc/sysctl.conf $DIR_BACKUP/router/
+        scp -r router@10.20.30.1:/etc/sysctl.conf $DIR_BACKUP/router/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar el archivo /etc/sysctl.conf de la VM router." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.1:/etc/iptables/rules.v4 $DIR_BACKUP/iptables/
+        scp -r router@10.20.30.1:/etc/iptables/rules.v4 $DIR_BACKUP/iptables/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar el archivo /etc/iptables/rules.v4 de la VM iptables." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.1:/etc/network/if-up.d/ $DIR_BACKUP/iptables/
+        scp -r router@10.20.30.1:/etc/network/if-up.d/ $DIR_BACKUP/iptables/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /etc/network/if-up.d/ de la VM iptables." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.1:/etc/network/if-pre-up.d/ $DIR_BACKUP/iptables/
+        scp -r router@10.20.30.1:/etc/network/if-pre-up.d/ $DIR_BACKUP/iptables/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /etc/network/if-pre-up.d/ de la VM iptables." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.29:/usr/share/nginx/html/ $DIR_BACKUP/docker/
+        scp -r docker@10.20.30.29:/usr/share/nginx/html/ $DIR_BACKUP/docker/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /usr/share/nginx/html/ de la VM docker." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.29:./docker-compose.yml $DIR_BACKUP/docker/
+        scp -r docker@10.20.30.29:./docker-compose.yml $DIR_BACKUP/docker/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar el archivo ./docker-compose.yml de la VM docker." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.1:/etc/config/dhcp $DIR_BACKUP/dhcp/
+        scp -r router@10.20.30.1:/etc/config/dhcp $DIR_BACKUP/dhcp/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /etc/config/dhcp de la VM dhcp." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.1:/cf/conf/config.xml $DIR_BACKUP/dhcp/
+        scp -r router@10.20.30.1:/cf/conf/config.xml $DIR_BACKUP/dhcp/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar el archivo /cf/conf/config.xml de la VM dhcp." >> "$LOG_FILE"
         fi
         
-        scp -r usuario@10.20.30.2:/etc/dnsmasq.conf $DIR_BACKUP/dns/
+        scp -r dns@10.20.30.2:/etc/dnsmasq.conf $DIR_BACKUP/dns/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar el archivo /etc/dnsmasq.conf de la VM dns." >> "$LOG_FILE"
         fi
