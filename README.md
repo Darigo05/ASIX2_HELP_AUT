@@ -1313,9 +1313,159 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 </ul>
 
 
+<h3>¿Qué tipos de copias de seguridad se deben hacer? Explicar en qué consiste y la periodicidad de las mismas.</h3>
 
 
 
+
+
+
+<h4>Combinaciones de Copias de Seguridad</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th>Combinación de Copias de Seguridad</th>
+            <th>Descripción</th>
+            <th>Ventajas</th>
+            <th>Desventajas</th>
+            <th>Periodicidad de la Copia Completa</th>
+            <th>Periodicidad de la Copia Incremental</th>
+            <th>Periodicidad de la Copia Diferencial</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Copia Completa + Incremental</strong></td>
+            <td>Se realiza una copia completa al inicio de la semana y copias incrementales diarias que solo guardan los cambios desde la última copia completa o incremental.</td>
+            <td>Ahorra espacio y es rápida en los respaldos diarios.</td>
+            <td>La restauración es más lenta ya que se necesita aplicar todas las copias incrementales después de la copia completa.</td>
+            <td>Una vez a la semana (por ejemplo, el lunes)</td>
+            <td>Una vez al día, de martes a domingo. Solo se copian los cambios del día.</td>
+            <td>No se utiliza en esta combinación.</td>
+        </tr>
+        <tr>
+            <td><strong>Copia Completa + Diferencial</strong></td>
+            <td>Se realiza una copia completa al inicio de la semana y copias diferenciales diarias que incluyen todos los cambios desde la última copia completa.</td>
+            <td>La restauración es más rápida, ya que solo se necesita la última copia completa y la última copia diferencial.</td>
+            <td>Ocupa más espacio que las copias incrementales. Las copias diferenciales aumentan en tamaño conforme pasan los días.</td>
+            <td>Una vez a la semana (por ejemplo, el lunes)</td>
+            <td>No se utiliza en esta combinación.</td>
+            <td>Una vez al día, de martes a domingo. Se copian todos los cambios desde la última copia completa.</td>
+        </tr>
+        <tr>
+            <td><strong>Copia Completa diaria + Incremental</strong></td>
+            <td>Se realiza una copia completa cada día, y copias incrementales se hacen durante el día, para minimizar el tiempo de inactividad del sistema.</td>
+            <td>Ofrece la máxima protección, pero puede ser más lenta y consumir mucho espacio.</td>
+            <td>Ocupa mucho espacio y puede ser lenta. Se necesita mucho tiempo para hacer las copias.</td>
+            <td>Todos los días (por ejemplo, cada noche)</td>
+            <td>Realizadas a mitad del día, para capturar solo los cambios del día.</td>
+            <td>No se utiliza en esta combinación.</td>
+        </tr>
+        <tr>
+            <td><strong>Solo Copia Incremental</strong></td>
+            <td>Solo se realizan copias incrementales sin realizar copias completas periódicas. Cada copia incremental solo incluye los cambios desde la última copia.</td>
+            <td>Ahorra espacio al máximo y es rápida.</td>
+            <td>Si se pierde la primera copia completa, las copias incrementales son inútiles. No es recomendado para datos críticos.</td>
+            <td>No se realiza copia completa.</td>
+            <td>Realizadas todos los días (o varias veces al día).</td>
+            <td>No se utiliza en esta combinación.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Ejemplo de Calendario de Planificación Semanal sobre Copias de Seguridad</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th>Día</th>
+            <th>Copia Completa + Incremental</th>
+            <th>Copia Completa + Diferencial</th>
+            <th>Copia Completa Diaria + Incremental</th>
+            <th>Solo Copia Incremental</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Lunes</strong></td>
+            <td>Copia completa</td>
+            <td>Copia completa</td>
+            <td>Copia completa</td>
+            <td>No se realiza copia completa</td>
+        </tr>
+        <tr>
+            <td><strong>Martes</strong></td>
+            <td>Copia incremental</td>
+            <td>Copia diferencial</td>
+            <td>Copia completa y copias incrementales durante el día</td>
+            <td>Copia incremental</td>
+        </tr>
+        <tr>
+            <td><strong>Miércoles</strong></td>
+            <td>Copia incremental</td>
+            <td>Copia diferencial</td>
+            <td>Copia completa y copias incrementales durante el día</td>
+            <td>Copia incremental</td>
+        </tr>
+        <tr>
+            <td><strong>Jueves</strong></td>
+            <td>Copia incremental</td>
+            <td>Copia diferencial</td>
+            <td>Copia completa y copias incrementales durante el día</td>
+            <td>Copia incremental</td>
+        </tr>
+        <tr>
+            <td><strong>Viernes</strong></td>
+            <td>Copia incremental</td>
+            <td>Copia diferencial</td>
+            <td>Copia completa y copias incrementales durante el día</td>
+            <td>Copia incremental</td>
+        </tr>
+        <tr>
+            <td><strong>Sábado</strong></td>
+            <td>Copia incremental</td>
+            <td>Copia diferencial</td>
+            <td>Copia completa y copias incrementales durante el día</td>
+            <td>Copia incremental</td>
+        </tr>
+        <tr>
+            <td><strong>Domingo</strong></td>
+            <td>Copia incremental</td>
+            <td>Copia diferencial</td>
+            <td>Copia completa y copias incrementales durante el día</td>
+            <td>Copia incremental</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Explicación:</h4>
+<ul>
+    <li><strong>Copia Completa + Incremental:</strong>
+        <ul>
+            <li><strong>Lunes:</strong> Se realiza una copia completa de todos los datos.</li>
+            <li><strong>Martes a Domingo:</strong> Se realizan copias incrementales diarias, que solo incluyen los cambios desde la última copia completa.</li>
+        </ul>
+    </li>
+    <li><strong>Copia Completa + Diferencial:</strong>
+        <ul>
+            <li><strong>Lunes:</strong> Se realiza una copia completa de todos los datos.</li>
+            <li><strong>Martes a Domingo:</strong> Se realizan copias diferenciales diarias, que incluyen todos los cambios desde la última copia completa.</li>
+        </ul>
+    </li>
+    <li><strong>Copia Completa Diaria + Incremental:</strong>
+        <ul>
+            <li><strong>Cada día:</strong> Se realiza una copia completa.</li>
+            <li>Durante el día, se realizan copias incrementales para capturar los cambios a lo largo del día y minimizar el tiempo de inactividad.</li>
+        </ul>
+    </li>
+    <li><strong>Solo Copia Incremental:</strong>
+        <ul>
+            <li>No se realiza copia completa.</li>
+            <li>Se realizan copias incrementales todos los días (o varias veces al día), solo con los cambios desde la última copia incremental.</li>
+        </ul>
+    </li>
+</ul>
 
 
 
