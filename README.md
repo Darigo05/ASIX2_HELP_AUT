@@ -961,6 +961,8 @@ A pesar de que el proyecto presenta desafíos, estamos comprometidos en aprovech
 
 <summary><h2>🐳 Docker</h2></summary>
 
+<details>
+
 <summary><h3>📖 Introducción</h3></summary>
 
 <p>
@@ -976,7 +978,15 @@ Por último, conectamos nuestra base de datos a PhpMyAdmin, también ejecutado e
 
 Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx en un entorno virtualizado en Proxmox, nos permitió crear una infraestructura eficiente, escalable y de fácil mantenimiento, asegurando la estabilidad de la página web y la base de datos mientras optimizábamos el uso de los recursos de la máquina virtual.
     </p>
+
+</details>
+
+<details>
+    
 <summary><h3>💻 Instalación Técnica⬇️</h3></summary>
+
+<details>
+    
 <summary><h3>📋 Guía para Desplegar una Aplicación Web en Contenedores</h3></summary>
 
 <h3>📌 Requisitos Previos</h3>
@@ -1055,6 +1065,9 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 <p>Para eliminar también la imagen:</p>
 <pre><code>docker rmi mi-sitio-nginx</code></pre>
 
+</details>
+
+</details>
 
 <summary><h3>🛢️ Explicación Teórica Docker</h3></summary>
     <h3>¿Qué son los contenedores de docker?</h3>
@@ -1759,7 +1772,7 @@ El script no solo realiza los backups, sino que también genera un log detallado
 
 <details>
  
-<summary><h2>Incidencias</h2></summary>
+<summary><h3>Incidencias</h3></summary>
 
 <p>Durante la implementación de este sistema de copias de seguridad, nos encontramos con una incidencia relacionada con la asignación de direcciones IP. Debido a la creación de nuevas máquinas virtuales en nuestro entorno Proxmox, tuvimos que modificar la configuración de nuestro servidor DHCP para asignar direcciones IP fijas a cada una de las nuevas VMs. Esto fue crucial para garantizar que el script de backup pueda localizar correctamente las máquinas a través de sus IPs y realizar las copias de seguridad sin problemas. Sin esta configuración adecuada, el script no podría conectar con las VMs de manera fiable, lo que generaría errores en el proceso de backup.<p>
 
