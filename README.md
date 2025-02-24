@@ -1636,6 +1636,12 @@ El script no solo realiza los backups, sino que también genera un log detallado
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar el archivo ./docker-compose.yml de la VM docker." >> "$LOG_FILE"
         fi
+
+        scp -r docker@10.20.30.29:/etc/nginx/conf.d/default.conf $DIR_BACKUP/docker/ 
+        if [ $? -ne 0 ]; then 
+            echo "$(date) - ERROR: No se pudo copiar el archivo /etc/nginx/conf.d/default.conf de la VM docker." >> "$LOG_FILE" 
+        fi
+
         
         scp -r router@10.20.30.1:/etc/config/dhcp $DIR_BACKUP/dhcp/
         if [ $? -ne 0 ]; then
