@@ -1281,7 +1281,7 @@ Por último, estamos terminando de documentar detalladamente el paso a paso de l
 
 El script no solo realiza los backups, sino que también genera un log detallado con toda la información relacionada con el proceso. Cada vez que se ejecuta una acción, como la copia de archivos, la creación de backups, la compresión o el cifrado, se registra en un archivo de log. Este archivo es esencial para monitorizar el estado del proceso de copias de seguridad y detectar posibles fallos o errores durante la ejecución. Los registros incluyen la fecha, la hora y el resultado de cada operación, lo que nos permite hacer auditorías y tener visibilidad sobre la ejecución de los backups.<p>
 
-        <pre><code>
+<pre><code>
         #!/bin/bash
         
         # --- Configuración ---
@@ -1427,7 +1427,7 @@ El script no solo realiza los backups, sino que también genera un log detallado
             # No detener el script, pero registrar el error
             echo "$(date) - ERROR: Ruta o archivo no encontrado en la VM" >> "$LOG_FILE"
         fi
-        </code></pre>
+</code></pre>
         
 <h5>Explicación Script</h5>
 
