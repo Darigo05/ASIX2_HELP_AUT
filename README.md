@@ -1790,6 +1790,12 @@ El script no solo realiza los backups, sino que también genera un log detallado
 <p>Por otro lado, tuvimos que tener en cuenta el tener que verificar que tanto la VM de backup como la partición adicional tuvieran suficiente espacio disponible para almacenar las copias. Aseguramos que las particiones no se llenaran y que los backups pudieran completarse sin interrupciones.<p>
 
 No nos ha dado tiempo de realizar pruebas de restauración para asegurarnos de que los backups cifrados se puedan descifrar y restaurar correctamente en caso de un desastre. Lo tenemos pendiente para poder confirmar la viabilidad del sistema de respaldo.
+
+Foto IPs estáticas configuradas DHCP (incidencia solucionada):
+</p>
+
+![Diagrama_Red](DHCP_IP_estaticas.png)
+
 </details>
 
 </details>
