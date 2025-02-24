@@ -861,6 +861,40 @@ En definitiva, este proyecto busca crear una solución accesible y asequible par
 
 <details>    
 <summary><h2>🌐Diagrama de red</h2></summary>
+<p>En este proyecto, hemos diseñado una infraestructura de red usando Proxmox con diversas máquinas virtuales (VM) que tienen roles específicos para gestionar un servidor web. El objetivo es que estas máquinas se comuniquen entre sí y con la red externa de manera eficiente para ofrecer servicios web y de base de datos. Además, hemos configurado <strong>Cloudflare</strong> para optimizar la seguridad y el rendimiento de la página web.</p>
+
+<h4>Las máquinas virtuales configuradas son:</h4>
+
+<ul>
+  <li><strong>VM Router:</strong> Conecta la red interna (10.20.30.0/24) con la red externa, enruta el tráfico entre ambas redes, y asigna direcciones IP fijas a los dispositivos de la red interna mediante DHCP. Su IP interna es 10.20.30.1 y la externa es 100.77.20.69.</li>
+  <li><strong>VM DNS:</strong> Actúa como servidor DNS en la red interna, resolviendo nombres de dominio a direcciones IP, facilitando el acceso a los servicios web sin recordar las IPs.</li>
+  <li><strong>VM DHCP:</strong> Aunque el servidor DHCP está en el router, esta VM asegura que las IPs fijas dentro del rango 10.20.30.26 a 10.20.30.30 se asignen correctamente a los servidores de la red interna.</li>
+  <li><strong>VM Nginx:</strong> Alberga el servidor web Nginx, que recibe las solicitudes HTTP y responde con el contenido de la página web. Su IP interna es 10.20.30.28.</li>
+  <li><strong>VM MySQL:</strong> Contiene la base de datos MySQL, que gestiona los datos dinámicos del sitio web. Su IP interna es 10.20.30.30.</li>
+  <li><strong>VM Docker:</strong> Ejecuta contenedores Docker, permitiendo la implementación y gestión de aplicaciones dentro de la red interna.</li>
+  <li><strong>VM Backups:</strong> Realiza la copia de seguridad de los servidores y datos clave de la red. Utiliza un directorio de backups para almacenar tanto los respaldos completos como incrementales.</li>
+</ul>
+
+<p>La red está configurada para enrutar el tráfico entre la red interna y externa de forma eficiente. La configuración asegura que todos los servicios (web, base de datos, DNS, Docker y backups) trabajen de manera coordinada y estable. Las IPs fijas en la red interna se asignan entre el rango 10.20.30.26 a 10.20.30.30, y el router maneja el tráfico de entrada y salida entre ambas redes.</p>
+
+<h4>Cloudflare:</h4>
+
+<p>Para mejorar el rendimiento y la seguridad de nuestra página web, hemos configurado <strong>Cloudflare</strong>. Este servicio actúa como un "puente" entre los usuarios y nuestro servidor web, ofreciendo ventajas clave como:</p>
+
+<ul>
+  <li><strong>Aceleración de la página:</strong> Cloudflare cachea contenido estático (como imágenes, hojas de estilo y scripts), lo que permite que los usuarios accedan más rápidamente a nuestra página desde cualquier parte del mundo.</li>
+  <li><strong>Seguridad:</strong> Protege nuestro sitio web de amenazas como ataques DDoS (denegación de servicio distribuida), filtrando el tráfico malicioso antes de que llegue a nuestro servidor. Además, ofrece un certificado SSL para asegurar que las conexiones sean seguras y cifradas.</li>
+  <li><strong>DNS rápido y fiable:</strong> Al usar Cloudflare como servidor DNS, las consultas de dominio son respondidas rápidamente, mejorando la disponibilidad de nuestra web.</li>
+</ul>
+
+<h5>¿Qué es Cloudflare?</h5>
+<p>Cloudflare es una plataforma que ofrece servicios de seguridad, rendimiento y confiabilidad para sitios web. Funciona como un intermediario entre los usuarios y el servidor donde está alojado el sitio, protegiendo el sitio de ataques, acelerando su carga y garantizando su disponibilidad global.</p>
+
+<h5>¿Cómo funciona Cloudflare?</h5>
+<p>Cuando alguien accede a nuestra página web, su solicitud pasa primero por los servidores de Cloudflare, que filtran el tráfico, aceleran la carga del sitio y, si todo está bien, redirigen la solicitud al servidor de nuestro sitio web. Si hay un ataque o una amenaza, Cloudflare bloquea esa solicitud antes de que llegue a nuestro servidor.</p>
+
+
+
 
 </details>
 
@@ -1208,7 +1242,7 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 
 <details>
 
-<summary><h3>💾 Backups</h3></summary>
+<summary><h2>💾 Backups</h2></summary>
 
 <h3>Explicación Teórica</h3>
 
