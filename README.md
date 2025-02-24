@@ -939,7 +939,7 @@ A pesar de que el proyecto presenta desafíos, estamos comprometidos en aprovech
 <h5>¿Cómo funciona Cloudflare?</h5>
 <p>Cuando alguien accede a nuestra página web, su solicitud pasa primero por los servidores de Cloudflare, que filtran el tráfico, aceleran la carga del sitio y, si todo está bien, redirigen la solicitud al servidor de nuestro sitio web. Si hay un ataque o una amenaza, Cloudflare bloquea esa solicitud antes de que llegue a nuestro servidor.</p>
 
-
+![Diagrama_Red](Diagrama_red_parte_2.png)
 
 
 </details>
