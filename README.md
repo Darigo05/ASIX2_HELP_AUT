@@ -1603,17 +1603,17 @@ El script no solo realiza los backups, sino que también genera un log detallado
             echo "$(date) - ERROR: No se pudo copiar la ruta /etc/nginx/ de la VM nginx." >> "$LOG_FILE"
         fi
         
-        scp -r mysql@10.20.30.30:/etc/my.cnf $DIR_BACKUP/mysql/
+        scp -r mysql@10.20.30.31:/etc/my.cnf $DIR_BACKUP/mysql/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar el archivo /etc/my.cnf de la VM mysql." >> "$LOG_FILE"
         fi
         
-        scp -r mysql@10.20.30.30:/var/lib/mysql/helpaut/ $DIR_BACKUP/mysql/
+        scp -r mysql@10.20.30.31:/var/lib/mysql/helpaut/ $DIR_BACKUP/mysql/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /var/lib/mysql/helpaut/ de la VM mysql." >> "$LOG_FILE"
         fi
         
-        scp -r mysql@10.20.30.30:/var/log/mysql/ $DIR_BACKUP/mysql/
+        scp -r mysql@10.20.30.31:/var/log/mysql/ $DIR_BACKUP/mysql/
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar la ruta /var/log/mysql/ de la VM mysql." >> "$LOG_FILE"
         fi
@@ -1673,6 +1673,12 @@ El script no solo realiza los backups, sino que también genera un log detallado
         if [ $? -ne 0 ]; then
             echo "$(date) - ERROR: No se pudo copiar el archivo /cf/conf/config.xml de la VM dhcp." >> "$LOG_FILE"
         fi
+
+        scp -r router@10.20.30.1:/etc/dhcp/dhcpd.conf $DIR_BACKUP/dhcp/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar el archivo /cf/conf/config.xml de la VM dhcp." >> "$LOG_FILE"
+        fi
+
         
         scp -r dns@10.20.30.2:/etc/dnsmasq.conf $DIR_BACKUP/dns/
         if [ $? -ne 0 ]; then
