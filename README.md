@@ -951,7 +951,7 @@ A pesar de que el proyecto presenta desafíos, estamos comprometidos en aprovech
        Para nuestra base de datos, dado que ya estaba desarrollada en la primera parte del proyecto, hemos copiado su contenido tanto en nuestra máquina de Docker como en la máquina de backup para garantizar copias de seguridad. Además, la hemos integrado correctamente con phpMyAdmin, asegurando su funcionamiento óptimo. En Docker, hemos organizado todas las carpetas y creado una estructura específica para la base de datos, facilitando su gestión y mantenimiento. 
 </p> 
     
-[click aqui](ASIX2_HELP_AUT/basededatos_helpaut_final1.sql)
+[click aqui](basededatos_helpaut_final1.sql)
 
 
 </details>
