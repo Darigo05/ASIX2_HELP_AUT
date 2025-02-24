@@ -973,7 +973,7 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 <pre><code>docker rmi mi-sitio-nginx</code></pre>
 
 
-<summary><h4>🛢️ Explicación sobre docker</h4></summary>
+<summary><h3>🛢️ Explicación Teórica Docker</h3></summary>
     <h3>¿Qué son los contenedores de docker?</h3>
     <p>
        Docker es una plataforma que permite crear, probar y desplegar aplicaciones en contenedores ligeros y portátiles, que incluyen todo lo necesario para ejecutarlas en diferentes entornos sin problemas. Es de código abierto y está respaldada por Docker Inc., la empresa detrás de la tecnología, que se encarga de mejorarla, ofrecer soporte y proporcionar soluciones empresariales. Esto facilita el desarrollo y despliegue de aplicaciones, optimizando su gestión en cualquier entorno.
@@ -1201,6 +1201,299 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
     </table>
 
 
+</details>
+
+
+
+
+<details>
+
+<summary><h3>💾 Backups</h3></summary>
+
+<h3>Explicación Teórica</h3>
+
+<h3>¿Qué es una copia de seguridad?</h3>
+    <p>
+       Un backup es una réplica de los datos almacenados en un sistema informático que se crea con el propósito de proteger la información en caso de pérdida, corrupción, fallo del sistema, o cualquier otro tipo de incidente. Si algo le pasara a la información original, podremos restaurarla usando esta copia. También podríamos ir a buscar copias antiguas en caso de necesitarlas.
+    </p>
+
+<h3>¿Cuál es la importancia de las mismas?</h3>
+<p>Las copias de seguridad son esenciales para asegurar la continuidad operativa y la protección de la información frente a eventos inesperados. Entre sus principales beneficios se encuentran:</p>
+
+        <ul>
+          <li><strong>Recuperación ante desastres:</strong> Permiten recuperar datos importantes tras eventos como fallos de hardware, corrupción de archivos, ataques cibernéticos (como ransomware) o errores humanos.</li>
+          <li><strong>Seguridad y protección:</strong> Garantizan la integridad de los datos y previenen la pérdida permanente de información.</li>
+          <li><strong>Recuperación de configuraciones antiguas:</strong> Permite revertir cambios no deseados o problemas causados por nuevas configuraciones, restaurando versiones anteriores que funcionaban mejor.</li>
+          <li><strong>Protección contra malware (como ransomware):</strong> En caso de que el sistema sea infectado por un ransomware o malware, tener copias de seguridad de antes de la infección permite restaurar los archivos a su estado original, antes de que el problema ocurriera. Además, al revisar los backups, se puede rastrear el momento en que el ataque comenzó, ayudando a identificar y mitigar el problema.</li>
+          <li><strong>Cumplimiento de normativas:</strong> Muchas empresas deben cumplir con regulaciones legales que requieren mantener copias de seguridad de datos confidenciales o sensibles.</li>
+          <li><strong>Tranquilidad y continuidad:</strong> Facilitan el retorno a la normalidad de un sistema rápidamente tras un incidente.</li>
+        </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>¿Qué estrategias se deben seguir?</h3>
+<p>Algunas estrategias clave para una buena gestión de las copias de seguridad incluyen:</p>
+
+        <ul>
+          <li><strong>Regla 3-2-1:</strong> Tener al menos 3 copias de los datos, almacenadas en 2 tipos diferentes de medios (como discos duros y almacenamiento en la nube) y con 1 copia fuera del sitio (por ejemplo, en la nube o en un centro de datos remoto) para protegerse de incidentes locales como incendios o robos.</li>
+          <li><strong>Automatización de backups:</strong> Utilizar herramientas de software que automaticen el proceso de backup para evitar olvidos o errores humanos.</li>
+          <li><strong>Pruebas periódicas:</strong> Verificar de manera regular que las copias de seguridad sean efectivas y que los datos puedan restaurarse sin problemas.</li>
+          <li><strong>Cifrado y compresión:</strong> Cifrar las copias de seguridad para proteger los datos sensibles y comprimir los archivos para ahorrar espacio de almacenamiento.</li>
+        </ul>
+
+<h3>¿Dónde se van a ubicar las copias?</h3>
+<p>Las copias de seguridad deben almacenarse en lugares seguros y diversos para reducir riesgos. Las ubicaciones más comunes incluyen:</p>
+
+        <ul>
+          <li><strong>Almacenamiento local:</strong> En discos duros externos, servidores NAS (Network Attached Storage), o cintas magnéticas. Es rápido y fácil de gestionar, pero también vulnerable a desastres locales.</li>
+          <li><strong>Almacenamiento en la nube:</strong> Usar servicios en la nube como Google Drive, AWS, Azure o servicios especializados en backup como Backblaze o Dropbox. Ofrecen acceso remoto y redundancia geográfica, lo que los hace resistentes a fallos locales.</li>
+          <li><strong>Almacenamiento remoto:</strong> En servidores ubicados en centros de datos externos o ubicaciones físicas alejadas del sitio principal. Esto protege contra desastres físicos locales.</li>
+        </ul>
+
+
+<h3>Nuestras Copias de Seguridad</h3>
+<h4>Estructura Copias de seguridad</h4>
+<p>Para garantizar la seguridad de nuestro proyecto, hemos decidido dividir las copias de seguridad en diferentes métodos. En primer lugar, vamos a desarrollar un script que cree un archivo tar.gz. Este script se encargará de realizar una copia local dentro de nuestra máquina virtual (VM) llamada backups, que se encuentra en Proxmox. A través de SCP, el script buscará los archivos en las demás VMs de Proxmox, siguiendo la ruta de las carpetas conectadas mediante la IP de cada VM.
+
+En segundo lugar, planeamos realizar una copia en una partición de disco de uno de nuestros ordenadores de clase, específicamente en el disco D. En caso de que no sea posible, optaremos por almacenar la copia en un disco duro físico externo.
+
+Además, hemos realizado copias de seguridad específicas de nuestra página web y nuestra base de datos, las cuales están almacenadas en diferentes discos duros SSD, asegurando la velocidad y fiabilidad en caso de que necesitemos acceder a ellas rápidamente.
+
+Finalmente, para asegurar la integridad de nuestro entorno Proxmox con todas las máquinas desplegadas, hemos encontrado una aplicación llamada Tuxis. Este servicio ofrece un plan gratuito que nos permitiría realizar un backup completo de la arquitectura del software y la red de todo nuestro entorno Proxmox. Tras verificar el tamaño total de nuestras máquinas, hemos confirmado que disponemos del espacio suficiente en el plan gratuito. Aunque aún debemos investigar y realizar pruebas para asegurarnos de que funcione correctamente, si es viable, utilizaremos este servicio; en caso contrario, descartaremos esta opción y nos quedaremos únicamente con el script de backup.
+
+Por último, estamos terminando de documentar detalladamente el paso a paso de la configuración de todas nuestras VMs. Esto nos permitirá, en un escenario extremo donde no podamos recuperar ninguna de las máquinas, rehacer todo el entorno desde cero de manera ágil, siguiendo la documentación y minimizando los posibles inconvenientes.</p>
+
+<h4>Script Backup</h4>
+<p>Este script está diseñado para realizar copias de seguridad tanto locales como en una partición adicional en el disco D de nuestro ordenador. Además, permite generar copias incrementales durante la semana y copias completas durante los fines de semana. Utilizamos tar.gz para comprimir los archivos y scp para transferir los datos desde las distintas máquinas virtuales (VMs) de nuestro entorno Proxmox. Los backups son cifrados con GPG utilizando el algoritmo AES256, asegurando que la información permanezca segura. Además, se crea un hash para cada backup, lo que nos permite verificar la integridad de los datos en cualquier momento y asegurarnos de que no hayan sido alterados.
+
+El script no solo realiza los backups, sino que también genera un log detallado con toda la información relacionada con el proceso. Cada vez que se ejecuta una acción, como la copia de archivos, la creación de backups, la compresión o el cifrado, se registra en un archivo de log. Este archivo es esencial para monitorizar el estado del proceso de copias de seguridad y detectar posibles fallos o errores durante la ejecución. Los registros incluyen la fecha, la hora y el resultado de cada operación, lo que nos permite hacer auditorías y tener visibilidad sobre la ejecución de los backups.<p>
+
+        <pre><code>
+        #!/bin/bash
+        
+        # --- Configuración ---
+        DIR_BACKUP="/backups"  # Directorio local
+        DIR_PARTICION="/mnt/particion_backup"  # Ruta a la partición adicional
+        DIR_FULL="$DIR_BACKUP/full"
+        DIR_INCREMENTAL="$DIR_BACKUP/incremental"
+        LOG_FILE="$DIR_BACKUP/backup_log.txt"  # Ruta del archivo de log
+        DIA=$(date +%u)  # Día de la semana (1=Lunes ... 6=Sábado, 7=Domingo)
+        NOMBRE_FULL="full_$(date +'%Y-%m-%d_%H-%M').tar.gz"  # Nombre único para el backup completo
+        NOMBRE_INCREMENTAL="inc_$(date +'%Y-%m-%d_%H-%M').tar.gz"  # Nombre único para el backup incremental
+        
+        # Redirigir todo el log al archivo de log
+        exec >> "$LOG_FILE" 2>&1
+        
+        # Crear carpetas si no existen
+        mkdir -p "$DIR_FULL"
+        mkdir -p "$DIR_INCREMENTAL"
+        mkdir -p "$DIR_BACKUP/nginx" "$DIR_BACKUP/router" "$DIR_BACKUP/dhcp"  "$DIR_BACKUP/iptables"     "$DIR_BACKUP/dns" "$DIR_BACKUP/mysql" "$DIR_BACKUP/docker"
+        mkdir -p "$DIR_PARTICION"  # Crear la carpeta en la partición adicional
+        
+        # --- Copiar archivos desde las VMs a la máquina de backup ---
+        echo "$(date) - Copiando archivos desde las VMs..."
+        scp -r usuario@10.20.30.28:/var/www/html/helpaut $DIR_BACKUP/nginx/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar la ruta /var/www/html/helpaut de la VM nginx." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.28:/usr/share/nginx/html/helpaut $DIR_BACKUP/nginx/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar la ruta /usr/share/nginx/html/helpaut de la VM nginx." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.28:/etc/nginx/ $DIR_BACKUP/nginx/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar la ruta /etc/nginx/ de la VM nginx." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.30:/etc/my.cnf $DIR_BACKUP/mysql/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar el archivo /etc/my.cnf de la VM mysql." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.30:/var/lib/mysql/helpaut/ $DIR_BACKUP/mysql/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar la ruta /var/lib/mysql/helpaut/ de la VM mysql." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.30:/var/log/mysql/ $DIR_BACKUP/mysql/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar la ruta /var/log/mysql/ de la VM mysql." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.1:/etc/network/interfaces $DIR_BACKUP/router/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar el archivo /etc/network/interfaces de la VM router." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.1:/etc/netplan/ $DIR_BACKUP/router/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar la ruta /etc/netplan/ de la VM router." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.1:/etc/sysctl.conf $DIR_BACKUP/router/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar el archivo /etc/sysctl.conf de la VM router." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.1:/etc/iptables/rules.v4 $DIR_BACKUP/iptables/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar el archivo /etc/iptables/rules.v4 de la VM iptables." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.1:/etc/network/if-up.d/ $DIR_BACKUP/iptables/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar la ruta /etc/network/if-up.d/ de la VM iptables." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.1:/etc/network/if-pre-up.d/ $DIR_BACKUP/iptables/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar la ruta /etc/network/if-pre-up.d/ de la VM iptables." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.29:/usr/share/nginx/html/ $DIR_BACKUP/docker/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar la ruta /usr/share/nginx/html/ de la VM docker." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.29:./docker-compose.yml $DIR_BACKUP/docker/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar el archivo ./docker-compose.yml de la VM docker." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.1:/etc/config/dhcp $DIR_BACKUP/dhcp/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar la ruta /etc/config/dhcp de la VM dhcp." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.1:/cf/conf/config.xml $DIR_BACKUP/dhcp/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar el archivo /cf/conf/config.xml de la VM dhcp." >> "$LOG_FILE"
+        fi
+        
+        scp -r usuario@10.20.30.2:/etc/dnsmasq.conf $DIR_BACKUP/dns/
+        if [ $? -ne 0 ]; then
+            echo "$(date) - ERROR: No se pudo copiar el archivo /etc/dnsmasq.conf de la VM dns." >> "$LOG_FILE"
+        fi
+        
+        # --- Crear backup ---
+        if [ "$DIA" -eq 6 ]; then
+            echo "$(date) - Realizando backup completo..."
+            tar -czf "$DIR_FULL/$NOMBRE_FULL" -C "$DIR_BACKUP" .
+            
+            # Cifrar el archivo completo
+            gpg --symmetric --cipher-algo AES256 "$DIR_FULL/$NOMBRE_FULL"
+            
+            # Crear hash para el backup completo
+            sha256sum "$DIR_FULL/$NOMBRE_FULL" > "$DIR_FULL/$NOMBRE_FULL.hash"
+        else
+            echo "$(date) - Realizando backup incremental..."
+            tar -czf "$DIR_INCREMENTAL/$NOMBRE_INCREMENTAL" -C "$DIR_BACKUP" .
+            
+            # Cifrar el archivo incremental
+            gpg --symmetric --cipher-algo AES256 "$DIR_INCREMENTAL/$NOMBRE_INCREMENTAL"
+            
+            # Crear hash para el backup incremental
+            sha256sum "$DIR_INCREMENTAL/$NOMBRE_INCREMENTAL" > "$DIR_INCREMENTAL/$NOMBRE_INCREMENTAL.hash"
+        fi
+        
+        # --- Copiar a la partición ---
+        echo "$(date) - Copiando backup a la partición..."
+        if [ "$DIA" -eq 6 ]; then
+            cp "$DIR_FULL/$NOMBRE_FULL" "$DIR_PARTICION/"
+        else
+            cp "$DIR_INCREMENTAL/$NOMBRE_INCREMENTAL" "$DIR_PARTICION/"
+        fi
+        
+        # Verificar éxito
+        if [ $? -eq 0 ]; then
+            echo "$(date) - Copia de seguridad completada con éxito."
+        else
+            echo "$(date) - Hubo un error en la copia de seguridad para esta ruta, pero se continuará con el proceso."
+            # No detener el script, pero registrar el error
+            echo "$(date) - ERROR: Ruta o archivo no encontrado en la VM" >> "$LOG_FILE"
+        fi
+        </code></pre>
+        
+<h5>Explicación Script</h5>
+
+<h6>1. Definición de Variables y Configuración</h6>
+<p>Al principio, el script define una serie de variables que configuran las rutas de los directorios y los nombres de los archivos que se utilizarán en el proceso de copia de seguridad.</p>
+<ul>
+  <li><b>DIR_BACKUP:</b> Define el directorio donde se almacenarán los backups, en este caso <code>/backups</code>.</li>
+  <li><b>DIR_PARTICION:</b> Define la ruta donde se almacenarán los backups en una partición adicional, <code>/mnt/particion_backup</code>.</li>
+  <li><b>DIR_FULL</b> y <b>DIR_INCREMENTAL:</b> Son directorios dentro de <code>DIR_BACKUP</code> donde se guardarán los backups completos e incrementales, respectivamente.</li>
+  <li><b>LOG_FILE:</b> Es el archivo de registro (<code>backup_log.txt</code>) donde se almacenarán todos los eventos y errores generados durante la ejecución del script.</li>
+  <li><b>DIA:</b> Obtiene el día de la semana actual. Se utiliza más adelante para determinar si se debe hacer un backup completo o incremental.</li>
+  <li><b>NOMBRE_FULL</b> y <b>NOMBRE_INCREMENTAL:</b> Son los nombres de los archivos de respaldo completo e incremental, que se generan con la fecha y la hora para hacerlos únicos.</li>
+</ul>
+
+<h6>2. Redirección de Logs</h6>
+<p>La instrucción <code>exec >> "$LOG_FILE" 2>&1</code> redirige tanto la salida estándar como los errores a un archivo de registro (<code>backup_log.txt</code>). Esto asegura que todo el proceso, tanto los mensajes normales como los errores, se registren.</p>
+
+<h6>3. Creación de Directorios</h6>
+<p>Se verifican y crean directorios si no existen. Esto incluye:</p>
+<ul>
+  <li>Directorios para los backups completos e incrementales.</li>
+  <li>Directorios específicos para los backups de diferentes máquinas virtuales (VMs), como nginx, router, dns, dhcp, iptables, docker, mysql.</li>
+  <li>El directorio de la partición adicional, <code>DIR_PARTICION</code>.</li>
+</ul>
+
+<h6>4. Copia de Archivos Desde las VMs</h6>
+<p>En esta sección, el script usa el comando <code>scp</code> (Secure Copy Protocol) para copiar archivos y directorios desde varias máquinas virtuales (VMs) a la máquina local que realizará el backup. La ruta de cada archivo o directorio que se copia está definida para cada VM:</p>
+<ul>
+  <li>Se copian archivos y directorios importantes de distintas máquinas virtuales como nginx, mysql, router, iptables, docker, dhcp y dns.</li>
+  <li>Después de cada intento de copia, se comprueba si hubo errores (<code>$?</code>) y, si ocurrió alguno, se registra en el archivo de logs con un mensaje de error.</li>
+</ul>
+
+<h6>5. Realización de Backup Completo o Incremental</h6>
+<p>Según el día de la semana (<code>$DIA</code>), el script decide si hacer un backup completo o incremental.</p>
+<ul>
+  <li><b>Backup Completo (Día Sábado - <code>$DIA == 6</code>):</b>
+    <ul>
+      <li>Utiliza el comando <code>tar</code> para crear un archivo comprimido en formato <code>.tar.gz</code> con todo el contenido de <code>DIR_BACKUP</code>. El archivo se guarda en <code>DIR_FULL</code> con un nombre único.</li>
+      <li>Luego, se cifra el archivo con <code>GPG</code> usando el algoritmo AES256, lo que asegura que el backup sea seguro.</li>
+      <li>Se genera un hash del archivo usando <code>sha256sum</code>, que sirve para verificar la integridad del archivo de backup más tarde.</li>
+    </ul>
+  </li>
+  <li><b>Backup Incremental (Otros días):</b>
+    <ul>
+      <li>Similar al backup completo, pero solo se copian los cambios incrementales en lugar de todo el directorio. Esto se logra mediante el comando <code>tar</code> con la misma lógica, pero con los archivos nuevos o modificados.</li>
+      <li>También se cifra el archivo y se genera el hash correspondiente para verificar su integridad.</li>
+    </ul>
+  </li>
+</ul>
+
+<h6>6. Copia del Backup a la Partición</h6>
+<p>Después de crear el backup (ya sea completo o incremental), el script lo copia a una partición adicional (<code>DIR_PARTICION</code>) para asegurar que el backup esté almacenado en un lugar separado.</p>
+
+<h6>7. Verificación de Éxito</h6>
+<p>Finalmente, el script verifica si la copia de seguridad a la partición fue exitosa mediante el comando <code>cp</code>. Si la operación fue exitosa (<code>$? -eq 0</code>), se registra un mensaje confirmando que la copia de seguridad se completó correctamente. Si hubo un error, aunque no se detiene el script, se registra el error para seguimiento posterior en los logs.</p>
+
+
+
+
+    
+<h5>Incidencias</h5>
+<p>Durante la implementación de este sistema de copias de seguridad, nos encontramos con una incidencia relacionada con la asignación de direcciones IP. Debido a la creación de nuevas máquinas virtuales en nuestro entorno Proxmox, tuvimos que modificar la configuración de nuestro servidor DHCP para asignar direcciones IP fijas a cada una de las nuevas VMs. Esto fue crucial para garantizar que el script de backup pueda localizar correctamente las máquinas a través de sus IPs y realizar las copias de seguridad sin problemas. Sin esta configuración adecuada, el script no podría conectar con las VMs de manera fiable, lo que generaría errores en el proceso de backup.<p>
+
+<p>Por otro lado, tuvimos que tener en cuenta el tener que verificar que tanto la VM de backup como la partición adicional tuvieran suficiente espacio disponible para almacenar las copias. Aseguramos que las particiones no se llenaran y que los backups pudieran completarse sin interrupciones.<p>
+
+No nos ha dado tiempo de realizar pruebas de restauración para asegurarnos de que los backups cifrados se puedan descifrar y restaurar correctamente en caso de un desastre. Lo tenemos pendiente para poder confirmar la viabilidad del sistema de respaldo.
 </details>
 
 </details>
