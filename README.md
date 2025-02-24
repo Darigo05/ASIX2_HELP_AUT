@@ -963,7 +963,7 @@ A pesar de que el proyecto presenta desafíos, estamos comprometidos en aprovech
 
 <details>
 
-<summary><h3>📖 Introducción</h3></summary>
+<summary><h3>Introducción 📖</h3></summary>
 
 <p>
        En este proyecto, hemos creado una máquina virtual (VM) en Proxmox y, para su sistema operativo, optamos por Alpine Linux debido a su ligereza y eficiencia. A continuación, conectamos esta VM a Portainer, una herramienta de gestión de contenedores Docker con una interfaz gráfica intuitiva, lo que facilitó enormemente el manejo de los contenedores y la administración de Docker en general.
@@ -983,11 +983,11 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 
 <details>
     
-<summary><h3>💻 Instalación Técnica⬇️</h3></summary>
+<summary><h3>Instalación Técnica 💻⬇️</h3></summary>
 
 <details>
     
-<summary><h3>📋 Guía para Desplegar una Aplicación Web en Contenedores</h3></summary>
+<summary><h3>Guía para Desplegar una Aplicación Web en Contenedores 📋</h3></summary>
 
 <h3>📌 Requisitos Previos</h3>
 <ul>
@@ -1069,7 +1069,9 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 
 </details>
 
-<summary><h3>🛢️ Explicación Teórica Docker</h3></summary>
+<details>
+
+<summary><h3>Explicación Teórica Docker 🛢️</h3></summary>
     <h3>¿Qué son los contenedores de docker?</h3>
     <p>
        Docker es una plataforma que permite crear, probar y desplegar aplicaciones en contenedores ligeros y portátiles, que incluyen todo lo necesario para ejecutarlas en diferentes entornos sin problemas. Es de código abierto y está respaldada por Docker Inc., la empresa detrás de la tecnología, que se encarga de mejorarla, ofrecer soporte y proporcionar soluciones empresariales. Esto facilita el desarrollo y despliegue de aplicaciones, optimizando su gestión en cualquier entorno.
@@ -1299,6 +1301,7 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 
 </details>
 
+</details>
 
 
 
