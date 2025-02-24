@@ -1716,7 +1716,7 @@ El script no solo realiza los backups, sino que también genera un log detallado
         fi
 </code></pre>
         
-<h2>Explicación Script</h2>
+<h2>Explicación Script 📝</h2>
 
 <h6>1. Definición de Variables y Configuración</h6>
 <p>Al principio, el script define una serie de variables que configuran las rutas de los directorios y los nombres de los archivos que se utilizarán en el proceso de copia de seguridad.</p>
