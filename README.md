@@ -856,6 +856,52 @@ En definitiva, este proyecto busca crear una solución accesible y asequible par
 <details>    
 <summary><h2>⚙️Funcionalidades</h2></summary>
 
+<p>
+       En esta segunda fase del proyecto, aún quedan varias funcionalidades por desarrollar. A continuación, explicamos las tareas que debemos abordar y cómo las vamos a repartir entre los miembros del equipo. Sabemos que es un proyecto ambicioso y que algunas de las funcionalidades requerirán investigación por nuestra parte. A pesar de las dificultades, intentaremos completar todo lo que esté a nuestro alcance dentro de nuestras capacidades y el tiempo disponible.
+
+Es importante señalar que también debemos realizar algunas modificaciones en la arquitectura de red, incorporando Docker para gestionar contenedores y facilitar el despliegue de los servicios. Además, uno de los puntos clave será el desarrollo de un sistema de copias de seguridad (backups) eficiente para proteger la información.
+
+En cuanto a la parte del servidor web, debemos crear e implementar un sistema de correos electrónicos, lo cual no es una tarea sencilla. También tendremos que mejorar el sistema de registro en la página, utilizando PHP, un lenguaje que aún estamos aprendiendo por nuestra cuenta. Dado que no hemos tenido formación formal en este lenguaje, será un reto adicional, especialmente porque necesitamos implementar un sistema de registro que permita tres tipos diferentes de cuentas
+
+Por otro lado, tenemos que mirar de mejorar la funcionalidad del login, separando el acceso para los usuarios comunes del acceso administrativo. Esto garantizará un control adecuado sobre las funcionalidades a las que puede acceder cada tipo de usuario. Si el tiempo lo permite, también exploraremos cómo optimizar esta parte para asegurar que sea fácil de usar y segura.
+
+A pesar de que el proyecto presenta desafíos, estamos comprometidos en aprovechar al máximo el tiempo y los recursos que tenemos para lograrlo. La clave será trabajar de manera eficiente y aprender a medida que avanzamos, lo que nos permitirá superar los obstáculos y cumplir con los objetivos que nos hemos propuesto. Esperamos aprender de todo el proceso, lleguemos o no al desarrollo completo de  la ambición de este proyecto.
+    </p>
+
+#### Cuentas:
+- **Perfil para Psicólogos**: Gestión de terapias, agenda, blogs.
+- **Perfil para Familias**: Registro de pacientes, acceso a recursos.
+- **Perfil Administrador**: Gestión de usuarios, estadísticas de ventas.
+
+#### Servicios de Comunicación:
+- **Chat** entre familias y psicólogos.
+- **Mailbox** para intercambio de mensajes internos.
+- **Videollamadas** para terapias online.
+
+#### Soporte Técnico:
+- **Sistema de Tickets**.
+- **Chatbot** para consultas rápidas.
+
+#### Gestión y Organización:
+- **Agenda** para programar y visualizar sesiones.
+- **Análisis de ventas y suscripciones**.
+
+#### Recursos y Terapias:
+- **Blog** con artículos informativos escritos por psicólogos.
+- **Sección de terapias convencionales y alternativas** (e.g., equinoterapia).
+
+#### Seguridad y Recuperación de Cuentas:
+- **Recuperación de contraseñas**.
+
+## Tabla de Funcionalidades por Usuario
+
+| Nombre   | Funcionalidades |
+|----------|-----------------|
+| **Albert** | Perfil Administrador, Chat, Chatbot Ayuda, Análisis Ventas |
+| **David**  | Mailbox, Sistema Tickets, Sección Terapias, Videollamadas |
+| **Mariona**| Perfil Psicólogos + Blog, Perfil Familias, Agenda, Recuperación Contraseña |
+
+
 </details>
 
 
