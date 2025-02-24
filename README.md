@@ -1564,7 +1564,7 @@ El script no solo realiza los backups, sino que también genera un log detallado
 
 
     
-<h5>Incidencias</h5>
+<h2>Incidencias</h2>
 <p>Durante la implementación de este sistema de copias de seguridad, nos encontramos con una incidencia relacionada con la asignación de direcciones IP. Debido a la creación de nuevas máquinas virtuales en nuestro entorno Proxmox, tuvimos que modificar la configuración de nuestro servidor DHCP para asignar direcciones IP fijas a cada una de las nuevas VMs. Esto fue crucial para garantizar que el script de backup pueda localizar correctamente las máquinas a través de sus IPs y realizar las copias de seguridad sin problemas. Sin esta configuración adecuada, el script no podría conectar con las VMs de manera fiable, lo que generaría errores en el proceso de backup.<p>
 
 <p>Por otro lado, tuvimos que tener en cuenta el tener que verificar que tanto la VM de backup como la partición adicional tuvieran suficiente espacio disponible para almacenar las copias. Aseguramos que las particiones no se llenaran y que los backups pudieran completarse sin interrupciones.<p>
