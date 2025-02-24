@@ -1293,7 +1293,9 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 
 <summary><h2>💾 Backups</h2></summary>
 
-<h3>Explicación Teórica</h3>
+<details>
+
+<summary><h3>Explicación Teórica</h3></summary>
 
 <h3>¿Qué es una copia de seguridad?</h3>
     <p>
@@ -1472,7 +1474,7 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
     </tbody>
 </table>
 
-<h4>Explicación:</h4>
+<h6>Explicación:</h6>
 <ul>
     <li><strong>Copia Completa + Incremental:</strong>
         <ul>
@@ -1499,11 +1501,6 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
         </ul>
     </li>
 </ul>
-
-
-
-
-
 
 
 <h3>¿Qué estrategias se deben seguir?</h3>
@@ -1537,6 +1534,12 @@ Además, hemos realizado copias de seguridad específicas de nuestra página web
 Finalmente, para asegurar la integridad de nuestro entorno Proxmox con todas las máquinas desplegadas, hemos encontrado una aplicación llamada Tuxis. Este servicio ofrece un plan gratuito que nos permitiría realizar un backup completo de la arquitectura del software y la red de todo nuestro entorno Proxmox. Tras verificar el tamaño total de nuestras máquinas, hemos confirmado que disponemos del espacio suficiente en el plan gratuito. Aunque aún debemos investigar y realizar pruebas para asegurarnos de que funcione correctamente, si es viable, utilizaremos este servicio; en caso contrario, descartaremos esta opción y nos quedaremos únicamente con el script de backup.
 
 Por último, estamos terminando de documentar detalladamente el paso a paso de la configuración de todas nuestras VMs. Esto nos permitirá, en un escenario extremo donde no podamos recuperar ninguna de las máquinas, rehacer todo el entorno desde cero de manera ágil, siguiendo la documentación y minimizando los posibles inconvenientes.</p>
+
+</details>
+
+<details>
+    
+<summary><h3>Práctica</h3></summary>
 
 <h2>Script Backup</h2>
 <p>Este script está diseñado para realizar copias de seguridad tanto locales como en una partición adicional en el disco D de nuestro ordenador. Además, permite generar copias incrementales durante la semana y copias completas durante los fines de semana. Utilizamos tar.gz para comprimir los archivos y scp para transferir los datos desde las distintas máquinas virtuales (VMs) de nuestro entorno Proxmox. Los backups son cifrados con GPG utilizando el algoritmo AES256, asegurando que la información permanezca segura. Además, se crea un hash para cada backup, lo que nos permite verificar la integridad de los datos en cualquier momento y asegurarnos de que no hayan sido alterados.
@@ -1752,16 +1755,19 @@ El script no solo realiza los backups, sino que también genera un log detallado
 <h6>7. Verificación de Éxito</h6>
 <p>Finalmente, el script verifica si la copia de seguridad a la partición fue exitosa mediante el comando <code>cp</code>. Si la operación fue exitosa (<code>$? -eq 0</code>), se registra un mensaje confirmando que la copia de seguridad se completó correctamente. Si hubo un error, aunque no se detiene el script, se registra el error para seguimiento posterior en los logs.</p>
 
+</details>
 
+<details>
+ 
+<summary><h2>Incidencias</h2></summary>
 
-
-    
-<h2>Incidencias</h2>
 <p>Durante la implementación de este sistema de copias de seguridad, nos encontramos con una incidencia relacionada con la asignación de direcciones IP. Debido a la creación de nuevas máquinas virtuales en nuestro entorno Proxmox, tuvimos que modificar la configuración de nuestro servidor DHCP para asignar direcciones IP fijas a cada una de las nuevas VMs. Esto fue crucial para garantizar que el script de backup pueda localizar correctamente las máquinas a través de sus IPs y realizar las copias de seguridad sin problemas. Sin esta configuración adecuada, el script no podría conectar con las VMs de manera fiable, lo que generaría errores en el proceso de backup.<p>
 
 <p>Por otro lado, tuvimos que tener en cuenta el tener que verificar que tanto la VM de backup como la partición adicional tuvieran suficiente espacio disponible para almacenar las copias. Aseguramos que las particiones no se llenaran y que los backups pudieran completarse sin interrupciones.<p>
 
 No nos ha dado tiempo de realizar pruebas de restauración para asegurarnos de que los backups cifrados se puedan descifrar y restaurar correctamente en caso de un desastre. Lo tenemos pendiente para poder confirmar la viabilidad del sistema de respaldo.
+</details>
+
 </details>
 
 </details>
