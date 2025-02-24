@@ -1311,7 +1311,7 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 
 <details>
 
-<summary><h3>Explicación Teórica</h3></summary>
+<summary><h3>Explicación Teórica 📖</h3></summary>
 
 <h3>¿Qué es una copia de seguridad?</h3>
     <p>
@@ -1555,9 +1555,9 @@ Por último, estamos terminando de documentar detalladamente el paso a paso de l
 
 <details>
     
-<summary><h3>Práctica</h3></summary>
+<summary><h3>Práctica 💻</h3></summary>
 
-<h2>Script Backup</h2>
+<h2>Script Backup 📜</h2>
 <p>Este script está diseñado para realizar copias de seguridad tanto locales como en una partición adicional en el disco D de nuestro ordenador. Además, permite generar copias incrementales durante la semana y copias completas durante los fines de semana. Utilizamos tar.gz para comprimir los archivos y scp para transferir los datos desde las distintas máquinas virtuales (VMs) de nuestro entorno Proxmox. Los backups son cifrados con GPG utilizando el algoritmo AES256, asegurando que la información permanezca segura. Además, se crea un hash para cada backup, lo que nos permite verificar la integridad de los datos en cualquier momento y asegurarnos de que no hayan sido alterados.
 
 El script no solo realiza los backups, sino que también genera un log detallado con toda la información relacionada con el proceso. Cada vez que se ejecuta una acción, como la copia de archivos, la creación de backups, la compresión o el cifrado, se registra en un archivo de log. Este archivo es esencial para monitorizar el estado del proceso de copias de seguridad y detectar posibles fallos o errores durante la ejecución. Los registros incluyen la fecha, la hora y el resultado de cada operación, lo que nos permite hacer auditorías y tener visibilidad sobre la ejecución de los backups.<p>
@@ -1775,7 +1775,7 @@ El script no solo realiza los backups, sino que también genera un log detallado
 
 <details>
  
-<summary><h3>Incidencias</h3></summary>
+<summary><h3>Incidencias 🚨</h3></summary>
 
 <p>Durante la implementación de este sistema de copias de seguridad, nos encontramos con una incidencia relacionada con la asignación de direcciones IP. Debido a la creación de nuevas máquinas virtuales en nuestro entorno Proxmox, tuvimos que modificar la configuración de nuestro servidor DHCP para asignar direcciones IP fijas a cada una de las nuevas VMs. Esto fue crucial para garantizar que el script de backup pueda localizar correctamente las máquinas a través de sus IPs y realizar las copias de seguridad sin problemas. Sin esta configuración adecuada, el script no podría conectar con las VMs de manera fiable, lo que generaría errores en el proceso de backup.<p>
 
