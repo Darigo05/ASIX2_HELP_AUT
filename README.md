@@ -906,7 +906,7 @@ A pesar de que el proyecto presenta desafíos, estamos comprometidos en aprovech
 
 
 <details>    
-<summary><h2>🌐Diagrama de red</h2></summary>
+<summary><h2>🌐Arquitectura + Diagrama de red</h2></summary>
 <p>En este proyecto, hemos diseñado una infraestructura de red usando Proxmox con diversas máquinas virtuales (VM) que tienen roles específicos para gestionar un servidor web. El objetivo es que estas máquinas se comuniquen entre sí y con la red externa de manera eficiente para ofrecer servicios web y de base de datos. Además, hemos configurado <strong>Cloudflare</strong> para optimizar la seguridad y el rendimiento de la página web.</p>
 
 <h4>Las máquinas virtuales configuradas son:</h4>
