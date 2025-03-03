@@ -1801,3 +1801,132 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 </details>
 
 </details>
+
+
+<details>
+    
+<summary><h3>Guias</h3></summary>
+
+<br>
+
+<details>
+<summary><h2>💡 Pfsense</h2></summary>
+    <p>
+     <h6>Creacion de la MV</h6>
+</p>
+    <p>
+    El primer paso a realizar sera crear nuestra MV, en este caso se realizara en virtualbox y con la iso de pfsense que nos ha proporcionado Alina.
+    <h7>Especificaciones de la maquina</h7>
+        </p>
+    <p>
+        <ul>
+            <li><b>RAM: </b> 2048 MB (Lo recomendado son 2GB para que la maquina funcione correctamente)</li>
+            <li><b>Procesadores: </b> 2</li>
+            <li><b>Almacenamiento del disco duro: </b> 70GB</li>
+            <li><b>ISO: </b>Pfsense 2.7.2</li>
+        </ul>
+    </p>
+    <br>
+    <h7>Adapatadores de red</h7>
+    </br>
+    <p>
+        Los adaptadores de red son una pieza fundamental en esta maquina ya que en este caso estos seran necesarios para salir al exterior desde nuestra red local y para el trafico interno. Dependiendo de donde nos encontremos las ip de estos podran cambiar. En nuestro caso al haberlo hecho en clase son las siguientes.
+            <ul>
+                <li><b>Adaptador puente (WAN): </b>Como se ha comentado este adaptador sera el que nos permita salir al exterior de la red y en este caso cuenta con la ip 100.77.20.0/24</li>
+                <li><b>Red NAT (LAN): </b>Este sera el adaptador encargado del trafico interno y tiene la ip 10.20.30.0/24</li>
+    </p>
+   <p>
+       <h7><b>Configuracion pfsense</b></h7>
+   </p>
+   <p>
+       Una vez iniciada la maquina nos saldra un menu con varias opciones, en nuestro caso pulsaremos la opcion 2 ya que lo que queremos es configurar la dos redes para poder empezar a usar pfsense. Una vez hecho esto deberemos escoger que red queremos configurar para esto simplemente pulsamos 1 o 2 dependiendo de cual queramos.
+   </p>
+   <p><h7>Configuracion red WAN</h7>
+   <p>Lo primero que nos preguntara si queremos que la IPv4 se configure mediante DHCP, en este caso debido a que necesitamos una ip estatica le diremos que no. Seguidamente debemos poner la ip que nosotros deseemos para la red WAN en este caso hemos seleccionado la 100.77.20.51 y colocamos la mascara de red que en este caso seria una /24.(</p>
+   <p>Una vez realizado esto nos preguntara si queremos asignar un gateway a la inteerfaz pero como estamos usando el DHCP de la red local le diremos que no ya que no se necesita. Asi mismo cuando nos pregunte si queremos configurar una IPv6 le daremos tambien a que no. Una vez hecho esto ya tendriuamos configurada nuestra red WAN</p>
+  <table>
+        <tr>
+            <td>Configurar IPv4 por DHCP</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>IP de la red WAN</td>
+            <td>100.77.20.51</td>
+        </tr>
+        <tr>
+            <td>Mascara de red</td>
+            <td>/24</td>
+        </tr>
+        <tr>
+            <td>Gateway</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Configurar IPv6</td>
+            <td>No</td>
+        </tr>
+    </table>
+    </p>
+     <p><h7>Configuracion red LAN</h7>
+        <p>Al igual que la otra red nos preguntara si queremos configurar la IPV4 mediante DHCP e igual que antes le diremos que no, seguidamente nos pedira la IP de esta red y nosotros colocaremos la 10.20.30.100 con la mascara de red /24. </p>
+        <p>A continuacion nos pregunta si queremos que configurar la gateway de la interfaz, en este caso si que tenemos que hacerlo ya que al ser una red NAT esta no viene por defecto. La gateway sera la 10.20.30.1 y confirmamos que sea la default.</p>
+        <p>Lo siguiente sera decirle que no a configurar la IPv6.</p>
+        <p>En este caso si que tenemos que el propio pfsense proporcione las ip es decir que sea el server DHCP por lo que debemos idicarselo y empezar a configurarlo. Lo unico que tenemos que hacer es indicarle el rango de IP que deseemos, dado que esto es una prueba no pondremos un gran rango. Este sera desde la 10.20.30.10 hasta la 10.20.30.30</p>
+                 <table>
+        <tr>
+            <td>Configurar IPv4 por DHCP</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>IP de la red WAN</td>
+            <td>10.20.30.100</td>
+        </tr>
+        <tr>
+            <td>Mascara de red</td>
+            <td>/24</td>
+        </tr>
+        <tr>
+            <td>Gateway</td>
+            <td>10.20.30.1</td>
+        </tr>
+        <tr>
+            <td>Configurar IPv6</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Rango de IP que proporciona pfsense</td>
+            <td>10.20.30.10 - 10.20.30.30</td>
+        </tr>
+    </table>
+     </p>
+     <p>Si hemos realizado todos los pasos de forma correcta deberia salirnos las interfaces de red correctamente configuradas y se nos mostraria en pantalla</p>
+     <p></p>
+     <h7>Comprobaciones</h7>
+     </p>
+    <p>Para poder comprobar que todo esta funcionando correctamente lo unico que debermos hacer sera acceder a una maquina como cliente, para esto creamos la maquina en VirtualBox y le agregamos el mismo adaptador de red NAT que la maquina pfsense. Una vez hecho esto nos iremos al navegador e intentaremos acceder al pfsense mediante la ip de la red LAN que hemos configurado antes. Si todo sale bien deberia salirnos la pagina de login de pfsense donde debermos poner las siguientes credenciales:
+    <ul>
+    <li>Username: admin</li>
+    <li>Password: pfSense</li>
+    </ul>
+    </p>
+    <p>Una vez hayamos accedido sera necesario unos cambios para que todo funcione perferctamente:</p>
+    <ul>
+    <li>Paso 1: Nos dirigiremos a la barra superior al apartado de system - Advanced - Networking y activaremos el KeaDHCP ya que este permite gestionar dinámicamente la asignación de direcciones IP mas eficientemente</li>
+    <li>Paso 2: Mediante la misma barra superior nos iremos al apartado de WAN este se encuentra en Firewall - Rules - WAN y haremos los siguientes cambios
+    <ul>
+        <li>En la opcion de action seleccionaremos "Pass"</li>
+        <li>En Address family "IPv4"</li>
+        <li>En protocol "TCP/UDP"</li>
+        <li>Source "Any"</li>
+        <li>En destination tendremos que colocar la IP que se le ha dado a la maquina cliente que se esta usando</li>
+        <li>En el reenvio de puerto le indicamos que salga por el puerto 80 que es el que pertenece al HTTP</li>
+        <li>Por ultimo tenemos que cambiar la descripicion en nuestro caso hemos puesto red NAT</li>
+    </ul></li>
+        <li>Paso 3: Guardar la configuracion</li>
+        <li>Paso 4: Para comprobar que todo esta bien configurado tendremos que irnos a la terminal de nuestra maquina cliente, colocar el comando ip para ver la ip que nos ha brindado y ccomprobar que coincide con la asignada mediante el DHCP del pfsense (Es posible que se tenga que reinicar el equipo de la maquina cliente para que salga la IP correcta)</li>
+    </ul>
+    
+    
+
+
+
