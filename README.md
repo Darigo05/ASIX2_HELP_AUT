@@ -1809,11 +1809,11 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 <br>
 <details>
-    <summary><h2>Introduccion </h2></summary>
+    <summary><h3>Introduccion </h3></summary>
     <p>En este apartado escribiremos unas guias de instalacion y configuracion de diversos contenidos, que quizas no se incluiran en el proyecto pero es interesante saber como realizarlos, ademas de esto realizaremos tambien una serie de investigaciones sobre diferentes protocolos que seria interesante implementar en nuestro proyecto</p>
 </details>
 <details>
-  <summary><h2>💡 Pfsense</h2></summary>
+  <summary><h3>💡 Pfsense</h3></summary>
     <p><h6>Que es pfsense</h6></p>
     <br>
     <p>Una breve explicacion de que es pfsense y su uso seria que pfsense es un sistema cuya funcionalidad es convertir un pc en un firewall para proteger y administrar redes de forma segura. Gracias a esto podemos bloquear accesos no autorizados, limitar la velocidad o bloquear paginas web, crear VPN o dividir el trafico de internet
@@ -1908,7 +1908,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
   </ul>
 </details>
 <details>
-    <summary><h2>Botpress </h2></summary>
+    <summary><h3>Botpress </h3></summary>
    <p><h6>Que es botpress</h6></p>
     <br>
     <p>Botpress es una plataforma de código abierto para la creación de chatbots avanzados con capacidades de procesamiento del lenguaje natural (NLP). Está diseñada para facilitar la implementación de asistentes virtuales en diversas plataformas como Facebook Messenger, Slack, Microsoft Teams, WhatsApp y sitios web.
