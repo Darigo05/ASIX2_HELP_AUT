@@ -1805,128 +1805,218 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 <details>
     
-<summary><h3>Guias</h3></summary>
+<summary><h3>Guias e Investigacion</h3></summary>
 
 <br>
-
 <details>
-<summary><h2>💡 Pfsense</h2></summary>
-    <p>
-     <h6>Creacion de la MV</h6>
-</p>
-    <p>
-    El primer paso a realizar sera crear nuestra MV, en este caso se realizara en virtualbox y con la iso de pfsense que nos ha proporcionado Alina.
-    <h7>Especificaciones de la maquina</h7>
-        </p>
-    <p>
-        <ul>
-            <li><b>RAM: </b> 2048 MB (Lo recomendado son 2GB para que la maquina funcione correctamente)</li>
-            <li><b>Procesadores: </b> 2</li>
-            <li><b>Almacenamiento del disco duro: </b> 70GB</li>
-            <li><b>ISO: </b>Pfsense 2.7.2</li>
-        </ul>
-    </p>
+    <summary><h2>Introduccion </h2></summary>
+    <p>En este apartado escribiremos unas guias de instalacion y configuracion de diversos contenidos, que quizas no se incluiran en el proyecto pero es interesante saber como realizarlos, ademas de esto realizaremos tambien una serie de investigaciones sobre diferentes protocolos que seria interesante implementar en nuestro proyecto</p>
+</details>
+<details>
+  <summary><h2>💡 Pfsense</h2></summary>
+    <p><h6>Que es pfsense</h6></p>
     <br>
-    <h7>Adapatadores de red</h7>
-    </br>
-    <p>
-        Los adaptadores de red son una pieza fundamental en esta maquina ya que en este caso estos seran necesarios para salir al exterior desde nuestra red local y para el trafico interno. Dependiendo de donde nos encontremos las ip de estos podran cambiar. En nuestro caso al haberlo hecho en clase son las siguientes.
-            <ul>
-                <li><b>Adaptador puente (WAN): </b>Como se ha comentado este adaptador sera el que nos permita salir al exterior de la red y en este caso cuenta con la ip 100.77.20.0/24</li>
-                <li><b>Red NAT (LAN): </b>Este sera el adaptador encargado del trafico interno y tiene la ip 10.20.30.0/24</li>
-    </p>
-   <p>
-       <h7><b>Configuracion pfsense</b></h7>
-   </p>
-   <p>
-       Una vez iniciada la maquina nos saldra un menu con varias opciones, en nuestro caso pulsaremos la opcion 2 ya que lo que queremos es configurar la dos redes para poder empezar a usar pfsense. Una vez hecho esto deberemos escoger que red queremos configurar para esto simplemente pulsamos 1 o 2 dependiendo de cual queramos.
-   </p>
-   <p><h7>Configuracion red WAN</h7>
-   <p>Lo primero que nos preguntara si queremos que la IPv4 se configure mediante DHCP, en este caso debido a que necesitamos una ip estatica le diremos que no. Seguidamente debemos poner la ip que nosotros deseemos para la red WAN en este caso hemos seleccionado la 100.77.20.51 y colocamos la mascara de red que en este caso seria una /24.(</p>
-   <p>Una vez realizado esto nos preguntara si queremos asignar un gateway a la inteerfaz pero como estamos usando el DHCP de la red local le diremos que no ya que no se necesita. Asi mismo cuando nos pregunte si queremos configurar una IPv6 le daremos tambien a que no. Una vez hecho esto ya tendriuamos configurada nuestra red WAN</p>
+    <p>Una breve explicacion de que es pfsense y su uso seria que pfsense es un sistema cuya funcionalidad es convertir un pc en un firewall para proteger y administrar redes de forma segura. Gracias a esto podemos bloquear accesos no autorizados, limitar la velocidad o bloquear paginas web, crear VPN o dividir el trafico de internet
+  <p><h6>Creacion de la MV</h6></p>
+  <p>
+    <h7>El primer paso a realizar sera crear nuestra MV, en este caso se realizara en VirtualBox y con la ISO de Pfsense que nos ha proporcionado Alina.</h7>
+  </p>
+  <p><h7>Especificaciones de la maquina</h7></p>
+  <ul>
+    <li><b>RAM: </b> 2048 MB (Lo recomendado son 2GB para que la maquina funcione correctamente)</li>
+    <li><b>Procesadores: </b> 2</li>
+    <li><b>Almacenamiento del disco duro: </b> 70GB</li>
+    <li><b>ISO: </b>Pfsense 2.7.2</li>
+  </ul>
+
+  <h7>Adapatadores de red</h7>
+  <p>
+    Los adaptadores de red son una pieza fundamental en esta maquina ya que en este caso estos serán necesarios para salir al exterior desde nuestra red local y para el tráfico interno. Dependiendo de donde nos encontremos las IP de estos podrán cambiar. En nuestro caso, al haberlo hecho en clase, son las siguientes:
+  </p>
+  <ul>
+    <li><b>Adaptador puente (WAN): </b>Como se ha comentado, este adaptador será el que nos permita salir al exterior de la red y en este caso cuenta con la IP 100.77.20.0/24</li>
+    <li><b>Red NAT (LAN): </b>Este será el adaptador encargado del tráfico interno y tiene la IP 10.20.30.0/24</li>
+  </ul>
+
+  <h7><b>Configuracion Pfsense</b></h7>
+  <p>
+    Una vez iniciada la máquina nos saldrá un menú con varias opciones, en nuestro caso pulsaremos la opción 2 ya que lo que queremos es configurar las dos redes para poder empezar a usar Pfsense.
+  </p>
+
+  <h7>Configuración red WAN</h7>
+  <p>
+    Lo primero que nos preguntará es si queremos que la IPv4 se configure mediante DHCP, en este caso debido a que necesitamos una IP estática le diremos que no. Seguidamente, debemos poner la IP que nosotros deseemos para la red WAN, en este caso hemos seleccionado la 100.77.20.51 y colocamos la máscara de red que en este caso sería una /24.
+  </p>
+  <p>
+    Una vez realizado esto, nos preguntará si queremos asignar un gateway a la interfaz pero como estamos usando el DHCP de la red local le diremos que no, ya que no se necesita. Así mismo, cuando nos pregunte si queremos configurar una IPv6 le daremos también a que no.
+  </p>
+
   <table>
-        <tr>
-            <td>Configurar IPv4 por DHCP</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td>IP de la red WAN</td>
-            <td>100.77.20.51</td>
-        </tr>
-        <tr>
-            <td>Mascara de red</td>
-            <td>/24</td>
-        </tr>
-        <tr>
-            <td>Gateway</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td>Configurar IPv6</td>
-            <td>No</td>
-        </tr>
-    </table>
-    </p>
-     <p><h7>Configuracion red LAN</h7>
-        <p>Al igual que la otra red nos preguntara si queremos configurar la IPV4 mediante DHCP e igual que antes le diremos que no, seguidamente nos pedira la IP de esta red y nosotros colocaremos la 10.20.30.100 con la mascara de red /24. </p>
-        <p>A continuacion nos pregunta si queremos que configurar la gateway de la interfaz, en este caso si que tenemos que hacerlo ya que al ser una red NAT esta no viene por defecto. La gateway sera la 10.20.30.1 y confirmamos que sea la default.</p>
-        <p>Lo siguiente sera decirle que no a configurar la IPv6.</p>
-        <p>En este caso si que tenemos que el propio pfsense proporcione las ip es decir que sea el server DHCP por lo que debemos idicarselo y empezar a configurarlo. Lo unico que tenemos que hacer es indicarle el rango de IP que deseemos, dado que esto es una prueba no pondremos un gran rango. Este sera desde la 10.20.30.10 hasta la 10.20.30.30</p>
-                 <table>
-        <tr>
-            <td>Configurar IPv4 por DHCP</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td>IP de la red WAN</td>
-            <td>10.20.30.100</td>
-        </tr>
-        <tr>
-            <td>Mascara de red</td>
-            <td>/24</td>
-        </tr>
-        <tr>
-            <td>Gateway</td>
-            <td>10.20.30.1</td>
-        </tr>
-        <tr>
-            <td>Configurar IPv6</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td>Rango de IP que proporciona pfsense</td>
-            <td>10.20.30.10 - 10.20.30.30</td>
-        </tr>
-    </table>
-     </p>
-     <p>Si hemos realizado todos los pasos de forma correcta deberia salirnos las interfaces de red correctamente configuradas y se nos mostraria en pantalla</p>
-     <p></p>
-     <h7>Comprobaciones</h7>
-     </p>
-    <p>Para poder comprobar que todo esta funcionando correctamente lo unico que debermos hacer sera acceder a una maquina como cliente, para esto creamos la maquina en VirtualBox y le agregamos el mismo adaptador de red NAT que la maquina pfsense. Una vez hecho esto nos iremos al navegador e intentaremos acceder al pfsense mediante la ip de la red LAN que hemos configurado antes. Si todo sale bien deberia salirnos la pagina de login de pfsense donde debermos poner las siguientes credenciales:
-    <ul>
+    <tr><td>Configurar IPv4 por DHCP</td><td>No</td></tr>
+    <tr><td>IP de la red WAN</td><td>100.77.20.51</td></tr>
+    <tr><td>Mascara de red</td><td>/24</td></tr>
+    <tr><td>Gateway</td><td>No</td></tr>
+    <tr><td>Configurar IPv6</td><td>No</td></tr>
+  </table>
+
+  <h7>Configuracion red LAN</h7>
+  <p>
+    Al igual que la otra red, nos preguntará si queremos configurar la IPv4 mediante DHCP e igual que antes le diremos que no. Seguidamente, nos pedirá la IP de esta red y nosotros colocaremos la 10.20.30.100 con la máscara de red /24.
+  </p>
+  <p>
+    A continuación, nos pregunta si queremos configurar la gateway de la interfaz, en este caso sí que tenemos que hacerlo ya que al ser una red NAT esta no viene por defecto. La gateway será la 10.20.30.1 y confirmamos que sea la default.
+  </p>
+  <p>Lo siguiente será decirle que no a configurar la IPv6.</p>
+  <p>
+    En este caso sí que tenemos que permitir que Pfsense proporcione las IPs, es decir, que sea el servidor DHCP. Lo único que tenemos que hacer es indicarle el rango de IPs que deseemos, dado que esto es una prueba no pondremos un gran rango. Este será desde la 10.20.30.10 hasta la 10.20.30.30.
+  </p>
+
+  <table>
+    <tr><td>Configurar IPv4 por DHCP</td><td>No</td></tr>
+    <tr><td>IP de la red LAN</td><td>10.20.30.100</td></tr>
+    <tr><td>Mascara de red</td><td>/24</td></tr>
+    <tr><td>Gateway</td><td>10.20.30.1</td></tr>
+    <tr><td>Configurar IPv6</td><td>No</td></tr>
+    <tr><td>Rango de IP que proporciona Pfsense</td><td>10.20.30.10 - 10.20.30.30</td></tr>
+  </table>
+
+  <h7>Comprobaciones</h7>
+  <p>
+    Para poder comprobar que todo está funcionando correctamente lo único que debemos hacer será acceder a una máquina como cliente. Para esto creamos la máquina en VirtualBox y le agregamos el mismo adaptador de red NAT que la máquina Pfsense. Una vez hecho esto, nos iremos al navegador e intentaremos acceder al Pfsense mediante la IP de la red LAN que hemos configurado antes. Si todo sale bien, debería salirnos la página de login de Pfsense donde debemos poner las siguientes credenciales:
+  </p>
+  <ul>
     <li>Username: admin</li>
     <li>Password: pfSense</li>
-    </ul>
-    </p>
-    <p>Una vez hayamos accedido sera necesario unos cambios para que todo funcione perferctamente:</p>
-    <ul>
-    <li>Paso 1: Nos dirigiremos a la barra superior al apartado de system - Advanced - Networking y activaremos el KeaDHCP ya que este permite gestionar dinámicamente la asignación de direcciones IP mas eficientemente</li>
-    <li>Paso 2: Mediante la misma barra superior nos iremos al apartado de WAN este se encuentra en Firewall - Rules - WAN y haremos los siguientes cambios
-    <ul>
-        <li>En la opcion de action seleccionaremos "Pass"</li>
-        <li>En Address family "IPv4"</li>
-        <li>En protocol "TCP/UDP"</li>
-        <li>Source "Any"</li>
-        <li>En destination tendremos que colocar la IP que se le ha dado a la maquina cliente que se esta usando</li>
-        <li>En el reenvio de puerto le indicamos que salga por el puerto 80 que es el que pertenece al HTTP</li>
-        <li>Por ultimo tenemos que cambiar la descripicion en nuestro caso hemos puesto red NAT</li>
-    </ul></li>
-        <li>Paso 3: Guardar la configuracion</li>
-        <li>Paso 4: Para comprobar que todo esta bien configurado tendremos que irnos a la terminal de nuestra maquina cliente, colocar el comando ip para ver la ip que nos ha brindado y ccomprobar que coincide con la asignada mediante el DHCP del pfsense (Es posible que se tenga que reinicar el equipo de la maquina cliente para que salga la IP correcta)</li>
-    </ul>
-    
-    
+  </ul>
 
+  <p>Una vez hayamos accedido, será necesario realizar algunos cambios:</p>
+  <ul>
+    <li>Paso 1: Nos dirigiremos a la barra superior al apartado de System → Advanced → Networking y activaremos el KeaDHCP, ya que este permite gestionar dinámicamente la asignación de direcciones IP más eficientemente.</li>
+    <li>Paso 2: Mediante la misma barra superior nos iremos al apartado de WAN, este se encuentra en Firewall → Rules → WAN y haremos los siguientes cambios:
+      <ul>
+        <li>En la opción de "Action" seleccionaremos "Pass".</li>
+        <li>En "Address Family" seleccionaremos "IPv4".</li>
+        <li>En "Protocol" seleccionaremos "TCP/UDP".</li>
+        <li>En "Source" seleccionaremos "Any".</li>
+        <li>En "Destination" colocaremos la IP que se le ha dado a la máquina cliente.</li>
+        <li>En el reenvío de puerto indicamos que salga por el puerto 80, que es el que pertenece al HTTP.</li>
+        <li>Por último, cambiaremos la descripción; en nuestro caso hemos puesto "red NAT".</li>
+      </ul>
+    </li>
+    <li>Paso 3: Guardar la configuración.</li>
+    <li>Paso 4: Para comprobar que todo está bien configurado, tendremos que irnos a la terminal de nuestra máquina cliente, ejecutar el comando <code>ip</code> para ver la IP que nos ha brindado y comprobar que coincide con la asignada mediante el DHCP del Pfsense. (Es posible que se tenga que reiniciar la máquina cliente para que salga la IP correcta).</li>
+  </ul>
+</details>
+<details>
+    <summary><h2>Botpress </h2></summary>
+   <p><h6>Que es botpress</h6></p>
+    <br>
+    <p>Botpress es una plataforma de código abierto para la creación de chatbots avanzados con capacidades de procesamiento del lenguaje natural (NLP). Está diseñada para facilitar la implementación de asistentes virtuales en diversas plataformas como Facebook Messenger, Slack, Microsoft Teams, WhatsApp y sitios web.
+Se basa en Node.js y permite a los desarrolladores personalizar su comportamiento mediante módulos y flujos conversacionales. Su interfaz gráfica permite construir chatbots sin necesidad de escribir demasiado código, aunque también ofrece opciones avanzadas para usuarios con conocimientos en programación. </p>
+    <br>
+     <p><h6>Ventajas y desventajas</h6></p>
+    <br>
+    <table border="1">
+    <thead>
+        <tr>
+            <th>Ventajas</th>
+            <th>Desventajas</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Código Abierto: Totalmente personalizable y sin restricciones.</td>
+            <td>Requiere Recursos del Servidor: Puede consumir bastante memoria y CPU.</td>
+        </tr>
+        <tr>
+            <td>Interfaz Intuitiva: Permite crear chatbots sin necesidad de programar mucho.</td>
+            <td>Curva de Aprendizaje: Para configuraciones avanzadas se necesitan conocimientos técnicos.</td>
+        </tr>
+        <tr>
+            <td>Capacidades NLP Integradas: Soporta procesamiento de lenguaje natural para mejorar la interacción.</td>
+            <td>Limitaciones en la Versión Gratuita: Algunas funciones avanzadas son exclusivas de la versión empresarial.</td>
+        </tr>
+        <tr>
+            <td>Multicanal: Compatible con Facebook Messenger, Slack, WhatsApp, y más.</td>
+            <td>No es Tan Ligero: Comparado con Rasa o Dialogflow, puede ser más pesado.</td>
+        </tr>
+        <tr>
+            <td>Soporte para Múltiples Idiomas: Fácil de adaptar para usuarios de diferentes países.</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Extensibilidad: Se integra con APIs y bases de datos externas.</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<br>
+  <p><h6>Instalacion y configuracion de botpress en docker</h6></p>
+    <br>
+    <p> En nuestro caso al estar usando docker seria mucho mas sencillo desplegarlo desde este asi que lo vamos a hacer de esta forma</p>
+    <br>
+    <ul>
+    <p>Modificamos el archivo docker-compose.yml, dentro de este lo tendremos que modificar con los parametros que deseemos como la version, imagen, los puertos, etc. A continuacion dejo un exemplo de como podria ser dado que aun no lo hemos puesto en practica y tendriamos que comprobar que puertos podriamos utilizar entre otras cosas</p>
+        
+```yaml
+version: "3.8"
+services:
+  botpress:
+    image: botpress/server:v12_30_7
+    container_name: botpress
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./botpress_data:/botpress/data
+    environment:
+      BP_HOST: "0.0.0.0"
+      BP_PORT: "3000"
+      EXTERNAL_URL: "http://localhost:3000"
+    restart: unless-stopped
+```
+<p>Iniciamos el contenedor con <b>docker compose up -d<b></p>
+<p>Accedemos a la interfaz de la web mediante la ip de la maquina y el puerto que le hayamos asignado al docker </p>
+<p><h3>🚨Aviso: Los siguientes pasos no se han probado y solo es una posible forma de hacerlo para tener una guia cuando se realice</h3></p>
+    
+ <p><h6>Configuración del Chatbot en Botpress</h6></p>
 
+  <p><h6>4.1. Creación de un Nuevo Bot</h6></p>
+  <br>
+  <p>Después de acceder a la interfaz de Botpress:</p>
+  <ul>
+    <li>Haz clic en "Create Bot".</li>
+    <li>Asigna un nombre a tu chatbot.</li>
+    <li>Elige una plantilla base o crea un bot desde cero.</li>
+  </ul>
+
+  <p><h6>4.2. Configuración de Flujos Conversacionales</h6></p>
+  <br>
+  <p>Los flujos son la estructura de la conversación del chatbot:</p>
+  <ul>
+    <li>Accede a "Flows": Aquí puedes definir las rutas que tomará la conversación.</li>
+    <li>Añadir Nodos: Cada nodo representa un punto en la conversación.</li>
+    <li>Configurar Transiciones: Define condiciones para moverse entre nodos según las respuestas del usuario.</li>
+  </ul>
+
+  <p><h6>4.3. Implementación de NLP (Procesamiento de Lenguaje Natural)</h6></p>
+  <br>
+  <p>Para mejorar la comprensión del chatbot:</p>
+  <ul>
+    <li>Accede a "NLP" en el panel de administración.</li>
+    <li>Añadir Intenciones: Define frases de entrenamiento para que el bot entienda las preguntas del usuario.</li>
+    <li>Añadir Entidades: Permite extraer información específica como nombres, fechas o ubicaciones.</li>
+  </ul>
+
+  <p><h6>4.4. Integraciones con APIs</h6></p>
+  <br>
+  <p>Botpress permite conectar el chatbot con servicios externos mediante llamadas API:</p>
+  <ul>
+    <li>Accede a "Actions" y crea una nueva acción.</li>
+    <li>Escribe un script en JavaScript que realice la petición HTTP a la API externa.</li>
+    <li>Asigna la acción a un nodo en el flujo conversacional.</li>
+  </ul>
+  
+ 
+
+</details>
 
