@@ -1908,7 +1908,83 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
   </ul>
 </details>
 <details>
-    <summary><h3>Botpress </h3></summary>
+<summary><h3>Chat entre usuarios(Aun investigando)</h3></summary>
+    <p><h6>Matrix + Synapse </h6></p>
+    <p><h7>Introduccion</h7></p>
+    <br>
+    <p>Para nuestro proyecto uno de los objetivos es poder implementar un chat entre usuarios y psicologos para que haya una comunicacion entre ambos. En este apartado mostraremos la investigacion que estamos realizando para poder implementar esta funcionalidad. </p>
+    <p><h7>Que es Matrix</h7></p>
+    <p>Matrix es un protocolo de comunicación abierto y descentralizado diseñado para la mensajería en tiempo real. Su objetivo es crear una red global de mensajería interoperable, donde los usuarios puedan comunicarse a través de diferentes plataformas y servidores sin depender de un proveedor único.</p>
+    <p><h7>Caracteristicas</h7></p>
+    <ul>
+        <li>Interoperabilidad: A través de bridges, Matrix puede integrarse con otras plataformas de mensajería </li>
+        <li>Encriptación de extremo a extremo: Matrix soporta la encriptación de extremo a extremo (E2EE) para asegurar que solo el emisor y el receptor del mensaje puedan leer su contenido.</li>
+        <li>Soporte multimedia: Permite el envío de mensajes de texto, imágenes, videos y archivos de manera eficiente.</li>
+        <li>Escalabilidad: Su arquitectura permite que se pueda escalar a miles de usuarios, ya que cada servidor puede manejar su propia base de usuarios.</li>
+        <li>API y bots: Matrix ofrece una API completa para que los desarrolladores creen aplicaciones o integraciones personalizadas, incluidos bots (Lo cual nos puede ser util si usamos botpress).</li>
+    </ul>
+    <br>
+    <p><h7>Que es Synapse</h7></p>
+    <p>Synapse es el servidor de referencia y la implementación oficial del protocolo Matrix. Es un servidor de código abierto que gestiona las salas de chat, usuarios y mensajes en la red Matrix. </p>
+    <p><h7>Caracteristicas</h7></p>
+    <ul>
+        <li>Servidor federado: Synapse permite que diferentes servidores Matrix se comuniquen entre sí, lo que permite a los usuarios interactuar con personas que están en servidores distintos</li>
+        <li>Soporte de encriptación: Implementa encriptación de extremo a extremo para la privacidad de los mensajes.
+        <li>Admin Panel: Tiene una interfaz de administración web donde los administradores pueden gestionar usuarios, ver estadísticas y configurar servidores.</li>
+        <li>Escalabilidad: Su arquitectura permite que se pueda escalar a miles de usuarios, ya que cada servidor puede manejar su propia base de usuarios.</li>
+        <li>API y bots: Matrix ofrece una API completa para que los desarrolladores creen aplicaciones o integraciones personalizadas, incluidos bots (Lo cual nos puede ser util si usamos botpress).</li>
+    </ul>
+    <br>
+</details>
+    <details>
+    <summary><h3>🕊️Pidgin (Aun investigando)</h3></summary>
+    <p><h6>Que es pidgin</h6></p>
+    <br>
+    <p>Pidgin es un cliente de mensajeria de codigo abierto este permite la conexion a varios servicios de chat simultaneamente, en nuestro caso es una opcion que hay que tener en mente para nuestro proyecto ya que necesitamos implementar un chat en el que los psicologos y los pacientes tengan la posibilidad de comunicarse entre ellos mediante un chat desde la propia pagina web.</p>
+    <p><h6>Ventajas y desventajas</h6></p>
+    <br>
+    <table border="1">
+    <thead>
+        <tr>
+            <th>Ventajas</th>
+            <th>Desventajas</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Multiplataforma (Windows, Linux, macOS)</td>
+            <td>Interfaz antigua y poco moderna</td>
+        </tr>
+        <tr>
+            <td>Permite múltiples cuentas en una sola aplicación</td>
+            <td>No soporta llamadas de voz ni video de forma nativa</td>
+        </tr>
+        <tr>
+            <td>Código abierto y gratuito</td>
+            <td>Depende de plugins para algunas plataformas modernas</td>
+        </tr>
+        <tr>
+            <td>Extensible mediante plugins</td>
+            <td>Desarrollo y actualizaciones más lentas</td>
+        </tr>
+        <tr>
+            <td>Soporta encriptación OTR para chats privados</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Ligero y consume pocos recursos</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Compatible con redes empresariales (XMPP, SIP)</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<p><h6>Implementacion pidgin en Docker</h6></p>
+</details>
+<details>
+    <summary><h3>Botpress (Aun investigando)</h3></summary>
    <p><h6>Que es botpress</h6></p>
     <br>
     <p>Botpress es una plataforma de código abierto para la creación de chatbots avanzados con capacidades de procesamiento del lenguaje natural (NLP). Está diseñada para facilitar la implementación de asistentes virtuales en diversas plataformas como Facebook Messenger, Slack, Microsoft Teams, WhatsApp y sitios web.
@@ -1953,9 +2029,6 @@ Se basa en Node.js y permite a los desarrolladores personalizar su comportamient
 <br>
   <p><h6>Instalacion y configuracion de botpress en docker</h6></p>
     <br>
-    <p> En nuestro caso al estar usando docker seria mucho mas sencillo desplegarlo desde este asi que lo vamos a hacer de esta forma</p>
-    <br>
-    <ul>
     <p>Modificamos el archivo docker-compose.yml, dentro de este lo tendremos que modificar con los parametros que deseemos como la version, imagen, los puertos, etc. A continuacion dejo un exemplo de como podria ser dado que aun no lo hemos puesto en practica y tendriamos que comprobar que puertos podriamos utilizar entre otras cosas</p>
         
 ```yaml
@@ -2015,7 +2088,9 @@ services:
     <li>Escribe un script en JavaScript que realice la petición HTTP a la API externa.</li>
     <li>Asigna la acción a un nodo en el flujo conversacional.</li>
   </ul>
+
   
+ 
  
 
 </details>
