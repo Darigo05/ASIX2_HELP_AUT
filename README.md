@@ -2172,5 +2172,103 @@ services:
     <p>Para una implementación rápida y funcional, Jitsi Meet en la nube es la mejor opción. Si buscamos más personalización y control, una instancia autohospedada de Jitsi o el uso de MediaSoup puede ser más adecuado. WebRTC puro es viable, pero requiere una mayor inversión en infraestructura y desarrollo.</p>
 </details>
 
+<details>
+    <summary><h3>Protección del código fuente (Aún investigando)</h3></summary>
+    <p><h6>Opciones exploradas</h6></p>
+
+<p><h7>Introducción</h7></p>
+    <br>
+    <p>La seguridad del código fuente es crucial en nuestro proyecto, ya que queremos evitar accesos no autorizados, filtraciones y modificaciones indebidas. Para ello, hemos investigado diferentes estrategias y herramientas para garantizar su protección.</p>
+    
+<p><h7>Control de acceso y repositorios</h7></p>
+    <p>El uso de sistemas de control de versiones con gestión de permisos adecuada es esencial.</p>
+    <ul>
+        <li><b>GitHub Private Repositories:</b> Permite almacenar el código de forma privada y gestionar los accesos mediante roles y permisos.</li>
+        <li><b>GitLab Self-Hosted:</b> Alternativa autohospedada para un mayor control de los datos y seguridad avanzada.</li>
+        <li><b>Gitea:</b> Opción ligera y autohospedada para gestionar repositorios Git en nuestro propio servidor.</li>
+    </ul>
+    <br>
+
+<p><h7>Ofuscación y encriptación</h7></p>
+    <p>Para evitar que el código sea fácilmente legible en caso de acceso no autorizado, podemos aplicar técnicas de encriptación y ofuscación.</p>
+    <ul>
+        <li><b>Obfuscator.io:</b> Herramienta para ofuscar código JavaScript y dificultar su lectura.</li>
+        <li><b>Minificación:</b> Uso de <b>UglifyJS</b> o <b>Terser</b> para minimizar y ofuscar código JavaScript.</li>
+        <li><b>Encriptación de archivos sensibles:</b> Uso de <b>GnuPG</b> o <b>OpenSSL</b> para cifrar archivos críticos antes de subirlos a un repositorio.</li>
+    </ul>
+    <br>
+
+<p><h7>Firmas digitales y detección de cambios</h7></p>
+    <p>Para asegurar la integridad del código y detectar modificaciones no autorizadas.</p>
+    <ul>
+        <li><b>Git Signed Commits:</b> Uso de GPG para firmar cada commit y verificar la autenticidad de los cambios.</li>
+        <li><b>Tripwire:</b> Herramienta de detección de cambios en archivos del sistema que puede usarse para monitorear modificaciones en el código fuente.</li>
+    </ul>
+    <br>
+
+<p><h7>Comparativa</h7></p>
+    <table>
+        <tr>
+            <th>Opción</th>
+            <th>Autohospedado</th>
+            <th>Nivel de seguridad</th>
+            <th>Facilidad de uso</th>
+            <th>Costo</th>
+        </tr>
+        <tr>
+            <td>GitHub Private</td>
+            <td>No</td>
+            <td>Alta</td>
+            <td>Alta</td>
+            <td>Gratis (limitado) / Pago</td>
+        </tr>
+        <tr>
+            <td>GitLab Self-Hosted</td>
+            <td>Sí</td>
+            <td>Muy alta</td>
+            <td>Media</td>
+            <td>Depende del hosting</td>
+        </tr>
+        <tr>
+            <td>Gitea</td>
+            <td>Sí</td>
+            <td>Alta</td>
+            <td>Media</td>
+            <td>Bajo</td>
+        </tr>
+        <tr>
+            <td>Obfuscator.io</td>
+            <td>No</td>
+            <td>Media</td>
+            <td>Alta</td>
+            <td>Gratis</td>
+        </tr>
+        <tr>
+            <td>UglifyJS / Terser</td>
+            <td>No</td>
+            <td>Media</td>
+            <td>Alta</td>
+            <td>Gratis</td>
+        </tr>
+        <tr>
+            <td>Git Signed Commits</td>
+            <td>Opcional</td>
+            <td>Alta</td>
+            <td>Media</td>
+            <td>Gratis</td>
+        </tr>
+        <tr>
+            <td>Tripwire</td>
+            <td>Sí</td>
+            <td>Muy alta</td>
+            <td>Baja</td>
+            <td>Gratis</td>
+        </tr>
+    </table>
+    <br>
+
+<p><h7>Conclusión</h7></p>
+    <p>Para nuestro caso, GitHub Private puede ser suficiente si buscamos simplicidad y facilidad de integración. Si priorizamos mayor control y seguridad, una solución autohospedada como GitLab o Gitea sería más adecuada. Complementar con ofuscación y firmas digitales es recomendable para una mayor protección del código.</p>
+</details>
 
 
