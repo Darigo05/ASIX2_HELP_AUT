@@ -2271,4 +2271,109 @@ services:
     <p>Para nuestro caso, GitHub Private puede ser suficiente si buscamos simplicidad y facilidad de integración. Si priorizamos mayor control y seguridad, una solución autohospedada como GitLab o Gitea sería más adecuada. Complementar con ofuscación y firmas digitales es recomendable para una mayor protección del código.</p>
 </details>
 
+<details>
+    <summary><h3>Securizar Base de Datos (Aún investigando)</h3></summary>
+    <p><h6>Opciones exploradas</h6></p>
+
+<p><h7>Introducción</h7></p>
+    <br>
+    <p>La seguridad de la base de datos es fundamental en nuestro proyecto, ya que almacenará información sensible. Por ello, hemos investigado diferentes estrategias y herramientas para proteger los datos contra accesos no autorizados, ataques y fugas de información.</p>
+    
+  <p><h7>Control de accesos y autenticación</h7></p>
+    <p>Es importante restringir quién puede acceder a la base de datos y con qué privilegios.</p>
+    <ul>
+        <li><b>Principio de privilegios mínimos:</b> Asignar a cada usuario el mínimo nivel de acceso necesario.</li>
+        <li><b>Autenticación fuerte:</b> Uso de credenciales seguras y autenticación basada en claves o tokens en lugar de contraseñas simples.</li>
+        <li><b>Roles y permisos:</b> Configuración de roles en MySQL/PostgreSQL para limitar acciones según el usuario.</li>
+    </ul>
+    <br>
+    <p><h7>Cifrado de datos</h7></p>
+    <p>Para proteger la información almacenada y en tránsito.</p>
+    <ul>
+        <li><b>Cifrado en reposo:</b> Uso de <b>MySQL AES_ENCRYPT</b> o <b>PostgreSQL pgcrypto</b> para cifrar datos sensibles.</li>
+        <li><b>Cifrado en tránsito:</b> Configuración de conexiones seguras con <b>TLS/SSL</b> para evitar intercepciones.</li>
+        <li><b>Hashing seguro de contraseñas:</b> Uso de <b>bcrypt</b> o <b>Argon2</b> para almacenar contraseñas de forma segura.</li>
+    </ul>
+    <br>
+
+  <p><h7>Monitorización y auditoría</h7></p>
+    <p>Registrar y supervisar actividades sospechosas en la base de datos.</p>
+    <ul>
+        <li><b>Logs de acceso:</b> Activar logs en MySQL/PostgreSQL para registrar intentos de acceso.</li>
+        <li><b>Herramientas de monitorización:</b> Uso de <b>Fail2Ban</b> para bloquear intentos de acceso repetidos.</li>
+        <li><b>Auditoría de consultas:</b> Configuración de <b>MySQL Audit Plugin</b> o <b>pgAudit</b> en PostgreSQL.</li>
+    </ul>
+    <br>
+    <p><h7>Protección contra inyecciones SQL</h7></p>
+    <p>Evitar ataques que puedan comprometer la integridad de la base de datos.</p>
+    <ul>
+        <li><b>Uso de consultas preparadas:</b> Evitar concatenación de strings en SQL.</li>
+        <li><b>Validación de entradas:</b> Filtrar y sanitizar datos de entrada.</li>
+        <li><b>Firewall para bases de datos:</b> Uso de herramientas como <b>MySQL Enterprise Firewall</b> para bloquear ataques.</li>
+    </ul>
+    <br>
+    <p><h7>Comparativa</h7></p>
+    <table>
+        <tr>
+            <th>Opción</th>
+            <th>Tipo</th>
+            <th>Nivel de seguridad</th>
+            <th>Facilidad de uso</th>
+            <th>Costo</th>
+        </tr>
+        <tr>
+            <td>Roles y permisos</td>
+            <td>Control de acceso</td>
+            <td>Alta</td>
+            <td>Media</td>
+            <td>Gratis</td>
+        </tr>
+        <tr>
+            <td>TLS/SSL</td>
+            <td>Cifrado</td>
+            <td>Muy alta</td>
+            <td>Media</td>
+            <td>Gratis</td>
+        </tr>
+        <tr>
+            <td>bcrypt / Argon2</td>
+            <td>Cifrado</td>
+            <td>Muy alta</td>
+            <td>Alta</td>
+            <td>Gratis</td>
+        </tr>
+        <tr>
+            <td>MySQL Audit Plugin / pgAudit</td>
+            <td>Monitorización</td>
+            <td>Alta</td>
+            <td>Baja</td>
+            <td>Gratis</td>
+        </tr>
+        <tr>
+            <td>Fail2Ban</td>
+            <td>Monitorización</td>
+            <td>Alta</td>
+            <td>Media</td>
+            <td>Gratis</td>
+        </tr>
+        <tr>
+            <td>Consultas preparadas</td>
+            <td>Protección contra inyecciones</td>
+            <td>Muy alta</td>
+            <td>Alta</td>
+            <td>Gratis</td>
+        </tr>
+        <tr>
+            <td>MySQL Enterprise Firewall</td>
+            <td>Protección contra inyecciones</td>
+            <td>Muy alta</td>
+            <td>Baja</td>
+            <td>Pago</td>
+        </tr>
+    </table>
+    <br>
+
+   <p><h7>Conclusión</h7></p>
+    <p>Para nuestro caso, aplicar roles y permisos correctamente, junto con cifrado TLS/SSL y hashing seguro de contraseñas, ofrece una buena protección sin añadir demasiada complejidad. Para mayor seguridad, podríamos implementar auditorías y firewall de bases de datos.</p>
+</details>
 
