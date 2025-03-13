@@ -2088,10 +2088,89 @@ services:
     <li>Escribe un script en JavaScript que realice la petición HTTP a la API externa.</li>
     <li>Asigna la acción a un nodo en el flujo conversacional.</li>
   </ul>
-
-  
- 
- 
-
 </details>
+<details>
+    <summary><h3>Videollamadas (Aún investigando)</h3></summary>
+    <p><h6>Opciones exploradas</h6></p>
+
+<p><h7>Introducción</h7></p>
+    <br>
+    <p>Para nuestro proyecto, una de las funcionalidades clave es la posibilidad de realizar videollamadas entre los psicólogos y los padres de los niños. Hemos investigado diferentes soluciones para integrar esta funcionalidad y en este apartado mostraremos las opciones evaluadas.</p>
+    
+<p><h7>Servicios de terceros</h7></p>
+    <p>Los servicios de terceros permiten integrar videollamadas de forma rápida sin necesidad de administrar servidores propios.</p>
+    <ul>
+        <li><b>Jitsi Meet:</b> Plataforma open-source que permite realizar videollamadas sin necesidad de registro. Se puede utilizar en la nube o alojar en un servidor propio.</li>
+        <li><b>Twilio Video:</b> API avanzada con soporte para grabación, mejoras de calidad y escalabilidad.</li>
+        <li><b>Daily.co:</b> Alternativa a Twilio con integración sencilla y costos más accesibles.</li>
+    </ul>
+    <br>
+
+<p><h7>Soluciones autohospedadas</h7></p>
+    <p>Si se busca más control y privacidad, se pueden desplegar servidores propios para manejar las videollamadas.</p>
+    <ul>
+        <li><b>Jitsi Self-Hosted:</b> Permite desplegar Jitsi en un servidor propio dentro de Proxmox usando una VM o contenedores Docker.</li>
+        <li><b>MediaSoup:</b> Framework basado en WebRTC con baja latencia y opciones avanzadas de personalización.</li>
+    </ul>
+    <br>
+
+<p><h7>Comparativa</h7></p>
+    <table>
+        <tr>
+            <th>Opción</th>
+            <th>Autohospedado</th>
+            <th>Escalabilidad</th>
+            <th>Facilidad de integración</th>
+            <th>Costo</th>
+        </tr>
+        <tr>
+            <td>Jitsi Meet (Cloud)</td>
+            <td>No</td>
+            <td>Media</td>
+            <td>Alta</td>
+            <td>Gratis</td>
+        </tr>
+        <tr>
+            <td>Jitsi Self-Hosted</td>
+            <td>Sí</td>
+            <td>Alta</td>
+            <td>Media</td>
+            <td>Bajo (Requiere servidor)</td>
+        </tr>
+        <tr>
+            <td>Twilio Video</td>
+            <td>No</td>
+            <td>Alta</td>
+            <td>Alta</td>
+            <td>Pago por uso</td>
+        </tr>
+        <tr>
+            <td>Daily.co</td>
+            <td>No</td>
+            <td>Alta</td>
+            <td>Alta</td>
+            <td>Pago por uso</td>
+        </tr>
+        <tr>
+            <td>MediaSoup</td>
+            <td>Sí</td>
+            <td>Alta</td>
+            <td>Baja</td>
+            <td>Depende del hosting</td>
+        </tr>
+        <tr>
+            <td>WebRTC puro</td>
+            <td>Opcional</td>
+            <td>Alta</td>
+            <td>Baja (Desarrollo necesario)</td>
+            <td>Gratis, pero requiere infraestructura</td>
+        </tr>
+    </table>
+    <br>
+
+<p><h7>Conclusión</h7></p>
+    <p>Para una implementación rápida y funcional, Jitsi Meet en la nube es la mejor opción. Si buscamos más personalización y control, una instancia autohospedada de Jitsi o el uso de MediaSoup puede ser más adecuado. WebRTC puro es viable, pero requiere una mayor inversión en infraestructura y desarrollo.</p>
+</details>
+
+
 
