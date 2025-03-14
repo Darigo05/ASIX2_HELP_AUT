@@ -1877,15 +1877,15 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
                 <li><b>Message Notification</b>: Notificaciones avanzadas de mensajes.</li>
             </ul>
         
-        <h4>8. Solucionar problemas de conexión en Pidgin con XMPP</h4>
-            <ul>
-                <li>✅ <b>Verificar credenciales</b>: Asegurarse de que el usuario y contraseña sean correctos.</li>
-                <li>🔧 <b>Revisar configuración del servidor</b>: Usar el puerto correcto (<i>5222 con STARTTLS</i>).</li>
-                <li>🚫 <b>Desactivar IPv6</b> si hay problemas de conectividad.</li>
-                <li>🛠️ <b>Probar sin TLS/SSL</b> en <i>Opciones avanzadas</i>.</li>
-                <li>🔥 <b>Verificar el firewall</b> y abrir los puertos necesarios.</li>
-                <li>📜 <b>Revisar logs de Pidgin</b> (<i>Depuración > Ventana de depuración</i>).</li>
-            </ul>
+<h4>8. Solucionar problemas de conexión en Pidgin con XMPP</h4>
+    <ul>
+        <li>✅ <b>Verificar credenciales</b>: Asegurarse de que el usuario y contraseña sean correctos.</li>
+        <li>🔧 <b>Revisar configuración del servidor</b>: Usar el puerto correcto (<i>5222 con STARTTLS</i>).</li>
+        <li>🚫 <b>Desactivar IPv6</b> si hay problemas de conectividad.</li>
+        <li>🛠️ <b>Probar sin TLS/SSL</b> en <i>Opciones avanzadas</i>.</li>
+        <li>🔥 <b>Verificar el firewall</b> y abrir los puertos necesarios.</li>
+        <li>📜 <b>Revisar logs de Pidgin</b> (<i>Depuración > Ventana de depuración</i>).</li>
+    </ul>
     
     
 </details>
