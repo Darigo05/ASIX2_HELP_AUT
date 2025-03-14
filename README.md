@@ -1805,7 +1805,8 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 <summary><h2>💬Ejabberd XMPP y Pidgin</h2></summary>
     
-    <details>
+   
+<details>
         
     <summary><h3>Teoría📖</h3></summary>
     
@@ -1887,14 +1888,15 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
             </ul>
     
     
-    </details>
+</details>
+
 
 </details>
 
 
 <details>
     
-<summary><h3>Guias e Investigacion</h3></summary>
+<summary><h2>Guias e Investigacion</h2></summary>
 
 <br>
 <details>
