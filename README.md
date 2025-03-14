@@ -1800,97 +1800,94 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 </details>
 
-</details>
-
 
 <details>
 
 <summary><h2>💬Ejabberd XMPP y Pidgin</h2></summary>
-
-<details>
-<details>
     
-<summary><h3>Teoría📖</h3></summary>
-
- <h4>1. ¿Qué es ejabberd?</h4>
-    <p>Ejabberd es un servidor XMPP (Extensible Messaging and Presence Protocol) de código abierto, escrito en Erlang, diseñado para manejar grandes volúmenes de tráfico de mensajería instantánea. Se usa comúnmente en aplicaciones de chat, comunicación en tiempo real y mensajería empresarial.</p>
-
-    <h4>🔄 Alternativas a ejabberd:</h4>
-    <ul>
-        <li><b>Prosody</b>: Ligero y fácil de configurar.</li>
-        <li><b>Openfire</b>: Interfaz web intuitiva y extensible mediante plugins.</li>
-        <li><b>Tigase</b>: Optimizado para alto rendimiento y escalabilidad.</li>
-        <li><b>Metronome</b>: Basado en Prosody, con mejoras en funcionalidades XMPP.</li>
-    </ul>
-
-    <h4>2. ¿Qué es el protocolo XMPP?</h4>
-    <p>XMPP (Extensible Messaging and Presence Protocol) es un protocolo abierto basado en XML para mensajería instantánea, presencia y comunicación en tiempo real. Se usa en aplicaciones de chat, VoIP, IoT y otras soluciones descentralizadas de mensajería.</p>
-
-    <h4>3. ¿Qué es Pidgin?</h4>
-    <p>Pidgin es un cliente de mensajería instantánea multiplataforma que soporta múltiples protocolos, incluido XMPP. Permite la conexión a diferentes servicios como Jabber, IRC y otros, y se puede ampliar con complementos.</p>
-
-    <h4>🔄 Alternativas a Pidgin:</h4>
-    <ul>
-        <li><b>Gajim</b>: Cliente XMPP especializado, con una interfaz moderna.</li>
-        <li><b>Dino</b>: Cliente XMPP minimalista para Linux.</li>
-        <li><b>Psi</b>: Cliente XMPP ligero con muchas opciones de personalización.</li>
-        <li><b>Conversations</b>: Cliente XMPP para Android con un enfoque en la privacidad.</li>
-    </ul>
-
-    <h4>4. Alternativas generales para mensajería instantánea</h4>
-    <ul>
-        <li><b>Matrix (Element)</b>: Protocolo descentralizado con cifrado de extremo a extremo.</li>
-        <li><b>Rocket.Chat</b>: Plataforma de chat de código abierto, similar a Slack.</li>
-        <li><b>Mattermost</b>: Alternativa a Slack enfocada en equipos y empresas.</li>
-        <li><b>Signal</b>: Mensajería cifrada centrada en la privacidad.</li>
-        <li><b>Session</b>: Basado en blockchain y anonimato total.</li>
-    </ul>
-
-    <h4>5. Puertos utilizados en ejabberd</h4>
-    <ul>
-        <li><b>5222</b>: Puerto estándar para conexiones XMPP sin cifrar o con STARTTLS.</li>
-        <li><b>5223</b>: Puerto obsoleto para conexiones XMPP cifradas con SSL.</li>
-        <li><b>5280</b>: Interfaz web de administración de ejabberd.</li>
-        <li><b>5443</b>: Acceso a la interfaz web de administración con HTTPS.</li>
-        <li><b>5269</b>: Comunicación entre servidores XMPP (s2s, server-to-server).</li>
-    </ul>
-
-    <h4>6. Agregar y configurar un usuario en Pidgin</h4>
-    <ol>
-        <li>Abrir <b>Pidgin</b> y seleccionar <i>Cuentas > Administrar cuentas</i>.</li>
-        <li>Hacer clic en <b>Añadir</b>.</li>
-        <li>Seleccionar <b>XMPP</b> como protocolo.</li>
-        <li>Ingresar el <i>nombre de usuario</i>, <i>dominio</i> y <i>contraseña</i>.</li>
-        <li>Configurar opciones avanzadas si es necesario (<i>puerto 5222, usar TLS</i>).</li>
-        <li>Guardar y conectar.</li>
-    </ol>
-
-    <h4>7. Instalar complementos en Pidgin</h4>
-    <ol>
-        <li>Ir a <i>Herramientas > Complementos</i>.</li>
-        <li>Explorar la lista y activar los deseados (ejemplo: OTR para cifrado).</li>
-        <li>Para complementos adicionales, instalarlos mediante paquetes o descargándolos desde el <a href="https://pidgin.im/plugins/" target="_blank">sitio oficial de Pidgin</a>.</li>
-    </ol>
-
-    <h4>🔌 Ejemplos de complementos útiles:</h4>
-    <ul>
-        <li><b>OTR (Off-the-Record Messaging)</b>: Cifrado de extremo a extremo.</li>
-        <li><b>Encryption Plugin</b>: Alternativa a OTR para cifrado de mensajes.</li>
-        <li><b>Message Notification</b>: Notificaciones avanzadas de mensajes.</li>
-    </ul>
-
-    <h4>8. Solucionar problemas de conexión en Pidgin con XMPP</h4>
-    <ul>
-        <li>✅ <b>Verificar credenciales</b>: Asegurarse de que el usuario y contraseña sean correctos.</li>
-        <li>🔧 <b>Revisar configuración del servidor</b>: Usar el puerto correcto (<i>5222 con STARTTLS</i>).</li>
-        <li>🚫 <b>Desactivar IPv6</b> si hay problemas de conectividad.</li>
-        <li>🛠️ <b>Probar sin TLS/SSL</b> en <i>Opciones avanzadas</i>.</li>
-        <li>🔥 <b>Verificar el firewall</b> y abrir los puertos necesarios.</li>
-        <li>📜 <b>Revisar logs de Pidgin</b> (<i>Depuración > Ventana de depuración</i>).</li>
-    </ul>
-
-
-</details>
+    <details>
+        
+    <summary><h3>Teoría📖</h3></summary>
+    
+         <h4>1. ¿Qué es ejabberd?</h4>
+            <p>Ejabberd es un servidor XMPP (Extensible Messaging and Presence Protocol) de código abierto, escrito en Erlang, diseñado para manejar grandes volúmenes de tráfico de mensajería instantánea. Se usa comúnmente en aplicaciones de chat, comunicación en tiempo real y mensajería empresarial.</p>
+        
+            <h4>🔄 Alternativas a ejabberd:</h4>
+            <ul>
+                <li><b>Prosody</b>: Ligero y fácil de configurar.</li>
+                <li><b>Openfire</b>: Interfaz web intuitiva y extensible mediante plugins.</li>
+                <li><b>Tigase</b>: Optimizado para alto rendimiento y escalabilidad.</li>
+                <li><b>Metronome</b>: Basado en Prosody, con mejoras en funcionalidades XMPP.</li>
+            </ul>
+        
+            <h4>2. ¿Qué es el protocolo XMPP?</h4>
+            <p>XMPP (Extensible Messaging and Presence Protocol) es un protocolo abierto basado en XML para mensajería instantánea, presencia y comunicación en tiempo real. Se usa en aplicaciones de chat, VoIP, IoT y otras soluciones descentralizadas de mensajería.</p>
+        
+            <h4>3. ¿Qué es Pidgin?</h4>
+            <p>Pidgin es un cliente de mensajería instantánea multiplataforma que soporta múltiples protocolos, incluido XMPP. Permite la conexión a diferentes servicios como Jabber, IRC y otros, y se puede ampliar con complementos.</p>
+        
+            <h4>🔄 Alternativas a Pidgin:</h4>
+            <ul>
+                <li><b>Gajim</b>: Cliente XMPP especializado, con una interfaz moderna.</li>
+                <li><b>Dino</b>: Cliente XMPP minimalista para Linux.</li>
+                <li><b>Psi</b>: Cliente XMPP ligero con muchas opciones de personalización.</li>
+                <li><b>Conversations</b>: Cliente XMPP para Android con un enfoque en la privacidad.</li>
+            </ul>
+        
+            <h4>4. Alternativas generales para mensajería instantánea</h4>
+            <ul>
+                <li><b>Matrix (Element)</b>: Protocolo descentralizado con cifrado de extremo a extremo.</li>
+                <li><b>Rocket.Chat</b>: Plataforma de chat de código abierto, similar a Slack.</li>
+                <li><b>Mattermost</b>: Alternativa a Slack enfocada en equipos y empresas.</li>
+                <li><b>Signal</b>: Mensajería cifrada centrada en la privacidad.</li>
+                <li><b>Session</b>: Basado en blockchain y anonimato total.</li>
+            </ul>
+        
+            <h4>5. Puertos utilizados en ejabberd</h4>
+            <ul>
+                <li><b>5222</b>: Puerto estándar para conexiones XMPP sin cifrar o con STARTTLS.</li>
+                <li><b>5223</b>: Puerto obsoleto para conexiones XMPP cifradas con SSL.</li>
+                <li><b>5280</b>: Interfaz web de administración de ejabberd.</li>
+                <li><b>5443</b>: Acceso a la interfaz web de administración con HTTPS.</li>
+                <li><b>5269</b>: Comunicación entre servidores XMPP (s2s, server-to-server).</li>
+            </ul>
+        
+            <h4>6. Agregar y configurar un usuario en Pidgin</h4>
+            <ol>
+                <li>Abrir <b>Pidgin</b> y seleccionar <i>Cuentas > Administrar cuentas</i>.</li>
+                <li>Hacer clic en <b>Añadir</b>.</li>
+                <li>Seleccionar <b>XMPP</b> como protocolo.</li>
+                <li>Ingresar el <i>nombre de usuario</i>, <i>dominio</i> y <i>contraseña</i>.</li>
+                <li>Configurar opciones avanzadas si es necesario (<i>puerto 5222, usar TLS</i>).</li>
+                <li>Guardar y conectar.</li>
+            </ol>
+        
+            <h4>7. Instalar complementos en Pidgin</h4>
+            <ol>
+                <li>Ir a <i>Herramientas > Complementos</i>.</li>
+                <li>Explorar la lista y activar los deseados (ejemplo: OTR para cifrado).</li>
+                <li>Para complementos adicionales, instalarlos mediante paquetes o descargándolos desde el <a href="https://pidgin.im/plugins/" target="_blank">sitio oficial de Pidgin</a>.</li>
+            </ol>
+        
+            <h4>🔌 Ejemplos de complementos útiles:</h4>
+            <ul>
+                <li><b>OTR (Off-the-Record Messaging)</b>: Cifrado de extremo a extremo.</li>
+                <li><b>Encryption Plugin</b>: Alternativa a OTR para cifrado de mensajes.</li>
+                <li><b>Message Notification</b>: Notificaciones avanzadas de mensajes.</li>
+            </ul>
+        
+            <h4>8. Solucionar problemas de conexión en Pidgin con XMPP</h4>
+            <ul>
+                <li>✅ <b>Verificar credenciales</b>: Asegurarse de que el usuario y contraseña sean correctos.</li>
+                <li>🔧 <b>Revisar configuración del servidor</b>: Usar el puerto correcto (<i>5222 con STARTTLS</i>).</li>
+                <li>🚫 <b>Desactivar IPv6</b> si hay problemas de conectividad.</li>
+                <li>🛠️ <b>Probar sin TLS/SSL</b> en <i>Opciones avanzadas</i>.</li>
+                <li>🔥 <b>Verificar el firewall</b> y abrir los puertos necesarios.</li>
+                <li>📜 <b>Revisar logs de Pidgin</b> (<i>Depuración > Ventana de depuración</i>).</li>
+            </ul>
+    
+    
+    </details>
 
 </details>
 
