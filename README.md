@@ -1916,16 +1916,6 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 </details>
 
-
-<details>
-    
-<summary><h2>Guias e Investigacion</h2></summary>
-
-<br>
-<details>
-    <summary><h3>Introduccion </h3></summary>
-    <p>En este apartado escribiremos unas guias de instalacion y configuracion de diversos contenidos, que quizas no se incluiran en el proyecto pero es interesante saber como realizarlos, ademas de esto realizaremos tambien una serie de investigaciones sobre diferentes protocolos que seria interesante implementar en nuestro proyecto</p>
-</details>
 <details>
   <summary><h3>💡 Pfsense</h3></summary>
     <p><h6>Que es pfsense</h6></p>
@@ -2021,6 +2011,21 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
     <li>Paso 4: Para comprobar que todo está bien configurado, tendremos que irnos a la terminal de nuestra máquina cliente, ejecutar el comando <code>ip</code> para ver la IP que nos ha brindado y comprobar que coincide con la asignada mediante el DHCP del Pfsense. (Es posible que se tenga que reiniciar la máquina cliente para que salga la IP correcta).</li>
   </ul>
 </details>
+
+
+</details>
+
+
+<details>
+    
+<summary><h2>Guias e Investigacion</h2></summary>
+
+<br>
+<details>
+    <summary><h3>Introduccion </h3></summary>
+    <p>En este apartado escribiremos unas guias de instalacion y configuracion de diversos contenidos, que quizas no se incluiran en el proyecto pero es interesante saber como realizarlos, ademas de esto realizaremos tambien una serie de investigaciones sobre diferentes protocolos que seria interesante implementar en nuestro proyecto</p>
+</details>
+
 <details>
 <summary><h3>Chat entre usuarios(Aun investigando)</h3></summary>
     <p><h6>Matrix + Synapse </h6></p>
@@ -2491,3 +2496,4 @@ services:
     <p>Para nuestro caso, aplicar roles y permisos correctamente, junto con cifrado TLS/SSL y hashing seguro de contraseñas, ofrece una buena protección sin añadir demasiada complejidad. Para mayor seguridad, podríamos implementar auditorías y firewall de bases de datos.</p>
 </details>
 
+</details>
