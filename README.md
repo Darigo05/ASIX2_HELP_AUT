@@ -2194,16 +2194,16 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 </details>
 
-  </details>
+</details>
 
-    <details>
+<details>
   <summary><h3>Práctica📖</h3></summary>
 
 <p>Dejamos adjunto un Documento pdf donde se puede ver la correcta implementación de Pidjin y Ejabberd con Docker. Es un paso a paso con las correspondientes capturas de pantalla necesarias para su correcto entendimiento a modo de guia.</p>
 
 [click aqui](Ejabberd_Docker.pdf)
 
-  </details>
+</details>
 
 
 
