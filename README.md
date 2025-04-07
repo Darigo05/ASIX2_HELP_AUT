@@ -1916,6 +1916,8 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 </details>
 
+</details>
+
 <details>
   <summary><h3>💡 Pfsense</h3></summary>
     <p><h6>Que es pfsense</h6></p>
