@@ -2203,9 +2203,6 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 [click aqui](Ejabberd_Docker.pdf)
 
-</details>
-
-
 
 </details>
 
