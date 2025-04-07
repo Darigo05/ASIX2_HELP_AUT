@@ -2197,7 +2197,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 <details>
   <summary><h3>Práctica📖</h3></summary>
 
-<p>Dejamos adjunto un Documento pdf donde se puede ver la correcta implementación de Pidjin y Ejabberd con Docker. Es un paso a paso con las correspondientes capturas de pantalla necesarias para su correcto entendimiento a modo de guia.</p>
+<p> En este archivo adjunto (PDF) se puede ver como se instalan las herramientas FFmpeg y yt-dlp. A lo largo del documento, se muestra cómo descargar un video de YouTube de la artista Charli XCX, instalar un reproductor para visualizarlo y, posteriormente, utilizar FFmpeg desde la terminal para explorar algunas de sus funcionalidades. Entre ellas, se incluyen ejemplos como aumentar la velocidad del video e insertar una marca de agua.</p>
 
 [click aqui](ffmpeg_yt-dlp.pdf)
 
