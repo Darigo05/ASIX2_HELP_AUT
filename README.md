@@ -906,7 +906,7 @@ A pesar de que el proyecto presenta desafíos, estamos comprometidos en aprovech
 
 
 <details>    
-<summary><h2>🌐Arquitectura + Diagrama de red</h2></summary>
+<summary><h2>🌐Arquitectura + Diagrama de red (Antigua ⮕ Perdida)</h2></summary>
 <p>En este proyecto, hemos diseñado una infraestructura de red usando Proxmox con diversas máquinas virtuales (VM) que tienen roles específicos para gestionar un servidor web. El objetivo es que estas máquinas se comuniquen entre sí y con la red externa de manera eficiente para ofrecer servicios web y de base de datos. Además, hemos configurado <strong>Cloudflare</strong> para optimizar la seguridad y el rendimiento de la página web.</p>
 
 <h4>Las máquinas virtuales configuradas son:</h4>
@@ -945,6 +945,13 @@ A pesar de que el proyecto presenta desafíos, estamos comprometidos en aprovech
 
 
 </details>
+
+
+<details>    
+<summary><h2>🌐Arquitectura + Diagrama de red (Nueva)</h2></summary>
+
+
+
 
 <details>    
 <summary><h2>🗄️Base de Datos</h2></summary>
@@ -1310,6 +1317,10 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 <details>
 
 <summary><h2>💾 Backups</h2></summary>
+
+<details>
+
+<summary><h3>Primera Versión 👆</h3></summary>
 
 <details>
 
@@ -1781,6 +1792,7 @@ El script no solo realiza los backups, sino que también genera un log detallado
 
 </details>
 
+
 <details>
  
 <summary><h3>Incidencias 🚨</h3></summary>
@@ -1799,6 +1811,9 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 </details>
 
 </details>
+
+</details>
+
 
 
 <details>
@@ -1889,6 +1904,14 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
     
     
 </details>
+
+
+<details>
+        
+<summary><h3>Práctica📖</h3></summary>
+<p>Dejamos adjunto un Documento pdf donde se puede ver la correcta implementación de Pidjin y Ejabberd con Docker. Es un paso a paso con las correspondientes capturas de pantalla necesarias para su correcto entendimiento a modo de guia.</p>
+
+<iframe src="manual.pdf" width="100%" height="600px"></iframe>
 
 
 </details>
