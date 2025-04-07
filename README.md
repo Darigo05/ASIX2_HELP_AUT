@@ -2209,7 +2209,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 <details>
     
-<summary><h2>Guias e Investigacion</h2></summary>
+<summary><h2>🧠Guias e Investigacion</h2></summary>
 
 <br>
 <details>
