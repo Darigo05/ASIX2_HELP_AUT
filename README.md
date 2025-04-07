@@ -2024,7 +2024,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 
 <details>
-  <summary><h2>Vídeo🎥</h2></summary>
+  <summary><h2>🎥Vídeo</h2></summary>
 
 <details>
 <summary><h3>Teoría📖</h3></summary>
