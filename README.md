@@ -1918,15 +1918,8 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 </details>
 
-<details>
-  <summary><h2>💡 Pfsense</h2></summary>
 
 <details>
-<summary><h3>Teoría📖</h3></summary>
-
-  </details>
-
-    <details>
   <summary><h3>Práctica📖</h3></summary>
     <p><h6>Que es pfsense</h6></p>
     <br>
@@ -2020,6 +2013,180 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
     <li>Paso 3: Guardar la configuración.</li>
     <li>Paso 4: Para comprobar que todo está bien configurado, tendremos que irnos a la terminal de nuestra máquina cliente, ejecutar el comando <code>ip</code> para ver la IP que nos ha brindado y comprobar que coincide con la asignada mediante el DHCP del Pfsense. (Es posible que se tenga que reiniciar la máquina cliente para que salga la IP correcta).</li>
   </ul>
+</details>
+
+<details>
+  <summary><h3>Práctica📖</h3></summary>
+<h2>🛡️ 1. ¿Qué es una VPN y qué ventajas ofrece?</h2>
+<p>
+  <strong>VPN</strong> (Virtual Private Network) es una tecnología que crea una conexión segura y privada entre tu dispositivo e internet, como si estuvieras dentro de una red local, aunque estés lejos.
+</p>
+
+<h3>✅ Ventajas de una VPN:</h3>
+<ul>
+  <li>🔐 <strong>Seguridad y cifrado</strong> de datos.</li>
+  <li>🕵️ <strong>Privacidad</strong> (oculta tu IP).</li>
+  <li>🌍 <strong>Acceso remoto</strong> a tu red (ideal para trabajo remoto).</li>
+  <li>🚫 <strong>Evitar bloqueos geográficos</strong>.</li>
+</ul>
+
+<hr>
+
+<h2>🌐 2. ¿Qué tipos de VPN hay?</h2>
+<h3>📘 Tipos comunes de VPN:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Explicación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Remote Access VPN</strong></td>
+      <td>Conecta un usuario remoto a una red central (ej. trabajador desde casa).</td>
+    </tr>
+    <tr>
+      <td><strong>Site-to-Site VPN</strong></td>
+      <td>Conecta dos redes (por ejemplo, sucursales de una empresa).</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>🔐 3. ¿Qué protocolos VPN existen?</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Protocolo</th>
+      <th>Descripción breve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>OpenVPN</strong></td>
+      <td>Muy seguro y flexible. Usa SSL/TLS.</td>
+    </tr>
+    <tr>
+      <td><strong>IPSec</strong></td>
+      <td>Integrado en muchos sistemas, muy usado.</td>
+    </tr>
+    <tr>
+      <td><strong>L2TP/IPSec</strong></td>
+      <td>Combina cifrado y túnel.</td>
+    </tr>
+    <tr>
+      <td><strong>WireGuard</strong></td>
+      <td>Más moderno, rápido y simple.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>📌 <em>Esquema de funcionamiento (ejemplo OpenVPN):</em></p>
+<!-- Puedes insertar una imagen aquí si la tienes -->
+<!-- <img src="ruta/al/esquema.png" alt="Esquema OpenVPN" /> -->
+
+<hr>
+
+<h2>🧱 4. ¿Qué es pfSense y cómo se relaciona con OpenVPN?</h2>
+<p>
+  <strong>pfSense</strong> es un firewall/router basado en FreeBSD con interfaz web. Se usa para proteger redes, enrutar tráfico y más.
+</p>
+<p>
+  👉 <strong>OpenVPN</strong> es un plugin dentro de pfSense, que permite crear un servidor VPN para acceder a tu red desde fuera.
+</p>
+
+<hr>
+
+<h2>⚙️ 5. ¿Qué función realiza OpenVPN en pfSense?</h2>
+<ul>
+  <li>Crear un <strong>túnel cifrado</strong> para que usuarios remotos accedan a la red LAN.</li>
+  <li>Gestionar <strong>autenticación, certificados, políticas y reglas de acceso</strong>.</li>
+</ul>
+
+<h2>6. 🔐 Opciones de autenticación y cifrado en OpenVPN/pfSense</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Opción</th>
+      <th>Detalles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔑 <strong>Certificados</strong></td>
+      <td>Autenticación basada en claves públicas/privadas.</td>
+    </tr>
+    <tr>
+      <td>🔐 <strong>Usuario y contraseña</strong></td>
+      <td>Más controlado (combinado con certificado).</td>
+    </tr>
+    <tr>
+      <td>🧬 <strong>Cifrado</strong></td>
+      <td>AES-256, TLS 1.3, HMAC SHA256 (muy seguro).</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>7. 🔄 ¿Cómo funciona el túnel VPN?</h2>
+<p>
+  Un túnel VPN es como un <strong>"tubo seguro"</strong> entre el cliente y la red. Todo lo que se envía pasa cifrado por este tubo.
+</p>
+<ul>
+  <li>🔒 Los datos viajan ocultos.</li>
+  <li>🙈 Nadie puede espiar lo que haces.</li>
+  <li>🌐 Te da acceso remoto como si estuvieras dentro de la red local.</li>
+</ul>
+<p>👉 <em>Pantallazo sugerido: Diagrama de túnel VPN entre cliente y pfSense.</em></p>
+
+<hr>
+
+<h2>8. 💸 Comparativa VPN Gratis vs VPN de Pago</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Característica</th>
+      <th>VPN Gratis</th>
+      <th>VPN de Pago</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔐 <strong>Seguridad</strong></td>
+      <td>❌ Puede ser débil o vender tus datos</td>
+      <td>✅ Alta seguridad y sin registros</td>
+    </tr>
+    <tr>
+      <td>🚀 <strong>Velocidad</strong></td>
+      <td>⚠️ Lenta, servidores saturados</td>
+      <td>✅ Rápida y estable</td>
+    </tr>
+    <tr>
+      <td>🔧 <strong>Fiabilidad</strong></td>
+      <td>❌ Conexiones caídas, poca asistencia</td>
+      <td>✅ Soporte técnico y estabilidad</td>
+    </tr>
+    <tr>
+      <td>🌍 <strong>Ubicaciones</strong></td>
+      <td>🌍 Pocas (una o dos)</td>
+      <td>🌍 Muchas (globales)</td>
+    </tr>
+    <tr>
+      <td>📶 <strong>Ancho de banda</strong></td>
+      <td>⚠️ Limitado</td>
+      <td>✅ Ilimitado</td>
+    </tr>
+    <tr>
+      <td>🛠️ <strong>Servicios extra</strong></td>
+      <td>❌ No</td>
+      <td>✅ Streaming, bloqueadores, split tunnel</td>
+    </tr>
+  </tbody>
+</table>
+
 </details>
 
 
