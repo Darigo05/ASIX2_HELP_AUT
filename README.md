@@ -1919,7 +1919,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 </details>
 
 <details>
-<summary><h2>🧱Pfsense</h2></summary>
+    <summary><h2>🧱Pfsense</h2></summary>
 
 <details>
   <summary><h3>Instalación Pfsense🔥</h3></summary>
@@ -2194,6 +2194,44 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 <details>
 <summary><h3>Práctica📖</h3></summary>
+<h2>🛠️ 6. Pasos para configurar OpenVPN en pfSense</h2>
+<p>En esta guía, vamos a explicar paso a paso cómo configurar OpenVPN en pfSense. Cubriremos desde la instalación del paquete necesario hasta la configuración del servidor VPN, permitiendo que los dispositivos remotos se conecten de forma segura a nuestra red. A lo largo del proceso, proporcionaremos indicaciones y pantallazos sugeridos para facilitar la comprensión.</p>
+
+<h3>✳️ Paso 1: Descargar el paquete openvpn-client-export</h3>
+<p>Lo primero es descargar el paquete <strong>openvpn-client-export</strong>. Para ello, vamos a:</p>
+<ul>
+  <li>System &gt; Package Manager &gt; Available Packages</li>
+  <li>Buscamos el paquete <strong>openvpn-client-export</strong> y pulsamos en <strong>Install</strong>.</li>
+</ul>
+
+<h3>✳️ Paso 2: Crear el CA (autoridad certificadora)</h3>
+<p>Ve a: <strong>System &gt; Cert. Manager &gt; CAs</strong></p>
+<p>Crea una nueva CA: <strong>Nombre: VPN_CA</strong></p>
+<p>👉 <em>Pantallazo configuración:</em></p>
+
+<h3>✳️ Paso 3: Crear certificado del servidor</h3>
+<p>Ir a: <strong>System &gt; Cert. Manager &gt; Certificates</strong></p>
+<p>Crear un nuevo certificado con rol de servidor.</p>
+<p>👉 <em>Pantallazo configuración:</em></p>
+
+<h3>✳️ Paso 4: Usar el asistente de OpenVPN</h3>
+<p>Ir a: <strong>VPN &gt; OpenVPN &gt; Wizards</strong></p>
+<p>Completa los pasos con la CA y certificado creados.</p>
+<p>Define usuarios, túnel, red local y opciones.</p>
+<p>👉 <em>Pantallazo configuración:</em></p>
+
+<h3>✳️ Paso 5: Configurar Firewall y NAT</h3>
+<p>Ir a: <strong>Firewall &gt; Rules &gt; OpenVPN</strong></p>
+<p>Añadir reglas para permitir tráfico VPN.</p>
+<p>Agregar regla NAT para salida a internet si es necesario.</p>
+<p>👉 <em>Pantallazo configuración:</em></p>
+
+<h3>✳️ Paso 6: Exportar perfil cliente</h3>
+<p>Ir a: <strong>VPN &gt; OpenVPN &gt; Client Export</strong></p>
+<p>Selecciona el usuario, descarga el perfil <strong>.ovpn</strong></p>
+<p>👉 <em>Pantallazo configuración:</em></p>
+
+    
 </details>
 
 </details>
@@ -2202,9 +2240,8 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 
 <details>
-
     
-<summary><h2>🎥Vídeo</h2></summary>
+    <summary><h2>🎥Vídeo</h2></summary>
 
 <details>
 <summary><h3>Teoría📖</h3></summary>
