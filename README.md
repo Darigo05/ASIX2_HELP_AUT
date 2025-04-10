@@ -1919,7 +1919,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 </details>
 
 <details>
-<summary><h3>🧱Pfsense</h3></summary>
+<summary><h2>🧱Pfsense</h2></summary>
 
 <details>
   <summary><h3>Instalación Pfsense🔥</h3></summary>
@@ -2021,7 +2021,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 <summary><h3>OpenVPN🛡️</h3></summary>
 
 <details>
-  <summary><h3>Práctica📖</h3></summary>
+  <summary><h3>Teoría📖</h3></summary>
 <h2>🛡️ 1. ¿Qué es una VPN y qué ventajas ofrece?</h2>
 <p>
   <strong>VPN</strong> (Virtual Private Network) es una tecnología que crea una conexión segura y privada entre tu dispositivo e internet, como si estuvieras dentro de una red local, aunque estés lejos.
@@ -2193,8 +2193,8 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 </table>
 
 <details>
-<summary><h3>OpenVPN🛡️</h3></summary>
-
+<summary><h3>Práctica📖</h3></summary>
+</details>
 
 </details>
 
