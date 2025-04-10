@@ -1918,9 +1918,11 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 </details>
 
+<details>
+<summary><h3>🧱Pfsense</h3></summary>
 
 <details>
-  <summary><h3>Práctica📖</h3></summary>
+  <summary><h3>Instalación Pfsense🔥</h3></summary>
     <p><h6>Que es pfsense</h6></p>
     <br>
     <p>Una breve explicacion de que es pfsense y su uso seria que pfsense es un sistema cuya funcionalidad es convertir un pc en un firewall para proteger y administrar redes de forma segura. Gracias a esto podemos bloquear accesos no autorizados, limitar la velocidad o bloquear paginas web, crear VPN o dividir el trafico de internet
@@ -2014,6 +2016,9 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
     <li>Paso 4: Para comprobar que todo está bien configurado, tendremos que irnos a la terminal de nuestra máquina cliente, ejecutar el comando <code>ip</code> para ver la IP que nos ha brindado y comprobar que coincide con la asignada mediante el DHCP del Pfsense. (Es posible que se tenga que reiniciar la máquina cliente para que salga la IP correcta).</li>
   </ul>
 </details>
+
+<details>
+<summary><h3>OpenVPN🛡️</h3></summary>
 
 <details>
   <summary><h3>Práctica📖</h3></summary>
@@ -2186,6 +2191,12 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
     </tr>
   </tbody>
 </table>
+
+<details>
+<summary><h3>OpenVPN🛡️</h3></summary>
+
+
+</details>
 
 </details>
 
