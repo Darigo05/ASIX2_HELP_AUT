@@ -2202,6 +2202,8 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 
 <details>
+
+    
 <summary><h2>🎥Vídeo</h2></summary>
 
 <details>
@@ -2382,6 +2384,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 </details>
 
+</details>
 
 
 <details>
