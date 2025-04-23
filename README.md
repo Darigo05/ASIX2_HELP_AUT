@@ -2243,6 +2243,8 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
     
     <summary><h2>🎥Vídeo</h2></summary>
 
+</details>
+
 <details>
 <summary><h3>Teoría📖</h3></summary>
 
