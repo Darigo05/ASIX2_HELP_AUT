@@ -1919,7 +1919,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 </details>
 
 
-<details>
+
     
 <details>
   <summary><h2>🎥 Vídeo</h2></summary>
@@ -2912,4 +2912,3 @@ services:
 
 </details>
 
-</details>
