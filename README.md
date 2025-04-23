@@ -2114,320 +2114,258 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 <details>
   <summary><h2>🧱Pfsense</h2></summary>
 
-<details>
-  <summary><h3>Instalación Pfsense🔥</h3></summary>
+  <details>
+    <summary><h3>Instalación Pfsense🔥</h3></summary>
     <p><h6>Que es pfsense</h6></p>
     <br>
-    <p>Una breve explicacion de que es pfsense y su uso seria que pfsense es un sistema cuya funcionalidad es convertir un pc en un firewall para proteger y administrar redes de forma segura. Gracias a esto podemos bloquear accesos no autorizados, limitar la velocidad o bloquear paginas web, crear VPN o dividir el trafico de internet
-  <p><h6>Creacion de la MV</h6></p>
-  <p>
-    <h7>El primer paso a realizar sera crear nuestra MV, en este caso se realizara en VirtualBox y con la ISO de Pfsense que nos ha proporcionado Alina.</h7>
-  </p>
-  <p><h7>Especificaciones de la maquina</h7></p>
-  <ul>
-    <li><b>RAM: </b> 2048 MB (Lo recomendado son 2GB para que la maquina funcione correctamente)</li>
-    <li><b>Procesadores: </b> 2</li>
-    <li><b>Almacenamiento del disco duro: </b> 70GB</li>
-    <li><b>ISO: </b>Pfsense 2.7.2</li>
-  </ul>
-
-  <h7>Adapatadores de red</h7>
-  <p>
-    Los adaptadores de red son una pieza fundamental en esta maquina ya que en este caso estos serán necesarios para salir al exterior desde nuestra red local y para el tráfico interno. Dependiendo de donde nos encontremos las IP de estos podrán cambiar. En nuestro caso, al haberlo hecho en clase, son las siguientes:
-  </p>
-  <ul>
-    <li><b>Adaptador puente (WAN): </b>Como se ha comentado, este adaptador será el que nos permita salir al exterior de la red y en este caso cuenta con la IP 100.77.20.0/24</li>
-    <li><b>Red NAT (LAN): </b>Este será el adaptador encargado del tráfico interno y tiene la IP 10.20.30.0/24</li>
-  </ul>
-
-  <h7><b>Configuracion Pfsense</b></h7>
-  <p>
-    Una vez iniciada la máquina nos saldrá un menú con varias opciones, en nuestro caso pulsaremos la opción 2 ya que lo que queremos es configurar las dos redes para poder empezar a usar Pfsense.
-  </p>
-
-  <h7>Configuración red WAN</h7>
-  <p>
-    Lo primero que nos preguntará es si queremos que la IPv4 se configure mediante DHCP, en este caso debido a que necesitamos una IP estática le diremos que no. Seguidamente, debemos poner la IP que nosotros deseemos para la red WAN, en este caso hemos seleccionado la 100.77.20.51 y colocamos la máscara de red que en este caso sería una /24.
-  </p>
-  <p>
-    Una vez realizado esto, nos preguntará si queremos asignar un gateway a la interfaz pero como estamos usando el DHCP de la red local le diremos que no, ya que no se necesita. Así mismo, cuando nos pregunte si queremos configurar una IPv6 le daremos también a que no.
-  </p>
-
-  <table>
-    <tr><td>Configurar IPv4 por DHCP</td><td>No</td></tr>
-    <tr><td>IP de la red WAN</td><td>100.77.20.51</td></tr>
-    <tr><td>Mascara de red</td><td>/24</td></tr>
-    <tr><td>Gateway</td><td>No</td></tr>
-    <tr><td>Configurar IPv6</td><td>No</td></tr>
-  </table>
-
-  <h7>Configuracion red LAN</h7>
-  <p>
-    Al igual que la otra red, nos preguntará si queremos configurar la IPv4 mediante DHCP e igual que antes le diremos que no. Seguidamente, nos pedirá la IP de esta red y nosotros colocaremos la 10.20.30.100 con la máscara de red /24.
-  </p>
-  <p>
-    A continuación, nos pregunta si queremos configurar la gateway de la interfaz, en este caso sí que tenemos que hacerlo ya que al ser una red NAT esta no viene por defecto. La gateway será la 10.20.30.1 y confirmamos que sea la default.
-  </p>
-  <p>Lo siguiente será decirle que no a configurar la IPv6.</p>
-  <p>
-    En este caso sí que tenemos que permitir que Pfsense proporcione las IPs, es decir, que sea el servidor DHCP. Lo único que tenemos que hacer es indicarle el rango de IPs que deseemos, dado que esto es una prueba no pondremos un gran rango. Este será desde la 10.20.30.10 hasta la 10.20.30.30.
-  </p>
-
-  <table>
-    <tr><td>Configurar IPv4 por DHCP</td><td>No</td></tr>
-    <tr><td>IP de la red LAN</td><td>10.20.30.100</td></tr>
-    <tr><td>Mascara de red</td><td>/24</td></tr>
-    <tr><td>Gateway</td><td>10.20.30.1</td></tr>
-    <tr><td>Configurar IPv6</td><td>No</td></tr>
-    <tr><td>Rango de IP que proporciona Pfsense</td><td>10.20.30.10 - 10.20.30.30</td></tr>
-  </table>
-
-  <h7>Comprobaciones</h7>
-  <p>
-    Para poder comprobar que todo está funcionando correctamente lo único que debemos hacer será acceder a una máquina como cliente. Para esto creamos la máquina en VirtualBox y le agregamos el mismo adaptador de red NAT que la máquina Pfsense. Una vez hecho esto, nos iremos al navegador e intentaremos acceder al Pfsense mediante la IP de la red LAN que hemos configurado antes. Si todo sale bien, debería salirnos la página de login de Pfsense donde debemos poner las siguientes credenciales:
-  </p>
-  <ul>
-    <li>Username: admin</li>
-    <li>Password: pfSense</li>
-  </ul>
-
-  <p>Una vez hayamos accedido, será necesario realizar algunos cambios:</p>
-  <ul>
-    <li>Paso 1: Nos dirigiremos a la barra superior al apartado de System → Advanced → Networking y activaremos el KeaDHCP, ya que este permite gestionar dinámicamente la asignación de direcciones IP más eficientemente.</li>
-    <li>Paso 2: Mediante la misma barra superior nos iremos al apartado de WAN, este se encuentra en Firewall → Rules → WAN y haremos los siguientes cambios:
-      <ul>
-        <li>En la opción de "Action" seleccionaremos "Pass".</li>
-        <li>En "Address Family" seleccionaremos "IPv4".</li>
-        <li>En "Protocol" seleccionaremos "TCP/UDP".</li>
-        <li>En "Source" seleccionaremos "Any".</li>
-        <li>En "Destination" colocaremos la IP que se le ha dado a la máquina cliente.</li>
-        <li>En el reenvío de puerto indicamos que salga por el puerto 80, que es el que pertenece al HTTP.</li>
-        <li>Por último, cambiaremos la descripción; en nuestro caso hemos puesto "red NAT".</li>
-      </ul>
-    </li>
-    <li>Paso 3: Guardar la configuración.</li>
-    <li>Paso 4: Para comprobar que todo está bien configurado, tendremos que irnos a la terminal de nuestra máquina cliente, ejecutar el comando <code>ip</code> para ver la IP que nos ha brindado y comprobar que coincide con la asignada mediante el DHCP del Pfsense. (Es posible que se tenga que reiniciar la máquina cliente para que salga la IP correcta).</li>
-  </ul>
-</details>
-
-<details>
-<summary><h3>OpenVPN🛡️</h3></summary>
-
-<details>
-  <summary><h3>Teoría📖</h3></summary>
-<h2>🛡️ 1. ¿Qué es una VPN y qué ventajas ofrece?</h2>
-<p>
-  <strong>VPN</strong> (Virtual Private Network) es una tecnología que crea una conexión segura y privada entre tu dispositivo e internet, como si estuvieras dentro de una red local, aunque estés lejos.
-</p>
-
-<h3>✅ Ventajas de una VPN:</h3>
-<ul>
-  <li>🔐 <strong>Seguridad y cifrado</strong> de datos.</li>
-  <li>🕵️ <strong>Privacidad</strong> (oculta tu IP).</li>
-  <li>🌍 <strong>Acceso remoto</strong> a tu red (ideal para trabajo remoto).</li>
-  <li>🚫 <strong>Evitar bloqueos geográficos</strong>.</li>
-</ul>
-
-<hr>
-
-<h2>🌐 2. ¿Qué tipos de VPN hay?</h2>
-<h3>📘 Tipos comunes de VPN:</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Tipo</th>
-      <th>Explicación</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Remote Access VPN</strong></td>
-      <td>Conecta un usuario remoto a una red central (ej. trabajador desde casa).</td>
-    </tr>
-    <tr>
-      <td><strong>Site-to-Site VPN</strong></td>
-      <td>Conecta dos redes (por ejemplo, sucursales de una empresa).</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr>
-
-<h2>🔐 3. ¿Qué protocolos VPN existen?</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Protocolo</th>
-      <th>Descripción breve</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>OpenVPN</strong></td>
-      <td>Muy seguro y flexible. Usa SSL/TLS.</td>
-    </tr>
-    <tr>
-      <td><strong>IPSec</strong></td>
-      <td>Integrado en muchos sistemas, muy usado.</td>
-    </tr>
-    <tr>
-      <td><strong>L2TP/IPSec</strong></td>
-      <td>Combina cifrado y túnel.</td>
-    </tr>
-    <tr>
-      <td><strong>WireGuard</strong></td>
-      <td>Más moderno, rápido y simple.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>📌 <em>Esquema de funcionamiento (ejemplo OpenVPN):</em></p>
-<!-- Puedes insertar una imagen aquí si la tienes -->
-<!-- <img src="ruta/al/esquema.png" alt="Esquema OpenVPN" /> -->
-
-<hr>
-
-<h2>🧱 4. ¿Qué es pfSense y cómo se relaciona con OpenVPN?</h2>
-<p>
-  <strong>pfSense</strong> es un firewall/router basado en FreeBSD con interfaz web. Se usa para proteger redes, enrutar tráfico y más.
-</p>
-<p>
-  👉 <strong>OpenVPN</strong> es un plugin dentro de pfSense, que permite crear un servidor VPN para acceder a tu red desde fuera.
-</p>
-
-<hr>
-
-<h2>⚙️ 5. ¿Qué función realiza OpenVPN en pfSense?</h2>
-<ul>
-  <li>Crear un <strong>túnel cifrado</strong> para que usuarios remotos accedan a la red LAN.</li>
-  <li>Gestionar <strong>autenticación, certificados, políticas y reglas de acceso</strong>.</li>
-</ul>
-
-<h2>6. 🔐 Opciones de autenticación y cifrado en OpenVPN/pfSense</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Opción</th>
-      <th>Detalles</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>🔑 <strong>Certificados</strong></td>
-      <td>Autenticación basada en claves públicas/privadas.</td>
-    </tr>
-    <tr>
-      <td>🔐 <strong>Usuario y contraseña</strong></td>
-      <td>Más controlado (combinado con certificado).</td>
-    </tr>
-    <tr>
-      <td>🧬 <strong>Cifrado</strong></td>
-      <td>AES-256, TLS 1.3, HMAC SHA256 (muy seguro).</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr>
-
-<h2>7. 🔄 ¿Cómo funciona el túnel VPN?</h2>
-<p>
-  Un túnel VPN es como un <strong>"tubo seguro"</strong> entre el cliente y la red. Todo lo que se envía pasa cifrado por este tubo.
-</p>
-<ul>
-  <li>🔒 Los datos viajan ocultos.</li>
-  <li>🙈 Nadie puede espiar lo que haces.</li>
-  <li>🌐 Te da acceso remoto como si estuvieras dentro de la red local.</li>
-</ul>
-<p>👉 <em>Pantallazo sugerido: Diagrama de túnel VPN entre cliente y pfSense.</em></p>
-
-<hr>
-
-<h2>8. 💸 Comparativa VPN Gratis vs VPN de Pago</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Característica</th>
-      <th>VPN Gratis</th>
-      <th>VPN de Pago</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>🔐 <strong>Seguridad</strong></td>
-      <td>❌ Puede ser débil o vender tus datos</td>
-      <td>✅ Alta seguridad y sin registros</td>
-    </tr>
-    <tr>
-      <td>🚀 <strong>Velocidad</strong></td>
-      <td>⚠️ Lenta, servidores saturados</td>
-      <td>✅ Rápida y estable</td>
-    </tr>
-    <tr>
-      <td>🔧 <strong>Fiabilidad</strong></td>
-      <td>❌ Conexiones caídas, poca asistencia</td>
-      <td>✅ Soporte técnico y estabilidad</td>
-    </tr>
-    <tr>
-      <td>🌍 <strong>Ubicaciones</strong></td>
-      <td>🌍 Pocas (una o dos)</td>
-      <td>🌍 Muchas (globales)</td>
-    </tr>
-    <tr>
-      <td>📶 <strong>Ancho de banda</strong></td>
-      <td>⚠️ Limitado</td>
-      <td>✅ Ilimitado</td>
-    </tr>
-    <tr>
-      <td>🛠️ <strong>Servicios extra</strong></td>
-      <td>❌ No</td>
-      <td>✅ Streaming, bloqueadores, split tunnel</td>
-    </tr>
-  </tbody>
-</table>
-
-<details>
-<summary><h3>Práctica📖</h3></summary>
-<h2>🛠️ 6. Pasos para configurar OpenVPN en pfSense</h2>
-<p>En esta guía, vamos a explicar paso a paso cómo configurar OpenVPN en pfSense. Cubriremos desde la instalación del paquete necesario hasta la configuración del servidor VPN, permitiendo que los dispositivos remotos se conecten de forma segura a nuestra red. A lo largo del proceso, proporcionaremos indicaciones y pantallazos sugeridos para facilitar la comprensión.</p>
-
-<h3>✳️ Paso 1: Descargar el paquete openvpn-client-export</h3>
-<p>Lo primero es descargar el paquete <strong>openvpn-client-export</strong>. Para ello, vamos a:</p>
-<ul>
-  <li>System &gt; Package Manager &gt; Available Packages</li>
-  <li>Buscamos el paquete <strong>openvpn-client-export</strong> y pulsamos en <strong>Install</strong>.</li>
-</ul>
-
-<h3>✳️ Paso 2: Crear el CA (autoridad certificadora)</h3>
-<p>Ve a: <strong>System &gt; Cert. Manager &gt; CAs</strong></p>
-<p>Crea una nueva CA: <strong>Nombre: VPN_CA</strong></p>
-<p>👉 <em>Pantallazo configuración:</em></p>
-
-<h3>✳️ Paso 3: Crear certificado del servidor</h3>
-<p>Ir a: <strong>System &gt; Cert. Manager &gt; Certificates</strong></p>
-<p>Crear un nuevo certificado con rol de servidor.</p>
-<p>👉 <em>Pantallazo configuración:</em></p>
-
-<h3>✳️ Paso 4: Usar el asistente de OpenVPN</h3>
-<p>Ir a: <strong>VPN &gt; OpenVPN &gt; Wizards</strong></p>
-<p>Completa los pasos con la CA y certificado creados.</p>
-<p>Define usuarios, túnel, red local y opciones.</p>
-<p>👉 <em>Pantallazo configuración:</em></p>
-
-<h3>✳️ Paso 5: Configurar Firewall y NAT</h3>
-<p>Ir a: <strong>Firewall &gt; Rules &gt; OpenVPN</strong></p>
-<p>Añadir reglas para permitir tráfico VPN.</p>
-<p>Agregar regla NAT para salida a internet si es necesario.</p>
-<p>👉 <em>Pantallazo configuración:</em></p>
-
-<h3>✳️ Paso 6: Exportar perfil cliente</h3>
-<p>Ir a: <strong>VPN &gt; OpenVPN &gt; Client Export</strong></p>
-<p>Selecciona el usuario, descarga el perfil <strong>.ovpn</strong></p>
-<p>👉 <em>Pantallazo configuración:</em></p>
-
+    <p>Una breve explicación de qué es Pfsense y su uso sería que Pfsense es un sistema cuya funcionalidad es convertir un PC en un firewall para proteger y administrar redes de forma segura. Gracias a esto podemos bloquear accesos no autorizados, limitar la velocidad o bloquear páginas web, crear VPN o dividir el tráfico de internet.</p>
     
-</details>
+    <p><h6>Creación de la MV</h6></p>
+    <p>
+      <h7>El primer paso a realizar será crear nuestra MV, en este caso se realizará en VirtualBox y con la ISO de Pfsense que nos ha proporcionado Alina.</h7>
+    </p>
+    
+    <p><h7>Especificaciones de la máquina</h7></p>
+    <ul>
+      <li><b>RAM: </b> 2048 MB (Lo recomendado son 2GB para que la máquina funcione correctamente)</li>
+      <li><b>Procesadores: </b> 2</li>
+      <li><b>Almacenamiento del disco duro: </b> 70GB</li>
+      <li><b>ISO: </b>Pfsense 2.7.2</li>
+    </ul>
 
-</details>
+    <h7>Adaptadores de red</h7>
+    <p>
+      Los adaptadores de red son una pieza fundamental en esta máquina, ya que en este caso estos serán necesarios para salir al exterior desde nuestra red local y para el tráfico interno. Dependiendo de dónde nos encontremos las IP de estos podrán cambiar. En nuestro caso, al haberlo hecho en clase, son las siguientes:
+    </p>
+    <ul>
+      <li><b>Adaptador puente (WAN): </b>Como se ha comentado, este adaptador será el que nos permita salir al exterior de la red y en este caso cuenta con la IP 100.77.20.0/24</li>
+      <li><b>Red NAT (LAN): </b>Este será el adaptador encargado del tráfico interno y tiene la IP 10.20.30.0/24</li>
+    </ul>
+
+    <h7><b>Configuración Pfsense</b></h7>
+    <p>
+      Una vez iniciada la máquina nos saldrá un menú con varias opciones, en nuestro caso pulsaremos la opción 2 ya que lo que queremos es configurar las dos redes para poder empezar a usar Pfsense.
+    </p>
+
+    <h7>Configuración red WAN</h7>
+    <p>
+      Lo primero que nos preguntará es si queremos que la IPv4 se configure mediante DHCP, en este caso debido a que necesitamos una IP estática le diremos que no. Seguidamente, debemos poner la IP que nosotros deseemos para la red WAN, en este caso hemos seleccionado la 100.77.20.51 y colocamos la máscara de red que en este caso sería una /24.
+    </p>
+    <p>
+      Una vez realizado esto, nos preguntará si queremos asignar un gateway a la interfaz pero como estamos usando el DHCP de la red local le diremos que no, ya que no se necesita. Así mismo, cuando nos pregunte si queremos configurar una IPv6 le daremos también a que no.
+    </p>
+
+    <table>
+      <tr><td>Configurar IPv4 por DHCP</td><td>No</td></tr>
+      <tr><td>IP de la red WAN</td><td>100.77.20.51</td></tr>
+      <tr><td>Máscara de red</td><td>/24</td></tr>
+      <tr><td>Gateway</td><td>No</td></tr>
+      <tr><td>Configurar IPv6</td><td>No</td></tr>
+    </table>
+
+    <h7>Configuración red LAN</h7>
+    <p>
+      Al igual que la otra red, nos preguntará si queremos configurar la IPv4 mediante DHCP e igual que antes le diremos que no. Seguidamente, nos pedirá la IP de esta red y nosotros colocaremos la 10.20.30.100 con la máscara de red /24.
+    </p>
+    <p>
+      A continuación, nos pregunta si queremos configurar la gateway de la interfaz, en este caso sí que tenemos que hacerlo ya que al ser una red NAT esta no viene por defecto. La gateway será la 10.20.30.1 y confirmamos que sea la default.
+    </p>
+    <p>Lo siguiente será decirle que no a configurar la IPv6.</p>
+    <p>
+      En este caso sí que tenemos que permitir que Pfsense proporcione las IPs, es decir, que sea el servidor DHCP. Lo único que tenemos que hacer es indicarle el rango de IPs que deseemos, dado que esto es una prueba no pondremos un gran rango. Este será desde la 10.20.30.10 hasta la 10.20.30.30.
+    </p>
+
+    <table>
+      <tr><td>Configurar IPv4 por DHCP</td><td>No</td></tr>
+      <tr><td>IP de la red LAN</td><td>10.20.30.100</td></tr>
+      <tr><td>Máscara de red</td><td>/24</td></tr>
+      <tr><td>Gateway</td><td>10.20.30.1</td></tr>
+      <tr><td>Configurar IPv6</td><td>No</td></tr>
+      <tr><td>Rango de IP que proporciona Pfsense</td><td>10.20.30.10 - 10.20.30.30</td></tr>
+    </table>
+
+    <h7>Comprobaciones</h7>
+    <p>
+      Para poder comprobar que todo está funcionando correctamente lo único que debemos hacer será acceder a una máquina como cliente. Para esto creamos la máquina en VirtualBox y le agregamos el mismo adaptador de red NAT que la máquina Pfsense. Una vez hecho esto, nos iremos al navegador e intentaremos acceder al Pfsense mediante la IP de la red LAN que hemos configurado antes. Si todo sale bien, debería salirnos la página de login de Pfsense donde debemos poner las siguientes credenciales:
+    </p>
+    <ul>
+      <li>Username: admin</li>
+      <li>Password: pfSense</li>
+    </ul>
+
+    <p>Una vez hayamos accedido, será necesario realizar algunos cambios:</p>
+    <ul>
+      <li>Paso 1: Nos dirigiremos a la barra superior al apartado de System → Advanced → Networking y activaremos el KeaDHCP, ya que este permite gestionar dinámicamente la asignación de direcciones IP más eficientemente.</li>
+      <li>Paso 2: Mediante la misma barra superior nos iremos al apartado de WAN, este se encuentra en Firewall → Rules → WAN y haremos los siguientes cambios:
+        <ul>
+          <li>En la opción de "Action" seleccionaremos "Pass".</li>
+          <li>En "Address Family" seleccionaremos "IPv4".</li>
+          <li>En "Protocol" seleccionaremos "TCP/UDP".</li>
+          <li>En "Source" seleccionaremos "Any".</li>
+          <li>En "Destination" colocaremos la IP que se le ha dado a la máquina cliente.</li>
+          <li>En el reenvío de puerto indicamos que salga por el puerto 80, que es el que pertenece al HTTP.</li>
+          <li>Por último, cambiaremos la descripción; en nuestro caso hemos puesto "red NAT".</li>
+        </ul>
+      </li>
+      <li>Paso 3: Guardar la configuración.</li>
+      <li>Paso 4: Para comprobar que todo está bien configurado, tendremos que irnos a la terminal de nuestra máquina cliente, ejecutar el comando <code>ip</code> para ver la IP que nos ha brindado y comprobar que coincide con la asignada mediante el DHCP del Pfsense. (Es posible que se tenga que reiniciar la máquina cliente para que salga la IP correcta).</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><h3>OpenVPN🛡️</h3></summary>
+
+    <details>
+      <summary><h3>Teoría📖</h3></summary>
+      <h2>🛡️ 1. ¿Qué es una VPN y qué ventajas ofrece?</h2>
+      <p>
+        <strong>VPN</strong> (Virtual Private Network) es una tecnología que crea una conexión segura y privada entre tu dispositivo e internet, como si estuvieras dentro de una red local, aunque estés lejos.
+      </p>
+
+      <h3>✅ Ventajas de una VPN:</h3>
+      <ul>
+        <li>🔐 <strong>Seguridad y cifrado</strong> de datos.</li>
+        <li>🕵️ <strong>Privacidad</strong> (oculta tu IP).</li>
+        <li>🌍 <strong>Acceso remoto</strong> a tu red (ideal para trabajo remoto).</li>
+        <li>🚫 <strong>Evitar bloqueos geográficos</strong>.</li>
+      </ul>
+
+      <hr>
+
+      <h2>🌐 2. ¿Qué tipos de VPN hay?</h2>
+      <h3>📘 Tipos comunes de VPN:</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Explicación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Remote Access VPN</strong></td>
+            <td>Conecta un usuario remoto a una red central (ej. trabajador desde casa).</td>
+          </tr>
+          <tr>
+            <td><strong>Site-to-Site VPN</strong></td>
+            <td>Conecta dos redes (por ejemplo, sucursales de una empresa).</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+
+      <h2>🔐 3. ¿Qué protocolos VPN existen?</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Protocolo</th>
+            <th>Descripción breve</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>OpenVPN</strong></td>
+            <td>Muy seguro y flexible. Usa SSL/TLS.</td>
+          </tr>
+          <tr>
+            <td><strong>IPSec</strong></td>
+            <td>Integrado en muchos sistemas, muy usado.</td>
+          </tr>
+          <tr>
+            <td><strong>L2TP/IPSec</strong></td>
+            <td>Combina cifrado y túnel.</td>
+          </tr>
+          <tr>
+            <td><strong>WireGuard</strong></td>
+            <td>Más moderno, rápido y simple.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>📌 <em>Esquema de funcionamiento (ejemplo OpenVPN):</em></p>
+
+      <hr>
+
+      <h2>🧱 4. ¿Qué es pfSense y cómo se relaciona con OpenVPN?</h2>
+      <p>
+        <strong>pfSense</strong> es un firewall/router basado en FreeBSD con interfaz web. Se usa para proteger redes, enrutar tráfico y más.
+      </p>
+      <p>
+        👉 <strong>OpenVPN</strong> es un plugin dentro de pfSense, que permite crear un servidor VPN para acceder a tu red desde fuera.
+      </p>
+
+      <hr>
+
+      <h2>⚙️ 5. ¿Qué función realiza OpenVPN en pfSense?</h2>
+      <ul>
+        <li>Crear un <strong>túnel cifrado</strong> para que usuarios remotos accedan a la red LAN.</li>
+        <li>Gestionar <strong>autenticación, certificados, políticas y reglas de acceso</strong>.</li>
+      </ul>
+
+      <h2>6. 🔐 Opciones de autenticación y cifrado en OpenVPN/pfSense</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Opción</th>
+            <th>Detalles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🔑 <strong>Certificados</strong></td>
+            <td>Autenticación basada en claves públicas/privadas.</td>
+          </tr>
+          <tr>
+            <td>🔐 <strong>Usuario y contraseña</strong></td>
+            <td>Más controlado (combinado con certificado).</td>
+          </tr>
+          <tr>
+            <td>🧬 <strong>Cifrado</strong></td>
+            <td>AES-256, TLS 1.3, HMAC SHA256 (muy seguro).</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+
+      <h2>7. 🔄 ¿Cómo funciona el túnel VPN?</h2>
+      <p>
+        Un túnel VPN es como un <strong>"tubo seguro"</strong> entre el cliente y la red. Todo lo que se envía pasa cifrado por este tubo.
+      </p>
+      <ul>
+        <li>🔒 Los datos viajan ocultos.</li>
+        <li>🙈 Nadie puede espiar lo que haces.</li>
+        <li>🌐 Te da acceso remoto como si estuvieras dentro de la red local.</li>
+      </ul>
+      <p>👉 <em>Pantallazo sugerido: Diagrama de túnel VPN entre cliente y pfSense.</em></p>
+
+      <hr>
+
+      <h2>8. 💸 Comparativa VPN Gratis vs VPN de Pago</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Opción</th>
+            <th>Ventajas</th>
+            <th>Desventajas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🌐 <strong>VPN Gratis</strong></td>
+            <td>Gratis, fácil de usar.</td>
+            <td>Lento, menos seguro, puede compartir datos.</td>
+          </tr>
+          <tr>
+            <td>💳 <strong>VPN de Pago</strong></td>
+            <td>Alta seguridad, rápido, privacidad garantizada.</td>
+            <td>Coste mensual.</td>
+          </tr>
+        </tbody>
+      </table>
+    </details>
+  </details>
 </details>
 
 
