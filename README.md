@@ -2215,7 +2215,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
   <details>
     <summary><h3>OpenVPN🛡️</h3></summary>
 
-    <details>
+<details>
 <summary><h3>Teoría📖</h3></summary>
 <h2>🛡️ 1. ¿Qué es una VPN y qué ventajas ofrece?</h2>
 <p>
