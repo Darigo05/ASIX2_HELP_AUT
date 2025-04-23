@@ -1918,6 +1918,197 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 </details>
 
+
+<details>
+    
+<summary><h2>🎥Vídeo</h2></summary>
+
+</details>
+
+<details>
+<summary><h3>Teoría📖</h3></summary>
+
+<h2>Protocolos de transmisión</h2>
+
+<h3>RTMP</h3>
+<ul>
+  <li><strong>Funcionalidades principales:</strong> Transmisión en tiempo real de audio, video y datos. Ideal para streaming en vivo con baja latencia.</li>
+  <li><strong>Latencia:</strong> Baja, entre 3 a 5 segundos.</li>
+  <li><strong>Red:</strong> Usa TCP, lo que asegura la entrega de datos aunque puede ser más lento en redes inestables.</li>
+  <li><strong>Seguridad:</strong> No tiene cifrado nativo. Se recomienda usar RTMPS para mayor seguridad.</li>
+  <li><strong>Compatibilidad:</strong> Fue ampliamente usado (YouTube, Facebook), pero ha perdido compatibilidad tras el fin de Flash.</li>
+</ul>
+
+<h3>HLS</h3>
+<ul>
+  <li><strong>Funcionalidades principales:</strong> Transmisión HTTP basada en fragmentos. Soporta streaming adaptativo.</li>
+  <li><strong>Latencia:</strong> Alta, entre 6 a 30 segundos.</li>
+  <li><strong>Red:</strong> Usa HTTP sobre TCP, ideal para distribución escalable vía CDN.</li>
+  <li><strong>Seguridad:</strong> Soporta HTTPS y DRM, lo que lo hace más seguro que RTMP.</li>
+  <li><strong>Compatibilidad:</strong> Muy alta. Funciona en casi todos los navegadores y dispositivos.</li>
+</ul>
+
+<h3>RTSP</h3>
+<ul>
+  <li><strong>Funcionalidades principales:</strong> Control de transmisiones en tiempo real (play, pause, stop), común en cámaras IP.</li>
+  <li><strong>Latencia:</strong> Muy baja (1-2 segundos).</li>
+  <li><strong>Red:</strong> Usa TCP para control y UDP para datos, ideal para videovigilancia.</li>
+  <li><strong>Seguridad:</strong> Sin cifrado por defecto. Se recomienda usar TLS o VPN.</li>
+  <li><strong>Compatibilidad:</strong> Alta con software especializado, baja con navegadores y móviles.</li>
+</ul>
+
+<h3>SRT</h3>
+<ul>
+  <li><strong>Funcionalidades principales:</strong> Protocolo moderno sobre UDP, enfocado en estabilidad y seguridad incluso en redes inestables.</li>
+  <li><strong>Latencia:</strong> Muy baja (&lt;2 segundos).</li>
+  <li><strong>Red:</strong> Usa UDP con corrección de errores.</li>
+  <li><strong>Seguridad:</strong> Cifrado AES de extremo a extremo.</li>
+  <li><strong>Compatibilidad:</strong> Creciente, ideal para transmisiones profesionales.</li>
+</ul>
+
+<hr>
+
+<h2>FFmpeg</h2>
+<ul>
+  <li><strong>¿Qué es?</strong> Herramienta de línea de comandos para convertir, grabar y transmitir contenido multimedia.</li>
+  <li><strong>Página oficial:</strong> <a href="https://ffmpeg.org" target="_blank">https://ffmpeg.org</a></li>
+  <li><strong>Instalación (Ubuntu):</strong><br>
+    <code>sudo apt update</code><br>
+    <code>sudo apt install ffmpeg</code>
+  </li>
+  <li><strong>Características principales:</strong>
+    <ul>
+      <li>Conversión de formatos</li>
+      <li>Edición sin interfaz gráfica</li>
+      <li>Transcodificación</li>
+      <li>Streaming en vivo</li>
+      <li>Alta compatibilidad con formatos</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Remuxing</h3>
+<p>Cambiar el contenedor sin modificar el contenido del video:</p>
+<pre><code>ffmpeg -i input.mp4 -c copy output.mkv</code></pre>
+
+<hr>
+
+<h2>Contenedores MP4 vs MKV</h2>
+
+<h3>MP4</h3>
+<ul>
+  <li>Muy compatible con dispositivos y plataformas.</li>
+  <li>Soporta códecs como H.264 y AAC.</li>
+  <li>Ideal para distribución web.</li>
+  <li>Limitado en características avanzadas como múltiples pistas.</li>
+</ul>
+
+<h3>MKV</h3>
+<ul>
+  <li>Contenedor flexible y de código abierto.</li>
+  <li>Soporta más códecs y múltiples pistas.</li>
+  <li>Ideal para almacenamiento y edición.</li>
+  <li>Menor compatibilidad con dispositivos móviles y plataformas web.</li>
+</ul>
+
+<h3>Ejemplo cambiando el codec</h3>
+<pre><code>ffmpeg -i input.mp4 -vcodec libx264 -acodec aac output.mkv</code></pre>
+
+<hr>
+
+<h2>H.264 vs H.265</h2>
+<ul>
+  <li><strong>H.264 (AVC):</strong> Buena calidad, alta compatibilidad, uso generalizado.</li>
+  <li><strong>H.265 (HEVC):</strong> Mejor compresión, ideal para 4K, menor compatibilidad, requiere más procesamiento.</li>
+</ul>
+
+<hr>
+
+<h2>yt-dlp</h2>
+<ul>
+  <li><strong>¿Qué es?</strong> Herramienta para descargar videos y audio de sitios web (mejora de youtube-dl).</li>
+  <li><strong>Instalación:</strong>
+    <pre><code>sudo apt update && sudo apt install -y yt-dlp</code></pre>
+    o desde GitHub:
+    <pre><code>sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/local/bin/yt-dlp</code></pre>
+  </li>
+  <li><strong>Ver versión:</strong> <code>yt-dlp --version</code></li>
+  <li><strong>Características principales:</strong>
+    <ul>
+      <li>Descarga desde múltiples sitios</li>
+      <li>Selección de formatos y resolución</li>
+      <li>Soporte de subtítulos</li>
+      <li>Descarga de listas de reproducción</li>
+      <li>Mayor velocidad y mejoras respecto a youtube-dl</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>Comparativa entre 3 formatos de video (VCODEC) diferentes</h2>
+
+<table>
+  <tr>
+    <th>Característica</th>
+    <th><b>H.264</b></th>
+    <th><b>ProRes</b></th>
+    <th><b>VP9</b></th>
+  </tr>
+  <tr>
+    <td><b>Compresión</b></td>
+    <td>Buena compresión, pero no tan eficiente como H.265 o VP9.</td>
+    <td>Alta compresión con baja pérdida, ideal para la edición profesional.</td>
+    <td>Similar a H.265 en términos de compresión, y a veces incluso mejor en algunos casos.</td>
+  </tr>
+  <tr>
+    <td><b>Calidad de Video</b></td>
+    <td>Buena calidad a tasas de bits moderadas, adecuado para streaming.</td>
+    <td>Muy alta calidad, ideal para trabajos de edición y postproducción.</td>
+    <td>Buena calidad, especialmente en contenidos en 4K y más, en comparación con H.264.</td>
+  </tr>
+  <tr>
+    <td><b>Compatibilidad</b></td>
+    <td>Muy compatible, casi todos los dispositivos y plataformas lo soportan.</td>
+    <td>Ampliamente compatible con software de edición profesional como Final Cut Pro y otros.</td>
+    <td>Compatible con plataformas como YouTube, pero no tan ampliamente soportado como H.264.</td>
+  </tr>
+  <tr>
+    <td><b>Uso principal</b></td>
+    <td>Streaming en vivo, plataformas como YouTube, transmisión por internet.</td>
+    <td>Producción y edición de video profesional.</td>
+    <td>Utilizado en YouTube para videos de alta resolución y eficiencia.</td>
+  </tr>
+  <tr>
+    <td><b>Requisitos de hardware</b></td>
+    <td>No requiere mucho poder de procesamiento.</td>
+    <td>Requiere hardware más potente para decodificación, especialmente en videos de alta calidad.</td>
+    <td>Requiere potencia de procesamiento similar a H.265.</td>
+  </tr>
+  <tr>
+    <td><b>Licencia</b></td>
+    <td>Licencia con derechos de patente (propietario).</td>
+    <td>Licencia propietaria, pero ampliamente utilizado en la industria de edición profesional.</td>
+    <td>Abierto y gratuito (sin derechos de patente).</td>
+  </tr>
+</table>
+
+</details>
+
+<details>
+  <summary><h3>Práctica📖</h3></summary>
+
+<p> En este archivo adjunto (PDF) se puede ver como se instalan las herramientas FFmpeg y yt-dlp. A lo largo del documento, se muestra cómo descargar un video de YouTube de la artista Charli XCX, instalar un reproductor para visualizarlo y, posteriormente, utilizar FFmpeg desde la terminal para explorar algunas de sus funcionalidades. Entre ellas, se incluyen ejemplos como aumentar la velocidad del video e insertar una marca de agua.</p>
+
+[click aqui](ffmpeg_yt-dlp.pdf)
+
+
+</details>
+
+</details>
+</details>
+
+
+
+
 <details>
     <summary><h2>🧱Pfsense</h2></summary>
 
@@ -2236,195 +2427,6 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 </details>
 
-</details>
-
-
-<details>
-    
-<summary><h2>🎥Vídeo</h2></summary>
-
-</details>
-
-<details>
-<summary><h3>Teoría📖</h3></summary>
-
-<h2>Protocolos de transmisión</h2>
-
-<h3>RTMP</h3>
-<ul>
-  <li><strong>Funcionalidades principales:</strong> Transmisión en tiempo real de audio, video y datos. Ideal para streaming en vivo con baja latencia.</li>
-  <li><strong>Latencia:</strong> Baja, entre 3 a 5 segundos.</li>
-  <li><strong>Red:</strong> Usa TCP, lo que asegura la entrega de datos aunque puede ser más lento en redes inestables.</li>
-  <li><strong>Seguridad:</strong> No tiene cifrado nativo. Se recomienda usar RTMPS para mayor seguridad.</li>
-  <li><strong>Compatibilidad:</strong> Fue ampliamente usado (YouTube, Facebook), pero ha perdido compatibilidad tras el fin de Flash.</li>
-</ul>
-
-<h3>HLS</h3>
-<ul>
-  <li><strong>Funcionalidades principales:</strong> Transmisión HTTP basada en fragmentos. Soporta streaming adaptativo.</li>
-  <li><strong>Latencia:</strong> Alta, entre 6 a 30 segundos.</li>
-  <li><strong>Red:</strong> Usa HTTP sobre TCP, ideal para distribución escalable vía CDN.</li>
-  <li><strong>Seguridad:</strong> Soporta HTTPS y DRM, lo que lo hace más seguro que RTMP.</li>
-  <li><strong>Compatibilidad:</strong> Muy alta. Funciona en casi todos los navegadores y dispositivos.</li>
-</ul>
-
-<h3>RTSP</h3>
-<ul>
-  <li><strong>Funcionalidades principales:</strong> Control de transmisiones en tiempo real (play, pause, stop), común en cámaras IP.</li>
-  <li><strong>Latencia:</strong> Muy baja (1-2 segundos).</li>
-  <li><strong>Red:</strong> Usa TCP para control y UDP para datos, ideal para videovigilancia.</li>
-  <li><strong>Seguridad:</strong> Sin cifrado por defecto. Se recomienda usar TLS o VPN.</li>
-  <li><strong>Compatibilidad:</strong> Alta con software especializado, baja con navegadores y móviles.</li>
-</ul>
-
-<h3>SRT</h3>
-<ul>
-  <li><strong>Funcionalidades principales:</strong> Protocolo moderno sobre UDP, enfocado en estabilidad y seguridad incluso en redes inestables.</li>
-  <li><strong>Latencia:</strong> Muy baja (&lt;2 segundos).</li>
-  <li><strong>Red:</strong> Usa UDP con corrección de errores.</li>
-  <li><strong>Seguridad:</strong> Cifrado AES de extremo a extremo.</li>
-  <li><strong>Compatibilidad:</strong> Creciente, ideal para transmisiones profesionales.</li>
-</ul>
-
-<hr>
-
-<h2>FFmpeg</h2>
-<ul>
-  <li><strong>¿Qué es?</strong> Herramienta de línea de comandos para convertir, grabar y transmitir contenido multimedia.</li>
-  <li><strong>Página oficial:</strong> <a href="https://ffmpeg.org" target="_blank">https://ffmpeg.org</a></li>
-  <li><strong>Instalación (Ubuntu):</strong><br>
-    <code>sudo apt update</code><br>
-    <code>sudo apt install ffmpeg</code>
-  </li>
-  <li><strong>Características principales:</strong>
-    <ul>
-      <li>Conversión de formatos</li>
-      <li>Edición sin interfaz gráfica</li>
-      <li>Transcodificación</li>
-      <li>Streaming en vivo</li>
-      <li>Alta compatibilidad con formatos</li>
-    </ul>
-  </li>
-</ul>
-
-<h3>Remuxing</h3>
-<p>Cambiar el contenedor sin modificar el contenido del video:</p>
-<pre><code>ffmpeg -i input.mp4 -c copy output.mkv</code></pre>
-
-<hr>
-
-<h2>Contenedores MP4 vs MKV</h2>
-
-<h3>MP4</h3>
-<ul>
-  <li>Muy compatible con dispositivos y plataformas.</li>
-  <li>Soporta códecs como H.264 y AAC.</li>
-  <li>Ideal para distribución web.</li>
-  <li>Limitado en características avanzadas como múltiples pistas.</li>
-</ul>
-
-<h3>MKV</h3>
-<ul>
-  <li>Contenedor flexible y de código abierto.</li>
-  <li>Soporta más códecs y múltiples pistas.</li>
-  <li>Ideal para almacenamiento y edición.</li>
-  <li>Menor compatibilidad con dispositivos móviles y plataformas web.</li>
-</ul>
-
-<h3>Ejemplo cambiando el codec</h3>
-<pre><code>ffmpeg -i input.mp4 -vcodec libx264 -acodec aac output.mkv</code></pre>
-
-<hr>
-
-<h2>H.264 vs H.265</h2>
-<ul>
-  <li><strong>H.264 (AVC):</strong> Buena calidad, alta compatibilidad, uso generalizado.</li>
-  <li><strong>H.265 (HEVC):</strong> Mejor compresión, ideal para 4K, menor compatibilidad, requiere más procesamiento.</li>
-</ul>
-
-<hr>
-
-<h2>yt-dlp</h2>
-<ul>
-  <li><strong>¿Qué es?</strong> Herramienta para descargar videos y audio de sitios web (mejora de youtube-dl).</li>
-  <li><strong>Instalación:</strong>
-    <pre><code>sudo apt update && sudo apt install -y yt-dlp</code></pre>
-    o desde GitHub:
-    <pre><code>sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/local/bin/yt-dlp</code></pre>
-  </li>
-  <li><strong>Ver versión:</strong> <code>yt-dlp --version</code></li>
-  <li><strong>Características principales:</strong>
-    <ul>
-      <li>Descarga desde múltiples sitios</li>
-      <li>Selección de formatos y resolución</li>
-      <li>Soporte de subtítulos</li>
-      <li>Descarga de listas de reproducción</li>
-      <li>Mayor velocidad y mejoras respecto a youtube-dl</li>
-    </ul>
-  </li>
-</ul>
-
-<h2>Comparativa entre 3 formatos de video (VCODEC) diferentes</h2>
-
-<table>
-  <tr>
-    <th>Característica</th>
-    <th><b>H.264</b></th>
-    <th><b>ProRes</b></th>
-    <th><b>VP9</b></th>
-  </tr>
-  <tr>
-    <td><b>Compresión</b></td>
-    <td>Buena compresión, pero no tan eficiente como H.265 o VP9.</td>
-    <td>Alta compresión con baja pérdida, ideal para la edición profesional.</td>
-    <td>Similar a H.265 en términos de compresión, y a veces incluso mejor en algunos casos.</td>
-  </tr>
-  <tr>
-    <td><b>Calidad de Video</b></td>
-    <td>Buena calidad a tasas de bits moderadas, adecuado para streaming.</td>
-    <td>Muy alta calidad, ideal para trabajos de edición y postproducción.</td>
-    <td>Buena calidad, especialmente en contenidos en 4K y más, en comparación con H.264.</td>
-  </tr>
-  <tr>
-    <td><b>Compatibilidad</b></td>
-    <td>Muy compatible, casi todos los dispositivos y plataformas lo soportan.</td>
-    <td>Ampliamente compatible con software de edición profesional como Final Cut Pro y otros.</td>
-    <td>Compatible con plataformas como YouTube, pero no tan ampliamente soportado como H.264.</td>
-  </tr>
-  <tr>
-    <td><b>Uso principal</b></td>
-    <td>Streaming en vivo, plataformas como YouTube, transmisión por internet.</td>
-    <td>Producción y edición de video profesional.</td>
-    <td>Utilizado en YouTube para videos de alta resolución y eficiencia.</td>
-  </tr>
-  <tr>
-    <td><b>Requisitos de hardware</b></td>
-    <td>No requiere mucho poder de procesamiento.</td>
-    <td>Requiere hardware más potente para decodificación, especialmente en videos de alta calidad.</td>
-    <td>Requiere potencia de procesamiento similar a H.265.</td>
-  </tr>
-  <tr>
-    <td><b>Licencia</b></td>
-    <td>Licencia con derechos de patente (propietario).</td>
-    <td>Licencia propietaria, pero ampliamente utilizado en la industria de edición profesional.</td>
-    <td>Abierto y gratuito (sin derechos de patente).</td>
-  </tr>
-</table>
-
-</details>
-
-<details>
-  <summary><h3>Práctica📖</h3></summary>
-
-<p> En este archivo adjunto (PDF) se puede ver como se instalan las herramientas FFmpeg y yt-dlp. A lo largo del documento, se muestra cómo descargar un video de YouTube de la artista Charli XCX, instalar un reproductor para visualizarlo y, posteriormente, utilizar FFmpeg desde la terminal para explorar algunas de sus funcionalidades. Entre ellas, se incluyen ejemplos como aumentar la velocidad del video e insertar una marca de agua.</p>
-
-[click aqui](ffmpeg_yt-dlp.pdf)
-
-
-</details>
-
-</details>
-</details>
 
 <details>
     
