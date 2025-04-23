@@ -2110,7 +2110,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 
 <details>
-    <summary><h2>🧱Pfsense</h2></summary>
+<summary><h2>🧱Pfsense</h2></summary>
 
 <details>
   <summary><h3>Instalación Pfsense🔥</h3></summary>
