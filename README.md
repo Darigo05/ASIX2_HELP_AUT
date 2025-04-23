@@ -2116,88 +2116,88 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
   <details>
     <summary><h3>Instalación Pfsense🔥</h3></summary>
-    <p><h6>Que es pfsense</h6></p>
-    <br>
-    <p>Una breve explicación de qué es Pfsense y su uso sería que Pfsense es un sistema cuya funcionalidad es convertir un PC en un firewall para proteger y administrar redes de forma segura. Gracias a esto podemos bloquear accesos no autorizados, limitar la velocidad o bloquear páginas web, crear VPN o dividir el tráfico de internet.</p>
+<p><h6>Que es pfsense</h6></p>
+<br>
+<p>Una breve explicación de qué es Pfsense y su uso sería que Pfsense es un sistema cuya funcionalidad es convertir un PC en un firewall para proteger y administrar redes de forma segura. Gracias a esto podemos bloquear accesos no autorizados, limitar la velocidad o bloquear páginas web, crear VPN o dividir el tráfico de internet.</p>
     
-    <p><h6>Creación de la MV</h6></p>
-    <p>
-      <h7>El primer paso a realizar será crear nuestra MV, en este caso se realizará en VirtualBox y con la ISO de Pfsense que nos ha proporcionado Alina.</h7>
-    </p>
+<p><h6>Creación de la MV</h6></p>
+<p>
+<h7>El primer paso a realizar será crear nuestra MV, en este caso se realizará en VirtualBox y con la ISO de Pfsense que nos ha proporcionado Alina.</h7>
+</p>
     
-    <p><h7>Especificaciones de la máquina</h7></p>
-    <ul>
+<p><h7>Especificaciones de la máquina</h7></p>
+<ul>
       <li><b>RAM: </b> 2048 MB (Lo recomendado son 2GB para que la máquina funcione correctamente)</li>
       <li><b>Procesadores: </b> 2</li>
       <li><b>Almacenamiento del disco duro: </b> 70GB</li>
       <li><b>ISO: </b>Pfsense 2.7.2</li>
-    </ul>
+</ul>
 
-    <h7>Adaptadores de red</h7>
-    <p>
+<h7>Adaptadores de red</h7>
+<p>
       Los adaptadores de red son una pieza fundamental en esta máquina, ya que en este caso estos serán necesarios para salir al exterior desde nuestra red local y para el tráfico interno. Dependiendo de dónde nos encontremos las IP de estos podrán cambiar. En nuestro caso, al haberlo hecho en clase, son las siguientes:
-    </p>
-    <ul>
+</p>
+<ul>
       <li><b>Adaptador puente (WAN): </b>Como se ha comentado, este adaptador será el que nos permita salir al exterior de la red y en este caso cuenta con la IP 100.77.20.0/24</li>
       <li><b>Red NAT (LAN): </b>Este será el adaptador encargado del tráfico interno y tiene la IP 10.20.30.0/24</li>
-    </ul>
+</ul>
 
-    <h7><b>Configuración Pfsense</b></h7>
-    <p>
+<h7><b>Configuración Pfsense</b></h7>
+<p>
       Una vez iniciada la máquina nos saldrá un menú con varias opciones, en nuestro caso pulsaremos la opción 2 ya que lo que queremos es configurar las dos redes para poder empezar a usar Pfsense.
-    </p>
+</p>
 
-    <h7>Configuración red WAN</h7>
-    <p>
+<h7>Configuración red WAN</h7>
+<p>
       Lo primero que nos preguntará es si queremos que la IPv4 se configure mediante DHCP, en este caso debido a que necesitamos una IP estática le diremos que no. Seguidamente, debemos poner la IP que nosotros deseemos para la red WAN, en este caso hemos seleccionado la 100.77.20.51 y colocamos la máscara de red que en este caso sería una /24.
-    </p>
-    <p>
+</p>
+<p>
       Una vez realizado esto, nos preguntará si queremos asignar un gateway a la interfaz pero como estamos usando el DHCP de la red local le diremos que no, ya que no se necesita. Así mismo, cuando nos pregunte si queremos configurar una IPv6 le daremos también a que no.
-    </p>
+</p>
 
-    <table>
+<table>
       <tr><td>Configurar IPv4 por DHCP</td><td>No</td></tr>
       <tr><td>IP de la red WAN</td><td>100.77.20.51</td></tr>
       <tr><td>Máscara de red</td><td>/24</td></tr>
       <tr><td>Gateway</td><td>No</td></tr>
       <tr><td>Configurar IPv6</td><td>No</td></tr>
-    </table>
+</table>
 
-    <h7>Configuración red LAN</h7>
-    <p>
+<h7>Configuración red LAN</h7>
+<p>
       Al igual que la otra red, nos preguntará si queremos configurar la IPv4 mediante DHCP e igual que antes le diremos que no. Seguidamente, nos pedirá la IP de esta red y nosotros colocaremos la 10.20.30.100 con la máscara de red /24.
     </p>
-    <p>
+<p>
       A continuación, nos pregunta si queremos configurar la gateway de la interfaz, en este caso sí que tenemos que hacerlo ya que al ser una red NAT esta no viene por defecto. La gateway será la 10.20.30.1 y confirmamos que sea la default.
-    </p>
+</p>
     <p>Lo siguiente será decirle que no a configurar la IPv6.</p>
-    <p>
+<p>
       En este caso sí que tenemos que permitir que Pfsense proporcione las IPs, es decir, que sea el servidor DHCP. Lo único que tenemos que hacer es indicarle el rango de IPs que deseemos, dado que esto es una prueba no pondremos un gran rango. Este será desde la 10.20.30.10 hasta la 10.20.30.30.
-    </p>
+</p>
 
-    <table>
+<table>
       <tr><td>Configurar IPv4 por DHCP</td><td>No</td></tr>
       <tr><td>IP de la red LAN</td><td>10.20.30.100</td></tr>
       <tr><td>Máscara de red</td><td>/24</td></tr>
       <tr><td>Gateway</td><td>10.20.30.1</td></tr>
       <tr><td>Configurar IPv6</td><td>No</td></tr>
       <tr><td>Rango de IP que proporciona Pfsense</td><td>10.20.30.10 - 10.20.30.30</td></tr>
-    </table>
+</table>
 
-    <h7>Comprobaciones</h7>
-    <p>
+<h7>Comprobaciones</h7>
+<p>
       Para poder comprobar que todo está funcionando correctamente lo único que debemos hacer será acceder a una máquina como cliente. Para esto creamos la máquina en VirtualBox y le agregamos el mismo adaptador de red NAT que la máquina Pfsense. Una vez hecho esto, nos iremos al navegador e intentaremos acceder al Pfsense mediante la IP de la red LAN que hemos configurado antes. Si todo sale bien, debería salirnos la página de login de Pfsense donde debemos poner las siguientes credenciales:
-    </p>
-    <ul>
+</p>
+<ul>
       <li>Username: admin</li>
       <li>Password: pfSense</li>
-    </ul>
+</ul>
 
-    <p>Una vez hayamos accedido, será necesario realizar algunos cambios:</p>
-    <ul>
+<p>Una vez hayamos accedido, será necesario realizar algunos cambios:</p>
+<ul>
       <li>Paso 1: Nos dirigiremos a la barra superior al apartado de System → Advanced → Networking y activaremos el KeaDHCP, ya que este permite gestionar dinámicamente la asignación de direcciones IP más eficientemente.</li>
       <li>Paso 2: Mediante la misma barra superior nos iremos al apartado de WAN, este se encuentra en Firewall → Rules → WAN y haremos los siguientes cambios:
-        <ul>
+    <ul>
           <li>En la opción de "Action" seleccionaremos "Pass".</li>
           <li>En "Address Family" seleccionaremos "IPv4".</li>
           <li>En "Protocol" seleccionaremos "TCP/UDP".</li>
@@ -2205,11 +2205,11 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
           <li>En "Destination" colocaremos la IP que se le ha dado a la máquina cliente.</li>
           <li>En el reenvío de puerto indicamos que salga por el puerto 80, que es el que pertenece al HTTP.</li>
           <li>Por último, cambiaremos la descripción; en nuestro caso hemos puesto "red NAT".</li>
-        </ul>
+    </ul>
       </li>
       <li>Paso 3: Guardar la configuración.</li>
       <li>Paso 4: Para comprobar que todo está bien configurado, tendremos que irnos a la terminal de nuestra máquina cliente, ejecutar el comando <code>ip</code> para ver la IP que nos ha brindado y comprobar que coincide con la asignada mediante el DHCP del Pfsense. (Es posible que se tenga que reiniciar la máquina cliente para que salga la IP correcta).</li>
-    </ul>
+</ul>
   </details>
 
   <details>
@@ -2217,18 +2217,18 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
     <details>
       <summary><h3>Teoría📖</h3></summary>
-      <h2>🛡️ 1. ¿Qué es una VPN y qué ventajas ofrece?</h2>
-      <p>
+    <h2>🛡️ 1. ¿Qué es una VPN y qué ventajas ofrece?</h2>
+    <p>
         <strong>VPN</strong> (Virtual Private Network) es una tecnología que crea una conexión segura y privada entre tu dispositivo e internet, como si estuvieras dentro de una red local, aunque estés lejos.
-      </p>
+    </p>
 
-      <h3>✅ Ventajas de una VPN:</h3>
-      <ul>
+    <h3>✅ Ventajas de una VPN:</h3>
+    <ul>
         <li>🔐 <strong>Seguridad y cifrado</strong> de datos.</li>
         <li>🕵️ <strong>Privacidad</strong> (oculta tu IP).</li>
         <li>🌍 <strong>Acceso remoto</strong> a tu red (ideal para trabajo remoto).</li>
         <li>🚫 <strong>Evitar bloqueos geográficos</strong>.</li>
-      </ul>
+    </ul>
 
       <hr>
 
