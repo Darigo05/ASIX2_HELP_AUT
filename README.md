@@ -2217,24 +2217,24 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
     <details>
       <summary><h3>Teoría📖</h3></summary>
-    <h2>🛡️ 1. ¿Qué es una VPN y qué ventajas ofrece?</h2>
-    <p>
+<h2>🛡️ 1. ¿Qué es una VPN y qué ventajas ofrece?</h2>
+<p>
         <strong>VPN</strong> (Virtual Private Network) es una tecnología que crea una conexión segura y privada entre tu dispositivo e internet, como si estuvieras dentro de una red local, aunque estés lejos.
-    </p>
+</p>
 
-    <h3>✅ Ventajas de una VPN:</h3>
-    <ul>
+<h3>✅ Ventajas de una VPN:</h3>
+<ul>
         <li>🔐 <strong>Seguridad y cifrado</strong> de datos.</li>
         <li>🕵️ <strong>Privacidad</strong> (oculta tu IP).</li>
         <li>🌍 <strong>Acceso remoto</strong> a tu red (ideal para trabajo remoto).</li>
         <li>🚫 <strong>Evitar bloqueos geográficos</strong>.</li>
-    </ul>
+</ul>
 
-      <hr>
+<hr>
 
-      <h2>🌐 2. ¿Qué tipos de VPN hay?</h2>
-      <h3>📘 Tipos comunes de VPN:</h3>
-      <table>
+<h2>🌐 2. ¿Qué tipos de VPN hay?</h2>
+<h3>📘 Tipos comunes de VPN:</h3>
+<table>
         <thead>
           <tr>
             <th>Tipo</th>
@@ -2251,12 +2251,12 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
             <td>Conecta dos redes (por ejemplo, sucursales de una empresa).</td>
           </tr>
         </tbody>
-      </table>
+</table>
 
-      <hr>
+<hr>
 
-      <h2>🔐 3. ¿Qué protocolos VPN existen?</h2>
-      <table>
+<h2>🔐 3. ¿Qué protocolos VPN existen?</h2>
+<table>
         <thead>
           <tr>
             <th>Protocolo</th>
@@ -2281,30 +2281,30 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
             <td>Más moderno, rápido y simple.</td>
           </tr>
         </tbody>
-      </table>
+</table>
 
-      <p>📌 <em>Esquema de funcionamiento (ejemplo OpenVPN):</em></p>
+<p>📌 <em>Esquema de funcionamiento (ejemplo OpenVPN):</em></p>
 
-      <hr>
+<hr>
 
-      <h2>🧱 4. ¿Qué es pfSense y cómo se relaciona con OpenVPN?</h2>
-      <p>
-        <strong>pfSense</strong> es un firewall/router basado en FreeBSD con interfaz web. Se usa para proteger redes, enrutar tráfico y más.
-      </p>
-      <p>
-        👉 <strong>OpenVPN</strong> es un plugin dentro de pfSense, que permite crear un servidor VPN para acceder a tu red desde fuera.
-      </p>
+<h2>🧱 4. ¿Qué es pfSense y cómo se relaciona con OpenVPN?</h2>
+<p>
+<strong>pfSense</strong> es un firewall/router basado en FreeBSD con interfaz web. Se usa para proteger redes, enrutar tráfico y más.
+</p>
+<p>
+👉 <strong>OpenVPN</strong> es un plugin dentro de pfSense, que permite crear un servidor VPN para acceder a tu red desde fuera.
+ </p>
 
-      <hr>
+<hr>
 
-      <h2>⚙️ 5. ¿Qué función realiza OpenVPN en pfSense?</h2>
-      <ul>
+<h2>⚙️ 5. ¿Qué función realiza OpenVPN en pfSense?</h2>
+<ul>
         <li>Crear un <strong>túnel cifrado</strong> para que usuarios remotos accedan a la red LAN.</li>
         <li>Gestionar <strong>autenticación, certificados, políticas y reglas de acceso</strong>.</li>
-      </ul>
+</ul>
 
-      <h2>6. 🔐 Opciones de autenticación y cifrado en OpenVPN/pfSense</h2>
-      <table>
+<h2>6. 🔐 Opciones de autenticación y cifrado en OpenVPN/pfSense</h2>
+<table>
         <thead>
           <tr>
             <th>Opción</th>
@@ -2325,25 +2325,25 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
             <td>AES-256, TLS 1.3, HMAC SHA256 (muy seguro).</td>
           </tr>
         </tbody>
-      </table>
+</table>
 
-      <hr>
+<hr>
 
-      <h2>7. 🔄 ¿Cómo funciona el túnel VPN?</h2>
-      <p>
+<h2>7. 🔄 ¿Cómo funciona el túnel VPN?</h2>
+<p>
         Un túnel VPN es como un <strong>"tubo seguro"</strong> entre el cliente y la red. Todo lo que se envía pasa cifrado por este tubo.
-      </p>
-      <ul>
+</p>
+<ul>
         <li>🔒 Los datos viajan ocultos.</li>
         <li>🙈 Nadie puede espiar lo que haces.</li>
         <li>🌐 Te da acceso remoto como si estuvieras dentro de la red local.</li>
-      </ul>
-      <p>👉 <em>Pantallazo sugerido: Diagrama de túnel VPN entre cliente y pfSense.</em></p>
+</ul>
+<p>👉 <em>Pantallazo sugerido: Diagrama de túnel VPN entre cliente y pfSense.</em></p>
 
-      <hr>
+<hr>
 
-      <h2>8. 💸 Comparativa VPN Gratis vs VPN de Pago</h2>
-      <table>
+<h2>8. 💸 Comparativa VPN Gratis vs VPN de Pago</h2>
+<table>
         <thead>
           <tr>
             <th>Opción</th>
@@ -2363,7 +2363,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
             <td>Coste mensual.</td>
           </tr>
         </tbody>
-      </table>
+</table>
     </details>
   </details>
 </details>
