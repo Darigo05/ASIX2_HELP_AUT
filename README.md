@@ -2426,7 +2426,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 </details>
 
 </details>
-
+</details>
 
 <details>
     
@@ -2906,6 +2906,8 @@ services:
 
    <p><h7>Conclusión</h7></p>
     <p>Para nuestro caso, aplicar roles y permisos correctamente, junto con cifrado TLS/SSL y hashing seguro de contraseñas, ofrece una buena protección sin añadir demasiada complejidad. Para mayor seguridad, podríamos implementar auditorías y firewall de bases de datos.</p>
+</details>
+
 </details>
 
 </details>
