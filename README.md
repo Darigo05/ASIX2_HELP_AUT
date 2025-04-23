@@ -2108,10 +2108,10 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 
 <details>
-  <summary><h2>Hash</h2></summary>
+  <summary><h2>🔢Hash</h2></summary>
 
   <details>
-    <summary><h3>Documento Presentación</h3></summary>
+    <summary><h3>Documento Presentación📑</h3></summary>
     <p> A continuación el documento correspondiente al Bloque 1, en el que se aborda el funcionamiento y los tipos de hashes, así como los algoritmos Bcrypt y AES. En él se encuentra una explicación detallada de cada concepto, acompañada de esquemas visuales y vídeos explicativos, con el objetivo de facilitar la comprensión y asegurar un aprendizaje sólido de todos los temas investigados.</p>
   <a href="ffmpeg_yt-dlp.pdf" target="_blank">📄 Click aquí para abrir el documento PDF</a>
   </details>
