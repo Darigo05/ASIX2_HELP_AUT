@@ -2216,7 +2216,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
     <summary><h3>OpenVPN🛡️</h3></summary>
 
     <details>
-      <summary><h3>Teoría📖</h3></summary>
+<summary><h3>Teoría📖</h3></summary>
 <h2>🛡️ 1. ¿Qué es una VPN y qué ventajas ofrece?</h2>
 <p>
         <strong>VPN</strong> (Virtual Private Network) es una tecnología que crea una conexión segura y privada entre tu dispositivo e internet, como si estuvieras dentro de una red local, aunque estés lejos.
