@@ -1927,16 +1927,16 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
   <details>
     <summary><h3>Teoría 📖</h3></summary>
 
-    <h2>Protocolos de transmisión</h2>
+<h2>Protocolos de transmisión</h2>
 
-    <h3>RTMP</h3>
-    <ul>
+<h3>RTMP</h3>
+<ul>
       <li><strong>Funcionalidades principales:</strong> Transmisión en tiempo real de audio, video y datos. Ideal para streaming en vivo con baja latencia.</li>
       <li><strong>Latencia:</strong> Baja, entre 3 a 5 segundos.</li>
       <li><strong>Red:</strong> Usa TCP, lo que asegura la entrega de datos aunque puede ser más lento en redes inestables.</li>
       <li><strong>Seguridad:</strong> No tiene cifrado nativo. Se recomienda usar RTMPS para mayor seguridad.</li>
       <li><strong>Compatibilidad:</strong> Fue ampliamente usado (YouTube, Facebook), pero ha perdido compatibilidad tras el fin de Flash.</li>
-    </ul>
+</ul>
 
     <h3>HLS</h3>
     <ul>
