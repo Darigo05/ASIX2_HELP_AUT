@@ -2432,141 +2432,83 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 
 <details>
-    
-<summary><h2>🔍Guias e Investigacion</h2></summary>
+  <summary><h2>🔍 Guías e Investigación</h2></summary>
 
-<br>
-<details>
-    <summary><h3>Introduccion </h3></summary>
-    <p>En este apartado escribiremos unas guias de instalacion y configuracion de diversos contenidos, que quizas no se incluiran en el proyecto pero es interesante saber como realizarlos, ademas de esto realizaremos tambien una serie de investigaciones sobre diferentes protocolos que seria interesante implementar en nuestro proyecto</p>
-</details>
+  <br>
+  <details>
+    <summary><h3>Introducción</h3></summary>
+    <p>En este apartado escribiremos unas guías de instalación y configuración de diversos contenidos, que quizás no se incluirán en el proyecto pero es interesante saber cómo realizarlos, además de esto realizaremos también una serie de investigaciones sobre diferentes protocolos que sería interesante implementar en nuestro proyecto.</p>
+  </details>
 
-<details>
-<summary><h3>Chat entre usuarios(Aun investigando)</h3></summary>
+  <details>
+    <summary><h3>Chat entre usuarios (Aún investigando)</h3></summary>
     <p><h6>Matrix + Synapse </h6></p>
-    <p><h7>Introduccion</h7></p>
-    <br>
-    <p>Para nuestro proyecto uno de los objetivos es poder implementar un chat entre usuarios y psicologos para que haya una comunicacion entre ambos. En este apartado mostraremos la investigacion que estamos realizando para poder implementar esta funcionalidad. </p>
-    <p><h7>Que es Matrix</h7></p>
+    <p><h7>Introducción</h7></p>
+    <p>Para nuestro proyecto uno de los objetivos es poder implementar un chat entre usuarios y psicólogos para que haya una comunicación entre ambos. En este apartado mostraremos la investigación que estamos realizando para poder implementar esta funcionalidad.</p>
+    <p><h7>¿Qué es Matrix?</h7></p>
     <p>Matrix es un protocolo de comunicación abierto y descentralizado diseñado para la mensajería en tiempo real. Su objetivo es crear una red global de mensajería interoperable, donde los usuarios puedan comunicarse a través de diferentes plataformas y servidores sin depender de un proveedor único.</p>
-    <p><h7>Caracteristicas</h7></p>
+    <p><h7>Características</h7></p>
     <ul>
-        <li>Interoperabilidad: A través de bridges, Matrix puede integrarse con otras plataformas de mensajería </li>
-        <li>Encriptación de extremo a extremo: Matrix soporta la encriptación de extremo a extremo (E2EE) para asegurar que solo el emisor y el receptor del mensaje puedan leer su contenido.</li>
-        <li>Soporte multimedia: Permite el envío de mensajes de texto, imágenes, videos y archivos de manera eficiente.</li>
-        <li>Escalabilidad: Su arquitectura permite que se pueda escalar a miles de usuarios, ya que cada servidor puede manejar su propia base de usuarios.</li>
-        <li>API y bots: Matrix ofrece una API completa para que los desarrolladores creen aplicaciones o integraciones personalizadas, incluidos bots (Lo cual nos puede ser util si usamos botpress).</li>
+      <li>Interoperabilidad mediante bridges</li>
+      <li>Encriptación de extremo a extremo</li>
+      <li>Soporte multimedia</li>
+      <li>Escalabilidad</li>
+      <li>API y bots</li>
     </ul>
-    <br>
-    <p><h7>Que es Synapse</h7></p>
-    <p>Synapse es el servidor de referencia y la implementación oficial del protocolo Matrix. Es un servidor de código abierto que gestiona las salas de chat, usuarios y mensajes en la red Matrix. </p>
-    <p><h7>Caracteristicas</h7></p>
+    <p><h7>¿Qué es Synapse?</h7></p>
+    <p>Synapse es el servidor de referencia del protocolo Matrix. Administra salas, usuarios y mensajes.</p>
+    <p><h7>Características</h7></p>
     <ul>
-        <li>Servidor federado: Synapse permite que diferentes servidores Matrix se comuniquen entre sí, lo que permite a los usuarios interactuar con personas que están en servidores distintos</li>
-        <li>Soporte de encriptación: Implementa encriptación de extremo a extremo para la privacidad de los mensajes.
-        <li>Admin Panel: Tiene una interfaz de administración web donde los administradores pueden gestionar usuarios, ver estadísticas y configurar servidores.</li>
-        <li>Escalabilidad: Su arquitectura permite que se pueda escalar a miles de usuarios, ya que cada servidor puede manejar su propia base de usuarios.</li>
-        <li>API y bots: Matrix ofrece una API completa para que los desarrolladores creen aplicaciones o integraciones personalizadas, incluidos bots (Lo cual nos puede ser util si usamos botpress).</li>
+      <li>Servidor federado</li>
+      <li>Soporte de encriptación</li>
+      <li>Panel de administración</li>
+      <li>Escalabilidad</li>
+      <li>API y bots</li>
     </ul>
-    <br>
-</details>
-    <details>
-    <summary><h3>🕊️Pidgin (Aun investigando)</h3></summary>
-    <p><h6>Que es pidgin</h6></p>
-    <br>
-    <p>Pidgin es un cliente de mensajeria de codigo abierto este permite la conexion a varios servicios de chat simultaneamente, en nuestro caso es una opcion que hay que tener en mente para nuestro proyecto ya que necesitamos implementar un chat en el que los psicologos y los pacientes tengan la posibilidad de comunicarse entre ellos mediante un chat desde la propia pagina web.</p>
+  </details>
+
+  <details>
+    <summary><h3>🕊️ Pidgin (Aún investigando)</h3></summary>
+    <p><h6>¿Qué es Pidgin?</h6></p>
+    <p>Pidgin es un cliente de mensajería de código abierto que permite conectar a varios servicios de chat a la vez. Es útil en nuestro proyecto para comunicación entre psicólogos y pacientes.</p>
     <p><h6>Ventajas y desventajas</h6></p>
-    <br>
     <table border="1">
-    <thead>
-        <tr>
-            <th>Ventajas</th>
-            <th>Desventajas</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Multiplataforma (Windows, Linux, macOS)</td>
-            <td>Interfaz antigua y poco moderna</td>
-        </tr>
-        <tr>
-            <td>Permite múltiples cuentas en una sola aplicación</td>
-            <td>No soporta llamadas de voz ni video de forma nativa</td>
-        </tr>
-        <tr>
-            <td>Código abierto y gratuito</td>
-            <td>Depende de plugins para algunas plataformas modernas</td>
-        </tr>
-        <tr>
-            <td>Extensible mediante plugins</td>
-            <td>Desarrollo y actualizaciones más lentas</td>
-        </tr>
-        <tr>
-            <td>Soporta encriptación OTR para chats privados</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Ligero y consume pocos recursos</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Compatible con redes empresariales (XMPP, SIP)</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
-<p><h6>Implementacion pidgin en Docker</h6></p>
-</details>
-<details>
-    <summary><h3>Botpress (Aun investigando)</h3></summary>
-   <p><h6>Que es botpress</h6></p>
-    <br>
-    <p>Botpress es una plataforma de código abierto para la creación de chatbots avanzados con capacidades de procesamiento del lenguaje natural (NLP). Está diseñada para facilitar la implementación de asistentes virtuales en diversas plataformas como Facebook Messenger, Slack, Microsoft Teams, WhatsApp y sitios web.
-Se basa en Node.js y permite a los desarrolladores personalizar su comportamiento mediante módulos y flujos conversacionales. Su interfaz gráfica permite construir chatbots sin necesidad de escribir demasiado código, aunque también ofrece opciones avanzadas para usuarios con conocimientos en programación. </p>
-    <br>
-     <p><h6>Ventajas y desventajas</h6></p>
-    <br>
+      <thead>
+        <tr><th>Ventajas</th><th>Desventajas</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Multiplataforma</td><td>Interfaz anticuada</td></tr>
+        <tr><td>Múltiples cuentas</td><td>No soporta llamadas nativas</td></tr>
+        <tr><td>Código abierto</td><td>Requiere plugins para funciones modernas</td></tr>
+        <tr><td>Extensible con plugins</td><td>Desarrollo lento</td></tr>
+        <tr><td>Encriptación OTR</td><td></td></tr>
+        <tr><td>Ligero</td><td></td></tr>
+        <tr><td>Compatible con redes empresariales</td><td></td></tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details>
+    <summary><h3>Botpress (Aún investigando)</h3></summary>
+    <p><h6>¿Qué es Botpress?</h6></p>
+    <p>Plataforma open source para crear chatbots con NLP. Multicanal y extensible, permite integrarse en páginas web, WhatsApp, Slack, etc.</p>
+    <p><h6>Ventajas y desventajas</h6></p>
     <table border="1">
-    <thead>
-        <tr>
-            <th>Ventajas</th>
-            <th>Desventajas</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Código Abierto: Totalmente personalizable y sin restricciones.</td>
-            <td>Requiere Recursos del Servidor: Puede consumir bastante memoria y CPU.</td>
-        </tr>
-        <tr>
-            <td>Interfaz Intuitiva: Permite crear chatbots sin necesidad de programar mucho.</td>
-            <td>Curva de Aprendizaje: Para configuraciones avanzadas se necesitan conocimientos técnicos.</td>
-        </tr>
-        <tr>
-            <td>Capacidades NLP Integradas: Soporta procesamiento de lenguaje natural para mejorar la interacción.</td>
-            <td>Limitaciones en la Versión Gratuita: Algunas funciones avanzadas son exclusivas de la versión empresarial.</td>
-        </tr>
-        <tr>
-            <td>Multicanal: Compatible con Facebook Messenger, Slack, WhatsApp, y más.</td>
-            <td>No es Tan Ligero: Comparado con Rasa o Dialogflow, puede ser más pesado.</td>
-        </tr>
-        <tr>
-            <td>Soporte para Múltiples Idiomas: Fácil de adaptar para usuarios de diferentes países.</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Extensibilidad: Se integra con APIs y bases de datos externas.</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
-<br>
-  <p><h6>Instalacion y configuracion de botpress en docker</h6></p>
-    <br>
-    <p>Modificamos el archivo docker-compose.yml, dentro de este lo tendremos que modificar con los parametros que deseemos como la version, imagen, los puertos, etc. A continuacion dejo un exemplo de como podria ser dado que aun no lo hemos puesto en practica y tendriamos que comprobar que puertos podriamos utilizar entre otras cosas</p>
-        
-```yaml
-version: "3.8"
+      <thead>
+        <tr><th>Ventajas</th><th>Desventajas</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Código abierto</td><td>Consume recursos</td></tr>
+        <tr><td>Interfaz intuitiva</td><td>Curva de aprendizaje</td></tr>
+        <tr><td>NLP integrado</td><td>Funciones pro en versión de pago</td></tr>
+        <tr><td>Multicanal</td><td>No es ligero</td></tr>
+        <tr><td>Multilenguaje</td><td></td></tr>
+        <tr><td>Extensible con APIs</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <p><h6>Instalación y configuración en Docker</h6></p>
+    <pre><code>version: "3.8"
 services:
   botpress:
     image: botpress/server:v12_30_7
@@ -2580,338 +2522,71 @@ services:
       BP_PORT: "3000"
       EXTERNAL_URL: "http://localhost:3000"
     restart: unless-stopped
-```
-<p>Iniciamos el contenedor con <b>docker compose up -d<b></p>
-<p>Accedemos a la interfaz de la web mediante la ip de la maquina y el puerto que le hayamos asignado al docker </p>
-<p><h3>🚨Aviso: Los siguientes pasos no se han probado y solo es una posible forma de hacerlo para tener una guia cuando se realice</h3></p>
-    
- <p><h6>Configuración del Chatbot en Botpress</h6></p>
+</code></pre>
+    <p><strong>Nota:</strong> Aún sin probar, es solo una guía inicial.</p>
 
-  <p><h6>4.1. Creación de un Nuevo Bot</h6></p>
-  <br>
-  <p>Después de acceder a la interfaz de Botpress:</p>
-  <ul>
-    <li>Haz clic en "Create Bot".</li>
-    <li>Asigna un nombre a tu chatbot.</li>
-    <li>Elige una plantilla base o crea un bot desde cero.</li>
-  </ul>
+    <h6>Configuración del chatbot:</h6>
+    <ul>
+      <li>Crear bot</li>
+      <li>Configurar flujos</li>
+      <li>Implementar NLP</li>
+      <li>Integrar APIs</li>
+    </ul>
+  </details>
 
-  <p><h6>4.2. Configuración de Flujos Conversacionales</h6></p>
-  <br>
-  <p>Los flujos son la estructura de la conversación del chatbot:</p>
-  <ul>
-    <li>Accede a "Flows": Aquí puedes definir las rutas que tomará la conversación.</li>
-    <li>Añadir Nodos: Cada nodo representa un punto en la conversación.</li>
-    <li>Configurar Transiciones: Define condiciones para moverse entre nodos según las respuestas del usuario.</li>
-  </ul>
-
-  <p><h6>4.3. Implementación de NLP (Procesamiento de Lenguaje Natural)</h6></p>
-  <br>
-  <p>Para mejorar la comprensión del chatbot:</p>
-  <ul>
-    <li>Accede a "NLP" en el panel de administración.</li>
-    <li>Añadir Intenciones: Define frases de entrenamiento para que el bot entienda las preguntas del usuario.</li>
-    <li>Añadir Entidades: Permite extraer información específica como nombres, fechas o ubicaciones.</li>
-  </ul>
-
-  <p><h6>4.4. Integraciones con APIs</h6></p>
-  <br>
-  <p>Botpress permite conectar el chatbot con servicios externos mediante llamadas API:</p>
-  <ul>
-    <li>Accede a "Actions" y crea una nueva acción.</li>
-    <li>Escribe un script en JavaScript que realice la petición HTTP a la API externa.</li>
-    <li>Asigna la acción a un nodo en el flujo conversacional.</li>
-  </ul>
-</details>
-<details>
+  <details>
     <summary><h3>Videollamadas (Aún investigando)</h3></summary>
-    <p><h6>Opciones exploradas</h6></p>
+    <p><h7>Introducción</h7></p>
+    <p>Investigación sobre cómo integrar videollamadas entre psicólogos y usuarios.</p>
 
-<p><h7>Introducción</h7></p>
-    <br>
-    <p>Para nuestro proyecto, una de las funcionalidades clave es la posibilidad de realizar videollamadas entre los psicólogos y los padres de los niños. Hemos investigado diferentes soluciones para integrar esta funcionalidad y en este apartado mostraremos las opciones evaluadas.</p>
-    
-<p><h7>Servicios de terceros</h7></p>
-    <p>Los servicios de terceros permiten integrar videollamadas de forma rápida sin necesidad de administrar servidores propios.</p>
+    <h7>Servicios de terceros:</h7>
     <ul>
-        <li><b>Jitsi Meet:</b> Plataforma open-source que permite realizar videollamadas sin necesidad de registro. Se puede utilizar en la nube o alojar en un servidor propio.</li>
-        <li><b>Twilio Video:</b> API avanzada con soporte para grabación, mejoras de calidad y escalabilidad.</li>
-        <li><b>Daily.co:</b> Alternativa a Twilio con integración sencilla y costos más accesibles.</li>
+      <li><b>Jitsi Meet:</b> Gratuito y fácil de usar.</li>
+      <li><b>Twilio Video:</b> API poderosa, pago por uso.</li>
+      <li><b>Daily.co:</b> Alternativa sencilla y económica.</li>
     </ul>
-    <br>
 
-<p><h7>Soluciones autohospedadas</h7></p>
-    <p>Si se busca más control y privacidad, se pueden desplegar servidores propios para manejar las videollamadas.</p>
+    <h7>Autohospedado:</h7>
     <ul>
-        <li><b>Jitsi Self-Hosted:</b> Permite desplegar Jitsi en un servidor propio dentro de Proxmox usando una VM o contenedores Docker.</li>
-        <li><b>MediaSoup:</b> Framework basado en WebRTC con baja latencia y opciones avanzadas de personalización.</li>
+      <li><b>Jitsi Self-Hosted</b></li>
+      <li><b>MediaSoup</b></li>
+      <li><b>WebRTC puro</b></li>
     </ul>
-    <br>
 
-<p><h7>Comparativa</h7></p>
-    <table>
-        <tr>
-            <th>Opción</th>
-            <th>Autohospedado</th>
-            <th>Escalabilidad</th>
-            <th>Facilidad de integración</th>
-            <th>Costo</th>
-        </tr>
-        <tr>
-            <td>Jitsi Meet (Cloud)</td>
-            <td>No</td>
-            <td>Media</td>
-            <td>Alta</td>
-            <td>Gratis</td>
-        </tr>
-        <tr>
-            <td>Jitsi Self-Hosted</td>
-            <td>Sí</td>
-            <td>Alta</td>
-            <td>Media</td>
-            <td>Bajo (Requiere servidor)</td>
-        </tr>
-        <tr>
-            <td>Twilio Video</td>
-            <td>No</td>
-            <td>Alta</td>
-            <td>Alta</td>
-            <td>Pago por uso</td>
-        </tr>
-        <tr>
-            <td>Daily.co</td>
-            <td>No</td>
-            <td>Alta</td>
-            <td>Alta</td>
-            <td>Pago por uso</td>
-        </tr>
-        <tr>
-            <td>MediaSoup</td>
-            <td>Sí</td>
-            <td>Alta</td>
-            <td>Baja</td>
-            <td>Depende del hosting</td>
-        </tr>
-        <tr>
-            <td>WebRTC puro</td>
-            <td>Opcional</td>
-            <td>Alta</td>
-            <td>Baja (Desarrollo necesario)</td>
-            <td>Gratis, pero requiere infraestructura</td>
-        </tr>
+    <h7>Comparativa:</h7>
+    <table border="1">
+      <tr><th>Opción</th><th>Autohospedado</th><th>Escalabilidad</th><th>Integración</th><th>Costo</th></tr>
+      <tr><td>Jitsi Meet</td><td>No</td><td>Media</td><td>Alta</td><td>Gratis</td></tr>
+      <tr><td>Jitsi Self-Hosted</td><td>Sí</td><td>Alta</td><td>Media</td><td>Bajo</td></tr>
+      <tr><td>Twilio</td><td>No</td><td>Alta</td><td>Alta</td><td>Pago</td></tr>
+      <tr><td>MediaSoup</td><td>Sí</td><td>Alta</td><td>Baja</td><td>Depende del hosting</td></tr>
     </table>
-    <br>
+  </details>
 
-<p><h7>Conclusión</h7></p>
-    <p>Para una implementación rápida y funcional, Jitsi Meet en la nube es la mejor opción. Si buscamos más personalización y control, una instancia autohospedada de Jitsi o el uso de MediaSoup puede ser más adecuado. WebRTC puro es viable, pero requiere una mayor inversión en infraestructura y desarrollo.</p>
-</details>
-
-<details>
+  <details>
     <summary><h3>Protección del código fuente (Aún investigando)</h3></summary>
-    <p><h6>Opciones exploradas</h6></p>
-
-<p><h7>Introducción</h7></p>
-    <br>
-    <p>La seguridad del código fuente es crucial en nuestro proyecto, ya que queremos evitar accesos no autorizados, filtraciones y modificaciones indebidas. Para ello, hemos investigado diferentes estrategias y herramientas para garantizar su protección.</p>
-    
-<p><h7>Control de acceso y repositorios</h7></p>
-    <p>El uso de sistemas de control de versiones con gestión de permisos adecuada es esencial.</p>
+    <p>Exploración de técnicas de seguridad como repos privados, firmas digitales, ofuscación y cifrado.</p>
     <ul>
-        <li><b>GitHub Private Repositories:</b> Permite almacenar el código de forma privada y gestionar los accesos mediante roles y permisos.</li>
-        <li><b>GitLab Self-Hosted:</b> Alternativa autohospedada para un mayor control de los datos y seguridad avanzada.</li>
-        <li><b>Gitea:</b> Opción ligera y autohospedada para gestionar repositorios Git en nuestro propio servidor.</li>
+      <li>GitHub Private</li>
+      <li>GitLab / Gitea autohospedado</li>
+      <li>UglifyJS / Obfuscator.io</li>
+      <li>Firmas GPG</li>
+      <li>Tripwire</li>
     </ul>
-    <br>
+  </details>
 
-<p><h7>Ofuscación y encriptación</h7></p>
-    <p>Para evitar que el código sea fácilmente legible en caso de acceso no autorizado, podemos aplicar técnicas de encriptación y ofuscación.</p>
-    <ul>
-        <li><b>Obfuscator.io:</b> Herramienta para ofuscar código JavaScript y dificultar su lectura.</li>
-        <li><b>Minificación:</b> Uso de <b>UglifyJS</b> o <b>Terser</b> para minimizar y ofuscar código JavaScript.</li>
-        <li><b>Encriptación de archivos sensibles:</b> Uso de <b>GnuPG</b> o <b>OpenSSL</b> para cifrar archivos críticos antes de subirlos a un repositorio.</li>
-    </ul>
-    <br>
-
-<p><h7>Firmas digitales y detección de cambios</h7></p>
-    <p>Para asegurar la integridad del código y detectar modificaciones no autorizadas.</p>
-    <ul>
-        <li><b>Git Signed Commits:</b> Uso de GPG para firmar cada commit y verificar la autenticidad de los cambios.</li>
-        <li><b>Tripwire:</b> Herramienta de detección de cambios en archivos del sistema que puede usarse para monitorear modificaciones en el código fuente.</li>
-    </ul>
-    <br>
-
-<p><h7>Comparativa</h7></p>
-    <table>
-        <tr>
-            <th>Opción</th>
-            <th>Autohospedado</th>
-            <th>Nivel de seguridad</th>
-            <th>Facilidad de uso</th>
-            <th>Costo</th>
-        </tr>
-        <tr>
-            <td>GitHub Private</td>
-            <td>No</td>
-            <td>Alta</td>
-            <td>Alta</td>
-            <td>Gratis (limitado) / Pago</td>
-        </tr>
-        <tr>
-            <td>GitLab Self-Hosted</td>
-            <td>Sí</td>
-            <td>Muy alta</td>
-            <td>Media</td>
-            <td>Depende del hosting</td>
-        </tr>
-        <tr>
-            <td>Gitea</td>
-            <td>Sí</td>
-            <td>Alta</td>
-            <td>Media</td>
-            <td>Bajo</td>
-        </tr>
-        <tr>
-            <td>Obfuscator.io</td>
-            <td>No</td>
-            <td>Media</td>
-            <td>Alta</td>
-            <td>Gratis</td>
-        </tr>
-        <tr>
-            <td>UglifyJS / Terser</td>
-            <td>No</td>
-            <td>Media</td>
-            <td>Alta</td>
-            <td>Gratis</td>
-        </tr>
-        <tr>
-            <td>Git Signed Commits</td>
-            <td>Opcional</td>
-            <td>Alta</td>
-            <td>Media</td>
-            <td>Gratis</td>
-        </tr>
-        <tr>
-            <td>Tripwire</td>
-            <td>Sí</td>
-            <td>Muy alta</td>
-            <td>Baja</td>
-            <td>Gratis</td>
-        </tr>
-    </table>
-    <br>
-
-<p><h7>Conclusión</h7></p>
-    <p>Para nuestro caso, GitHub Private puede ser suficiente si buscamos simplicidad y facilidad de integración. Si priorizamos mayor control y seguridad, una solución autohospedada como GitLab o Gitea sería más adecuada. Complementar con ofuscación y firmas digitales es recomendable para una mayor protección del código.</p>
-</details>
-
-<details>
+  <details>
     <summary><h3>Securizar Base de Datos (Aún investigando)</h3></summary>
-    <p><h6>Opciones exploradas</h6></p>
-
-<p><h7>Introducción</h7></p>
-    <br>
-    <p>La seguridad de la base de datos es fundamental en nuestro proyecto, ya que almacenará información sensible. Por ello, hemos investigado diferentes estrategias y herramientas para proteger los datos contra accesos no autorizados, ataques y fugas de información.</p>
-    
-  <p><h7>Control de accesos y autenticación</h7></p>
-    <p>Es importante restringir quién puede acceder a la base de datos y con qué privilegios.</p>
+    <p>Prácticas como control de acceso, TLS/SSL, hashing seguro, y detección de intrusos.</p>
     <ul>
-        <li><b>Principio de privilegios mínimos:</b> Asignar a cada usuario el mínimo nivel de acceso necesario.</li>
-        <li><b>Autenticación fuerte:</b> Uso de credenciales seguras y autenticación basada en claves o tokens en lugar de contraseñas simples.</li>
-        <li><b>Roles y permisos:</b> Configuración de roles en MySQL/PostgreSQL para limitar acciones según el usuario.</li>
+      <li>Roles y permisos</li>
+      <li>Autenticación fuerte</li>
+      <li>Cifrado en tránsito y en reposo</li>
+      <li>Auditorías (pgAudit / MySQL Audit Plugin)</li>
+      <li>Fail2Ban</li>
     </ul>
-    <br>
-    <p><h7>Cifrado de datos</h7></p>
-    <p>Para proteger la información almacenada y en tránsito.</p>
-    <ul>
-        <li><b>Cifrado en reposo:</b> Uso de <b>MySQL AES_ENCRYPT</b> o <b>PostgreSQL pgcrypto</b> para cifrar datos sensibles.</li>
-        <li><b>Cifrado en tránsito:</b> Configuración de conexiones seguras con <b>TLS/SSL</b> para evitar intercepciones.</li>
-        <li><b>Hashing seguro de contraseñas:</b> Uso de <b>bcrypt</b> o <b>Argon2</b> para almacenar contraseñas de forma segura.</li>
-    </ul>
-    <br>
-
-  <p><h7>Monitorización y auditoría</h7></p>
-    <p>Registrar y supervisar actividades sospechosas en la base de datos.</p>
-    <ul>
-        <li><b>Logs de acceso:</b> Activar logs en MySQL/PostgreSQL para registrar intentos de acceso.</li>
-        <li><b>Herramientas de monitorización:</b> Uso de <b>Fail2Ban</b> para bloquear intentos de acceso repetidos.</li>
-        <li><b>Auditoría de consultas:</b> Configuración de <b>MySQL Audit Plugin</b> o <b>pgAudit</b> en PostgreSQL.</li>
-    </ul>
-    <br>
-    <p><h7>Protección contra inyecciones SQL</h7></p>
-    <p>Evitar ataques que puedan comprometer la integridad de la base de datos.</p>
-    <ul>
-        <li><b>Uso de consultas preparadas:</b> Evitar concatenación de strings en SQL.</li>
-        <li><b>Validación de entradas:</b> Filtrar y sanitizar datos de entrada.</li>
-        <li><b>Firewall para bases de datos:</b> Uso de herramientas como <b>MySQL Enterprise Firewall</b> para bloquear ataques.</li>
-    </ul>
-    <br>
-    <p><h7>Comparativa</h7></p>
-    <table>
-        <tr>
-            <th>Opción</th>
-            <th>Tipo</th>
-            <th>Nivel de seguridad</th>
-            <th>Facilidad de uso</th>
-            <th>Costo</th>
-        </tr>
-        <tr>
-            <td>Roles y permisos</td>
-            <td>Control de acceso</td>
-            <td>Alta</td>
-            <td>Media</td>
-            <td>Gratis</td>
-        </tr>
-        <tr>
-            <td>TLS/SSL</td>
-            <td>Cifrado</td>
-            <td>Muy alta</td>
-            <td>Media</td>
-            <td>Gratis</td>
-        </tr>
-        <tr>
-            <td>bcrypt / Argon2</td>
-            <td>Cifrado</td>
-            <td>Muy alta</td>
-            <td>Alta</td>
-            <td>Gratis</td>
-        </tr>
-        <tr>
-            <td>MySQL Audit Plugin / pgAudit</td>
-            <td>Monitorización</td>
-            <td>Alta</td>
-            <td>Baja</td>
-            <td>Gratis</td>
-        </tr>
-        <tr>
-            <td>Fail2Ban</td>
-            <td>Monitorización</td>
-            <td>Alta</td>
-            <td>Media</td>
-            <td>Gratis</td>
-        </tr>
-        <tr>
-            <td>Consultas preparadas</td>
-            <td>Protección contra inyecciones</td>
-            <td>Muy alta</td>
-            <td>Alta</td>
-            <td>Gratis</td>
-        </tr>
-        <tr>
-            <td>MySQL Enterprise Firewall</td>
-            <td>Protección contra inyecciones</td>
-            <td>Muy alta</td>
-            <td>Baja</td>
-            <td>Pago</td>
-        </tr>
-    </table>
-    <br>
-
-   <p><h7>Conclusión</h7></p>
-    <p>Para nuestro caso, aplicar roles y permisos correctamente, junto con cifrado TLS/SSL y hashing seguro de contraseñas, ofrece una buena protección sin añadir demasiada complejidad. Para mayor seguridad, podríamos implementar auditorías y firewall de bases de datos.</p>
-</details>
+  </details>
 
 </details>
 
-</details>
 
