@@ -2283,8 +2283,6 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
         </tbody>
 </table>
 
-<p>📌 <em>Esquema de funcionamiento (ejemplo OpenVPN):</em></p>
-
 <hr>
 
 <h2>🧱 4. ¿Qué es pfSense y cómo se relaciona con OpenVPN?</h2>
@@ -2338,7 +2336,6 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
         <li>🙈 Nadie puede espiar lo que haces.</li>
         <li>🌐 Te da acceso remoto como si estuvieras dentro de la red local.</li>
 </ul>
-<p>👉 <em>Pantallazo sugerido: Diagrama de túnel VPN entre cliente y pfSense.</em></p>
 
 <hr>
 
