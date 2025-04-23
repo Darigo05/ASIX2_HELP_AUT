@@ -1921,7 +1921,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 <details>
     
-<summary><h2>🎥Vídeo</h2></summary>
+    <summary><h2>🎥Vídeo</h2></summary>
 
 </details>
 
@@ -2093,18 +2093,18 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 </details>
 
-<details>
-  <summary><h3>Práctica📖</h3></summary>
+    <details>
+      <summary><h3>Práctica📖</h3></summary>
 
 <p> En este archivo adjunto (PDF) se puede ver como se instalan las herramientas FFmpeg y yt-dlp. A lo largo del documento, se muestra cómo descargar un video de YouTube de la artista Charli XCX, instalar un reproductor para visualizarlo y, posteriormente, utilizar FFmpeg desde la terminal para explorar algunas de sus funcionalidades. Entre ellas, se incluyen ejemplos como aumentar la velocidad del video e insertar una marca de agua.</p>
 
 [click aqui](ffmpeg_yt-dlp.pdf)
 
 
-</details>
+    </details>
 
 </details>
-</details>
+
 
 
 
