@@ -2372,6 +2372,138 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
     </details>
   </details>
 </details>
+<details>
+<summary><h3> Grafana + Prometheus 🔥</h3></summary>
+
+<p>Lo primero que se tiene que tener en cuenta a la hora de la instalación es tener un servidor con Instalación de docker y Instalación Portainer en este.</p>
+
+<p>Una vez hecho esto vamos a abrir nuestro archivo docker-compose.yml con el comando nano o vim según nuestra preferencia y agregaremos lo siguiente en el contenido de este:</p>
+
+<p><b>Explicación</b></p>
+
+<ul>
+<li><b>Image:</b> Indicamos la imagen que tendrá este contenedor</li>
+<li><b>Container_name:</b> El nombre del container</li>
+<li><b>ports:</b> Los puertos que se usarán para acceder a él</li>
+<li><b>volumes:</b> Los volúmenes que se crearán y usarán</li>
+<li><b>depends_on:</b> Le indicamos que es una dependencia de prometheus para no tenerlo que configurar más adelante</li>
+<li><b>networks:</b> La red que queramos usar</li>
+</ul>
+
+<p><h6>Instalación containers Grafana + Prometheus</h6></p>
+
+<p><h6>Grafana</h6></p>
+
+<pre><code>sudo nano docker-compose.yml
+</code></pre>
+
+<pre><code>grafana:
+  image: grafana/grafana
+  container_name: grafana
+  ports:
+    - "3000:3000"
+  volumes:
+    - grafana_data:/var/lib/grafana
+  depends_on:
+    - prometheus
+  networks:
+    - monitoring
+</code></pre>
+
+<p>Seguidamente ejecutamos el archivo con el comando:</p>
+
+<pre><code>docker-compose up -d
+</code></pre>
+
+<p>Una vez hecho esto podremos acceder a grafana insertando lo siguiente en nuestro navegador web:</p>
+
+<pre><code>http://ip_de_nuestro_servidor:3000
+</code></pre>
+
+<p>Ya dentro de grafana nos saldrá una ventana de login. Las credenciales de acceso por defecto son:</p>
+
+<ul>
+<li>Usuario: admin</li>
+<li>Contraseña: admin</li>
+</ul>
+
+<p><b>Nota:</b> Al iniciar sesión podremos cambiar las credenciales de inicio.</p>
+
+<p>Con esto hecho ya estaríamos dentro de grafana.</p>
+
+<br>
+
+<p><h6>Instalación Prometheus</h6></p>
+
+<p>Como en la instalación anterior tendremos que irnos al mismo archivo docker-compose.yml y lo editaremos añadiendo las siguientes líneas.</p>
+
+<p>Como podemos ver en el archivo en el apartado de volúmenes le indicamos que también usará un archivo llamado prometheus.yml que está en una carpeta llamada prometheus así que la crearemos con:</p>
+
+<pre><code>sudo mkdir ./prometheus
+sudo nano prometheus
+</code></pre>
+
+<p>Una vez dentro del archivo de prometheus lo editaremos y agregaremos lo siguiente:</p>
+
+<pre><code>services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+</code></pre>
+
+<p><h6>Node-exporter</h6></p>
+
+<p>Node exporter es una herramienta que nos proporciona prometheus, recopila métricas del sistema operativo donde se ejecuta.</p>
+
+<p>Guardamos el archivo y ejecutamos el comando:</p>
+
+<pre><code>docker-compose up -d
+</code></pre>
+
+<p>Con el contenedor creado solo tenemos que ir a nuestro navegador web y poner lo siguiente:</p>
+
+<pre><code>http://ip_de_nuestro_servidor:9090
+</code></pre>
+
+<p>Con esto hecho ya hemos accedido a prometheus.</p>
+
+<p>Contenido del archivo prometheus.yml:</p>
+
+<pre><code>global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['prometheus:9090']
+
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+</code></pre>
+
+<br>
+
+<p><h6>Visualizar los datos de Prometheus en Grafana</h6></p>
+
+<p>Una vez realizada la instalación de prometheus y grafana el siguiente paso es ver los datos recolectados en grafana. Para realizar esto accederemos a grafana y nos iremos al apartado de <b>Connections → Datasources</b> y le indicamos la URL donde está nuestro prometheus en el apartado de conexión.</p>
+
+<p>Guardamos la configuración y nos dirigiremos a importar un dashboard para ver esos datos.</p>
+
+<p>Como hemos comentado antes hemos implementado también Node Exporter el cual también tiene un dashboard así que para implementarlo nos iremos al símbolo de + y seleccionamos la opción "Import Dashboard".</p>
+
+<p>Seguidamente colocaremos la ID del dashboard que en el caso de Node Exporter es 1860 y pulsaremos en load.</p>
+
+<p>Una vez realizado el paso anterior nos dirigiremos a dashboard y seleccionaremos node exporter full y ya tendríamos nuestro dashboard funcionando.</p>
+
+</details>
 
 
 <details>
