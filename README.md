@@ -2504,6 +2504,144 @@ scrape_configs:
 <p>Una vez realizado el paso anterior nos dirigiremos a dashboard y seleccionaremos node exporter full y ya tendríamos nuestro dashboard funcionando.</p>
 
 </details>
+<details open>
+<summary><h2>Suricata</h2></summary>
+
+<details>
+<summary><h3>Instalación y configuración básica</h3></summary>
+
+<h4>¿Qué es jq y EVE?</h4>
+
+<p><b>jq</b> es una herramienta de línea de comandos muy poderosa para procesar, filtrar y transformar datos en formato JSON.</p>
+
+<h4>Instalación</h4>
+
+<p>1. El primer paso que vamos a realizar será actualizar los paquetes de nuestra máquina Ubuntu Server para esto usaremos los siguientes comandos:</p>
+
+<pre><code>sudo apt update
+sudo apt upgrade
+</code></pre>
+
+<p>2. Una vez actualizados los paquetes necesitaremos instalar la herramienta jq que nos permite mostrar la información de salida JSON de EVE de Suricata. Para esto usaremos los siguientes comandos:</p>
+
+<pre><code>sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:oisf/suricata-stable
+sudo apt update
+sudo apt install suricata jq
+</code></pre>
+
+<p><b>Nota:</b> <i>eve.json</i> es el archivo de salida principal de Suricata. Contiene todos los eventos relevantes en formato JSON.</p>
+
+<p>3. Podemos comprobar si todo se ha instalado correctamente y si está funcionando con los comandos:</p>
+
+<pre><code>sudo suricata --build-info
+sudo systemctl status suricata
+</code></pre>
+
+<h4>Configuración básica</h4>
+
+<p>1. Hacer una copia del archivo suricata.yaml por si hay algún error y poder "volver atrás" sin tener que empezar de cero. Para esto usaremos el comando:</p>
+
+<pre><code>sudo cp /etc/suricata/suricata.yml /etc/suricata/suricata.yml.BKP
+</code></pre>
+
+<p>2. Comprobamos que el archivo se haya copiado correctamente.</p>
+
+<p>3. Necesitaremos averiguar a qué interfaz de red queremos que Suricata esté inspeccionando. Para esto usamos:</p>
+
+<pre><code>ip addr
+</code></pre>
+
+<p>4. Una vez determinada la interfaz (por ejemplo, <b>en0s3</b>), editamos el archivo:</p>
+
+<pre><code>sudo nano /etc/suricata/suricat.yml
+</code></pre>
+
+<p>5. Luego actualizamos los paquetes de Suricata y reiniciamos el servicio:</p>
+
+<pre><code>sudo suricata-update
+sudo systemctl restart suricata
+</code></pre>
+
+<h4>Creación de alertas</h4>
+
+<p>(Contenido no desarrollado en el documento original.)</p>
+
+</details>
+
+<details>
+<summary><h3>Descripción y funciones</h3></summary>
+
+<h4>¿Qué es Suricata?</h4>
+
+<p>Suricata es un sistema de detección y prevención de intrusiones de red (IDS/IPS) y de monitoreo de seguridad de red (NSM) de código abierto, desarrollado por la organización OISF.</p>
+
+<p>Está diseñado para trabajar a altas velocidades y realizar análisis avanzados del tráfico de red, inspeccionando profundamente paquetes, decodificando protocolos, detectando amenazas y generando alertas o bloqueos en tiempo real.</p>
+
+<p>Suricata no es solo un IDS/IPS convencional, también es una herramienta poderosa para monitorear, registrar y entender lo que sucede dentro de una red.</p>
+
+<h4>Ejemplo</h4>
+
+<p>Detectar un intento de escaneo de puertos o una conexión sospechosa desde una IP maliciosa.</p>
+
+<h4>Funciones principales</h4>
+
+<ul>
+<li><b>IDS (Intrusion Detection System):</b> Observa el tráfico en tiempo real sin interferir en él. Detecta comportamientos sospechosos o maliciosos y genera alertas.</li>
+<li><b>IPS (Intrusion Prevention System):</b> Instalado inline, bloquea el tráfico malicioso además de detectarlo.</li>
+<li><b>NMS (Network Security Monitoring):</b> Captura tráfico para monitoreo forense, almacenando datos de sesiones completas, metadatos, archivos, etc.</li>
+<li><b>Análisis de tráfico:</b> Captura paquetes, extrae archivos y protocolos para su posterior análisis.</li>
+</ul>
+
+<h4>¿Qué significa Inline?</h4>
+
+<p>En este contexto, Inline significa que Suricata está entre el origen y el destino del tráfico de la red, permitiendo detectar y bloquear tráfico malicioso en tiempo real.</p>
+
+<h4>Más ejemplos</h4>
+
+<ul>
+<li>Bloquear un ataque de SQL Injection antes de que llegue a una aplicación web.</li>
+<li>Registrar cada archivo descargado de un sitio web para su inspección posterior.</li>
+</ul>
+
+</details>
+
+<details>
+<summary><h3>Características principales</h3></summary>
+
+<h4>Resumen de características</h4>
+
+<p>Suricata presenta diversas características que deben considerarse según los recursos y prioridades:</p>
+
+<ul>
+<li><b>Alto rendimiento:</b> Uso de múltiples núcleos para analizar tráfico simultáneamente.</li>
+<li><b>Análisis profundo de paquetes:</b> Inspección de encabezados y contenido completo del tráfico.</li>
+<li><b>Decodificación de protocolos:</b> Soporte para HTTP, HTTPS, DNS, SMTP, FTP, SMB, SSH, DHCP, entre otros.</li>
+<li><b>Compatibilidad con reglas Snort:</b> Integra reglas Snort y posee su propio motor de reglas extendido.</li>
+<li><b>Generación de logs en JSON:</b> Para integración con ELK Stack, Splunk, Graylog y SIEMs.</li>
+<li><b>Integración con NFQUEUE y eBPF:</b> Control eficiente del tráfico en Linux.</li>
+<li><b>Extracción de archivos:</b> Captura y extracción de archivos para análisis por antivirus u otras herramientas.</li>
+</ul>
+
+</details>
+
+<details>
+<summary><h3>Usos comunes</h3></summary>
+
+<h4>Ámbitos de aplicación</h4>
+
+<ul>
+<li><b>Protección de redes empresariales:</b> Detección y prevención de malware, escaneos, exploits y ataques internos.</li>
+<li><b>Investigaciones forenses:</b> Almacenamiento de tráfico detallado para investigación posterior de incidentes.</li>
+<li><b>Soporte a SOCs y Blue Teams:</b> Fuente de datos de amenazas, correlación de eventos y respuesta a incidentes.</li>
+<li><b>Monitoreo en tiempo real:</b> Detección de cambios anómalos en la red, conexiones a dominios maliciosos, filtraciones de datos.</li>
+<li><b>Laboratorios de análisis de malware:</b> Estudio de tráfico y archivos maliciosos en entornos controlados.</li>
+<li><b>Complemento de firewalls:</b> Inspección del contenido del tráfico para detectar ataques a nivel de aplicación, más allá del filtrado de puertos y direcciones IP.</li>
+</ul>
+
+</details>
+
+</details>
 
 
 <details>
