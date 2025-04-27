@@ -2519,16 +2519,241 @@ services:
   </details>
 
   <details>
-    <summary><h3>Securizar Base de Datos (Aún investigando)</h3></summary>
-    <p>Prácticas como control de acceso, TLS/SSL, hashing seguro, y detección de intrusos.</p>
-    <ul>
-      <li>Roles y permisos</li>
-      <li>Autenticación fuerte</li>
-      <li>Cifrado en tránsito y en reposo</li>
-      <li>Auditorías (pgAudit / MySQL Audit Plugin)</li>
-      <li>Fail2Ban</li>
-    </ul>
-  </details>
+<summary><h3>Securizar Base de datos SQL 🔒</h3></summary>
+
+<p>A continuación del apartado de Instalación y configuración MySQL explicaré algunas técnicas básicas para securizar nuestra base de datos en nuestro servidor MySQL:</p>
+
+<p>Una buena práctica sería crear usuario que solo cuenten con permisos de lectura y escritura de esta forma al vincular nuestra página web con la base de datos le indicamos en el archivo de la conexión que tiene que usar uno de estos usuarios para acceder a la base de datos en vez de root. De esta forma si un atacante pretende eliminar nuestra base de datos con la información que ha conseguido del archivo de conexión no va a poder. Para realizar esto haremos lo siguiente:</p>
+
+<p>En caso de que queramos que el usuario pueda acceder desde cualquier IP cambiamos localhost por %</p>
+
+<p><h6>Permisos por tabla</h6></p>
+<p>En caso de que queramos restringir más los permisos podemos aplicar estos por tabla de la siguiente forma.</p>
+
+<p><h6>Creación de usuarios de lectura escritura</h6></p>
+
+<ul>
+<li>Accedemos a mysql como root con el siguiente comando:</li>
+</ul>
+
+<pre><code>mysql -u root -p
+</code></pre>
+
+<ul>
+<li>Una vez dentro crearemos el usuario al que le asignaremos los permisos:</li>
+</ul>
+
+<pre><code>CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'contrasena';
+</code></pre>
+
+<ul>
+<li>Con el usuario creado le vamos a otorgar los permisos pertinentes, en este caso de lectura y escritura:</li>
+</ul>
+
+<pre><code>GRANT SELECT, INSERT, UPDATE ON BASE_DE_DATOS.* TO 'usuario'@'localhost';
+</code></pre>
+
+<p>En caso de aplicar permisos por tabla:</p>
+
+<pre><code>GRANT SELECT, INSERT ON tabla TO 'usuario'@'localhost';
+GRANT SELECT ON tabla TO 'usuario'@'localhost';
+</code></pre>
+
+<ul>
+<li>Aplicamos los cambios:</li>
+</ul>
+
+<pre><code>FLUSH PRIVILEGES;
+</code></pre>
+
+<p>Una vez hecho esto solo tendríamos que especificar en nuestro archivo de conexión que queremos realizar la consulta pertinente con el usuario que acabamos de crear, abajo dejo un ejemplo.</p>
+
+<pre><code>&lt;?php
+$host = "localhost";
+$usuario = "usuario";
+$contrasena = "contrasena";
+$base_de_datos = "prueba";
+
+// Crear conexión
+$conn = new mysqli($host, $usuario, $contrasena, $base_de_datos);
+
+// Verificar conexión
+if ($conn-&gt;connect_error) {
+    die("Error de conexión: " . $conn-&gt;connect_error);
+} else {
+    echo "Conexión exitosa a la base de datos.";
+}
+?&gt;
+</code></pre>
+
+<p><h6>"Esconder" archivo de conexión</h6></p>
+
+<p>A continuación explicaré como poder "esconder" nuestro archivo de conexión a la base de datos de dos formas diferentes.</p>
+
+<p><b>¿Por qué es recomendable hacer esto?</b></p>
+
+<p>Esto es recomendable ya que si se tiene el archivo de conexión a simple vista cualquier atacante que revise el código de nuestra página web podrá ver la IP de nuestro servidor donde alojamos nuestra base de datos, el nombre de esta y del usuario que se está usando para realizar las consultas y la contraseña haciendo que el ataque a nuestro servicio sea mucho más sencillo.</p>
+
+<p>También es recomendable asegurarse de que los permisos del archivo de conexión sean seguros, esto se hace con:</p>
+
+<pre><code>sudo chown www-data:www-data /var/www/secure/conexion.php
+sudo chmod 600 /var/www/secure/conexion.php
+</code></pre>
+
+<p><b>Colocar el archivo fuera del directorio público del servidor web</b></p>
+
+<p>Por defecto toda nuestra página web incluyendo el archivo de conexión se guarda en el directorio /var/www/html/conexion.php, así que en vez de colocarlo en esta ruta vamos a moverlo a otra ruta como por ejemplo /var/www/secure/conexion.php</p>
+
+<p>Después de esto solo tenemos que indicarle a las páginas necesarias que nuestro archivo de conexión se encuentra en la ruta que hemos seleccionado antes.</p>
+
+<p>De esta forma los atacantes no podrán acceder tan fácilmente a este archivo desde el navegador.</p>
+
+<p><b>Usando Nginx con Docker</b></p>
+
+<p>Si se usa Nginx junto a Docker podemos editar el archivo de configuración de nginx e indicarle que el archivo que está en la ruta x queremos que no sea accesible y que en caso de intentar acceder a él muestre un error 403. Para esto escribiremos lo siguiente en nuestro archivo de configuración:</p>
+
+<pre><code>location ~* /conexion\.php$ {
+    deny all;
+    return 403;
+}
+</code></pre>
+
+<p>Una vez hecho esto guardamos los cambios.</p>
+
+<pre><code>docker restart &lt;nombre_del_contenedor_nginx&gt;
+</code></pre>
+
+<br>
+
+<p><h6>Uso de conexiones cifradas en Docker (SSL/TLS)</h6></p>
+
+<ul>
+<li>Creamos una carpeta en nuestro host para poder guardar estos certificados:</li>
+</ul>
+
+<pre><code>mkdir -p ~/mysql-ssl
+cd ~/mysql-ssl
+</code></pre>
+
+<ul>
+<li>Seguidamente generaremos la CA (Autoridad Certificadora):</li>
+</ul>
+
+<pre><code>openssl genrsa 2048 &gt; ca-key.pem
+openssl req -new -x509 -nodes -days 3650 -key ca-key.pem -out ca.pem -subj "/CN=MySQL-CA"
+</code></pre>
+
+<ul>
+<li>Generamos el certificado del servidor (MySQL):</li>
+</ul>
+
+<pre><code>openssl req -newkey rsa:2048 -days 3650 -nodes -keyout server-key.pem -out server-req.pem -subj "/CN=MySQL-Server"
+openssl x509 -req -in server-req.pem -days 3650 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem
+</code></pre>
+
+<ul>
+<li>Una vez creados los certificados los copiamos al archivo docker-compose.yml y levantamos el contenedor:</li>
+</ul>
+
+<pre><code>services:
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: tu_clave
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/ssl:/etc/mysql/ssl
+    command:
+      --ssl-ca=/etc/mysql/ssl/ca.pem
+      --ssl-cert=/etc/mysql/ssl/server-cert.pem
+      --ssl-key=/etc/mysql/ssl/server-key.pem
+      --require_secure_transport=ON
+    ports:
+      - "3306:3306"
+</code></pre>
+
+<ul>
+<li>Con el contenedor levantado comprobamos que MySQL esté usando los certificados ejecutando el siguiente comando:</li>
+</ul>
+
+<pre><code>SHOW VARIABLES LIKE '%ssl%';
+</code></pre>
+
+<br>
+
+<p><h6>Evitar inyección SQL</h6></p>
+
+<p>Una inyección SQL es cuando un atacante manipula una consulta SQL mediante la introducción de datos en formularios, URLs, etc para acceder, modificar o borrar datos sin autorización.</p>
+
+<p><b>Limitar los permisos del usuario de la base de datos</b></p>
+
+<p>Como ya hemos visto anteriormente una de las formas más básicas y sencillas de securizar nuestra base de datos y evitar posibles inyecciones SQL a nuestra base de datos es con el uso de usuarios con permisos limitados.</p>
+
+<p><b>Validar y sanitizar los datos del usuario:</b></p>
+
+<p>Validar: Asegurarse de que el dato cumple con lo que esperas. Por ejemplo: que un número sea un entero, que una fecha tenga el formato correcto, que un email sea válido, etc.</p>
+
+<p>Sanitizar: Limpiar el dato para remover caracteres peligrosos o no deseados. Por ejemplo: eliminar etiquetas HTML, espacios extra, comillas, etc.</p>
+
+<pre><code>// Validar entradas numéricas
+$edad = filter_input(INPUT_POST, 'edad', FILTER_VALIDATE_INT);
+if ($edad === false) {
+    echo "Edad inválida";
+}
+
+// Validar correos
+$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+if ($email === false) {
+    echo "Correo no válido";
+}
+
+// Sanitizar cadenas de texto
+$nombre = filter_input(INPUT_POST, 'nombre', FILTER_SANITIZE_STRING);
+$nombre = htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8');
+</code></pre>
+
+<p><b>Limitar la longitud de entradas:</b></p>
+
+<p>Una buena forma de securizar también podría ser limitar la longitud de entradas para evitar ataques de inyección SQL. Un ejemplo sería:</p>
+
+<pre><code>if (strlen($usuario) &gt; 10) {
+    die("Nombre de usuario demasiado largo");
+}
+</code></pre>
+
+<br>
+
+<p><h6>No mostrar errores de SQL al usuario</h6></p>
+
+<p>Cuando hacemos que nuestra página muestre los mensajes de error de MySQL o PHP, se podría estar exponiendo información sensible como:</p>
+
+<ul>
+<li>Nombre de la base de datos</li>
+<li>Estructura de tablas</li>
+<li>Nombres de columnas</li>
+<li>Tipo de conexión usada</li>
+<li>Sistema operativo o versión de MySQL</li>
+</ul>
+
+<p><b>¿Cómo solucionarlo?</b></p>
+
+<ul>
+<li>Modificar php.ini:</li>
+</ul>
+
+<pre><code>display_errors = Off
+log_errors = On
+error_reporting = E_ALL
+</code></pre>
+
+<ul>
+<li>Registrar errores en un archivo privado:</li>
+</ul>
+
+<pre><code>error_log("Error SQL: " . $e-&gt;getMessage(), 3, "/var/log/mi_aplicacion/error_sql.log");
+</code></pre>
+
+</details>
 
 </details>
 
