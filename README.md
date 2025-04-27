@@ -2505,7 +2505,7 @@ scrape_configs:
 
 </details>
 <details open>
-<summary><h2>Suricata</h2></summary>
+<summary><h2>🐿️Suricata</h2></summary>
 
 <details>
 <summary><h3>Instalación y configuración básica</h3></summary>
