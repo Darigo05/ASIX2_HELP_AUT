@@ -2373,7 +2373,7 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
   </details>
 </details>
 <details>
-<summary><h3> Grafana + Prometheus 🔥</h3></summary>
+<summary><h2>🔥Grafana + Prometheus</h2></summary>
 
 <p>Lo primero que se tiene que tener en cuenta a la hora de la instalación es tener un servidor con Instalación de docker y Instalación Portainer en este.</p>
 
