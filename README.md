@@ -1324,6 +1324,8 @@ Este proceso integrado, utilizando tecnologías como Docker, Portainer y Nginx e
 
 <details>
 
+
+
 <summary><h3>Explicación Teórica 📖</h3></summary>
 
 <h3>¿Qué es una copia de seguridad?</h3>
@@ -1791,8 +1793,106 @@ El script no solo realiza los backups, sino que también genera un log detallado
 <p>Finalmente, el script verifica si la copia de seguridad a la partición fue exitosa mediante el comando <code>cp</code>. Si la operación fue exitosa (<code>$? -eq 0</code>), se registra un mensaje confirmando que la copia de seguridad se completó correctamente. Si hubo un error, aunque no se detiene el script, se registra el error para seguimiento posterior en los logs.</p>
 
 </details>
+</details>
+<details>
+<summary><h3>📦 Documentación del Proxmox Backup Server</h3></summary>
+
+<br>
+
+<details>
+<summary><h2>🧠 Descripción general</h2></summary>
+<p>
+Se ha instalado y configurado un <strong>Proxmox Backup Server (PBS)</strong> en una <strong>máquina virtual de VirtualBox</strong> ubicada en un PC de clase, es decir, fuera del entorno de virtualización de Proxmox VE. Este PBS se ha integrado con un nodo <strong>Proxmox VE (PVE)</strong> existente, permitiendo realizar backups automáticos y programados de máquinas virtuales concretas. Además, se ha implementado un sistema para exportar estos backups a una carpeta de red compartida (SMB).
+</p>
+</details>
+
+<details>
+<summary><h2>🌐 Infraestructura</h2></summary>
+<p>
+Los componentes utilizados fueron los siguientes:
+</p>
+<ul>
+  <li><strong>Proxmox VE (PVE)</strong>: IP <code>100.77.20.122</code></li>
+  <li><strong>Proxmox Backup Server (PBS)</strong>: IP <code>100.77.20.45</code></li>
+  <li><strong>Entorno PBS</strong>: Máquina virtual instalada en VirtualBox (PC de clase)</li>
+  <li><strong>Datastore del PBS</strong>: Montado en <code>/mnt/backups</code></li>
+  <li><strong>Nombre del datastore</strong>: <code>backups</code></li>
+  <li><strong>Destino de exportación</strong>: Carpeta SMB montada en <code>/mnt/windows</code></li>
+  <li><strong>Máquinas respaldadas</strong>: Docker (VMID <code>102</code>) y pfSense (VMID <code>103</code>)</li>
+</ul>
+</details>
+
+<details>
+<summary><h2>⚙️ Pasos de configuración</h2></summary>
+
+<h3>1️⃣ Instalación del PBS</h3>
+<p>
+Se descargó la ISO oficial de Proxmox Backup Server y se instaló en una máquina virtual usando VirtualBox en un PC. Esta VM tiene conectividad directa con el nodo PVE a través de la red del aula.
+</p>
+
+<h3>2️⃣ Configuración del datastore</h3>
+<p>
+Se creó la carpeta para almacenar los backups:
+</p>
+<pre><code>mkdir /mnt/backups</code></pre>
+<p>
+Y se configuró el datastore en el archivo:
+</p>
+<pre><code>/etc/proxmox-backup/datastore.cfg</code></pre>
+<p>Ejemplo:</p>
+<pre><code>datastore: backups
+    path /mnt/backups
+    gc-schedule daily
+    notification-mode notification-system</code></pre>
+
+<h3>3️⃣ Conexión desde Proxmox VE</h3>
+<p>
+Desde la interfaz de Proxmox VE:
+</p>
+<ol>
+  <li>Ir a <code>Datacenter > Storage > Add > Proxmox Backup Server</code></li>
+  <li>Introducir la IP del PBS: <code>100.77.20.45</code></li>
+  <li>Usuario: <code>root@pam</code></li>
+  <li>Contraseña: (la correspondiente del PBS)</li>
+  <li>Seleccionar el datastore <code>backups</code></li>
+</ol>
+
+<h3>4️⃣ Realizar backups desde PVE</h3>
+<p>
+Para hacer backups manuales:
+</p>
+<pre><code>vzdump 102 103 --storage pbs-backups --mode snapshot --mailto tu_correo@ejemplo.com --mailnotification always</code></pre>
+
+<h3>5️⃣ Exportación de backups al exterior</h3>
+<p>
+Se montó una carpeta compartida (SMB) en PBS para pasar los backups a un PC con Windows:
+</p>
+<pre><code>mkdir -p /mnt/windows
+mount -t cifs //100.77.20.50/BackupsProxmox /mnt/windows -o username=alumno,password=contraseña</code></pre>
+
+<p>
+Luego se usó <code>rsync</code> para copiar todo salvo los archivos <code>.img</code>, ya que ocupaban mucho y podían descargarse de forma más sencilla desde la interfaz web de PBS:
+</p>
+<pre><code>rsync -avh --progress /mnt/backups/ /mnt/windows/BackupsProxmox/</code></pre>
+
+<p>
+⚠️ Los <code>.img</code> (archivos pesados del disco) se descargaron uno a uno usando el botón de descarga de la web de PBS.
+</p>
+
+</details>
+
+<details>
+<summary><h2>✅ Resultado final</h2></summary>
+<ul>
+  <li>Backups funcionales de las máquinas Docker y pfSense</li>
+  <li>Conexión estable entre PVE y PBS</li>
+  <li>Exportación externa realizada con éxito</li>
+  <li>Verificación manual desde la web de PBS</li>
+</ul>
+</details>
 
 
+</details>
 <details>
  
 <summary><h3>Incidencias 🚨</h3></summary>
