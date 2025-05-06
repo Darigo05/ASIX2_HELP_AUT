@@ -1912,12 +1912,12 @@ Foto IPs estáticas configuradas DHCP (incidencia solucionada):
 
 </details>
 
-</details>
+
+
 
 
 
 <details>
-
 <summary><h2>💬Ejabberd XMPP y Pidgin</h2></summary>
     
    
