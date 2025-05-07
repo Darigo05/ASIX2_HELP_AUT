@@ -1,0 +1,179 @@
+/* Reset y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Dongle", sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+/* Fondo animado de burbujas */
+.gradient-bg {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background: linear-gradient(#d1761a, #ebc285);
+}
+
+.gradient-bg .gradients-container {
+    filter: url(#goo) blur(40px);
+    width: 100%;
+    height: 100%;
+}
+
+.gradient-bg .g1, .gradient-bg .g2, .gradient-bg .g3, .gradient-bg .g4, .gradient-bg .g5 {
+    position: absolute;
+    background: radial-gradient(circle at center, #f39434 0, rgba(18, 113, 255, 0) 50%) no-repeat;
+    mix-blend-mode: hard-light;
+    width: 80%;
+    height: 80%;
+    transform-origin: center center;
+    animation: moveVertical 30s ease infinite;
+    opacity: 1;
+}
+
+@keyframes moveVertical {
+    0% { transform: translateY(-50%); }
+    50% { transform: translateY(50%); }
+    100% { transform: translateY(-50%); }
+}
+
+/* Botón de salida */
+.exit-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: #4B0907;
+    transition: color 0.3s ease;
+}
+
+.exit-btn:hover {
+    color: #EFDBBD;
+}
+
+.exit-btn i {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+/* Contenedor de la tarjeta con sombra y animación de elevación al pasar el mouse */
+.container {
+    background: #EFDBBD;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Cuando el cursor pase sobre la tarjeta, se eleva */
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos de los textos dentro de la tarjeta */
+h2 {
+    color: #4B0907;
+    margin-bottom: 5px;
+    font-size: 50px;
+}
+
+/* Input con efecto cuando está en foco */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #4B0907;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    background: #EFDBBD;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #d1761a;
+    box-shadow: 0 0 8px #4B0907;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #EFDBBD;
+    transition: background 0.3s ease;
+}
+
+.join-btn {
+    background: #4B0907;
+}
+
+.join-btn:hover {
+    background: #d1761a;
+}
+
+.create-btn {
+    background: #4B0907;
+}
+
+.create-btn:hover {
+    background: #d1761a;
+}
+
+#meetingCreated {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Fondo de burbujas animadas */
+.gradient-bg .g1 {
+    background: radial-gradient(circle at center, rgba(18, 113, 255, 0.8) 0, rgba(18, 113, 255, 0) 50%) no-repeat;
+    animation: moveVertical 30s ease infinite;
+}
+
+/* Estilos interactivos del fondo */
+.interactive {
+    position: absolute;
+    background: radial-gradient(circle at center, #ebc285 0, rgba(140, 100, 255, 0) 50%) no-repeat;
+    mix-blend-mode: hard-light;
+    width: 100%;
+    height: 100%;
+    top: -50%;
+    left: -50%;
+    opacity: 0.7;
+}

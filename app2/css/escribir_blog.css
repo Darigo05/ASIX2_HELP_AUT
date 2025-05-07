@@ -1,0 +1,146 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+/* Contenedor principal */
+#editorApp {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 900px;
+}
+
+/* Campo del título */
+#title {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Editor de texto */
+#editor {
+    height: 400px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fafafa;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Barra de botones */
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Botón de Volver (arriba a la izquierda) */
+#backBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #4B0907;
+    color: #EFDBBD;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#backBtn:hover {
+    background-color: #4B0907;  /* Se mantiene igual el color marrón */
+    transform: translateY(-2px);
+}
+
+#backBtn:active {
+    transform: translateY(0);
+}
+
+#backBtn:focus {
+    outline: none;
+}
+
+/* Botones */
+button {
+    background-color: #E78A32; /* Naranja más suave */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #E78A32; /* Se mantiene el mismo naranja en el hover */
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Botón de Eliminar en color rojo */
+#deleteBtn {
+    background-color: #dc3545;
+}
+
+#deleteBtn:hover {
+    background-color: #c82333;
+}
+
+/* Modal de confirmación */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+    display: none;
+    width: 300px;
+    text-align: center;
+}
+
+.modal p {
+    margin-bottom: 20px;
+}
+
+.modal button {
+    margin: 5px;
+}
+
+.modal-active {
+    display: block;
+}
+
+/* Espaciado */
+#message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #007BFF;
+}

@@ -1,0 +1,307 @@
+/* Barra de navegación */
+.header {
+    background-color: #EFDBBD;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.header .logo h1 {
+    color: #BC5F04;
+    margin: 0;
+    font-size: 35px;
+    margin-left: -80px;
+}
+
+.header .nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.header .nav ul li {
+    margin-right: 15px;
+}
+
+.header .nav ul li a {
+    text-decoration: none;
+    color: #BC5F04;
+    font-size: 16px;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.header .nav ul li a:hover {
+    background-color: #BC5F04;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Menú móvil */
+.header .menu-icon {
+    display: none;
+    font-size: 30px;
+    color: #BC5F04;
+    cursor: pointer;
+}
+
+/* Contenedor del botón de perfil y el menú */
+.profile-container {
+    position: relative;
+}
+
+/* Menú de perfil */
+.card {
+    width: 200px;
+    background: linear-gradient(139deg, #4B0907 0%, #4B0907 50%, #251C28 100%);
+    user-select: none;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    position: absolute; /* Cambiado de fixed a absolute */
+    top: 100%; /* Aparece justo debajo del botón */
+    right: -100px;
+    z-index: 100;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card .list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0px;
+}
+
+.card .list .element label,
+.card .list .element a {
+    display: flex;
+    align-items: center;
+    color: #EFDBBD;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease-out;
+    text-decoration: none;
+}
+
+.card .list .element label:hover,
+.card .list .element a:hover {
+    background-color: var(--color, #BC5F04);
+    color: var(--hover-color, white);
+}
+
+.card .separator {
+    border-top: 1.5px solid #EFDBBD;
+    margin: 10px 0;
+}
+
+/* Botón de perfil */
+.profile-btn {
+    background-color: #4B0907;
+    color: #EFDBBD;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.profile-btn:hover {
+    background-color: #BC5F04;
+}
+
+/* Nuevo Blog */
+.new-blog-btn {
+    background-color: #4B0907;
+    color: #EFDBBD;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    padding: 17px 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.new-blog-btn:hover {
+    background-color: #BC5F04;
+    transform: scale(1.05);
+}
+
+/* Estilos para los blogs */
+.blog {
+    background-color: #EFDBBD;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.blog h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #4B0907;
+}
+
+.blog p {
+    font-size: 16px;
+    color: #666;
+}
+
+.blog small {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+}
+
+/* Botones cuadrado para editar y eliminar */
+.delete-btn, .edit-btn {
+    position: absolute;
+    top: 10px;
+    cursor: pointer;
+    background-color: #4B0907;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    margin-top: 23px;
+}
+
+.delete-btn {
+    right: 140px;
+    background-color: #FF6347;
+}
+
+.edit-btn {
+    right: 10px;
+    background-color: #4B0907;
+}
+
+.delete-btn:hover {
+    background-color: #FF4500;
+}
+
+.edit-btn:hover {
+    background-color: #BC5F04;
+}
+
+/* Formulario de edición */
+.edit-form {
+    display: none;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.edit-form input, .edit-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.edit-form button {
+    padding: 10px 20px;
+    background-color: #BC5F04;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-form button:hover {
+    background-color: #BC5F04;
+}
+
+.highlighted-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #EFDBBD;
+    text-align: center;
+    padding: 20px;
+    background: #BC5F04;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .header .nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background-color: #EFDBBD;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .header .menu-icon {
+        display: block;
+    }
+
+    .header .nav ul.active {
+        display: flex;
+    }
+
+    .new-blog-btn {
+        font-size: 20px;
+        padding: 12px 40px;
+    }
+
+    .blog {
+        margin: 10px;
+    }
+
+    .profile-container {
+        position: relative;
+    }
+
+    .profile-btn {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .delete-btn, .edit-btn {
+        width: 100%;
+        margin-top: 10px;
+        position: static;
+    }
+}

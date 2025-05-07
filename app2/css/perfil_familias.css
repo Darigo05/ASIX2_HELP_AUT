@@ -1,0 +1,110 @@
+body {
+    background-color: #EFDBBD;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    color: #EFDBBD;
+}
+
+.profile-card {
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border: 4px solid #BC5F04;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.file-input {
+    display: none;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/* Estilo para los campos cuando están en enfoque (cuando se seleccionan) */
+.form-control:focus, .form-select:focus {
+    border-color: #BC5F04; /* Color naranja cuando se enfoca */
+    box-shadow: 0 0 0 0.2rem rgba(188, 95, 4, 0.25); /* Sombra suave en color naranja */
+}
+
+/* Estilo del botón Cambiar */
+.btn-change-card {
+    background-color: #BC5F04; /* Color similar al de los otros botones */
+    color: white;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-size: 14px;
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block;
+    margin-left: 10px; /* Un poco de separación a la izquierda */
+}
+
+.btn-change-card:hover {
+    background-color: #D97D30; /* Color ligeramente más oscuro al pasar el cursor */
+    text-decoration: none; /* Asegura que no haya subrayado */
+}
+
+.btn-change-card:focus {
+    outline: none; /* Elimina el contorno cuando se hace clic */
+    box-shadow: 0 0 0 2px rgba(188, 95, 4, 0.5); /* Resalta el borde al enfocar */
+}
+
+.btn-save, .btn-cancel {
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+}
+
+.btn-save {
+    background-color: #BC5F04;
+    color: white;
+}
+
+.btn-cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #D97D30;
+}
+
+.btn-cancel:hover {
+    background-color: #e2162a;
+}
+
+.btn-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: #BC5F04;
+    color: #EFDBBD;
+    border: 2px solid #BC5F04;
+}
+
+.btn-back:hover {
+    background-color: #D97D30;
+}

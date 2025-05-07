@@ -1,0 +1,54 @@
+:root {
+    --btn-width: 400px;
+    --btn-height: 150px;
+  }
+  
+  body {
+    background: #f5f5f5;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #EFDBBD;
+  }
+  
+  /* Estilo base */
+  .btn-custom {
+    color: #EFDBBD;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    width: var(--btn-width);
+    height: var(--btn-height);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+  }
+  
+  /* Botón Pacientes (naranja) */
+  .btn-pacientes {
+    background-color: #BC5F04;
+  }
+  .btn-pacientes:hover {
+    background-color: #d66b00;
+    transform: scale(1.1); /* Aumenta el tamaño al 110% */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  
+  /* Botón Psicólogos (rojo oscuro) */
+  .btn-psicologos {
+    background-color: #4B0907;
+  }
+  .btn-psicologos:hover {
+    background-color: #491d1c;
+    transform: scale(1.1); /* Aumenta el tamaño al 110% */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 140px;
+    color: #3c91e6;
+  }
+  
