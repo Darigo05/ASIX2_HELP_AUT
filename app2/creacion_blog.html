@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Blogs - Perfil</title>
+  <link rel="stylesheet" href="./css/creacion_blog.css">
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1>HelpAut</h1>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="https://mail.google.com/mail/u/0/#inbox">Gmail</a></li>
+          <li><a href="./creacion_blog.html">Blog</a></li>
+          <!-- Botón de perfil con menú -->
+          <li class="profile-container">
+            <button class="profile-btn" onclick="toggleProfileMenu()">Perfil</button>
+            <div class="card" id="profileMenu">
+              <ul class="list">
+                <li class="element">
+                  <a href="./perfil_psicologos.html"><span>✏️ Perfil</span></a>
+                </li>
+                <li class="element">
+                  <a href="./agenda.html"><span>📅 Agenda</span></a>
+                </li>
+                <div class="separator"></div>
+                <li class="element">
+                  <a href="./videollamadas.html"><span>📞 Videollamadas</span></a>
+                </li>
+                <li class="element delete">
+                  <a href="./vaca404.html"><span>💬 Chat</span></a>
+                </li>
+                <div class="separator"></div>
+                <li class="element">
+                  <a href="./php/logout.php"><span>❌ Cerrar Sesión</span></a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <a href="javascript:void(0);" class="menu-icon" onclick="toggleMenu()">&#9776;</a>
+    </div>
+  </header>
+
+  <h1>Perfil de Usuario</h1>
+
+  <h2 class="highlighted-title">Blogs Guardados</h2>
+
+  <div id="blogList"></div>
+
+  <div class="btn-container">
+    <a href="./escribir_blog.html">
+      <button class="new-blog-btn">+ Nuevo Blog</button>
+    </a>
+  </div>
+
+  <div id="editForm" class="edit-form">
+    <h3>Editar Blog</h3>
+    <input type="text" id="editTitle" placeholder="Título del blog">
+    <textarea id="editContent" placeholder="Contenido del blog" rows="5"></textarea>
+    <button onclick="saveEditedBlog()">Guardar Cambios</button>
+    <button onclick="cancelEdit()">Cancelar</button>
+  </div>
+
+  <!-- Script para alternar el menú del perfil -->
+  <script>
+    function toggleProfileMenu() {
+      const menu = document.getElementById("profileMenu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
+
+  <script src="./js/creacion_blog.js"></script>
+</body>
+</html>

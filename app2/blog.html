@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Blog HelpAut</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid nav-bar sticky-top px-4 py-2 py-lg-0">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="display-6 text-dark"><img src="./img/LogoHelpAut.png" alt="Logo Helpaut" style="height: 100px; width: auto;" class="me-3"></i>HELP AUT</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto py-0">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="about.html" class="nav-item nav-link">Conócenos</a>
+                        <a href="planes.html" class="nav-item nav-link">Planes</a>
+                        <a href="blog.html" class="nav-item nav-link">Blog</a>
+                        <a href="./terapias.html" class="nav-item nav-link">Terapias</a>
+                        <a href="contact.html" class="nav-item nav-link">Contacta</a>
+                    </div>
+                    <div class="team-icon d-none d-xl-flex justify-content-center me-3">
+                        <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                <!--botón Inicio Sesión -->
+                    <a href="escoger_login.html" class="btn btn-primary rounded-pill py-2 px-4 flex-shrink-0 mx-2">Inicio Sesión</a>
+                <!--botón Registro -->
+                <a href="./escoger_registro.html" class="btn btn-secondary rounded-pill py-2 px-4 flex-shrink-0 mx-2">Registrarse</a>
+            
+                </div>
+            </nav>
+        </div>                    
+        <!-- Navbar & Hero End -->
+
+        <!-- Header Start -->
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Bienvenido a nuestro Blog</h4>
+                <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="register.html">Registrate</a></li>
+                    <li class="breadcrumb-item active text-primary">Blog</li>
+                </ol>    
+            </div>
+        </div>
+        <!-- Header End -->
+
+        <!-- Blog Start -->
+        <div class="container-fluid blog pb-5">
+            <div class="container pb-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <br></br>
+                    <h4 class="text-primary">Explora</h4>
+                    <h1 class="display-5 mb-4">Blogs Populares y Curiosidades</h1>
+                    <p class="mb-0">Explora los blogs escritos por nuestros psicólogos, todos supervisados para garantizar su calidad. Aquí puedes leer algunos de ellos. Descubre y aprende más sobre el autismo y cómo mejorar tu bienestar o los de tus allegados
+                    </p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="./img/El-estres-en-adolescentes.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Popular</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>Marzo 19, 2023</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">Ansiedad y Autismo: Enfoques Terapéuticos</a>
+                                <p class="mb-4">La ansiedad es una de las mayores dificultades que enfrentan muchos niños con autismo, afectando su capacidad para....
+                                </p>
+                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Seguir Leyendo <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="img/blog-2.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Curiosidades</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>Noviembre 23, 2022</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">La Terapia de Juego en Niños Autistas</a>
+                                <p class="mb-4">Descubre cómo la terapia de juego ayuda a los niños con autismo a desarrollar habilidades sociales, comunicarse mejor y...
+                                </p>
+                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Seguir Leyendo <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="./img/caballos-ayudan-a-las-personas-con-autismo.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Popular</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>Julio 4, 2024</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">Terapia Sensorial y Psicoterapia: ¿Cómo Ayudan?</a>
+                                <p class="mb-4">Aprendemos a manejar los estímulos que les sobrecargan y a entender mejor sus emociones a través de los animales. Los niños...
+                                </p>
+                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Seguir Leyendo <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+                <!-- Botón para explorar más blogs -->
+                <div class="text-center my-5">
+                    <a href="javascript:void(0)" id="load-more-btn" class="btn btn-primary rounded-pill py-2 px-4">Explora más blogs</a>
+                </div>
+
+        <!-- Nuevas tarjetas de blogs ocultas -->
+        <div class="container-fluid blog pb-5" id="additional-blogs" style="display: none;">
+            <div class="container pb-5">
+                <div class="row g-4">
+                    <!-- Nueva tarjeta 1 -->
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="./img/blog-terapia-cognitiva.webp" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Terapias</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>Febrero 15, 2024</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">Terapia Cognitiva-Conductual y su Impacto en el Autismo</a>
+                                <p class="mb-4">Exploramos cómo la Terapia Cognitiva-Conductual puede ayudar a los niños con autismo a manejar sus emociones y mejorar...</p>
+                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Seguir Leyendo <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nueva tarjeta 2 -->
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="./img/humanista-blog.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Psicoterapia</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>Enero 10, 2024</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">Psicoterapia Humanista: Una Solución para el Autismo</a>
+                                <p class="mb-4">La psicoterapia humanista pone énfasis en la relación terapéutica, lo cual es clave para las personas con autismo...</p>
+                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Seguir Leyendo <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nueva tarjeta 3 -->
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="./img/terapia-sensorial.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Terapias</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>Marzo 5, 2024</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">Terapia Sensorial para Niños con Autismo</a>
+                                <p class="mb-4">Esta terapia puede ser fundamentales para ayudar a los niños autistas a regular sus emociones y mejorar sus habilidades motrices...</p>
+                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Seguir Leyendo <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nueva tarjeta 4 -->
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.8s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="./img/psicoterapia-creativa.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Psicoterapia Creativa</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>Febrero 20, 2024</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">Arteterapia como Herramienta en el Autismo</a>
+                                <p class="mb-4">La arteterapia ha demostrado ser un enfoque efectivo para ayudar a los niños autistas a expresarse a través del arte...</p>
+                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Seguir Leyendo <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nueva tarjeta 5 -->
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="1s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="./img/psicoterapia-positiva.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Psicoterapia</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>Agosto 14, 2024</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">Psicoterapia Positiva para Trastornos del Espectro Autista</a>
+                                <p class="mb-4">La psicoterapia positiva se centra en aumentar los aspectos positivos de la vida de las personas con autismo, lo que puede mejorar...</p>
+                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Seguir Leyendo <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nueva tarjeta 6 -->
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="1.2s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="./img/autismo-adultos.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Autismo Adulto</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>Mayo 6, 2024</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">La Psicoterapia para Adultos con Autismo</a>
+                                <p class="mb-4">La psicoterapia en adultos con autismo puede ayudar a mejorar la calidad de vida al centrarse en la gestión de emociones y relaciones sociales...</p>
+                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Seguir Leyendo <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+<!-- Blog End -->
+
+               <!-- Footer Start -->
+        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-4">
+                        <div class="footer-item">
+                            <a href="index.html" class="p-0">
+                                <h4 class="text-white mb-4"><img src="./img/LogoHelpAut.png" alt="Logo Helpaut" style="height: 100px; width: auto;" class="me-3"></i>HELP AUT</h4>
+                                
+                            </a>
+                            <p class="mb-2">Empresa dedicada al bienestar emocional y la mejora de la calidad de vida de personas con autismo. Cualquier duda, estamos a tu disposición."</p>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                                <p class="text-white mb-0">123 C/Aribau, Barcelona</p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-envelope text-primary me-3"></i>
+                                <p class="text-white mb-0">infohelpaut@gmail.com</p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-phone-alt text-primary me-3"></i>
+                                <p class="text-white mb-0">933 589 206</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-2">
+                        <div class="footer-item">
+                            <h4 class="text-white mb-4">Links</h4>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Conócenos</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Tipos de Planes</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Terapias</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Blog</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Valoraciones</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Contacta</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-2">
+                        <div class="footer-item">
+                            <h4 class="text-white mb-4">Soporte</h4>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Política de Privacidad</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Términos y Condiciones</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Aviso Legal</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Soporte</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Preguntas Frecuentes</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Ayuda</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-4">
+                        <div class="footer-item">
+                            
+                            </div>
+                            <div>
+                                <p class="text-white mb-2 formas-pago-titulo">Formas de Pago</p>
+                                <img src="img/payment.png" class="img-fluid" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                        <span class="text-body"><a href="#" class="border-bottom text-white"></i>© 2004 HelpAut S.A</a>, Todos los derechos reservados.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end text-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="./js/blog.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,182 @@
+<?php 
+include 'php/mostrar_tabla.php'; 
+include 'php/eliminar_users.php'; 
+include 'php/filtro_usuarios.php'; 
+include 'php/conexion.php';
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Pacientes</title>
+
+    <!-- Incluir Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="bg-light">
+    <div class="container my-5">
+        <header class="text-center mb-4">
+            <h1 class="display-4 text-warning">Gestión de Pacientes</h1>
+            <p class="lead text-muted">Administra, filtra y elimina pacientes de manera eficiente.</p>
+        </header>
+
+        <!-- Filtro de búsqueda -->
+        <div class="mb-4">
+            <form method="GET" action="index_admin-users.php" class="row g-3 p-3 border rounded shadow-sm bg-white">
+                <div class="col-md-4">
+                    <label for="filtro_id" class="form-label">Filtrar por ID:</label>
+                    <input type="text" name="filtro_id" id="filtro_id" class="form-control" value="<?php echo isset($_GET['filtro_id']) ? htmlspecialchars($_GET['filtro_id']) : ''; ?>">
+                </div>
+                <div class="col-md-4">
+                    <label for="filtro_nombre" class="form-label">Filtrar por Nombre:</label>
+                    <input type="text" name="filtro_nombre" id="filtro_nombre" class="form-control" value="<?php echo isset($_GET['filtro_nombre']) ? htmlspecialchars($_GET['filtro_nombre']) : ''; ?>">
+                </div>
+                <div class="col-md-4">
+                    <label for="filtro_email" class="form-label">Filtrar por Email:</label>
+                    <input type="email" name="filtro_email" id="filtro_email" class="form-control" value="<?php echo isset($_GET['filtro_email']) ? htmlspecialchars($_GET['filtro_email']) : ''; ?>">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-warning w-100">Aplicar Filtro</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Conexión y consulta a la base de datos -->
+        <?php
+        // Verificar conexión
+        if ($conn->connect_error) {
+            die("Error de conexión: " . $conn->connect_error);
+        }
+
+        // Paginación: número de resultados por página
+        $resultados_por_pagina = 10;
+        $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+        $offset = ($pagina - 1) * $resultados_por_pagina;
+
+        // Filtrar pacientes si se proporcionan los filtros
+        $filtro_id = isset($_GET['filtro_id']) ? $_GET['filtro_id'] : '';
+        $filtro_nombre = isset($_GET['filtro_nombre']) ? $_GET['filtro_nombre'] : '';
+        $filtro_email = isset($_GET['filtro_email']) ? $_GET['filtro_email'] : '';
+
+        // Consulta base
+        $sqlPacientes = "SELECT id_paciente, nombre, apellidos, email FROM PACIENTES WHERE 1=1";
+
+        // Agregar filtros dinámicamente a la consulta
+        if ($filtro_id) {
+            $sqlPacientes .= " AND id_paciente LIKE '%" . $conn->real_escape_string($filtro_id) . "%'";
+        }
+
+        if ($filtro_nombre) {
+            $sqlPacientes .= " AND nombre LIKE '%" . $conn->real_escape_string($filtro_nombre) . "%'";
+        }
+
+        if ($filtro_email) {
+            $sqlPacientes .= " AND email LIKE '%" . $conn->real_escape_string($filtro_email) . "%'";
+        }
+
+        // Agregar LIMIT y OFFSET para la paginación
+        $sqlPacientes .= " LIMIT $resultados_por_pagina OFFSET $offset";
+
+        // Ejecutar la consulta
+        $resultPacientes = $conn->query($sqlPacientes);
+
+        // Guardar los datos de los pacientes en una variable
+         $pacientes = [];
+        if ($resultPacientes->num_rows > 0) {
+            while ($row = $resultPacientes->fetch_assoc()) {
+                $pacientes[] = $row;
+            }
+        }
+
+        // Obtener el total de pacientes para calcular el número total de páginas
+        $sqlTotalPacientes = "SELECT COUNT(*) AS total FROM PACIENTES WHERE 1=1";
+        $resultTotalPacientes = $conn->query($sqlTotalPacientes);
+        $totalPacientes = $resultTotalPacientes->fetch_assoc()['total'];
+
+        // Calcular el total de páginas
+        $totalPaginas = ceil($totalPacientes / $resultados_por_pagina);
+
+        $conn->close(); // Cerrar la conexión después de ejecutar la consulta
+        ?>
+
+        <!-- Tabla de Pacientes -->
+        <?php if (count($pacientes) > 0): ?>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered shadow-lg">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($pacientes as $paciente): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($paciente['id_paciente']); ?></td>
+                        <td><?php echo htmlspecialchars($paciente['nombre']); ?></td>
+                        <td><?php echo htmlspecialchars($paciente['apellidos']); ?></td>
+                        <td><?php echo htmlspecialchars($paciente['email']); ?></td>
+                        <td>
+                            <!-- Formulario para eliminar el paciente -->
+                            <form method="POST" action="index_admin-users.php" class="d-inline">
+                                <input type="hidden" name="id_paciente" value="<?php echo $paciente['id_paciente']; ?>">
+                                <button type="submit" name="eliminar" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                       </tbody>
+            </table>
+        </div>
+
+        <!-- Paginación -->
+        <div class="d-flex justify-content-center">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <!-- Enlace de "Previous" -->
+                    <li class="page-item <?php echo ($pagina == 1) ? 'disabled' : ''; ?>">
+                        <a class="page-link border border-warning text-warning bg-transparent" href="?pagina=<?php echo $pagina - 1; ?>&filtro_id=<?php echo $filtro_id; ?>&filtro_nombre=<?php echo $filtro_nomb; ?>">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <!-- Enlaces de las páginas -->
+                    <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
+                    <li class="page-item <?php echo ($i == $pagina) ? 'active' : ''; ?>">
+                        <a class="page-link border border-warning <?php echo ($i == $pagina) ? 'bg-warning text-white' : 'bg-transparent text-warning'; ?>" href="?pagina=<?php echo $i; ?>&filtro_id=<?php echo $filtro_id; ?>&filtro_nombre=<?php echo $filtro_nombre; ?>">
+                            <?php echo $i; ?>
+                        </a>
+                    </li>
+                    <?php endfor; ?>
+
+                    <!-- Enlace de "Next" -->
+                    <li class="page-item <?php echo ($pagina == $totalPaginas) ? 'disabled' : ''; ?>">
+                        <a class="page-link border border-warning text-warning bg-transparent" href="?pagina=<?php echo $pagina + 1; ?>&filtro_id=<?php echo $filtro_id; ?>&filtro_nombre=<?php echo $filtro_nombre; ?>">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <?php else: ?>
+            <p class="alert alert-info">No hay pacientes registrados.</p>
+        <?php endif; ?>
+    </div>
+
+    <!-- Incluir Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/js_admin-users.js"></script>
+</body>
+
+</html>

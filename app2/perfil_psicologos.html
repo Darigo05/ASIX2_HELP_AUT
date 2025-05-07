@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap -->
+    <link href="./css/perfil_psicologos.css" rel="stylesheet"> <!-- Tu CSS personalizado -->
+    
+</head>
+<body>
+
+<!-- Botón de Atrás -->
+<button class="btn btn-secondary btn-back" onclick="window.history.back();">
+    Atrás
+</button>
+
+<div class="container profile-container">
+    <div class="card profile-card">
+        <div class="card-body">
+            <!-- Encabezado de perfil -->
+            <div class="profile-header">
+                <input type="file" id="photo-upload" class="file-input" accept="image/*" onchange="updateProfilePhoto(event)">
+                <img src="../img/usuario.png" alt="Foto de perfil" id="profile-image" onclick="document.getElementById('photo-upload').click()">
+                <h2 id="profile-name" class="mt-2">Ana López</h2>
+            </div>
+
+            <!-- Formulario -->
+            <form id="profile-form">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="sexo" class="form-label">Sexo</label>
+                    <select id="sexo" name="sexo" class="form-select">
+                        <option value="hombre">Hombre</option>
+                        <option value="mujer">Mujer</option>
+                        <option value="no-binario">No Binario</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="birthdate" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="1990-05-15" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="country" class="form-label">País</label>
+                    <select id="country" name="country" class="form-select" onchange="toggleLocationFields()">
+                        <option value="España">España</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                
+                <!-- Campo para ingresar el país si no es España -->
+                <div class="mb-3" id="custom-country-container" style="display: none;">
+                    <label for="custom-country" class="form-label">Especificar País</label>
+                    <input type="text" class="form-control" id="custom-country" name="custom-country" placeholder="Introduce tu país">
+                </div>
+
+                <div class="mb-3">
+                    <label for="city" class="form-label">Ciudad</label>
+                    <input type="text" class="form-control" id="city" name="city" placeholder="Introduce tu ciudad">
+                </div>
+
+                <div class="mb-3">
+                    <label for="barrio" class="form-label">Barrio</label>
+                    <input type="text" class="form-control" id="barrio" name="barrio" placeholder="Introduce tu barrio">
+                </div>
+
+                <!-- Estudios -->
+                <div class="mb-3">
+                    <label for="studies" class="form-label">Estudios</label>
+                    <input type="text" class="form-control" id="studies" name="studies" placeholder="Licenciatura en Psicología" required>
+                </div>
+
+                <!-- Especialidad -->
+                <div class="mb-3">
+                    <label for="specialty" class="form-label">Especialidad</label>
+                    <input type="text" class="form-control" id="specialty" name="specialty" placeholder="Psicoterapia Cognitivo-Conductual" required>
+                </div>
+
+                <!-- Tipo de Terapia que Ejerce -->
+                <div class="mb-3">
+                    <label for="therapy-type" class="form-label">Tipo de Terapia que Ejerce</label>
+                    <input type="text" class="form-control" id="therapy-type" name="therapy-type" placeholder="Terapia Cognitivo-Conductual" required>
+                </div>
+
+                <!-- Años de Experiencia -->
+                <div class="mb-3">
+                    <label for="experience" class="form-label">Años de Experiencia</label>
+                    <input type="number" class="form-control" id="experience" name="experience" value="5" required>
+                </div>
+
+                <!-- Subir Archivos -->
+                <div class="mb-3">
+                    <label for="photo-upload" class="form-label">Subir Archivo</label>
+                    <input type="file" class="form-control" id="photo-upload" accept="image/*">
+                </div>
+
+                <!-- Número de Blogs Publicados -->
+                <div class="mb-3">
+                    <label for="blogs" class="form-label">Número de Blogs Publicados</label>
+                    <input type="number" class="form-control" id="blogs" name="blogs" value="12" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-save mt-2">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/perfil_psicologos.js"></script>
+
+</body>
+</html>

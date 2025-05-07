@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario Psicólogos</title>
+  <link rel="stylesheet" href="./css/formulario.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Botón Atrás -->
+  <div class="back-button-container">
+    <a href="index.html" class="back-button">
+      <i class="fas fa-arrow-left"></i> Atrás
+    </a>
+  </div>
+
+  <!-- Botón Cambiar cuenta -->
+  <div class="change-account-container">
+    <a href="formulario_pacientes.html" class="btn-change-account">
+      <span><i class="fas fa-user-circle"></i> Cambiar cuenta</span>
+    </a>
+  </div>
+
+  <div class="container">
+    <h2>Perfil Psicólogos</h2>
+    <form action="gracias.html" method="post" enctype="multipart/form-data">
+      
+      <div class="input-group mb-4">
+        <label for="fecha-nacimiento" class="form-label">Fecha de nacimiento</label>
+        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required />
+      </div>
+
+      <div class="input-group mb-4">
+        <label for="sexo" class="form-label">Sexo</label>
+        <select id="sexo" name="sexo" class="form-select" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="no-binario">No binario</option>
+          <option value="sin-especificar">Sin especificar</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-4">
+        <label class="form-label">¿Dónde vives?</label>
+        <input type="text" name="provincia" placeholder="País" required />
+        <input type="text" name="municipio" placeholder="Municipio" required />
+        <input type="text" name="ciudad" placeholder="Provincia" required />
+        <input type="text" name="pais" placeholder="Ciudad" required />
+      </div>
+
+      <div class="input-group mb-4">
+        <label for="tipo-terapia" class="form-label">Tipo de terapia que ejerces</label>
+        <input type="text" id="tipo-terapia" name="tipo-terapia" required />
+      </div>
+
+      <div class="input-group mb-4">
+        <label for="anos-trabajo" class="form-label">Años de trabajo</label>
+        <input type="number" id="anos-trabajo" name="anos-trabajo" min="0" required />
+      </div>
+
+      <div class="input-group mb-4">
+        <label for="especializacion" class="form-label">Tipo de especialización</label>
+        <input type="text" id="especializacion" name="especializacion" required />
+      </div>
+
+      <div class="input-group mb-4">
+        <label for="anos-especializacion" class="form-label">Años de trabajo en la especialización</label>
+        <input type="number" id="anos-especializacion" name="anos-especializacion" min="0" required />
+      </div>
+
+      <div class="input-group mb-4">
+        <label for="otros" class="form-label">Otros</label>
+        <textarea id="otros" name="otros" placeholder="Escribe aquí detalles adicionales, comentarios o información relevante..."></textarea>
+      </div>
+      
+      <div class="input-group mb-4">
+        <label for="documentos" class="form-label">Colgar CV, diplomas y certificación necesaria</label>
+        <input type="file" id="documentos" name="documentos[]" multiple required />
+      </div>
+
+      <div class="input-group mb-5">
+        <div class="form-label"><strong>La revisión de la documentación tomará algunos días.</strong><br>
+          Te notificaremos por correo electrónico una vez que hayamos finalizado.</div>
+      </div>
+
+        <!-- Botón de envío del formulario -->
+        <div class="row mb-5">
+          <div class="col text-end"> <!-- Se añadió text-end para alinear a la derecha -->
+         <a href="register_psicologos.html" class="btn btn-warning w-100 btn-enviar">Enviar</a>
+        </div>
+    </form>
+  </div>
+
+</body>
+</html>

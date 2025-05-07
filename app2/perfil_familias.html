@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Familias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/perfil_familias.css">
+</head>
+<body>
+
+<!-- Botón de Atrás -->
+<a href="javascript:history.back()" class="btn btn-secondary btn-back">Atrás</a>
+
+<div class="container profile-container">
+    <div class="card profile-card">
+        <div class="card-body">
+            <div class="profile-header">
+                <label for="profile-image-upload">
+                    <img src="../img/usuario.png" alt="Foto de perfil" id="profile-image">
+                </label>
+                <input type="file" id="profile-image-upload" class="file-input" accept="image/*">
+                <h2 id="profile-name" class="mt-2">Juan Pérez</h2>
+            </div>
+
+            <form id="profile-form">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="sexo" class="form-label">Sexo</label>
+                    <select id="sexo" name="sexo" class="form-select">
+                        <option value="hombre">Hombre</option>
+                        <option value="mujer">Mujer</option>
+                        <option value="no-binario">No Binario</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="birthdate" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="country" class="form-label">País</label>
+                    <select id="country" name="country" class="form-select" onchange="toggleLocationFields()">
+                        <option value="España">España</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <!-- Comunidad Autónoma (visible solo si se selecciona España) -->
+                <div class="mb-3" id="comunidad-autonoma-container">
+                    <label for="comunidad-autonoma" class="form-label">Comunidad Autónoma</label>
+                    <select id="comunidad-autonoma" name="comunidad-autonoma" class="form-select">
+                        <option value="Madrid">Madrid</option>
+                        <option value="Cataluña">Cataluña</option>
+                        <option value="Andalucía">Andalucía</option>
+                        <option value="Valencia">Valencia</option>
+                        <option value="Galicia">Galicia</option>
+                        <option value="País Vasco">País Vasco</option>
+                    </select>
+                </div>
+
+                <!-- Campo para ingresar el país si no es España -->
+                <div class="mb-3" id="custom-country-container" style="display: none;">
+                    <label for="custom-country" class="form-label">Especificar País</label>
+                    <input type="text" class="form-control" id="custom-country" name="custom-country" placeholder="Introduce tu país">
+                </div>
+
+                <div class="mb-3">
+                    <label for="city" class="form-label">Ciudad</label>
+                    <input type="text" class="form-control" id="city" name="city" placeholder="Introduce tu ciudad">
+                </div>
+
+                <div class="mb-3">
+                    <label for="barrio" class="form-label">Barrio</label>
+                    <input type="text" class="form-control" id="barrio" name="barrio" placeholder="Introduce tu barrio">
+                </div>
+
+                <div class="mb-3">
+                    <label for="photo-upload" class="form-label">Subir Archivo</label>
+                    <input type="file" class="form-control" id="photo-upload" accept="image/*">
+                </div>
+
+                <div class="mb-3">
+                    <label for="card-number" class="form-label">Número de Tarjeta</label>
+                    <div class="d-flex align-items-center">
+                        <input type="text" class="form-control me-2" id="card-number" name="card-number" value="**** **** **** 5432" disabled>
+                        <a href="TargetaCredito.html" class="btn btn-change-card">Cambiar</a> <!-- Redirección a TargetaCredito.html -->
+                    </div>
+                </div>
+
+                <!-- Información Adicional -->
+                <div class="mb-3">
+                    <label for="additional-info" class="form-label">Información Adicional</label>
+                    <textarea class="form-control form-textarea" id="additional-info" name="additional-info" placeholder="Escribe información adicional aquí..."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-cancel">Cancelar Suscripción</button>
+                    <button type="submit" class="btn btn-save mt-2">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="./js/perfil_familias.html"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CKEditor Blog</title>
+  <link rel="stylesheet" href="./css/escribir_blog.css">
+</head>
+<body>
+  <div ng-app="editorApp">
+    <div ng-controller="editorCtrl">
+      <!-- Campo para el título -->
+      <div>
+        <label for="title">Título del Blog:</label>
+        <input type="text" id="title" ng-model="title" placeholder="Escribe el título aquí" />
+      </div>
+
+      <div id="toolbar-container"></div>
+      <div id="editor">
+          <p>Escribe aquí tu blog...</p>
+      </div>
+      
+      <div class="btn-container">
+          <!-- Botones -->
+          <button id="saveDraft" ng-click="saveDraft()">Guardar como Borrador</button>
+          <button id="previewBtn" ng-click="previewBlog()">Previsualizar</button>
+          <button id="submitBtn" ng-click="submitBlog()">Enviar para Revisión</button>
+          <button id="deleteBtn" ng-click="confirmDelete()">Eliminar Blog</button>
+          <button id="backBtn" ng-click="confirmExit()">Volver</button> <!-- Botón de Volver -->
+      </div>
+      
+      <!-- Modal de confirmación de eliminación -->
+      <div id="deleteModal" class="modal">
+          <p>¿Estás seguro de que deseas eliminar este blog?</p>
+          <button ng-click="deleteBlog()">Sí, Eliminar</button>
+          <button ng-click="cancelDelete()">Cancelar</button>
+      </div>
+
+      <!-- Modal de confirmación de salida -->
+      <div id="exitModal" class="modal">
+          <p>¿Quieres guardar los cambios antes de salir?</p>
+          <button ng-click="saveDraftAndExit()">Sí, Guardar y Salir</button>
+          <button ng-click="exitWithoutSaving()">No, Salir sin Guardar</button>
+          <button ng-click="cancelExit()">Cancelar</button>
+      </div>
+
+      <div id="message"></div>
+    </div>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.js'></script>
+  <script src='https://cdn.ckeditor.com/ckeditor5/10.1.0/decoupled-document/ckeditor.js'></script>
+  <script src="./js/escribir_blog.js"></script>
+</body>
+</html>
